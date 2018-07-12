@@ -559,13 +559,10 @@ namespace RepetierHost
             toolPrinterSettings.Text = Trans.T("M_PRINTER_SETTINGS");
             toolPrinterSettings.ToolTipText = Trans.T("M_PRINTER_SETTINGS");
             toolStripEmergencyButton.Text = Trans.T("M_EMERGENCY_STOP");
-            toolStripSDCard.Text = Trans.T("M_SD_CARD");
-            toolStripSDCard.ToolTipText = Trans.T("L_SD_CARD_MANAGEMENT");
             toolStripEmergencyButton.ToolTipText = Trans.T("M_EMERGENCY_STOP");
             toolLoad.Text = Trans.T("M_LOAD");
             toolStripSaveJob.Text = Trans.T("M_SAVE_JOB");
             toolKillJob.Text = Trans.T("M_KILL_JOB");
-            toolStripSDCard.Text = Trans.T("M_SD_CARD");
             toolShowLog.Text = toolShowLog.ToolTipText = Trans.T("M_TOGGLE_LOG");
             toolShowFilament.Text = Trans.T("M_SHOW_FILAMENT");
             if (conn.connector.IsConnected())
@@ -800,7 +797,6 @@ namespace RepetierHost
                 toolStripEmergencyButton.Enabled = false;
                 //toolPrinterSettings.Enabled = true;
                 printerSettingsToolStripMenuItem.Enabled = true;
-                SDCard.Disconnected();
             }
         }
 
@@ -1185,11 +1181,6 @@ namespace RepetierHost
         private void internalSlicingParameterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SlicingParameter.Execute();
-        }
-
-        private void toolStripSDCard_Click(object sender, EventArgs e)
-        {
-            SDCard.Execute();
         }
 
         private void timer_Tick(object sender, EventArgs e)
