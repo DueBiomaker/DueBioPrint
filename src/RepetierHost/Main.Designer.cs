@@ -121,9 +121,6 @@
             this.sendScript4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendScript5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.beltCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.leadscrewCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bedHeightMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.repetierHostHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.repetierHostDownloadPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,9 +177,9 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabModel = new System.Windows.Forms.TabPage();
             this.tabSlicer = new System.Windows.Forms.TabPage();
-            this.slicerPanel = new RepetierHost.view.SlicerPanel();
             this.tabGCode = new System.Windows.Forms.TabPage();
             this.tabPrint = new System.Windows.Forms.TabPage();
+            this.slicerPanel = new RepetierHost.view.SlicerPanel();
             this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
@@ -972,35 +969,9 @@
             // 
             // toolsToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.beltCalculatorToolStripMenuItem,
-            this.leadscrewCalculatorToolStripMenuItem,
-            this.bedHeightMapToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
-            // 
-            // beltCalculatorToolStripMenuItem
-            // 
-            this.beltCalculatorToolStripMenuItem.Name = "beltCalculatorToolStripMenuItem";
-            this.beltCalculatorToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.beltCalculatorToolStripMenuItem.Text = "Belt Calculator";
-            this.beltCalculatorToolStripMenuItem.Click += new System.EventHandler(this.beltCalculatorToolStripMenuItem_Click);
-            // 
-            // leadscrewCalculatorToolStripMenuItem
-            // 
-            this.leadscrewCalculatorToolStripMenuItem.Name = "leadscrewCalculatorToolStripMenuItem";
-            this.leadscrewCalculatorToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.leadscrewCalculatorToolStripMenuItem.Text = "Leadscrew Calculator";
-            this.leadscrewCalculatorToolStripMenuItem.Click += new System.EventHandler(this.leadscrewCalculatorToolStripMenuItem_Click);
-            // 
-            // bedHeightMapToolStripMenuItem
-            // 
-            this.bedHeightMapToolStripMenuItem.Enabled = false;
-            this.bedHeightMapToolStripMenuItem.Name = "bedHeightMapToolStripMenuItem";
-            this.bedHeightMapToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.bedHeightMapToolStripMenuItem.Text = "Bed height map";
-            this.bedHeightMapToolStripMenuItem.Click += new System.EventHandler(this.bedHeightMapToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -1558,15 +1529,6 @@
             this.tabSlicer.Text = "Slicer";
             this.tabSlicer.UseVisualStyleBackColor = true;
             // 
-            // slicerPanel
-            // 
-            this.slicerPanel.AutoScroll = true;
-            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slicerPanel.Location = new System.Drawing.Point(0, 0);
-            this.slicerPanel.Name = "slicerPanel";
-            this.slicerPanel.Size = new System.Drawing.Size(467, 270);
-            this.slicerPanel.TabIndex = 0;
-            // 
             // tabGCode
             // 
             this.tabGCode.AutoScroll = true;
@@ -1589,6 +1551,15 @@
             this.tabPrint.TabIndex = 0;
             this.tabPrint.Text = "Manual control";
             this.tabPrint.UseVisualStyleBackColor = true;
+            // 
+            // slicerPanel
+            // 
+            this.slicerPanel.AutoScroll = true;
+            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slicerPanel.Location = new System.Drawing.Point(0, 0);
+            this.slicerPanel.Name = "slicerPanel";
+            this.slicerPanel.Size = new System.Drawing.Size(467, 270);
+            this.slicerPanel.TabIndex = 0;
             // 
             // tdSettings
             // 
@@ -1775,8 +1746,6 @@
         private System.Windows.Forms.ToolStripMenuItem showFacesToolStripMenuItem;
         private System.Windows.Forms.BindingSource tdSettings;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem beltCalculatorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem leadscrewCalculatorToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem printerInformationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem8;
         private System.Windows.Forms.ToolStripMenuItem fitPrinterToolStripMenuItem;
@@ -1795,7 +1764,6 @@
         private System.Windows.Forms.ToolStripMenuItem showCompassToolStripMenuItem;
         private System.Windows.Forms.Button buttonChangeId;
         public System.Windows.Forms.Label printerIdLabel;
-        public System.Windows.Forms.ToolStripMenuItem bedHeightMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unitsOfImportedObjectsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectsAreInMmToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectsAreInInchesToolStripMenuItem;

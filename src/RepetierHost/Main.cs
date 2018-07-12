@@ -18,7 +18,6 @@ using Microsoft.Win32;
 using RepetierHost.connector;
 using RepetierHost.model;
 using RepetierHost.view;
-using RepetierHost.view.calibration;
 using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
@@ -611,8 +610,6 @@ namespace RepetierHost
             showFacesToolStripMenuItem.Text = Trans.T("M_SHOW_FACES");
             showCompassToolStripMenuItem.Text = Trans.T("L_SHOW_COMPASS");
             toolsToolStripMenuItem.Text = Trans.T("M_TOOLS");
-            beltCalculatorToolStripMenuItem.Text = Trans.T("M_BELT_CALCULATOR");
-            leadscrewCalculatorToolStripMenuItem.Text = Trans.T("M_LEADSCREW_CALCULATOR");
             fitPrinterToolStripMenuItem.Text = Trans.T("M_FIT_PRINTER");
             fitObjectsToolStripMenuItem.Text = Trans.T("M_FIT_OBJECTS");
             snapshotToolStripMenuItem.Text = Trans.T("M_POSPONED_JOBS");
@@ -621,7 +618,6 @@ namespace RepetierHost
             togglePrinterIdToolStripMenuItem.Text = Trans.T("M_TOGGLE_PRINTER_ID");
             updateTravelMoves();
             updateShowFilament();
-            bedHeightMapToolStripMenuItem.Text = Trans.T("M_MED_HEIGHT_MAP");
             unitsOfImportedObjectsToolStripMenuItem.Text = Trans.T("UNITS_OF_IMPORTED_OBJECTS");
             objectsAreInMmToolStripMenuItem.Text = Trans.T("OBJECTS_ARE_IN_MILLIMETER");
             objectsAreInInchesToolStripMenuItem.Text = Trans.T("OBJECTS_ARE_IN_INCHES");
@@ -1085,12 +1081,10 @@ namespace RepetierHost
             if (conn.isRepetier)
             {
                 Main.main.continuousMonitoringMenuItem.Enabled = true;
-                Main.main.bedHeightMapToolStripMenuItem.Enabled = true;
             }
             else
             {
                 Main.main.continuousMonitoringMenuItem.Enabled = false;
-                Main.main.bedHeightMapToolStripMenuItem.Enabled = false;
             }
         };
 
@@ -1761,18 +1755,6 @@ namespace RepetierHost
             showCompassToolStripMenuItem.Checked = threeDSettings.ShowCompass;
         }
 
-        private void beltCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BeltCalculatorDialog d = new BeltCalculatorDialog();
-            d.Show(this);
-        }
-
-        private void leadscrewCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LeadScrewCalculatorDialog d = new LeadScrewCalculatorDialog();
-            d.Show(this);
-        }
-
         private void fitPrinterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             threedview.FitPrinter();
@@ -2040,11 +2022,6 @@ namespace RepetierHost
         private void showCompassToolStripMenuItem_Click(object sender, EventArgs e)
         {
             threeDSettings.ShowCompass = !threeDSettings.ShowCompass;
-        }
-
-        private void bedHeightMapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BedHeightMap.Execute();
         }
 
         public void setImportUnits(double units)
