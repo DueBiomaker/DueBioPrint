@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenTK;
+﻿using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using System;
 
 namespace RepetierHost.model
 {
     public class PulseAnimation : ModelAnimation
     {
-        double frequency;
-        double scalex, scaley, scalez;
+        private double frequency;
+        private double scalex, scaley, scalez;
+
         public PulseAnimation(string name, double sx, double sy, double sz, double fq)
             : base(name)
         {
@@ -19,8 +17,9 @@ namespace RepetierHost.model
             scaley = sy;
             scalez = sz;
         }
-        public override void BeforeAction(ThreeDModel model) {
 
+        public override void BeforeAction(ThreeDModel model)
+        {
             double baseamp = Math.Sin(Time * 2.0 * Math.PI * frequency);
             Vector3 center = model.getCenter();
             //center = Vector3.Add(center,new Vector3(model.Position.x,model.Position.y,model.Position.z));
@@ -29,19 +28,23 @@ namespace RepetierHost.model
             GL.Translate(-center.X, -center.Y, -center.Z);
         }
     }
+
     public class DropAnimation : ModelAnimation
     {
-        int mode;
-        double height;
+        private int mode;
+        private double height;
+
         public DropAnimation(string name)
             : base(name)
         {
             mode = 0;
         }
+
         public override bool AnimationFinished()
         {
-            return mode==2;
+            return mode == 2;
         }
+
         public override void BeforeAction(ThreeDModel model)
         {
             double t = Time;
@@ -62,13 +65,13 @@ namespace RepetierHost.model
             else if (t < 1.25)
             {
                 double zamp = 0.3 * c.Z * (t - 1.25) / 0.25;
-                GL.Translate(c.X,c.Y,c.Z-zamp);
-                GL.Scale(1.0 + zamp/c.Z, 1.0 + zamp/c.Z, 1.0 - zamp/c.Z);
+                GL.Translate(c.X, c.Y, c.Z - zamp);
+                GL.Scale(1.0 + zamp / c.Z, 1.0 + zamp / c.Z, 1.0 - zamp / c.Z);
                 GL.Translate(-c.X, -c.Y, -c.Z);
             }
             else if (t < 1.5)
             {
-                double zamp = 0.3 * c.Z * (1.5-t) / 0.25;
+                double zamp = 0.3 * c.Z * (1.5 - t) / 0.25;
                 GL.Translate(c.X, c.Y, c.Z - zamp);
                 GL.Scale(1.0 + zamp / c.Z, 1.0 + zamp / c.Z, 1.0 - zamp / c.Z);
                 GL.Translate(-c.X, -c.Y, -c.Z);
@@ -76,5 +79,4 @@ namespace RepetierHost.model
             else mode = 2;
         }
     }
-
 }

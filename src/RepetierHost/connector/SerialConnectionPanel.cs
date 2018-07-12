@@ -1,27 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RepetierHost.model;
+using System;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Globalization;
 using System.IO;
 using System.IO.Ports;
-using RepetierHost.model;
+using System.Windows.Forms;
 
 namespace RepetierHost.connector
 {
     public partial class SerialConnectionPanel : UserControl
     {
-        SerialConnector con;
+        private SerialConnector con;
+
         public SerialConnectionPanel()
         {
             InitializeComponent();
             Main.main.languageChanged += Translate;
             Translate();
         }
+
         public void Connect(SerialConnector con)
         {
             if (con != null)
@@ -31,6 +27,7 @@ namespace RepetierHost.connector
             con.PropertyChanged += bindingConnection_CurrentItemChanged;
             bindingConnection_CurrentItemChanged(null, null);
         }
+
         public void Translate()
         {
             labelBaudRate.Text = Trans.T("L_BAUD_RATE");
@@ -51,6 +48,7 @@ namespace RepetierHost.connector
             comboResetOnEmergency.Items[1] = Trans.T("L_SEND_EMERGENCY_CMD_DTR_TOGGLE");
             comboResetOnEmergency.Items[2] = Trans.T("L_SEND_EMERGENCY_CMD_RECONNECT");
         }
+
         public void UpdatePorts()
         {
             comboPort.Items.Clear();
@@ -78,8 +76,8 @@ namespace RepetierHost.connector
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-
         }
+
         private void int_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -93,7 +91,9 @@ namespace RepetierHost.connector
                 errorProvider.SetError(box, Trans.T("L_NOT_AN_INTEGER"));
             }
         }
-        bool updating = false;
+
+        private bool updating = false;
+
         private void bindingConnection_CurrentItemChanged(object sender, EventArgs e)
         {
             // Console.WriteLine("serialpanel bindingConnection_CurrentItemChanged");
@@ -151,6 +151,5 @@ namespace RepetierHost.connector
         {
             con.PingPong = checkPingPong.Checked;
         }
-
     }
 }

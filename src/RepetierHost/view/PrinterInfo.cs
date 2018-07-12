@@ -14,24 +14,20 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+using RepetierHost.connector;
 using RepetierHost.model;
 using RepetierHost.view.utils;
-using RepetierHost.connector;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class PrinterInfo : Form
     {
-        PrinterConnection con;
-        SerialConnector connector = null;
+        private PrinterConnection con;
+        private SerialConnector connector = null;
+
         public PrinterInfo()
         {
             con = Main.conn;
@@ -41,9 +37,12 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
-        public void ConnectWith(SerialConnector c) {
+
+        public void ConnectWith(SerialConnector c)
+        {
             connector = c;
         }
+
         private void translate()
         {
             Text = Trans.T("W_PRINTER_INFO");
@@ -59,11 +58,13 @@ namespace RepetierHost.view
             labProtocol.Text = Trans.T("L_PROTOCOL:");
             buttonClose.Text = Trans.T("B_CLOSE");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         /// <summary>
         /// Update the informations every second.
         /// </summary>
@@ -99,6 +100,5 @@ namespace RepetierHost.view
         {
             RegMemory.StoreWindowPos("printerInfoWindow", this, false, false);
         }
-
     }
 }

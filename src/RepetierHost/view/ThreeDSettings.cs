@@ -14,34 +14,31 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using Microsoft.Win32;
-using System.Globalization;
+using OpenTK;
 using RepetierHost.model;
 using RepetierHost.view.utils;
-using OpenTK;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class ThreeDSettings : Form, INotifyPropertyChanged
     {
-
-        RegistryKey repetierKey;
-        RegistryKey threedKey;
+        private RegistryKey repetierKey;
+        private RegistryKey threedKey;
         public bool useVBOs = false;
         public int drawMethod = 0; // 0 = elements, 1 = drawElements, 2 = VBO
         public float openGLVersion = 1.0f; // Version for feature detection
         private bool _showEdges = false;
         private bool _showFaces = true;
         private bool _showCompass = true;
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)
@@ -54,7 +51,7 @@ namespace RepetierHost.view
             tdSettings.DataSource = this;
             RegMemory.RestoreWindowPos("threeDSettingsWindow", this);
             if (Main.IsMono)
-                buttonOK.Location = new Point(buttonOK.Location.X,buttonOK.Location.Y-10);
+                buttonOK.Location = new Point(buttonOK.Location.X, buttonOK.Location.Y - 10);
             comboDrawMethod.SelectedIndex = 0;
             repetierKey = Custom.BaseKey; //  Registry.CurrentUser.CreateSubKey("SOFTWARE\\Repetier");
             threedKey = repetierKey.CreateSubKey("3D");
@@ -63,6 +60,7 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         public void translate()
         {
             Text = Trans.T("W_3D_VISUALIZATION_SETTINGS");
@@ -131,12 +129,12 @@ Immediate (slow)*/
             buttonGeneralColorDefaults.Text = Trans.T("L_RESET_DEFAULTS");
             buttonModelColorsDefaults.Text = Trans.T("L_RESET_DEFAULTS");
         }
-        
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
 
         public bool ShowEdges
         {
@@ -182,30 +180,37 @@ Immediate (slow)*/
                 Main.main.Update3D();
             }
         }
+
         public int filamentVisualization
         {
-            get {return comboFilamentVisualization.SelectedIndex;}
+            get { return comboFilamentVisualization.SelectedIndex; }
         }
+
         public float layerHeight
         {
             get { float h; float.TryParse(textLayerHeight.Text, NumberStyles.Float, GCode.format, out h); if (h < 0.05) h = 0.05f; return h; }
         }
+
         public float filamentDiameter
         {
             get { float h; float.TryParse(textDiameter.Text, NumberStyles.Float, GCode.format, out h); if (h < 0.05) h = 0.05f; return h; }
         }
+
         public float widthOverHeight
         {
             get { float h; float.TryParse(textWidthOverThickness.Text, NumberStyles.Float, GCode.format, out h); if (h < 0.05) h = 0.05f; return h; }
         }
+
         public float hotFilamentLength
         {
             get { float h; float.TryParse(textHotFilamentLength.Text, NumberStyles.Float, GCode.format, out h); if (h < 0) h = 0; return h; }
         }
+
         public bool useLayerHeight
         {
             get { return radioHeight.Checked; }
         }
+
         public void FormToRegistry()
         {
             try
@@ -274,15 +279,15 @@ Immediate (slow)*/
                 threedKey.SetValue("light4Y", ydir4.Text);
                 threedKey.SetValue("light4Z", zdir4.Text);
                 threedKey.SetValue("autoenableParallelForTopView", checkAutoenableParallelInTopView.Checked ? 1 : 0);
-
             }
             catch { }
         }
+
         private void RegistryToForm()
         {
             try
             {
-                backgroundTop.BackColor = Color.FromArgb((int)threedKey.GetValue("backgroundTopColor",backgroundTop.BackColor.ToArgb()));
+                backgroundTop.BackColor = Color.FromArgb((int)threedKey.GetValue("backgroundTopColor", backgroundTop.BackColor.ToArgb()));
                 backgroundBottom.BackColor = Color.FromArgb((int)threedKey.GetValue("backgroundBottomColor", backgroundBottom.BackColor.ToArgb()));
                 faces.BackColor = Color.FromArgb((int)threedKey.GetValue("facesColor", faces.BackColor.ToArgb()));
                 edges.BackColor = Color.FromArgb((int)threedKey.GetValue("edgesColor", faces.BackColor.ToArgb()));
@@ -345,7 +350,7 @@ Immediate (slow)*/
                 xdir4.Text = (string)threedKey.GetValue("light4X", xdir4.Text);
                 ydir4.Text = (string)threedKey.GetValue("light4Y", ydir4.Text);
                 zdir4.Text = (string)threedKey.GetValue("light4Z", zdir4.Text);
-                checkAutoenableParallelInTopView.Checked = 0!=(int)threedKey.GetValue("autoenableParallelForTopView", checkAutoenableParallelInTopView.Checked ? 1 : 0);
+                checkAutoenableParallelInTopView.Checked = 0 != (int)threedKey.GetValue("autoenableParallelForTopView", checkAutoenableParallelInTopView.Checked ? 1 : 0);
                 GCodePath.correctNorms = checkCorrectNormals.Checked;
                 if (threedKey.GetValue("backgroundColor", null) != null)
                 {
@@ -356,6 +361,7 @@ Immediate (slow)*/
             }
             catch { }
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             FormToRegistry();
@@ -364,7 +370,6 @@ Immediate (slow)*/
 
         private void background_Click(object sender, EventArgs e)
         {
-
         }
 
         private void faces_Click(object sender, EventArgs e)
@@ -376,6 +381,7 @@ Immediate (slow)*/
                 Main.main.Update3D();
             }
         }
+
         private void edges_Click(object sender, EventArgs e)
         {
             colorDialog.Color = edges.BackColor;
@@ -412,7 +418,6 @@ Immediate (slow)*/
 
         private void printerBase_Click(object sender, EventArgs e)
         {
-
         }
 
         private void comboFilamentVisualization_SelectedIndexChanged(object sender, EventArgs e)
@@ -424,6 +429,7 @@ Immediate (slow)*/
         {
             Main.main.Update3D();
         }
+
         private void light_TextChanged(object sender, EventArgs e)
         {
             Main.main.Update3D();
@@ -433,6 +439,7 @@ Immediate (slow)*/
         {
             Main.main.Update3D();
         }
+
         private void float_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -483,6 +490,7 @@ Immediate (slow)*/
                 Main.main.Update3D();
             }
         }
+
         private void lightcolor_Click(object sender, EventArgs e)
         {
             Panel p = (Panel)sender;
@@ -494,6 +502,7 @@ Immediate (slow)*/
                 Main.main.Update3D();
             }
         }
+
         private float[] toGLColor(Color c)
         {
             float[] a = new float[4];
@@ -503,35 +512,102 @@ Immediate (slow)*/
             a[2] = (float)c.B / 255.0f;
             return a;
         }
-        private Vector4 toDir(TextBox x,TextBox y,TextBox z) {
+
+        private Vector4 toDir(TextBox x, TextBox y, TextBox z)
+        {
             float xf, yf, zf;
             float.TryParse(x.Text, NumberStyles.Float, GCode.format, out xf);
             float.TryParse(y.Text, NumberStyles.Float, GCode.format, out yf);
             float.TryParse(z.Text, NumberStyles.Float, GCode.format, out zf);
             return new Vector4(xf, yf, zf, 0);
         }
-        public Vector4 Dir1() { return toDir(xdir1, ydir1, zdir1); }
-        public Vector4 Dir2() { return toDir(xdir2, ydir2, zdir2); }
-        public Vector4 Dir3() { return toDir(xdir3, ydir3, zdir3); }
-        public Vector4 Dir4() { return toDir(xdir4, ydir4, zdir4); }
-        public float[] Diffuse1() { return toGLColor(diffuse1.BackColor); }
-        public float[] Ambient1() { return toGLColor(ambient1.BackColor); }
-        public float[] Specular1() { return toGLColor(specular1.BackColor); }
-        public float[] Diffuse2() { return toGLColor(diffuse2.BackColor); }
-        public float[] Ambient2() { return toGLColor(ambient2.BackColor); }
-        public float[] Specular2() { return toGLColor(specular2.BackColor); }
-        public float[] Diffuse3() { return toGLColor(diffuse3.BackColor); }
-        public float[] Ambient3() { return toGLColor(ambient3.BackColor); }
-        public float[] Specular3() { return toGLColor(specular3.BackColor); }
-        public float[] Diffuse4() { return toGLColor(diffuse4.BackColor); }
-        public float[] Ambient4() { return toGLColor(ambient4.BackColor); }
-        public float[] Specular4() { return toGLColor(specular4.BackColor); }
+
+        public Vector4 Dir1()
+        {
+            return toDir(xdir1, ydir1, zdir1);
+        }
+
+        public Vector4 Dir2()
+        {
+            return toDir(xdir2, ydir2, zdir2);
+        }
+
+        public Vector4 Dir3()
+        {
+            return toDir(xdir3, ydir3, zdir3);
+        }
+
+        public Vector4 Dir4()
+        {
+            return toDir(xdir4, ydir4, zdir4);
+        }
+
+        public float[] Diffuse1()
+        {
+            return toGLColor(diffuse1.BackColor);
+        }
+
+        public float[] Ambient1()
+        {
+            return toGLColor(ambient1.BackColor);
+        }
+
+        public float[] Specular1()
+        {
+            return toGLColor(specular1.BackColor);
+        }
+
+        public float[] Diffuse2()
+        {
+            return toGLColor(diffuse2.BackColor);
+        }
+
+        public float[] Ambient2()
+        {
+            return toGLColor(ambient2.BackColor);
+        }
+
+        public float[] Specular2()
+        {
+            return toGLColor(specular2.BackColor);
+        }
+
+        public float[] Diffuse3()
+        {
+            return toGLColor(diffuse3.BackColor);
+        }
+
+        public float[] Ambient3()
+        {
+            return toGLColor(ambient3.BackColor);
+        }
+
+        public float[] Specular3()
+        {
+            return toGLColor(specular3.BackColor);
+        }
+
+        public float[] Diffuse4()
+        {
+            return toGLColor(diffuse4.BackColor);
+        }
+
+        public float[] Ambient4()
+        {
+            return toGLColor(ambient4.BackColor);
+        }
+
+        public float[] Specular4()
+        {
+            return toGLColor(specular4.BackColor);
+        }
 
         public void checkDisableTravelMoves_CheckedChanged(object sender, EventArgs e)
         {
             Main.main.updateTravelMoves();
             Main.main.Update3D();
         }
+
         private void checkCorrectNormals_CheckedChanged(object sender, EventArgs e)
         {
             GCodePath.correctNorms = checkCorrectNormals.Checked;

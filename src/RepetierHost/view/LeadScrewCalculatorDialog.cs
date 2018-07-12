@@ -1,13 +1,8 @@
-﻿using System;
+﻿using RepetierHost.model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
@@ -49,25 +44,22 @@ namespace RepetierHost.view
                 return;
             }
 
-            double GearRatio = ((double)GearRatio0Val/GearRatio1Val);
+            double GearRatio = ((double)GearRatio0Val / GearRatio1Val);
 
-            var stepAngles = new List<double>{1.8,0.9,7.5};
+            var stepAngles = new List<double> { 1.8, 0.9, 7.5 };
             var stepAngle = stepAngles[selectedStepAngle];
 
-            var microStepValues = new List<double>() {1, 0.5, 0.25, 0.125, 0.0625,0.03125};
+            var microStepValues = new List<double>() { 1, 0.5, 0.25, 0.125, 0.0625, 0.03125 };
             var microStep = microStepValues[selectedMicrostepValue];
 
-            var screwPitchValues = new List<double>() { 1.25, 1,1.5,1.75, 1.41111, 1.5875,1.5,2.0,3.0,4.0 };
+            var screwPitchValues = new List<double>() { 1.25, 1, 1.5, 1.75, 1.41111, 1.5875, 1.5, 2.0, 3.0, 4.0 };
             var screwPitch = screwPitchValues[selectedScrewPitch];
 
             var beltCalculator = new LeadScrewCalculator(stepAngle, microStep, screwPitch, GearRatio);
 
-
             var result = beltCalculator.Calculate();
-                
 
             LSOutput.Text = result.ToString(CultureInfo.InvariantCulture);
-        
         }
     }
 }

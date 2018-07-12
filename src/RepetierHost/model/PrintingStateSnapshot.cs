@@ -15,16 +15,11 @@
 
 */
 
+using RepetierHost.view.utils;
 using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Xml;
-using System.Xml.Serialization;
-using System.Windows.Forms;
-using System.IO;
-using System.Globalization;
-using RepetierHost.view.utils;
 
 namespace RepetierHost.model
 {
@@ -58,7 +53,7 @@ namespace RepetierHost.model
             s.speed = analyzer.f;
             s.layer = analyzer.layer;
             s.extrudersTemp = new float[conn.extruderTemp.Count];
-            for (int extr = 0; extr < conn.extruderTemp.Count; extr++ )
+            for (int extr = 0; extr < conn.extruderTemp.Count; extr++)
             {
                 // Use the configured temperature, not the measured
                 // temperature.
@@ -71,8 +66,8 @@ namespace RepetierHost.model
             s.activeExtruderId = analyzer.activeExtruderId;
             s.relative = analyzer.relative;
             s.activeExtruderValue = analyzer.activeExtruder.e - analyzer.activeExtruder.eOffset;
-            s.remainingCode = GetRemainingGcode(conn); 
-            
+            s.remainingCode = GetRemainingGcode(conn);
+
             return s;
         }
 
@@ -186,7 +181,7 @@ namespace RepetierHost.model
             g.MoveZ(z, layer);
             g.Add("G1 F" + speed.ToString(GCode.format)); // Reset old speed
             g.NewLine();
-            
+
             if (relative)
             {
                 // We know the coordinates will be absolute because we set it at first.
@@ -213,5 +208,4 @@ namespace RepetierHost.model
             return PrintingStateSnapshot.GeneratePrintingStateSnapshot(conn);
         }
     }
-    
 }

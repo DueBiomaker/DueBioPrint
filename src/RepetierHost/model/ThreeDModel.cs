@@ -14,20 +14,19 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Platform.Windows;
 using OpenTK;
+using System.Collections.Generic;
 
 namespace RepetierHost.model
 {
     public class Coord3D
     {
         public float x = 0, y = 0, z = 0;
-        public Coord3D() { }
+
+        public Coord3D()
+        {
+        }
+
         public Coord3D(float _x, float _y, float _z)
         {
             x = _x;
@@ -35,6 +34,7 @@ namespace RepetierHost.model
             z = _z;
         }
     }
+
     public abstract class ThreeDModel
     {
         private bool selected = false;
@@ -48,6 +48,7 @@ namespace RepetierHost.model
         {
             animations.AddLast(anim);
         }
+
         public void removeAnimationWithName(string aname)
         {
             bool found = true;
@@ -65,6 +66,7 @@ namespace RepetierHost.model
                 }
             }
         }
+
         public bool hasAnimationWithName(string aname)
         {
             foreach (ModelAnimation a in animations)
@@ -76,19 +78,23 @@ namespace RepetierHost.model
             }
             return false;
         }
+
         public void clearAnimations()
         {
             animations.Clear();
         }
+
         public bool hasAnimations
         {
             get { return animations.Count > 0; }
         }
+
         public void AnimationBefore()
         {
             foreach (ModelAnimation a in animations)
                 a.BeforeAction(this);
         }
+
         /// <summary>
         /// Plays the after action and removes finished animations.
         /// </summary>
@@ -118,29 +124,39 @@ namespace RepetierHost.model
                 }
             }
         }
+
         public bool Selected
         {
             get { return selected; }
             set { selected = value; }
         }
+
         public Coord3D Position
         {
             get { return position; }
             set { position = value; }
         }
+
         public Coord3D Rotation
         {
             get { return rotation; }
             set { rotation = value; }
         }
+
         public Coord3D Scale
         {
             get { return scale; }
             set { scale = value; }
         }
-        public virtual void ReduceQuality() {
+
+        public virtual void ReduceQuality()
+        {
         }
-        public virtual void ResetQuality() { }
+
+        public virtual void ResetQuality()
+        {
+        }
+
         /// <summary>
         /// Has the model changed since last paint?
         /// </summary>
@@ -148,8 +164,13 @@ namespace RepetierHost.model
         {
             get { return false; }
         }
-        public virtual void Clear() { }
+
+        public virtual void Clear()
+        {
+        }
+
         abstract public void Paint();
+
         public virtual Vector3 getCenter()
         {
             return new Vector3(0, 0, 0);

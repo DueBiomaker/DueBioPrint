@@ -14,22 +14,18 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using RepetierHost.model;
 using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class JobStatus : Form
     {
-        static JobStatus f = null;
+        private static JobStatus f = null;
+
         public static void ShowStatus()
         {
             if (f == null)
@@ -38,6 +34,7 @@ namespace RepetierHost.view
             f.BringToFront();
             f.timer.Start();
         }
+
         public JobStatus()
         {
             InitializeComponent();
@@ -45,6 +42,7 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("W_JOB_STATUS");
@@ -56,11 +54,13 @@ namespace RepetierHost.view
             lTotalLines.Text = Trans.T("L_TOTAL_LINES:");
             buttonClose.Text = Trans.T("B_CLOSE");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             Printjob j = Main.conn.connector.Job;
@@ -74,6 +74,7 @@ namespace RepetierHost.view
                     labelLinesSend.Text = "-";
                     labelTotalLines.Text = "-";
                     break;
+
                 case 1: // Running
                     labelStatus.Text = Trans.T("L_RUNNING..."); // "Running ...";
                     labelStartTime.Text = j.jobStarted.ToLongTimeString();
@@ -82,6 +83,7 @@ namespace RepetierHost.view
                     labelLinesSend.Text = j.linesSend.ToString();
                     labelTotalLines.Text = j.totalLines.ToString();
                     break;
+
                 case 2:
                     labelStatus.Text = Trans.T("L_FINISHED"); // "Finished";
                     labelStartTime.Text = j.jobStarted.ToLongTimeString();
@@ -90,6 +92,7 @@ namespace RepetierHost.view
                     labelLinesSend.Text = j.linesSend.ToString();
                     labelTotalLines.Text = j.totalLines.ToString();
                     break;
+
                 case 3:
                     labelStatus.Text = Trans.T("L_ABORTED"); // "Aborted";
                     labelStartTime.Text = j.jobStarted.ToLongTimeString();

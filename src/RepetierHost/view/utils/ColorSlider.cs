@@ -34,11 +34,12 @@ namespace MB.Controls
         [Category("Behavior")]
         public event ScrollEventHandler Scroll;
 
-        #endregion
+        #endregion Events
 
         #region Properties
 
         private Rectangle thumbRect; //bounding rectangle of thumb area
+
         /// <summary>
         /// Gets the thumb rect. Usefull to determine bounding rectangle when creating custom thumb shape.
         /// </summary>
@@ -55,6 +56,7 @@ namespace MB.Controls
         private Rectangle elapsedRect; //bounding rectangle of elapsed area
 
         private int thumbSize = 15;
+
         /// <summary>
         /// Gets or sets the size of the thumb.
         /// </summary>
@@ -79,6 +81,7 @@ namespace MB.Controls
         }
 
         private GraphicsPath thumbCustomShape = null;
+
         /// <summary>
         /// Gets or sets the thumb custom shape. Use ThumbRect property to determine bounding rectangle.
         /// </summary>
@@ -93,12 +96,13 @@ namespace MB.Controls
             set
             {
                 thumbCustomShape = value;
-                thumbSize = (int) (barOrientation == Orientation.Horizontal ? value.GetBounds().Width : value.GetBounds().Height) + 1;
+                thumbSize = (int)(barOrientation == Orientation.Horizontal ? value.GetBounds().Width : value.GetBounds().Height) + 1;
                 Invalidate();
             }
         }
 
         private Size thumbRoundRectSize = new Size(8, 8);
+
         /// <summary>
         /// Gets or sets the size of the thumb round rectangle edges.
         /// </summary>
@@ -120,6 +124,7 @@ namespace MB.Controls
         }
 
         private Size borderRoundRectSize = new Size(8, 8);
+
         /// <summary>
         /// Gets or sets the size of the border round rect.
         /// </summary>
@@ -141,6 +146,7 @@ namespace MB.Controls
         }
 
         private Orientation barOrientation = Orientation.Horizontal;
+
         /// <summary>
         /// Gets or sets the orientation of Slider.
         /// </summary>
@@ -170,8 +176,8 @@ namespace MB.Controls
             }
         }
 
-
         private int trackerValue = 50;
+
         /// <summary>
         /// Gets or sets the value of Slider.
         /// </summary>
@@ -195,8 +201,8 @@ namespace MB.Controls
             }
         }
 
-
         private int barMinimum = 0;
+
         /// <summary>
         /// Gets or sets the minimum value.
         /// </summary>
@@ -224,8 +230,8 @@ namespace MB.Controls
             }
         }
 
-
         private int barMaximum = 100;
+
         /// <summary>
         /// Gets or sets the maximum value.
         /// </summary>
@@ -254,6 +260,7 @@ namespace MB.Controls
         }
 
         private uint smallChange = 1;
+
         /// <summary>
         /// Gets or sets trackbar's small change. It affects how to behave when directional keys are pressed
         /// </summary>
@@ -283,6 +290,7 @@ namespace MB.Controls
         }
 
         private bool drawFocusRectangle = true;
+
         /// <summary>
         /// Gets or sets a value indicating whether to draw focus rectangle.
         /// </summary>
@@ -301,6 +309,7 @@ namespace MB.Controls
         }
 
         private bool drawSemitransparentThumb = true;
+
         /// <summary>
         /// Gets or sets a value indicating whether to draw semitransparent thumb.
         /// </summary>
@@ -319,6 +328,7 @@ namespace MB.Controls
         }
 
         private bool mouseEffects = true;
+
         /// <summary>
         /// Gets or sets whether mouse entry and exit actions have impact on how control look.
         /// </summary>
@@ -337,6 +347,7 @@ namespace MB.Controls
         }
 
         private int mouseWheelBarPartitions = 10;
+
         /// <summary>
         /// Gets or sets the mouse wheel bar partitions.
         /// </summary>
@@ -355,8 +366,9 @@ namespace MB.Controls
                 else throw new ArgumentOutOfRangeException("MouseWheelBarPartitions has to be greather than zero");
             }
         }
-        
+
         private Color thumbOuterColor = Color.White;
+
         /// <summary>
         /// Gets or sets the thumb outer color .
         /// </summary>
@@ -374,8 +386,8 @@ namespace MB.Controls
             }
         }
 
-
         private Color thumbInnerColor = Color.Gainsboro;
+
         /// <summary>
         /// Gets or sets the inner color of the thumb.
         /// </summary>
@@ -393,8 +405,8 @@ namespace MB.Controls
             }
         }
 
-
         private Color thumbPenColor = Color.Silver;
+
         /// <summary>
         /// Gets or sets the color of the thumb pen.
         /// </summary>
@@ -412,8 +424,8 @@ namespace MB.Controls
             }
         }
 
-
         private Color barOuterColor = Color.SkyBlue;
+
         /// <summary>
         /// Gets or sets the outer color of the bar.
         /// </summary>
@@ -431,8 +443,8 @@ namespace MB.Controls
             }
         }
 
-
         private Color barInnerColor = Color.DarkSlateBlue;
+
         /// <summary>
         /// Gets or sets the inner color of the bar.
         /// </summary>
@@ -450,8 +462,8 @@ namespace MB.Controls
             }
         }
 
-
         private Color barPenColor = Color.Gainsboro;
+
         /// <summary>
         /// Gets or sets the color of the bar pen.
         /// </summary>
@@ -470,6 +482,7 @@ namespace MB.Controls
         }
 
         private Color elapsedOuterColor = Color.DarkGreen;
+
         /// <summary>
         /// Gets or sets the outer color of the elapsed.
         /// </summary>
@@ -488,6 +501,7 @@ namespace MB.Controls
         }
 
         private Color elapsedInnerColor = Color.Chartreuse;
+
         /// <summary>
         /// Gets or sets the inner color of the elapsed.
         /// </summary>
@@ -505,7 +519,7 @@ namespace MB.Controls
             }
         }
 
-        #endregion
+        #endregion Properties
 
         #region Color schemas
 
@@ -539,8 +553,9 @@ namespace MB.Controls
         }
 
         private ColorSchemas colorSchema = ColorSchemas.PerlBlueGreen;
+
         /// <summary>
-        /// Sets color schema. Color generalization / fast color changing. Has no effect when slider colors are changed manually after schema was applied. 
+        /// Sets color schema. Color generalization / fast color changing. Has no effect when slider colors are changed manually after schema was applied.
         /// </summary>
         /// <value>New color schema value</value>
         [Description("Set Slider color schema. Has no effect when slider colors are changed manually after schema was applied.")]
@@ -566,8 +581,8 @@ namespace MB.Controls
             }
         }
 
-        #endregion
-        
+        #endregion Color schemas
+
         #region Constructors
 
         /// <summary>
@@ -595,7 +610,7 @@ namespace MB.Controls
         /// </summary>
         public ColorSlider() : this(0, 100, 50) { }
 
-        #endregion
+        #endregion Constructors
 
         #region Paint
 
@@ -687,7 +702,7 @@ namespace MB.Controls
                     elapsedRect = barRect;
                     elapsedRect.Height = thumbRect.Top + thumbSize / 2;
                 }
-                //get thumb shape path 
+                //get thumb shape path
                 GraphicsPath thumbPath;
                 if (thumbCustomShape == null)
                     thumbPath = CreateRoundRectPath(thumbRect, thumbRoundRectSize);
@@ -723,7 +738,7 @@ namespace MB.Controls
                         else
                             e.Graphics.FillRectangle(lgbElapsed, elapsedRect);
                     }
-                    //draw bar band                    
+                    //draw bar band
                     using (Pen barPen = new Pen(barPenColorPaint, 0.5f))
                     {
                         e.Graphics.DrawRectangle(barPen, barRect);
@@ -753,7 +768,7 @@ namespace MB.Controls
                     {
                         e.Graphics.DrawPath(thumbPen, thumbPath);
                     }
-                    //gp.Dispose();                    
+                    //gp.Dispose();
                     /*if (Capture || mouseInThumbRegion)
                         using (LinearGradientBrush lgbThumb2 = new LinearGradientBrush(thumbHalfRect, Color.FromArgb(150, Color.Blue), Color.Transparent, gradientOrientation))
                         {
@@ -771,7 +786,7 @@ namespace MB.Controls
                         r.Width -= 2;
                         r.Height--;
                         r.X++;
-                        //ControlPaint.DrawFocusRectangle(e.Graphics, r);                        
+                        //ControlPaint.DrawFocusRectangle(e.Graphics, r);
                         using (GraphicsPath gpBorder = CreateRoundRectPath(r, borderRoundRectSize))
                         {
                             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -788,11 +803,12 @@ namespace MB.Controls
             }
         }
 
-        #endregion
+        #endregion Paint
 
         #region Overided events
 
         private bool mouseInRegion = false;
+
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Control.EnabledChanged"></see> event.
         /// </summary>
@@ -941,21 +957,26 @@ namespace MB.Controls
                     SetProperValue(Value - (int)smallChange);
                     if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.SmallDecrement, Value));
                     break;
+
                 case Keys.Up:
                 case Keys.Right:
                     SetProperValue(Value + (int)smallChange);
                     if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.SmallIncrement, Value));
                     break;
+
                 case Keys.Home:
                     Value = barMinimum;
                     break;
+
                 case Keys.End:
                     Value = barMaximum;
                     break;
+
                 case Keys.PageDown:
                     SetProperValue(Value - (int)largeChange);
                     if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.LargeDecrement, Value));
                     break;
+
                 case Keys.PageUp:
                     SetProperValue(Value + (int)largeChange);
                     if (Scroll != null) Scroll(this, new ScrollEventArgs(ScrollEventType.LargeIncrement, Value));
@@ -985,7 +1006,7 @@ namespace MB.Controls
             }
         }
 
-        #endregion
+        #endregion Overided events
 
         #region Help routines
 
@@ -1071,6 +1092,6 @@ namespace MB.Controls
             else return false;
         }
 
-        #endregion
+        #endregion Help routines
     }
 }

@@ -14,33 +14,30 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Windows.Forms;
 using Microsoft.Win32;
-using System.Diagnostics;
-using System.Globalization;
-using RepetierHost.view.utils;
 using RepetierHost.model;
 using RepetierHost.model.geom;
+using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Text;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class Slic3r : Form
     {
-        RegistryKey rconfigs;
-        RegistryKey rcon;
-        string config="";
-        Process procConvert = null;
-        Process procSlic3r = null;
+        private RegistryKey rconfigs;
+        private RegistryKey rcon;
+        private string config = "";
+        private Process procConvert = null;
+        private Process procSlic3r = null;
 
-        string slicefile = null;
+        private string slicefile = null;
 
         public Slic3r()
         {
@@ -76,6 +73,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         private void loadConfig(string name)
         {
             if (name != config)
@@ -88,7 +86,7 @@ namespace RepetierHost.view
             RegistryKey c = rcon;
             textNozzleDiameter.Text = (string)c.GetValue("NozzleDiameter", textNozzleDiameter.Text);
             textZOffset.Text = (string)c.GetValue("ZOffset", textZOffset.Text);
-            checkRelativeE.Checked  = ((int)c.GetValue("UseRelativeE", checkRelativeE.Checked ? 1 : 0))==1;
+            checkRelativeE.Checked = ((int)c.GetValue("UseRelativeE", checkRelativeE.Checked ? 1 : 0)) == 1;
             checkComments.Checked = ((int)c.GetValue("Comments", checkComments.Checked ? 1 : 0)) == 1;
             textDiameter.Text = (string)c.GetValue("FilamentDiameter", textDiameter.Text);
             textPackingDensity.Text = (string)c.GetValue("PackingDensity", textPackingDensity.Text);
@@ -114,10 +112,10 @@ namespace RepetierHost.view
             textSkirtHeight.Text = (string)c.GetValue("SkirtHeight", textSkirtHeight.Text);
             textSkirtDistance.Text = (string)c.GetValue("SkirtDistance", textSkirtDistance.Text);
             textExtrusionWidth.Text = (string)c.GetValue("ExtrusionWidth", textExtrusionWidth.Text);
-            textBridgeFlowRatio.Text = (string) c.GetValue("BridgeFlowRatio", textBridgeFlowRatio.Text);
-            textBridgeSpeed.Text = (string) c.GetValue("BridgeSpeed", textBridgeSpeed.Text);
-            textSolidInfillSpeed.Text = (string) c.GetValue("SolidInfillSpeed", textSolidInfillSpeed.Text);
-            textSmallPerimeterSpeed.Text = (string) c.GetValue("SmallPerimeterSpeed", textSmallPerimeterSpeed.Text);
+            textBridgeFlowRatio.Text = (string)c.GetValue("BridgeFlowRatio", textBridgeFlowRatio.Text);
+            textBridgeSpeed.Text = (string)c.GetValue("BridgeSpeed", textBridgeSpeed.Text);
+            textSolidInfillSpeed.Text = (string)c.GetValue("SolidInfillSpeed", textSolidInfillSpeed.Text);
+            textSmallPerimeterSpeed.Text = (string)c.GetValue("SmallPerimeterSpeed", textSmallPerimeterSpeed.Text);
             textCoolBridgeFanSpeed.Text = (string)c.GetValue("CoolBridgeFanSpeed", textCoolBridgeFanSpeed.Text);
             textCoolDisableLayer.Text = (string)c.GetValue("CoolDisplayLayer", textCoolDisableLayer.Text);
             textCoolEnableBelow.Text = (string)c.GetValue("CoolEnableBelow", textCoolEnableBelow.Text);
@@ -140,8 +138,9 @@ namespace RepetierHost.view
             textPatternSpacing.Text = (string)c.GetValue("PatternSpacing", textPatternSpacing.Text);
             textPatternAngle.Text = (string)c.GetValue("PatternAngle", textPatternAngle.Text);
             comboSupportPattern.Text = (string)c.GetValue("SupportPattern", comboSupportPattern.Text);
-            textBrim.Text = (string)c.GetValue("BrimWidth",textBrim.Text);
+            textBrim.Text = (string)c.GetValue("BrimWidth", textBrim.Text);
         }
+
         private void saveConfig(string name)
         {
             RegistryKey c = rconfigs.CreateSubKey(name);
@@ -199,8 +198,9 @@ namespace RepetierHost.view
             c.SetValue("PatternSpacing", textPatternSpacing.Text);
             c.SetValue("PatternAngle", textPatternAngle.Text);
             c.SetValue("SupportPattern", comboSupportPattern.Text);
-            c.SetValue("BrimWidth",textBrim.Text);
+            c.SetValue("BrimWidth", textBrim.Text);
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             saveConfig(config);
@@ -229,13 +229,14 @@ namespace RepetierHost.view
             comboConfig.Items.Add(name);
             comboConfig.SelectedIndex = comboConfig.Items.Count - 1;
         }
+
         private void float_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
             try
             {
                 float f = float.Parse(box.Text, NumberStyles.AllowDecimalPoint, GCode.format);
-                if(f>=0) 
+                if (f >= 0)
                     errorProvider.SetError(box, "");
                 else
                     errorProvider.SetError(box, "No negative values allowed.");
@@ -245,6 +246,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, "Not a number.");
             }
         }
+
         private void floatOrPercent_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -263,6 +265,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, "Not a number.");
             }
         }
+
         private void int_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -279,11 +282,13 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, "Not an integer.");
             }
         }
+
         public string wrapQuotes(string text)
         {
             if (text.StartsWith("\"") && text.EndsWith("\"")) return text;
             return "\"" + text.Replace("\"", "\\\"") + "\"";
         }
+
         public void KillSlice()
         {
             if (procConvert != null)
@@ -293,6 +298,7 @@ namespace RepetierHost.view
                 Main.conn.log("Slic3r slicing process killed on user request.", false, 2);
             }
         }
+
         public void RunExternalConfig()
         {
             if (procSlic3r != null)
@@ -343,6 +349,7 @@ namespace RepetierHost.view
                 Main.conn.log(e.ToString(), false, 2);
             }
         }
+
         public void RunConfig()
         {
             if (procSlic3r != null)
@@ -358,18 +365,18 @@ namespace RepetierHost.view
                     MessageBox.Show(Trans.T("L_SLIC3R_NOT_FOUND"), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-              /*  string basedir = (string)Main.main.repetierKey.GetValue("installPath", "");
-                string exname = "slic3r.exe";
-                if (Environment.OSVersion.Platform == PlatformID.Unix)
-                    exname = "slic3r.pl";
-                if (Main.IsMac)
-                    exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
-                string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
-                if (File.Exists(BasicConfiguration.basicConf.Slic3rExecutable))
-                    exe = BasicConfiguration.basicConf.Slic3rExecutable;
-                */
+                /*  string basedir = (string)Main.main.repetierKey.GetValue("installPath", "");
+                  string exname = "slic3r.exe";
+                  if (Environment.OSVersion.Platform == PlatformID.Unix)
+                      exname = "slic3r.pl";
+                  if (Main.IsMac)
+                      exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
+                  string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
+                  if (File.Exists(BasicConfiguration.basicConf.Slic3rExecutable))
+                      exe = BasicConfiguration.basicConf.Slic3rExecutable;
+                  */
                 StringBuilder sb = new StringBuilder();
-                if(BasicConfiguration.basicConf.Slic3rVersionGroup>=1 && Main.conn.numberExtruder<=1)
+                if (BasicConfiguration.basicConf.Slic3rVersionGroup >= 1 && Main.conn.numberExtruder <= 1)
                     sb.Append("--no-plater --gui-mode expert");
                 procSlic3r.EnableRaisingEvents = true;
                 procSlic3r.Exited += new EventHandler(Slic3rExited);
@@ -390,301 +397,308 @@ namespace RepetierHost.view
                 Main.conn.log(e.ToString(), false, 2);
             }
         }
+
         private void Slic3rExited(object sender, System.EventArgs e)
         {
             procSlic3r.Close();
             procSlic3r = null;
             Main.main.Invoke(Main.main.slicerPanel.UpdateSelectionInvoker);
         }
-      /*  public void RunSlice(string file,float centerx,float centery)
-        {
-            if (procConvert != null)
-            {
-                MessageBox.Show("Last slice job still running. Slicing of new job is canceled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            SlicingInfo.Start("Slic3r");
-            SlicingInfo.SetAction("Analyzing STL file ...");
-            try
-            {
-                STL stl = new STL();
-                stl.Load(file);
-                stl.UpdateBoundingBox();
-                if (stl.xMin > 0 && stl.yMin > 0 && stl.xMax < Main.printerSettings.PrintAreaWidth && stl.yMax < Main.printerSettings.PrintAreaDepth)
-                {
-                    // User assigned valid position, so we use this
-                    centerx = stl.xMin + (stl.xMax - stl.xMin) / 2;
-                    centery = stl.yMin + (stl.yMax - stl.yMin) / 2;
-                }
-                stl.Clear();
-            }
-            catch (Exception e)
-            {
-                Main.conn.log(e.ToString(), false, 2);
-                SlicingInfo.Stop();
-                return;
-            }
-            SlicingInfo.SetAction("Slicing STL file ...");
-            procConvert = new Process();
-            try
-            {
-            string basedir = (string)Main.main.repetierKey.GetValue("installPath","");
-            string exname = "slic3r.exe";
-            if (Environment.OSVersion.Platform == PlatformID.Unix)
-                    exname = "bin"+Path.DirectorySeparatorChar+"slic3r";
-            if (Main.IsMac)
-                exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
-            string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
-                slicefile = file;
-                string target = StlToGCode(file);
-                if (File.Exists(target))
-                    File.Delete(target);
-                procConvert.EnableRaisingEvents = true;
-                procConvert.Exited += new EventHandler(ConversionExited);
-                procConvert.StartInfo.FileName = Main.IsMono ? exe : wrapQuotes(exe);
-                StringBuilder sb = new StringBuilder();
-                sb.Append("--nozzle-diameter ");
-                sb.Append(textNozzleDiameter.Text);
-                sb.Append(" ");
-                sb.Append(" -o ");
-                sb.Append(wrapQuotes(StlToGCode(file)));
-                sb.Append(" ");
-                if (checkRelativeE.Checked)
-                    sb.Append("--use-relative-e-distances ");
-                if (checkComments.Checked)
-                    sb.Append("--gcode-comments ");
-               // else
-               //     sb.Append("--gcode-comments 0 ");
-                sb.Append("-j ");
-                sb.Append(textNumberOfThreads.Text);
-                if (checkRandomizeStartingPoints.Checked)
-                    sb.Append(" --randomize-start");
-                sb.Append(" --z-offset ");
-                sb.Append(textZOffset.Text);
-                sb.Append(" --filament-diameter ");
-                sb.Append(textDiameter.Text);
-                sb.Append(" --extrusion-multiplier ");
-                sb.Append(textPackingDensity.Text);
-                sb.Append(" --temperature ");
-                sb.Append(textTemperature.Text);
-                sb.Append(" --infill-speed ");
-                sb.Append(textPrintFeedrate.Text);
-                sb.Append(" --solid-infill-speed ");
-                sb.Append(textSolidInfillSpeed.Text);
-                sb.Append(" --travel-speed ");
-                sb.Append(textTravelFeedrate.Text);
-                sb.Append(" --bridge-speed ");
-                sb.Append(textBridgeSpeed.Text);
-                sb.Append(" --perimeter-speed ");
-                sb.Append(textPerimeterFeedrate.Text);
-                sb.Append(" --small-perimeter-speed ");
-                sb.Append(textSmallPerimeterSpeed.Text);
-                sb.Append(" --bridge-flow-ratio ");
-                sb.Append(textBridgeFlowRatio.Text);
-                sb.Append(" --layer-height ");
-                sb.Append(textLayerHeight.Text);
-                sb.Append(" --first-layer-speed ");
-                sb.Append(textFirstLayerSpeed.Text);
-                sb.Append(" --first-layer-height ");
-                sb.Append(textFirstLayerHeight.Text);
-                sb.Append(" --infill-every-layers ");
-                sb.Append(textInfillEvery.Text);
-                sb.Append(" --perimeters ");
-                sb.Append(textPerimeters.Text);
-                sb.Append(" --solid-layers ");
-                sb.Append(textSolidLayers.Text);
-                sb.Append(" --fill-density ");
-                sb.Append(textFillDensity.Text);
-                sb.Append(" --fill-angle ");
-                sb.Append(textFillAngle.Text);
-                sb.Append(" --fill-pattern ");
-                sb.Append(comboFillPattern.SelectedItem);
-                sb.Append(" --solid-fill-pattern ");
-                sb.Append(comboSolidFillPattern.SelectedItem);
-                sb.Append(" --retract-length ");
-                sb.Append(textRetLength.Text);
-                sb.Append(" --retract-speed ");
-                sb.Append(textRetSpeed.Text);
-                sb.Append(" --retract-restart-extra ");
-                sb.Append(textRetExtraDistance.Text);
-                sb.Append(" --retract-before-travel ");
-                sb.Append(textRetMinTravel.Text);
-                sb.Append(" --retract-lift ");
-                sb.Append(textRetLift.Text);
-                sb.Append(" --skirts ");
-                sb.Append(textSkirtLoops.Text);
-                sb.Append(" --skirt-distance ");
-                sb.Append(textSkirtDistance.Text);
-                sb.Append(" --skirt-height ");
-                sb.Append(textSkirtHeight.Text);
-                sb.Append(" --extrusion-width ");
-                sb.Append(textExtrusionWidth.Text);
-                sb.Append(" --brim-width ");
-                sb.Append(textBrim.Text);
-                sb.Append(" --support-material-threshold ");
-                sb.Append(textOverhangTreshold.Text);
-                sb.Append(" --support-material-pattern ");
-                sb.Append(comboSupportPattern.SelectedItem);
-                sb.Append(" --support-material-spacing ");
-                sb.Append(textPatternSpacing.Text);
-                sb.Append(" --support-material-angle ");
-                sb.Append(textPatternAngle.Text);
-                sb.Append(" --print-center ");
-                sb.Append(centerx.ToString("0",GCode.format));
-                sb.Append(",");
-                sb.Append(centery.ToString("0", GCode.format));
-                if (checkEnableCooling.Checked)
-                {
-                    sb.Append(" --cooling --bridge-fan-speed ");
-                    sb.Append(textCoolBridgeFanSpeed.Text);
-                    sb.Append(" --disable-fan-first-layers ");
-                    sb.Append(textCoolDisableLayer.Text);
-                    sb.Append(" --fan-below-layer-time ");
-                    sb.Append(textCoolEnableBelow.Text);
-                    sb.Append(" --max-fan-speed ");
-                    sb.Append(textCoolMaxFanSpeed.Text);
-                    sb.Append(" --min-fan-speed ");
-                    sb.Append(textCoolMinFanSpeed.Text);
-                    sb.Append(" --min-print-speed ");
-                    sb.Append(textCoolMinPrintSpeed.Text);
-                    sb.Append(" --slowdown-below-layer-time ");
-                    sb.Append(textCoolSlowDownBelow.Text);
-                }
-                if (checkGenerateSupportMaterial.Checked)
-                {
-                    sb.Append(" --support-material --support-material-tool " + comboSupportMaterialTool.SelectedIndex);
-                }
-                sb.Append(" --gcode-flavor ");
-                switch (comboGCodeFlavor.SelectedIndex)
-                {
-                    case 0:
-                    default:
-                        sb.Append("reprap");
-                        break;
-                    case 1:
-                        sb.Append("teacup");
-                        break;
-                    case 2:
-                        sb.Append("makerbot");
-                        break;
-                    case 3:
-                        sb.Append("mach3");
-                        break;
-                    case 4:
-                        sb.Append("no-extrusion");
-                        break;
-                }
-                sb.Append(" --first-layer-temperature ");
-                sb.Append(textFirstLayerTemperature.Text);
-                sb.Append(" --bed-temperature ");
-                sb.Append(textBedTemperature.Text);
-                sb.Append(" --first-layer-bed-temperature ");
-                sb.Append(textFirstLayerBedTemperature.Text);
-                if (checkFanAlwaysEnabled.Checked)
-                {
-                    sb.Append(" --fan-always-on");
-                }
-                sb.Append(" --start-gcode ");
-                sb.Append(wrapQuotes(basedir+Path.DirectorySeparatorChar+"empty.txt"));
-                sb.Append(" --end-gcode ");
-                sb.Append(wrapQuotes(basedir+Path.DirectorySeparatorChar+"empty.txt"));
-                sb.Append(" ");
-                sb.Append(wrapQuotes(file));
-                Main.conn.log(sb.ToString(), false, 3);
-                procConvert.StartInfo.Arguments = sb.ToString();
-                procConvert.StartInfo.UseShellExecute = false;
-                procConvert.StartInfo.RedirectStandardOutput = true;
-                procConvert.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
-                procConvert.StartInfo.RedirectStandardError = true;
-                procConvert.ErrorDataReceived += new DataReceivedEventHandler(OutputDataHandler);
-                procConvert.Start();
-                // Start the asynchronous read of the standard output stream.
-                procConvert.BeginOutputReadLine();
-                procConvert.BeginErrorReadLine();
-                //Main.main.tab.SelectedTab = Main.main.tabPrint;
-            }
-            catch (Exception e)
-            {
-                Main.conn.log(e.ToString(), false, 2);
-            }
-        }*/
-      /*  public void RunSliceExternal(string file, float centerx, float centery)
-        {
-            if (procConvert != null)
-            {
-                MessageBox.Show("Last slice job still running. Slicing of new job is canceled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            SlicingInfo.Start("External Slic3r");
-            SlicingInfo.SetAction("Analyzing STL file ...");
-            try
-            {
-                STL stl = new STL();
-                stl.Load(file);
-                stl.UpdateBoundingBox();
-                if (stl.xMin > 0 && stl.yMin > 0 && stl.xMax < Main.printerSettings.PrintAreaWidth && stl.yMax < Main.printerSettings.PrintAreaDepth)
-                {
-                    // User assigned valid position, so we use this
-                    centerx = stl.xMin + (stl.xMax - stl.xMin) / 2;
-                    centery = stl.yMin + (stl.yMax - stl.yMin) / 2;
-                }
-                stl.Clear();
-            }
-            catch (Exception e)
-            {
-                Main.conn.log(e.ToString(), false, 2);
-                SlicingInfo.Stop();
-                return;
-            }
-            SlicingInfo.SetAction("Slicing STL file ...");
-            procConvert = new Process();
-            try
-            {
-                string basedir = (string)Main.main.repetierKey.GetValue("installPath", "");
-                string exname = "slic3r.exe";
-                if (Environment.OSVersion.Platform == PlatformID.Unix)
-                    exname = "bin" + Path.DirectorySeparatorChar + "slic3r";
-                if (Main.IsMac)
-                    exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
-                string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
-                if (File.Exists(BasicConfiguration.basicConf.ExternalSlic3rPath))
-                    exe = BasicConfiguration.basicConf.ExternalSlic3rPath;
 
-                slicefile = file;
-                string target = StlToGCode(file);
-                if (File.Exists(target))
-                    File.Delete(target);
-                procConvert.EnableRaisingEvents = true;
-                procConvert.Exited += new EventHandler(ConversionExited);
-                procConvert.StartInfo.FileName = Main.IsMono ? exe : wrapQuotes(exe);
-                StringBuilder sb = new StringBuilder();
-                sb.Append("--load ");
-                sb.Append(wrapQuotes(BasicConfiguration.basicConf.ExternalSlic3rIniFile));
-                sb.Append(" --print-center ");
-                sb.Append(centerx.ToString("0", GCode.format));
-                sb.Append(",");
-                sb.Append(centery.ToString("0", GCode.format));
-                sb.Append(" -o ");
-                sb.Append(wrapQuotes(StlToGCode(file)));
-                sb.Append(" ");
-                sb.Append(wrapQuotes(file));
-                procConvert.StartInfo.Arguments = sb.ToString();
-                procConvert.StartInfo.UseShellExecute = false;
-                procConvert.StartInfo.RedirectStandardOutput = true;
-                procConvert.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
-                procConvert.StartInfo.RedirectStandardError = true;
-                procConvert.ErrorDataReceived += new DataReceivedEventHandler(OutputDataHandler);
-                procConvert.Start();
-                // Start the asynchronous read of the standard output stream.
-                procConvert.BeginOutputReadLine();
-                procConvert.BeginErrorReadLine();
-                //Main.main.tab.SelectedTab = Main.main.tabPrint;
-            }
-            catch (Exception e)
-            {
-                Main.conn.log(e.ToString(), false, 2);
-            }
-        }*/
+        /*  public void RunSlice(string file,float centerx,float centery)
+          {
+              if (procConvert != null)
+              {
+                  MessageBox.Show("Last slice job still running. Slicing of new job is canceled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+              }
+              SlicingInfo.Start("Slic3r");
+              SlicingInfo.SetAction("Analyzing STL file ...");
+              try
+              {
+                  STL stl = new STL();
+                  stl.Load(file);
+                  stl.UpdateBoundingBox();
+                  if (stl.xMin > 0 && stl.yMin > 0 && stl.xMax < Main.printerSettings.PrintAreaWidth && stl.yMax < Main.printerSettings.PrintAreaDepth)
+                  {
+                      // User assigned valid position, so we use this
+                      centerx = stl.xMin + (stl.xMax - stl.xMin) / 2;
+                      centery = stl.yMin + (stl.yMax - stl.yMin) / 2;
+                  }
+                  stl.Clear();
+              }
+              catch (Exception e)
+              {
+                  Main.conn.log(e.ToString(), false, 2);
+                  SlicingInfo.Stop();
+                  return;
+              }
+              SlicingInfo.SetAction("Slicing STL file ...");
+              procConvert = new Process();
+              try
+              {
+              string basedir = (string)Main.main.repetierKey.GetValue("installPath","");
+              string exname = "slic3r.exe";
+              if (Environment.OSVersion.Platform == PlatformID.Unix)
+                      exname = "bin"+Path.DirectorySeparatorChar+"slic3r";
+              if (Main.IsMac)
+                  exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
+              string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
+                  slicefile = file;
+                  string target = StlToGCode(file);
+                  if (File.Exists(target))
+                      File.Delete(target);
+                  procConvert.EnableRaisingEvents = true;
+                  procConvert.Exited += new EventHandler(ConversionExited);
+                  procConvert.StartInfo.FileName = Main.IsMono ? exe : wrapQuotes(exe);
+                  StringBuilder sb = new StringBuilder();
+                  sb.Append("--nozzle-diameter ");
+                  sb.Append(textNozzleDiameter.Text);
+                  sb.Append(" ");
+                  sb.Append(" -o ");
+                  sb.Append(wrapQuotes(StlToGCode(file)));
+                  sb.Append(" ");
+                  if (checkRelativeE.Checked)
+                      sb.Append("--use-relative-e-distances ");
+                  if (checkComments.Checked)
+                      sb.Append("--gcode-comments ");
+                 // else
+                 //     sb.Append("--gcode-comments 0 ");
+                  sb.Append("-j ");
+                  sb.Append(textNumberOfThreads.Text);
+                  if (checkRandomizeStartingPoints.Checked)
+                      sb.Append(" --randomize-start");
+                  sb.Append(" --z-offset ");
+                  sb.Append(textZOffset.Text);
+                  sb.Append(" --filament-diameter ");
+                  sb.Append(textDiameter.Text);
+                  sb.Append(" --extrusion-multiplier ");
+                  sb.Append(textPackingDensity.Text);
+                  sb.Append(" --temperature ");
+                  sb.Append(textTemperature.Text);
+                  sb.Append(" --infill-speed ");
+                  sb.Append(textPrintFeedrate.Text);
+                  sb.Append(" --solid-infill-speed ");
+                  sb.Append(textSolidInfillSpeed.Text);
+                  sb.Append(" --travel-speed ");
+                  sb.Append(textTravelFeedrate.Text);
+                  sb.Append(" --bridge-speed ");
+                  sb.Append(textBridgeSpeed.Text);
+                  sb.Append(" --perimeter-speed ");
+                  sb.Append(textPerimeterFeedrate.Text);
+                  sb.Append(" --small-perimeter-speed ");
+                  sb.Append(textSmallPerimeterSpeed.Text);
+                  sb.Append(" --bridge-flow-ratio ");
+                  sb.Append(textBridgeFlowRatio.Text);
+                  sb.Append(" --layer-height ");
+                  sb.Append(textLayerHeight.Text);
+                  sb.Append(" --first-layer-speed ");
+                  sb.Append(textFirstLayerSpeed.Text);
+                  sb.Append(" --first-layer-height ");
+                  sb.Append(textFirstLayerHeight.Text);
+                  sb.Append(" --infill-every-layers ");
+                  sb.Append(textInfillEvery.Text);
+                  sb.Append(" --perimeters ");
+                  sb.Append(textPerimeters.Text);
+                  sb.Append(" --solid-layers ");
+                  sb.Append(textSolidLayers.Text);
+                  sb.Append(" --fill-density ");
+                  sb.Append(textFillDensity.Text);
+                  sb.Append(" --fill-angle ");
+                  sb.Append(textFillAngle.Text);
+                  sb.Append(" --fill-pattern ");
+                  sb.Append(comboFillPattern.SelectedItem);
+                  sb.Append(" --solid-fill-pattern ");
+                  sb.Append(comboSolidFillPattern.SelectedItem);
+                  sb.Append(" --retract-length ");
+                  sb.Append(textRetLength.Text);
+                  sb.Append(" --retract-speed ");
+                  sb.Append(textRetSpeed.Text);
+                  sb.Append(" --retract-restart-extra ");
+                  sb.Append(textRetExtraDistance.Text);
+                  sb.Append(" --retract-before-travel ");
+                  sb.Append(textRetMinTravel.Text);
+                  sb.Append(" --retract-lift ");
+                  sb.Append(textRetLift.Text);
+                  sb.Append(" --skirts ");
+                  sb.Append(textSkirtLoops.Text);
+                  sb.Append(" --skirt-distance ");
+                  sb.Append(textSkirtDistance.Text);
+                  sb.Append(" --skirt-height ");
+                  sb.Append(textSkirtHeight.Text);
+                  sb.Append(" --extrusion-width ");
+                  sb.Append(textExtrusionWidth.Text);
+                  sb.Append(" --brim-width ");
+                  sb.Append(textBrim.Text);
+                  sb.Append(" --support-material-threshold ");
+                  sb.Append(textOverhangTreshold.Text);
+                  sb.Append(" --support-material-pattern ");
+                  sb.Append(comboSupportPattern.SelectedItem);
+                  sb.Append(" --support-material-spacing ");
+                  sb.Append(textPatternSpacing.Text);
+                  sb.Append(" --support-material-angle ");
+                  sb.Append(textPatternAngle.Text);
+                  sb.Append(" --print-center ");
+                  sb.Append(centerx.ToString("0",GCode.format));
+                  sb.Append(",");
+                  sb.Append(centery.ToString("0", GCode.format));
+                  if (checkEnableCooling.Checked)
+                  {
+                      sb.Append(" --cooling --bridge-fan-speed ");
+                      sb.Append(textCoolBridgeFanSpeed.Text);
+                      sb.Append(" --disable-fan-first-layers ");
+                      sb.Append(textCoolDisableLayer.Text);
+                      sb.Append(" --fan-below-layer-time ");
+                      sb.Append(textCoolEnableBelow.Text);
+                      sb.Append(" --max-fan-speed ");
+                      sb.Append(textCoolMaxFanSpeed.Text);
+                      sb.Append(" --min-fan-speed ");
+                      sb.Append(textCoolMinFanSpeed.Text);
+                      sb.Append(" --min-print-speed ");
+                      sb.Append(textCoolMinPrintSpeed.Text);
+                      sb.Append(" --slowdown-below-layer-time ");
+                      sb.Append(textCoolSlowDownBelow.Text);
+                  }
+                  if (checkGenerateSupportMaterial.Checked)
+                  {
+                      sb.Append(" --support-material --support-material-tool " + comboSupportMaterialTool.SelectedIndex);
+                  }
+                  sb.Append(" --gcode-flavor ");
+                  switch (comboGCodeFlavor.SelectedIndex)
+                  {
+                      case 0:
+                      default:
+                          sb.Append("reprap");
+                          break;
+
+                      case 1:
+                          sb.Append("teacup");
+                          break;
+
+                      case 2:
+                          sb.Append("makerbot");
+                          break;
+
+                      case 3:
+                          sb.Append("mach3");
+                          break;
+
+                      case 4:
+                          sb.Append("no-extrusion");
+                          break;
+                  }
+                  sb.Append(" --first-layer-temperature ");
+                  sb.Append(textFirstLayerTemperature.Text);
+                  sb.Append(" --bed-temperature ");
+                  sb.Append(textBedTemperature.Text);
+                  sb.Append(" --first-layer-bed-temperature ");
+                  sb.Append(textFirstLayerBedTemperature.Text);
+                  if (checkFanAlwaysEnabled.Checked)
+                  {
+                      sb.Append(" --fan-always-on");
+                  }
+                  sb.Append(" --start-gcode ");
+                  sb.Append(wrapQuotes(basedir+Path.DirectorySeparatorChar+"empty.txt"));
+                  sb.Append(" --end-gcode ");
+                  sb.Append(wrapQuotes(basedir+Path.DirectorySeparatorChar+"empty.txt"));
+                  sb.Append(" ");
+                  sb.Append(wrapQuotes(file));
+                  Main.conn.log(sb.ToString(), false, 3);
+                  procConvert.StartInfo.Arguments = sb.ToString();
+                  procConvert.StartInfo.UseShellExecute = false;
+                  procConvert.StartInfo.RedirectStandardOutput = true;
+                  procConvert.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
+                  procConvert.StartInfo.RedirectStandardError = true;
+                  procConvert.ErrorDataReceived += new DataReceivedEventHandler(OutputDataHandler);
+                  procConvert.Start();
+                  // Start the asynchronous read of the standard output stream.
+                  procConvert.BeginOutputReadLine();
+                  procConvert.BeginErrorReadLine();
+                  //Main.main.tab.SelectedTab = Main.main.tabPrint;
+              }
+              catch (Exception e)
+              {
+                  Main.conn.log(e.ToString(), false, 2);
+              }
+          }*/
+        /*  public void RunSliceExternal(string file, float centerx, float centery)
+          {
+              if (procConvert != null)
+              {
+                  MessageBox.Show("Last slice job still running. Slicing of new job is canceled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+              }
+              SlicingInfo.Start("External Slic3r");
+              SlicingInfo.SetAction("Analyzing STL file ...");
+              try
+              {
+                  STL stl = new STL();
+                  stl.Load(file);
+                  stl.UpdateBoundingBox();
+                  if (stl.xMin > 0 && stl.yMin > 0 && stl.xMax < Main.printerSettings.PrintAreaWidth && stl.yMax < Main.printerSettings.PrintAreaDepth)
+                  {
+                      // User assigned valid position, so we use this
+                      centerx = stl.xMin + (stl.xMax - stl.xMin) / 2;
+                      centery = stl.yMin + (stl.yMax - stl.yMin) / 2;
+                  }
+                  stl.Clear();
+              }
+              catch (Exception e)
+              {
+                  Main.conn.log(e.ToString(), false, 2);
+                  SlicingInfo.Stop();
+                  return;
+              }
+              SlicingInfo.SetAction("Slicing STL file ...");
+              procConvert = new Process();
+              try
+              {
+                  string basedir = (string)Main.main.repetierKey.GetValue("installPath", "");
+                  string exname = "slic3r.exe";
+                  if (Environment.OSVersion.Platform == PlatformID.Unix)
+                      exname = "bin" + Path.DirectorySeparatorChar + "slic3r";
+                  if (Main.IsMac)
+                      exname = "MacOS" + Path.DirectorySeparatorChar + "slic3r";
+                  string exe = basedir + Path.DirectorySeparatorChar + "Slic3r" + Path.DirectorySeparatorChar + exname;
+                  if (File.Exists(BasicConfiguration.basicConf.ExternalSlic3rPath))
+                      exe = BasicConfiguration.basicConf.ExternalSlic3rPath;
+
+                  slicefile = file;
+                  string target = StlToGCode(file);
+                  if (File.Exists(target))
+                      File.Delete(target);
+                  procConvert.EnableRaisingEvents = true;
+                  procConvert.Exited += new EventHandler(ConversionExited);
+                  procConvert.StartInfo.FileName = Main.IsMono ? exe : wrapQuotes(exe);
+                  StringBuilder sb = new StringBuilder();
+                  sb.Append("--load ");
+                  sb.Append(wrapQuotes(BasicConfiguration.basicConf.ExternalSlic3rIniFile));
+                  sb.Append(" --print-center ");
+                  sb.Append(centerx.ToString("0", GCode.format));
+                  sb.Append(",");
+                  sb.Append(centery.ToString("0", GCode.format));
+                  sb.Append(" -o ");
+                  sb.Append(wrapQuotes(StlToGCode(file)));
+                  sb.Append(" ");
+                  sb.Append(wrapQuotes(file));
+                  procConvert.StartInfo.Arguments = sb.ToString();
+                  procConvert.StartInfo.UseShellExecute = false;
+                  procConvert.StartInfo.RedirectStandardOutput = true;
+                  procConvert.OutputDataReceived += new DataReceivedEventHandler(OutputDataHandler);
+                  procConvert.StartInfo.RedirectStandardError = true;
+                  procConvert.ErrorDataReceived += new DataReceivedEventHandler(OutputDataHandler);
+                  procConvert.Start();
+                  // Start the asynchronous read of the standard output stream.
+                  procConvert.BeginOutputReadLine();
+                  procConvert.BeginErrorReadLine();
+                  //Main.main.tab.SelectedTab = Main.main.tabPrint;
+              }
+              catch (Exception e)
+              {
+                  Main.conn.log(e.ToString(), false, 2);
+              }
+          }*/
+
         public string findSlic3rExecutable()
         {
             if (File.Exists(BasicConfiguration.basicConf.Slic3rExecutable)) // use preconfigured
@@ -698,7 +712,8 @@ namespace RepetierHost.view
                 if (File.Exists(exe)) return exe;
             }
             // Search in PATH environment var
-            foreach (string test in (Environment.GetEnvironmentVariable("PATH") ?? "").Split(Path.PathSeparator)) {
+            foreach (string test in (Environment.GetEnvironmentVariable("PATH") ?? "").Split(Path.PathSeparator))
+            {
                 string path = test.Trim();
                 foreach (string exname in possibleNames) // Search bundled version
                 {
@@ -708,6 +723,7 @@ namespace RepetierHost.view
             }
             return null;
         }
+
         public bool RunSliceNew(string file, float centerx, float centery)
         {
             if (procConvert != null)
@@ -727,7 +743,7 @@ namespace RepetierHost.view
             try
             {
                 RHBoundingBox stl = Slicer.lastBox;
-                if (stl.xMin > ps.BedLeft && stl.yMin > ps.BedFront && stl.xMax < ps.BedLeft + ps.PrintAreaWidth && stl.yMax < ps.BedFront+ps.PrintAreaDepth)
+                if (stl.xMin > ps.BedLeft && stl.yMin > ps.BedFront && stl.xMax < ps.BedLeft + ps.PrintAreaWidth && stl.yMax < ps.BedFront + ps.PrintAreaDepth)
                 {
                     // User assigned valid position, so we use this
                     centerx = (float)(stl.xMin + (stl.xMax - stl.xMin) / 2);
@@ -746,14 +762,14 @@ namespace RepetierHost.view
             string cdir = Main.main.slicerPanel.slic3rDirectory;
             IniFile ini = new IniFile();
             //BasicConfiguration b = BasicConfiguration.basicConf;
-            string fPrinter = cdir + Path.DirectorySeparatorChar + "print"+Path.DirectorySeparatorChar + Main.printerModel.Slic3rPrint + ".ini";
+            string fPrinter = cdir + Path.DirectorySeparatorChar + "print" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rPrint + ".ini";
             ini.read(fPrinter);
             IniFile ini2 = new IniFile();
             ini2.read(cdir + Path.DirectorySeparatorChar + "printer" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rPrinter + ".ini");
             IniFile ini3 = new IniFile();
             ini3.read(cdir + Path.DirectorySeparatorChar + "filament" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rFilament1 + ".ini");
             IniFile ini3_2 = new IniFile();
-            if(Main.conn.numberExtruder>1)
+            if (Main.conn.numberExtruder > 1)
                 ini3_2.read(cdir + Path.DirectorySeparatorChar + "filament" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rFilament2 + ".ini");
             IniFile ini3_3 = new IniFile();
             if (Main.conn.numberExtruder > 2)
@@ -796,7 +812,7 @@ namespace RepetierHost.view
                 sb.Append(wrapQuotes(StlToGCode(file)));
                 sb.Append(" ");
                 sb.Append(wrapQuotes(file));
-                RLog.info("Slic3r command:"+exe+" "+sb.ToString());
+                RLog.info("Slic3r command:" + exe + " " + sb.ToString());
                 procConvert.StartInfo.Arguments = sb.ToString();
                 procConvert.StartInfo.UseShellExecute = false;
                 procConvert.StartInfo.RedirectStandardOutput = true;
@@ -815,14 +831,16 @@ namespace RepetierHost.view
             }
             return true;
         }
-        
+
         public string StlToGCode(string stl)
         {
             int p = stl.LastIndexOf('.');
             if (p > 0) stl = stl.Substring(0, p);
             return stl + ".gcode";
         }
+
         public delegate void LoadGCode(String myString);
+
         private void ConversionExited(object sender, System.EventArgs e)
         {
             if (procConvert == null) return;
@@ -835,13 +853,14 @@ namespace RepetierHost.view
             }
             catch { }
         }
+
         private static void OutputDataHandler(object sendingProcess,
             DataReceivedEventArgs outLine)
         {
             // Collect the net view command output.
             if (!String.IsNullOrEmpty(outLine.Data))
             {
-                Main.conn.log("<Slic3r> "+outLine.Data, false, 4);
+                Main.conn.log("<Slic3r> " + outLine.Data, false, 4);
             }
         }
 

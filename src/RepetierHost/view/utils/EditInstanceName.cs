@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RepetierHost.model;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view.utils
 {
     public partial class EditInstanceName : Form
     {
-        static EditInstanceName form = null;
+        private static EditInstanceName form = null;
 
         public static void Execute()
         {
@@ -22,10 +17,12 @@ namespace RepetierHost.view.utils
             }
             form.Open();
         }
+
         public EditInstanceName()
         {
             InitializeComponent();
         }
+
         public void Open()
         {
             labelInstanceName.Text = Trans.T("L_PRINTER_ID");
@@ -37,11 +34,12 @@ namespace RepetierHost.view.utils
             panelColor.BackColor = Main.main.printerIdLabel.BackColor;
             Show(Main.main);
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {

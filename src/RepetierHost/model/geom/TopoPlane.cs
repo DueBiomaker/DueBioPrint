@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model.geom
 {
     public class TopoPlane
     {
-        double d;
-        RHVector3 normal;
+        private double d;
+        private RHVector3 normal;
+
         public TopoPlane(RHVector3 _normal, RHVector3 pointOnPlane)
         {
             normal = new RHVector3(_normal);
             normal.NormalizeSafe();
             d = pointOnPlane.ScalarProduct(normal);
         }
+
         public double VertexDistance(RHVector3 v)
         {
             return v.x * normal.x + v.y * normal.y + v.z * normal.z - d;
         }
+
         public int testTriangleSide(TopoTriangle triangle)
         {
             double d1 = VertexDistance(triangle.vertices[0].pos);
@@ -28,17 +28,18 @@ namespace RepetierHost.model.geom
             if (d1 <= 0 && d2 <= 0 && d3 <= 0) return -1;
             return 0;
         }
+
         public int testTriangleSideFast(TopoTriangle triangle)
         {
-             
-            bool d1 = VertexDistance(triangle.vertices[0].pos)>0;
-            bool d2 = VertexDistance(triangle.vertices[1].pos)>0;
-            bool d3 = VertexDistance(triangle.vertices[2].pos)>0;
+            bool d1 = VertexDistance(triangle.vertices[0].pos) > 0;
+            bool d2 = VertexDistance(triangle.vertices[1].pos) > 0;
+            bool d3 = VertexDistance(triangle.vertices[2].pos) > 0;
             if (d1 && d2 && d3) return 1;
             if (d1 == d2 && d2 == d3) return -1;
             return 0;
         }
-        public void addIntersectionToSubmesh(Submesh mesh, TopoTriangle triangle, bool addEdges,int color)
+
+        public void addIntersectionToSubmesh(Submesh mesh, TopoTriangle triangle, bool addEdges, int color)
         {
             int[] outside = new int[3];
             int[] inside = new int[3];
@@ -64,9 +65,9 @@ namespace RepetierHost.model.geom
                     double dist2 = VertexDistance(v2);
                     double pos = Math.Abs(dist1) / Math.Abs(dist2 - dist1);
                     intersections[nIntersections++] = new RHVector3(
-                        v1.x+pos*(v2.x-v1.x),
-                        v1.y+pos*(v2.y-v1.y),
-                        v1.z+pos*(v2.z-v1.z)
+                        v1.x + pos * (v2.x - v1.x),
+                        v1.y + pos * (v2.y - v1.y),
+                        v1.z + pos * (v2.z - v1.z)
                         );
                 }
             }
@@ -85,7 +86,7 @@ namespace RepetierHost.model.geom
             }
             else
             {
-                if(inside[0] == 1)
+                if (inside[0] == 1)
                     mesh.AddTriangle(triangle.vertices[inside[0]].pos, intersections[1], intersections[0], color);
                 else
                     mesh.AddTriangle(triangle.vertices[inside[0]].pos, intersections[0], intersections[1], color);
@@ -102,7 +103,7 @@ namespace RepetierHost.model.geom
                 {
                     for (int iInter = 0; iInter < nIntersections; iInter++)
                     {
-                        mesh.AddEdge(triangle.vertices[inside[0]].pos, intersections[iInter], triangle.edges[(inside[0]+2*iInter) % 3].connectedFaces == 2 ? Submesh.MESHCOLOR_EDGE : Submesh.MESHCOLOR_ERROREDGE);
+                        mesh.AddEdge(triangle.vertices[inside[0]].pos, intersections[iInter], triangle.edges[(inside[0] + 2 * iInter) % 3].connectedFaces == 2 ? Submesh.MESHCOLOR_EDGE : Submesh.MESHCOLOR_ERROREDGE);
                     }
                 }
             }

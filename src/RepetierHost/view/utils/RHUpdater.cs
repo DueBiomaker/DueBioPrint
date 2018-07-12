@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
+﻿using RepetierHost.model;
+using System;
+using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.IO;
-using RepetierHost.model;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
 {
@@ -27,12 +22,14 @@ namespace RepetierHost.view.utils
         public static Thread thread = null;
         public static string url = "";
         public static int error = 0;
+
         public RHUpdater()
         {
             InitializeComponent();
             translate();
             Main.main.languageChanged += translate;
         }
+
         public void translate()
         {
             Text = Trans.T("W_REPETIER_HOST_UPDATE_CHECK");
@@ -43,30 +40,36 @@ namespace RepetierHost.view.utils
             labelInstalled.Text = Trans.T("L_INSTALLED_VERSION");
             labelInformationOnUpdate.Text = Trans.T("L_INFORMATION_ON_UPDATE");
         }
+
         public static ManualResetEvent allDone = new ManualResetEvent(false);
-        const int BUFFER_SIZE = 1024;
+        private const int BUFFER_SIZE = 1024;
+
         public static long timeInSeconds()
         {
             DateTime dt = DateTime.Now;
             return dt.Ticks / TimeSpan.TicksPerSecond;
         }
+
         public static bool pingServer(string hostNameOrAddress)
         {
             bool pingStatus = false;
 
             Ping p = new Ping();
             byte[] buffer = Encoding.ASCII.GetBytes("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-            try {
-                    PingReply reply = p.Send(hostNameOrAddress, 120, buffer);
-                    pingStatus = (reply.Status == IPStatus.Success);
+            try
+            {
+                PingReply reply = p.Send(hostNameOrAddress, 120, buffer);
+                pingStatus = (reply.Status == IPStatus.Success);
             }
-            catch(Exception) {
+            catch (Exception)
+            {
                 //Console.WriteLine("Ping:"+e.ToString());
                 pingStatus = false;
             }
 
             return pingStatus;
         }
+
         public static MethodInvoker Finished = delegate
         {
             running = false;
@@ -75,7 +78,9 @@ namespace RepetierHost.view.utils
                 MessageBox.Show(Trans.T("L_UPDATE_NO_CONNECTION"), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             error = 0;
         };
-        public static void checkForUpdates(bool silent) {
+
+        public static void checkForUpdates(bool silent)
+        {
             RHUpdater.silent = silent;
             if (Custom.GetBool("removeUpdates", false)) return; // Do not try to look for updates.
             url = "http://www.repetier.com/updates/rh/version_windows.txt";
@@ -92,8 +97,9 @@ namespace RepetierHost.view.utils
             Main.main.checkForUpdatesToolStripMenuItem.Enabled = false;
             thread.Start();
         }
-        
-        public static void CheckThread() {
+
+        public static void CheckThread()
+        {
             // Get the URI from the command line.
             Uri httpSite = new Uri(url);
 
@@ -110,7 +116,7 @@ namespace RepetierHost.view.utils
             IAsyncResult r = (IAsyncResult)wreq.BeginGetResponse(
                new AsyncCallback(RespCallback), rs);
 
-            // Wait until the ManualResetEvent is set so that the application 
+            // Wait until the ManualResetEvent is set so that the application
             // does not exit until after the callback is called.
             //allDone.WaitOne();
 
@@ -134,7 +140,7 @@ namespace RepetierHost.view.utils
                 //  Start reading data from the response stream.
                 Stream ResponseStream = resp.GetResponseStream();
 
-                // Store the response stream in RequestState to read 
+                // Store the response stream in RequestState to read
                 // the stream asynchronously.
                 rs.ResponseStream = ResponseStream;
 
@@ -150,7 +156,6 @@ namespace RepetierHost.view.utils
             }
         }
 
-
         private static void ReadCallBack(IAsyncResult asyncResult)
         {
             try
@@ -158,10 +163,10 @@ namespace RepetierHost.view.utils
                 // Get the RequestState object from AsyncResult.
                 RequestState rs = (RequestState)asyncResult.AsyncState;
 
-                // Retrieve the ResponseStream that was set in RespCallback. 
+                // Retrieve the ResponseStream that was set in RespCallback.
                 Stream responseStream = rs.ResponseStream;
 
-                // Read rs.BufferRead to verify that it contains data. 
+                // Read rs.BufferRead to verify that it contains data.
                 int read = responseStream.EndRead(asyncResult);
                 if (read > 0)
                 {
@@ -180,7 +185,7 @@ namespace RepetierHost.view.utils
                     rs.RequestData.Append(
                        Encoding.ASCII.GetString(rs.BufferRead, 0, read));
 
-                    // Continue reading data until 
+                    // Continue reading data until
                     // responseStream.EndRead returns –1.
                     IAsyncResult ar = responseStream.BeginRead(
                        rs.BufferRead, 0, BUFFER_SIZE,
@@ -218,7 +223,9 @@ namespace RepetierHost.view.utils
             }
             return;
         }
-        static RHUpdater form = null;
+
+        private static RHUpdater form = null;
+
         public static MethodInvoker Execute = delegate
         {
             if (form == null)
@@ -229,6 +236,7 @@ namespace RepetierHost.view.utils
             form.textUpdate.Select(0, 0);
             form.Show();
         };
+
         static public void parseVersion(string s)
         {
             string[] arr = s.Split('\n');
@@ -252,7 +260,7 @@ namespace RepetierHost.view.utils
 
         private void buttonDownload_Click(object sender, EventArgs e)
         {
-            Main.main.openLink(downloadUrl); 
+            Main.main.openLink(downloadUrl);
             Hide();
         }
 
@@ -262,14 +270,16 @@ namespace RepetierHost.view.utils
             Hide();
         }
     }
+
     // The RequestState class passes data across async calls.
     public class RequestState
     {
-        const int BufferSize = 1024;
+        private const int BufferSize = 1024;
         public StringBuilder RequestData;
         public byte[] BufferRead;
         public WebRequest Request;
         public Stream ResponseStream;
+
         // Create Decoder for appropriate enconding type.
         public Decoder StreamDecode = Encoding.UTF8.GetDecoder();
 

@@ -14,16 +14,11 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using RepetierHost.view.utils;
 using RepetierHost.model;
+using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
@@ -38,13 +33,15 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
-        void translate()
+
+        private void translate()
         {
             buttonOK.Text = Trans.T("B_OK");
             Text = Trans.T("W_ABOUT_REPETIER_HOST");
             labelLicenceAndLibraries.Text = Trans.T("L_LICENCE_AND_LIBRARIES");
             labelRepetierInfo.Text = Trans.T("L_REPETIER_INFO");
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             Hide();
@@ -54,15 +51,16 @@ namespace RepetierHost.view
         {
             Main.main.openLink("https://github.com/repetier/Repetier-Host");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         private void About_FormClosing(object sender, FormClosingEventArgs e)
         {
             RegMemory.StoreWindowPos("aboutWindow", this, false, false);
         }
-
     }
 }

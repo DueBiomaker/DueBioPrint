@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace RepetierHost.model
 {
     public class GCodeShort
     {
-        public float x, y, z, e,f,emax;
-        // Bit 0-19 : Layer 
+        public float x, y, z, e, f, emax;
+
+        // Bit 0-19 : Layer
         // Bit 20-23 : Tool
         // Bit 24-29 : Compressed command
-        int flags;
+        private int flags;
+
         public string text;
+
         public GCodeShort(string cmd)
         {
             text = cmd;
@@ -22,6 +21,7 @@ namespace RepetierHost.model
             emax = -1;
             parse();
         }
+
         public int layer
         {
             get
@@ -33,13 +33,15 @@ namespace RepetierHost.model
                 flags = (flags & ~1048575) | value;
             }
         }
+
         public bool hasLayer
         {
             get
             {
                 return (flags & 1048575) != 1048575;
             }
-         }
+        }
+
         public int tool
         {
             get
@@ -52,6 +54,7 @@ namespace RepetierHost.model
                 flags = (flags & ~(15 << 20)) | (value << 20);
             }
         }
+
         public int compressedCommand
         {
             set
@@ -63,26 +66,30 @@ namespace RepetierHost.model
                 return (flags >> 24) & 63;
             }
         }
+
         public int Length
         {
             get { return text.Length; }
         }
+
         public bool hasX { get { return x != -99999; } }
         public bool hasY { get { return y != -99999; } }
         public bool hasZ { get { return z != -99999; } }
         public bool hasE { get { return e != -99999; } }
         public bool hasF { get { return f != -99999; } }
+
         public float getValueFor(string key, float def)
         {
             int p = text.IndexOf(key);
             if (p < 0) return def;
             p++;
             int e = text.IndexOf(' ', p);
-            if(e<0) e = text.Length;
+            if (e < 0) e = text.Length;
             float d = def;
-            float.TryParse(text.Substring(p,e-p), NumberStyles.Float, GCode.format, out d);
+            float.TryParse(text.Substring(p, e - p), NumberStyles.Float, GCode.format, out d);
             return d;
         }
+
         /**
         Command values:
          0 = unimportant command
@@ -128,19 +135,24 @@ namespace RepetierHost.model
                     tool = (int)d;
                     compressedCommand = 11;
                     break;
+
                 case 'X':
                     x = (float)d;
                     break;
+
                 case 'Y':
                     y = (float)d;
                     break;
+
                 case 'Z':
                     z = (float)d;
                     break;
+
                 case 'E':
                 case 'A':
                     e = (float)d;
                     break;
+
                 case 'F':
                     f = (float)d;
                     break;
@@ -162,7 +174,7 @@ namespace RepetierHost.model
             for (i = 0; i < l; i++)
             {
                 char c = text[i];
-                if (i ==0 && c == '@')
+                if (i == 0 && c == '@')
                 {
                     compressedCommand = 12; // Host command
                     return;

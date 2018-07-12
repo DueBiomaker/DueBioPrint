@@ -14,25 +14,21 @@
    limitations under the License.
 */
 
+using Microsoft.Win32;
+using RepetierHost.model;
+using RepetierHost.view.utils;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using Microsoft.Win32;
-using RepetierHost.view.utils;
-using RepetierHost.model;
-using System.Runtime.InteropServices;
 
 namespace RepetierHost.view
 {
     public partial class GlobalSettings : Form
     {
-        RegistryKey repetierKey;
+        private RegistryKey repetierKey;
 
         public GlobalSettings()
         {
@@ -53,6 +49,7 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         public void translate()
         {
             Text = Trans.T("W_REPETIER_SETTINGS");
@@ -72,11 +69,13 @@ namespace RepetierHost.view
             groupFileAssociations.Text = Trans.T("L_FILE_ASSOCIATIONS");
             buttonAssociate.Text = Trans.T("L_ASSOCIATE_EXTENSIONS");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         public bool WorkdirOK()
         {
             string wd = Workdir;
@@ -88,6 +87,7 @@ namespace RepetierHost.view
             labelOKMasg.Text = "";
             return true;
         }
+
         public void FormToReg()
         {
             repetierKey.SetValue("workdir", Workdir);
@@ -96,20 +96,22 @@ namespace RepetierHost.view
             repetierKey.SetValue("reduceToolbarSize", ReduceToolbarSize ? 1 : 0);
             RegMemory.SetInt("onOffImageOffset", checkRedGreenSwitch.Checked ? 2 : 0);
         }
+
         public void RegToForm()
         {
             Workdir = (string)repetierKey.GetValue("workdir", Workdir);
-            checkLogfile.Checked = 1== (int) repetierKey.GetValue("logEnabled", LogEnabled ? 1 : 0);
+            checkLogfile.Checked = 1 == (int)repetierKey.GetValue("logEnabled", LogEnabled ? 1 : 0);
             checkDisableQualityReduction.Checked = 1 == (int)repetierKey.GetValue("disableQualityReduction", DisableQualityReduction ? 1 : 0);
             checkReduceToolbarSize.Checked = 1 == (int)repetierKey.GetValue("reduceToolbarSize", ReduceToolbarSize ? 1 : 0);
             checkRedGreenSwitch.Checked = 2 == RegMemory.GetInt("onOffImageOffset", 0);
         }
+
         public static void Associate(string extension,
            string progID, string description)
         {
             string icon = Application.StartupPath + Path.DirectorySeparatorChar + "repetier-logo-trans32.ico";
             string application = Application.ExecutablePath;
-            RegistryKey classes = Registry.CurrentUser.OpenSubKey("Software\\Classes",true);
+            RegistryKey classes = Registry.CurrentUser.OpenSubKey("Software\\Classes", true);
             classes.CreateSubKey(extension).SetValue("", progID);
             if (progID != null && progID.Length > 0)
                 using (RegistryKey key = classes.CreateSubKey(progID))
@@ -123,9 +125,11 @@ namespace RepetierHost.view
                                     ToShortPathName(application) + " \"%1\"");
                 }
         }
+
         [DllImport("Kernel32.dll")]
         private static extern uint GetShortPathName(string lpszLongPath,
             [Out] StringBuilder lpszShortPath, uint cchBuffer);
+
         [DllImport("Shell32.dll")]
         private static extern int SHChangeNotify(int eventId, int flags, IntPtr item1, IntPtr item2);
 
@@ -137,34 +141,39 @@ namespace RepetierHost.view
             uint iRet = GetShortPathName(longName, s, iSize);
             return s.ToString();
         }
+
         public string Workdir
         {
             get { return textWorkdir.Text; }
             set { textWorkdir.Text = value; }
         }
+
         public Boolean LogEnabled
         {
             get { return checkLogfile.Checked; }
         }
+
         public Boolean DisableQualityReduction
         {
             get { return checkDisableQualityReduction.Checked; }
         }
+
         public Boolean ReduceToolbarSize
         {
             get { return checkReduceToolbarSize.Checked; }
         }
+
         private void buttonAbort_Click(object sender, EventArgs e)
         {
             RegToForm();
-            if(WorkdirOK())
+            if (WorkdirOK())
                 Hide();
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
             FormToReg();
-            if(WorkdirOK())
+            if (WorkdirOK())
                 Hide();
         }
 
@@ -190,10 +199,11 @@ namespace RepetierHost.view
         {
             Main.main.UpdateToolbarSize();
         }
+
         private void buttonAssociate_Click(object sender, EventArgs e)
         {
             string progid = Main.main.basicTitle;
-            int p = -1,p2 = -1;
+            int p = -1, p2 = -1;
             for (int i = 0; i < progid.Length; i++)
             {
                 char c = progid[i];
@@ -205,7 +215,7 @@ namespace RepetierHost.view
                 }
             }
             if (p > 0)
-                progid = progid.Substring(0, p2>0 ? p2 : p).Trim();
+                progid = progid.Substring(0, p2 > 0 ? p2 : p).Trim();
             progid = progid.Replace(" ", "-");
             if (checkSTL.Checked)
                 Associate(".stl", progid, "STL file");
@@ -220,7 +230,7 @@ namespace RepetierHost.view
             if (checkNC.Checked)
                 Associate(".nc", progid, "G-Code");
 
-            SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero); 
+            SHChangeNotify(0x8000000, 0x1000, IntPtr.Zero, IntPtr.Zero);
         }
     }
 }

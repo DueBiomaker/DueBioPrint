@@ -14,35 +14,33 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Windows.Forms;
+using Microsoft.Win32;
+using RepetierHost.connector;
 using RepetierHost.model;
 using RepetierHost.view;
-using RepetierHost.view.utils;
-using RepetierHost.model.geom;
-using Microsoft.Win32;
-using System.Threading;
-using System.Diagnostics;
-using RepetierHost.model;
-using RepetierHost.connector;
-using System.Runtime.InteropServices;
 using RepetierHost.view.calibration;
+using RepetierHost.view.utils;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace RepetierHost
 {
     public delegate void executeHostCommandDelegate(GCode code);
+
     public delegate void languageChangedEvent();
 
     public partial class Main : Form
     {
         public event languageChangedEvent languageChanged;
+
         private const int InfoPanel2MinSize = 440;
         public static PrinterConnection conn;
         public static Main main;
@@ -75,8 +73,8 @@ namespace RepetierHost
         public RegMemory.FilesHistory fileHistory = new RegMemory.FilesHistory("fileHistory", 8);
         public int refreshCounter = 0;
         public executeHostCommandDelegate executeHostCall;
-        bool recalcJobPreview = false;
-        List<GCodeShort> previewArray0, previewArray1, previewArray2;
+        private bool recalcJobPreview = false;
+        private List<GCodeShort> previewArray0, previewArray1, previewArray2;
         public TemperatureHistory history = null;
         public TemperatureView tempView = null;
         public Trans trans = null;
@@ -87,12 +85,13 @@ namespace RepetierHost
 
         public class JobUpdater
         {
-            GCodeVisual visual = null;
+            private GCodeVisual visual = null;
+
             // This method will be called when the thread is started.
             public void DoWork()
             {
                 RepetierEditor ed = Main.main.editor;
-                
+
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
                 visual = new GCodeVisual();
@@ -103,17 +102,19 @@ namespace RepetierHost
                         visual.minLayer = 0;
                         visual.maxLayer = 999999;
                         break;
+
                     case 1:
                         visual.minLayer = visual.maxLayer = ed.ShowMinLayer;
                         break;
+
                     case 2:
                         visual.minLayer = ed.ShowMinLayer;
                         visual.maxLayer = ed.ShowMaxLayer;
                         break;
                 }
-                visual.parseGCodeShortArray(Main.main.previewArray0, true,0);
-                visual.parseGCodeShortArray(Main.main.previewArray1, false,1);
-                visual.parseGCodeShortArray(Main.main.previewArray2, false,2);
+                visual.parseGCodeShortArray(Main.main.previewArray0, true, 0);
+                visual.parseGCodeShortArray(Main.main.previewArray1, false, 1);
+                visual.parseGCodeShortArray(Main.main.previewArray2, false, 2);
                 Main.main.previewArray0 = Main.main.previewArray1 = Main.main.previewArray2 = null;
                 visual.Reduce();
                 Main.main.gcodePrintingTime = visual.ana.printingTime;
@@ -125,8 +126,9 @@ namespace RepetierHost
                 //Main.conn.log("Update time:" + sw.ElapsedMilliseconds, false, 3);
             }
         }
+
         //From Managed.Windows.Forms/XplatUI
-        static bool IsRunningOnMac()
+        private static bool IsRunningOnMac()
         {
             IntPtr buf = IntPtr.Zero;
             try
@@ -150,20 +152,23 @@ namespace RepetierHost
             }
             return false;
         }
+
         private void Main_Load(object sender, EventArgs e)
         {
-        /*    RegMemory.RestoreWindowPos("mainWindow", this);
-           // if (WindowState == FormWindowState.Maximized)
-           //     Application.DoEvents(); // This crashes mono if run here
-            splitLog.SplitterDistance = RegMemory.GetInt("logSplitterDistance", splitLog.SplitterDistance);
-            splitInfoEdit.SplitterDistance = RegMemory.GetInt("infoEditSplitterDistance", Width - 470);
-            //A bug causes the splitter to throw an exception if the PanelMinSize is set too soon.
-            splitInfoEdit.Panel2MinSize = Main.InfoPanel2MinSize;
-            //splitInfoEdit.SplitterDistance = (splitInfoEdit.Width - splitInfoEdit.Panel2MinSize);
-         * */
+            /*    RegMemory.RestoreWindowPos("mainWindow", this);
+               // if (WindowState == FormWindowState.Maximized)
+               //     Application.DoEvents(); // This crashes mono if run here
+                splitLog.SplitterDistance = RegMemory.GetInt("logSplitterDistance", splitLog.SplitterDistance);
+                splitInfoEdit.SplitterDistance = RegMemory.GetInt("infoEditSplitterDistance", Width - 470);
+                //A bug causes the splitter to throw an exception if the PanelMinSize is set too soon.
+                splitInfoEdit.Panel2MinSize = Main.InfoPanel2MinSize;
+                //splitInfoEdit.SplitterDistance = (splitInfoEdit.Width - splitInfoEdit.Panel2MinSize);
+             * */
         }
+
         [System.Runtime.InteropServices.DllImport("libc")]
-        static extern int uname(IntPtr buf);
+        private static extern int uname(IntPtr buf);
+
         public Main()
         {
             executeHostCall = new executeHostCommandDelegate(this.executeHostCommand);
@@ -206,7 +211,7 @@ namespace RepetierHost
             if (WindowState == FormWindowState.Maximized)
                 Application.DoEvents();
             splitLog.SplitterDistance = RegMemory.GetInt("logSplitterDistance", splitLog.SplitterDistance);
-            splitInfoEdit.SplitterDistance = RegMemory.GetInt("infoEditSplitterDistance", Width-470);
+            splitInfoEdit.SplitterDistance = RegMemory.GetInt("infoEditSplitterDistance", Width - 470);
             if (IsMono)
             {
                 if (!IsMac)
@@ -222,7 +227,7 @@ namespace RepetierHost
                         Application.Quit ();
                         e.Handled = true;
                     };
- 
+
                     ApplicationEvents.Reopen += delegate (object sender, ApplicationEventArgs e) {
                         WindowState = FormWindowState.Normal;
                         e.Handled = true;
@@ -262,8 +267,8 @@ namespace RepetierHost
             tabPage3DView.Controls.Add(threedview);
 
             printPreview = new ThreeDView();
-           // printPreview.Dock = DockStyle.Fill;
-          //  splitContainerPrinterGraphic.Panel2.Controls.Add(printPreview);
+            // printPreview.Dock = DockStyle.Fill;
+            //  splitContainerPrinterGraphic.Panel2.Controls.Add(printPreview);
             printPreview.SetEditor(false);
             printPreview.autoupdateable = true;
             printVisual = new GCodeVisual(conn.analyzer);
@@ -271,8 +276,8 @@ namespace RepetierHost
             printPreview.models.AddLast(printVisual);
             basicTitle = Text;
             jobPreview = new ThreeDView();
-         //   jobPreview.Dock = DockStyle.Fill;
-         //   splitJob.Panel2.Controls.Add(jobPreview);
+            //   jobPreview.Dock = DockStyle.Fill;
+            //   splitJob.Panel2.Controls.Add(jobPreview);
             jobPreview.SetEditor(false);
             jobPreview.models.AddLast(jobVisual);
             editor.contentChangedEvent += JobPreview;
@@ -299,16 +304,17 @@ namespace RepetierHost
 
             // Customizations
 
-            if(Custom.GetBool("removeTestgenerator",false)) {
+            if (Custom.GetBool("removeTestgenerator", false))
+            {
                 internalSlicingParameterToolStripMenuItem.Visible = false;
                 testCaseGeneratorToolStripMenuItem.Visible = false;
             }
             string titleAdd = Custom.GetString("titleAddition", "");
             string titlePrefix = Custom.GetString("titlePrefix", "");
-            if (titleAdd.Length > 0 || titlePrefix.Length>0)
+            if (titleAdd.Length > 0 || titlePrefix.Length > 0)
             {
                 int p = basicTitle.IndexOf(' ');
-                basicTitle = titlePrefix+basicTitle.Substring(0, p) + titleAdd + basicTitle.Substring(p);
+                basicTitle = titlePrefix + basicTitle.Substring(0, p) + titleAdd + basicTitle.Substring(p);
                 Text = basicTitle;
             }
             slicerPanel.UpdateSelection();
@@ -320,7 +326,7 @@ namespace RepetierHost
             // Add languages
             foreach (Translation t in trans.translations.Values)
             {
-                ToolStripMenuItem item = new ToolStripMenuItem(t.language,null, languageSelected);
+                ToolStripMenuItem item = new ToolStripMenuItem(t.language, null, languageSelected);
                 item.Tag = t;
                 languageToolStripMenuItem.DropDownItems.Add(item);
             }
@@ -339,7 +345,7 @@ namespace RepetierHost
                 toolStripAskSeperator.Visible = false;
                 supportToolStripMenuItem.Visible = false;
             }
-            if (Custom.GetString("extraLink1Title", "").Length>0)
+            if (Custom.GetString("extraLink1Title", "").Length > 0)
             {
                 extraUrl1ToolStripMenuItem.Text = Custom.GetString("extraLink1Title", "");
                 toolStripAskSeperator.Visible = true;
@@ -396,19 +402,21 @@ namespace RepetierHost
             ProcessCommandLine();
             snapshotToolStripMenuItem.Visible = false;
             setImportUnits(RegMemory.GetDouble("importScaleFactor", importScaleFactor));
-
         }
+
         internal static class NativeMethods
         {
             // Import SetThreadExecutionState Win32 API and necessary flags
             [DllImport("kernel32.dll")]
             public static extern uint SetThreadExecutionState(uint esFlags);
+
             public const uint ES_CONTINUOUS = 0x80000000;
             public const uint ES_SYSTEM_REQUIRED = 0x00000001;
         }
+
         //private uint previousExecutionState;
         //private bool currentSleepMode = false;
-        void PreventSleepmode()
+        private void PreventSleepmode()
         {
             try
             {
@@ -431,6 +439,7 @@ namespace RepetierHost
             }
             catch { }
         }
+
         public static bool ApplicationIsActivated()
         {
             if (IsMono) return true;
@@ -451,11 +460,11 @@ namespace RepetierHost
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern int GetWindowThreadProcessId(IntPtr handle, out int processId);
 
-        void ProcessCommandLine()
+        private void ProcessCommandLine()
         {
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length < 1) return;
-             
+
             //for now, just check the last arg and load it. Could add other inputs/commands later.
             for (int i = 1; i < args.Length; i++)
             {
@@ -465,17 +474,19 @@ namespace RepetierHost
                     LoadGCodeOrSTL(file);
                 }
             }
-         }
-        void Form1_DragEnter(object sender, DragEventArgs e)
+        }
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
-        void Form1_DragDrop(object sender, DragEventArgs e)
+        private void Form1_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files) LoadGCodeOrSTL(file);
         }
+
         public void translate()
         {
             fileToolStripMenuItem.Text = Trans.T("M_FILE");
@@ -624,6 +635,7 @@ namespace RepetierHost
                 item.Checked = item.Tag == trans.active;
             }
         }
+
         public void UpdateToolbarSize()
         {
             if (globalSettings == null) return;
@@ -636,6 +648,7 @@ namespace RepetierHost
                     it.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
             }
         }
+
         private void languageSelected(object sender, EventArgs e)
         {
             ToolStripItem it = (ToolStripItem)sender;
@@ -643,6 +656,7 @@ namespace RepetierHost
             if (languageChanged != null)
                 languageChanged();
         }
+
         public void UpdateConnections()
         {
             toolConnect.DropDownItems.Clear();
@@ -653,6 +667,7 @@ namespace RepetierHost
             foreach (ToolStripItem it in toolConnect.DropDownItems)
                 it.Enabled = !conn.connector.IsConnected();
         }
+
         public void UpdateHistory()
         {
             bool delFlag = false;
@@ -698,6 +713,7 @@ namespace RepetierHost
             LoadGCodeOrSTL(f.file);
             // Take some action based on the data in clickedItem
         }
+
         private void ConnectHandler(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
@@ -708,18 +724,21 @@ namespace RepetierHost
             Update3D();
             conn.open();
         }
+
         public void PrinterChanged(RegistryKey pkey, bool printerChanged)
         {
-            if (printerChanged && editor!=null)
+            if (printerChanged && editor != null)
             {
                 editor.UpdatePrependAppend();
             }
         }
+
         public string Title
         {
             set { Text = basicTitle + " - " + value; }
             get { return Text; }
         }
+
         public void FormToFront(Form f)
         {
             // Make this form the active form and make it TopMost
@@ -729,10 +748,12 @@ namespace RepetierHost
             f.BringToFront();
             // f.TopMost = false;
         }
+
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
         private void OnPrinterConnectionChange(string msg)
         {
             toolConnection.Text = msg;
@@ -782,10 +803,12 @@ namespace RepetierHost
                 SDCard.Disconnected();
             }
         }
+
         private void OnPrinterAction(string msg)
         {
             toolAction.Text = msg;
         }
+
         private void OnJobProgress(float per)
         {
             toolProgress.Value = (int)per;
@@ -833,8 +856,6 @@ namespace RepetierHost
             }
         }
 
-
-
         private void toolGCodeLoad_Click(object sender, EventArgs e)
         {
             if (openGCode.ShowDialog() == DialogResult.OK)
@@ -842,6 +863,7 @@ namespace RepetierHost
                 LoadGCodeOrSTL(openGCode.FileName);
             }
         }
+
         public void LoadGCodeOrSTL(string file)
         {
             if (!File.Exists(file)) return;
@@ -853,19 +875,20 @@ namespace RepetierHost
             string fileLow = file.ToLower();
             if (fileLow.EndsWith(".stl") || fileLow.EndsWith(".obj") || fileLow.EndsWith(".3ds"))
             {
-              /*  if (MessageBox.Show("Do you want to slice the STL-File? No adds it to the object grid.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    slicer.RunSlice(file); // Slice it and load
-                }
-                else
-                {*/
-                    tab.SelectTab(tabModel);
-                    objectPlacement.openAndAddObject(file);
+                /*  if (MessageBox.Show("Do you want to slice the STL-File? No adds it to the object grid.", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                  {
+                      slicer.RunSlice(file); // Slice it and load
+                  }
+                  else
+                  {*/
+                tab.SelectTab(tabModel);
+                objectPlacement.openAndAddObject(file);
                 //}
             }
             else
             {
-                try {
+                try
+                {
                     tab.SelectTab(tabGCode);
                     editor.selectContent(0);
                     editor.setContent(0, System.IO.File.ReadAllText(file));
@@ -876,6 +899,7 @@ namespace RepetierHost
                 }
             }
         }
+
         public void LoadGCode(string file)
         {
             try
@@ -895,6 +919,7 @@ namespace RepetierHost
                 MessageBox.Show(e.ToString(), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public void LoadGCodeText(string text)
         {
             try
@@ -908,10 +933,12 @@ namespace RepetierHost
                 MessageBox.Show(e.ToString(), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public MethodInvoker StartJob = delegate
         {
             Main.main.toolPrintJob_Click(null, null);
         };
+
         private void toolPrintJob_Click(object sender, EventArgs e)
         {
             if (conn.connector.IsJobRunning())
@@ -939,8 +966,6 @@ namespace RepetierHost
                 job.EndJob();
             }*/
         }
-
-
 
         private void toolKillJob_Click(object sender, EventArgs e)
         {
@@ -970,7 +995,9 @@ namespace RepetierHost
             threeDSettings.Show();
             threeDSettings.BringToFront();
         }
+
         public PrinterInfo printerInfo = null;
+
         private void printerInformationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (printerInfo == null)
@@ -1012,7 +1039,9 @@ namespace RepetierHost
             globalSettings.Show(this);
             globalSettings.BringToFront();
         }
+
         public About about = null;
+
         private void aboutRepetierHostToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (about == null) about = new About();
@@ -1024,6 +1053,7 @@ namespace RepetierHost
         {
             JobStatus.ShowStatus();
         }
+
         public void openLink(string link)
         {
             try
@@ -1042,6 +1072,7 @@ namespace RepetierHost
                 MessageBox.Show(other.Message);
             }
         }
+
         private void repetierHostHomepageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink("http://www.repetier.com");
@@ -1051,6 +1082,7 @@ namespace RepetierHost
         {
             openLink("http://www.repetier.com/documentation/repetier-host/");
         }
+
         public MethodInvoker FirmwareDetected = delegate
         {
             Main.main.printPanel.UpdateConStatus(true);
@@ -1065,6 +1097,7 @@ namespace RepetierHost
                 Main.main.bedHeightMapToolStripMenuItem.Enabled = false;
             }
         };
+
         public MethodInvoker UpdateJobButtons = delegate
         {
             if (!conn.connector.IsJobRunning())
@@ -1076,7 +1109,7 @@ namespace RepetierHost
                 Main.main.toolRunJob.Image = Main.main.imageList.Images[2];
             }
             else
-            {                
+            {
                 Main.main.toolRunJob.Enabled = true;
                 Main.main.toolKillJob.Enabled = true;
                 Main.main.toolRunJob.Image = Main.main.imageList.Images[3];
@@ -1084,6 +1117,7 @@ namespace RepetierHost
                 Main.main.toolRunJob.Text = Trans.T("M_PAUSE_JOB"); //"Pause job";
             }
         };
+
         public MethodInvoker UpdateEEPROM = delegate
         {
             if (conn.isMarlin || conn.isRepetier || conn.isSprinter) // Activate special menus and function
@@ -1091,8 +1125,8 @@ namespace RepetierHost
                 main.eeprom.Enabled = true;
             }
             else main.eeprom.Enabled = false;
-
         };
+
         /*  private void toolStripSaveGCode_Click(object sender, EventArgs e)
           {
               if (saveJobDialog.ShowDialog() == DialogResult.OK)
@@ -1110,6 +1144,7 @@ namespace RepetierHost
           {
               printerSettings.currentPrinterKey.SetValue("gcodeAppend", textGCodeAppend.Text);
           }*/
+
         private void JobPreview()
         {
             if (editor.autopreview == false) return;
@@ -1135,9 +1170,10 @@ namespace RepetierHost
             Main.conn.log(duration.ToString(), false, 3);
             jobPreview.UpdateChanges();*/
         }
+
         public void Update3D()
         {
-            if(threedview!=null)
+            if (threedview != null)
                 threedview.UpdateChanges();
         }
 
@@ -1205,7 +1241,6 @@ namespace RepetierHost
                 editor.toolUpdating.Text = Trans.T("L_UPDATING..."); // "Updating ...";
                 previewThread = new Thread(workerObject.DoWork);
                 previewThread.Start();
-
             }
             if (refreshCounter > 0)
             {
@@ -1237,7 +1272,7 @@ namespace RepetierHost
             else
             {
                 splitLog.Panel2Collapsed = true;
-            }            
+            }
             //toolShowLog.Checked = !toolShowLog.Checked;
         }
 
@@ -1266,25 +1301,21 @@ namespace RepetierHost
         private void slic3rHomepageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink("http://www.slic3r.org");
-
         }
 
         private void skeinforgeHomepageToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink("http://fabmetheus.crsndoo.com/");
-
         }
 
         private void thingiverseNewestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink("http://www.thingiverse.com/newest");
-
         }
 
         private void thingiversePopularToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink("http://www.thingiverse.com/popular");
-
         }
 
         private void slic3rToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1304,6 +1335,7 @@ namespace RepetierHost
             slic3r.Show();
             slic3r.BringToFront();
         }
+
         public void assign3DView()
         {
             if (tab == null) return;
@@ -1313,14 +1345,17 @@ namespace RepetierHost
                 case 1:
                     threedview.SetView(objectPlacement.cont);
                     break;
+
                 case 2:
                     threedview.SetView(jobPreview);
                     break;
+
                 case 3:
                     threedview.SetView(printPreview);
                     break;
             }
         }
+
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Console.WriteLine("index changed " + Environment.OSVersion.Platform + " Mac=" + PlatformID.MacOSX);
@@ -1375,6 +1410,7 @@ namespace RepetierHost
                 RegMemory.SetBool("gcodeExampleShown", true);
             }
         }
+
         public void executeHostCommand(GCode code)
         {
             string com = code.getHostCommand();
@@ -1399,6 +1435,7 @@ namespace RepetierHost
                 ce.run();
             }
         }
+
         public void updateShowFilament()
         {
             if (threeDSettings.checkDisableFilamentVisualization.Checked)
@@ -1414,6 +1451,7 @@ namespace RepetierHost
                 toolShowFilament.Text = Trans.T("M_SHOW_FILAMENT"); // "Hide filament";
             }
         }
+
         public void updateTravelMoves()
         {
             if (threeDSettings == null) return;
@@ -1431,6 +1469,7 @@ namespace RepetierHost
             }
             toolShowTravel.Visible = threeDSettings.drawMethod == 2;
         }
+
         private void toolShowFilament_Click(object sender, EventArgs e)
         {
             threeDSettings.checkDisableFilamentVisualization.Checked = !threeDSettings.checkDisableFilamentVisualization.Checked;
@@ -1493,14 +1532,17 @@ namespace RepetierHost
             objectPlacement.recheckChangedFiles();
             slicerPanel.UpdateSelection();
         }
+
         public void selectTimePeriod(object sender, EventArgs e)
         {
             history.CurrentPos = (int)((ToolStripMenuItem)sender).Tag;
         }
+
         public void selectAverage(object sender, EventArgs e)
         {
             history.AvgPeriod = int.Parse(((ToolStripMenuItem)sender).Tag.ToString());
         }
+
         public void selectZoom(object sender, EventArgs e)
         {
             history.CurrentZoomLevel = int.Parse(((ToolStripMenuItem)sender).Tag.ToString());
@@ -1582,7 +1624,7 @@ namespace RepetierHost
 
         public void repetierHostDownloadPageToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openLink(Custom.GetString("downloadUrl","http://www.repetier.com/download/"));
+            openLink(Custom.GetString("downloadUrl", "http://www.repetier.com/download/"));
         }
 
         private void sendScript1ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1630,11 +1672,12 @@ namespace RepetierHost
             RHUpdater.checkForUpdates(false);
         }
 
+        private static bool firstSizeCall = true;
 
-        static bool firstSizeCall = true;
         private void Main_SizeChanged(object sender, EventArgs e)
         {
-            if(firstSizeCall) {
+            if (firstSizeCall)
+            {
                 firstSizeCall = false;
                 splitLog.SplitterDistance = RegMemory.GetInt("logSplitterDistance", splitLog.SplitterDistance);
                 splitInfoEdit.SplitterDistance = RegMemory.GetInt("infoEditSplitterDistance", Width - 470);
@@ -1656,7 +1699,6 @@ namespace RepetierHost
 
         private void slicerPanel_Load(object sender, EventArgs e)
         {
-
         }
 
         private void toolAction_Click(object sender, EventArgs e)
@@ -1786,10 +1828,13 @@ namespace RepetierHost
         private OnPosChange SaveStateOnNewLayerDelegate;
         private PrinterConnectorBase.OnPauseChanged SaveStateOnPauseDelegate;
         private SnapshotDialog snapshotDialog;
+
         // NOTE: Used an array for the lock object because strings could be
         // immutable.
         private string[] lockObject = new string[0];
+
         private string snapshotNameOnNextSaveState;
+
         private void saveStateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!ValidatePreconditionsToSaveStateSnapshot(Main.conn))
@@ -1814,7 +1859,7 @@ namespace RepetierHost
                 // - A new layer is reached.
                 // - The user forces the snapshot from the snapshot dialog.
 
-                SaveStateOnNewLayerDelegate = new OnPosChange(delegate(GCode gc, float x, float y, float z)
+                SaveStateOnNewLayerDelegate = new OnPosChange(delegate (GCode gc, float x, float y, float z)
                 {
                     if (z != lastZ)
                     {
@@ -1823,7 +1868,7 @@ namespace RepetierHost
                     }
                 });
 
-                SaveStateOnPauseDelegate = new PrinterConnectorBase.OnPauseChanged(delegate(bool paused)
+                SaveStateOnPauseDelegate = new PrinterConnectorBase.OnPauseChanged(delegate (bool paused)
                 {
                     if (paused)
                     {
@@ -1849,8 +1894,6 @@ namespace RepetierHost
             }
             snapshotDialog.Show();
         }
-
-
 
         private bool ValidatePreconditionsToSaveStateSnapshot(PrinterConnection conn)
         {
@@ -1917,18 +1960,15 @@ namespace RepetierHost
                 SaveStateFile(state, snapshotName);
                 MessageBox.Show(Trans.T("L_PRINT_STATE_SAVED_SUCCESSFULLY"));
             }
-
             catch (IOException ex)
             {
                 MessageBox.Show(ex.ToString(), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             catch (UnauthorizedAccessException ex)
             {
                 MessageBox.Show(ex.ToString(), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
 
         private void SaveStateFile(PrintingStateSnapshot state, string snapshotName)
         {
@@ -1975,10 +2015,12 @@ namespace RepetierHost
                 }
             }*/
         }
+
         private void togglePrinterIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splitPrinterId.Panel1Collapsed = !splitPrinterId.Panel1Collapsed;
         }
+
         private void extraUrl1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openLink(Custom.GetString("extraLink1URL", ""));
@@ -2013,6 +2055,7 @@ namespace RepetierHost
         {
             BedHeightMap.Execute();
         }
+
         public void setImportUnits(double units)
         {
             importScaleFactor = units;
@@ -2021,8 +2064,8 @@ namespace RepetierHost
             objectsAreInFootToolStripMenuItem.Checked = units == 304.8;
             objectsAreInMeterToolStripMenuItem.Checked = units == 1000;
             RegMemory.SetDouble("importScaleFactor", importScaleFactor);
-
         }
+
         private void objectsAreInMmToolStripMenuItem_Click(object sender, EventArgs e)
         {
             double units;

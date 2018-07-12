@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using RepetierHost.model;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {

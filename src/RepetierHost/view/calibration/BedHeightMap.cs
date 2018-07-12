@@ -1,37 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RepetierHost.model;
+using RepetierHost.model.geom;
+using System;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using RepetierHost.view;
-using RepetierHost.model;
-using RepetierHost.model.geom;
 
 namespace RepetierHost.view.calibration
 {
     public partial class BedHeightMap : Form
     {
-        static BedHeightMap form = null;
-        RHVector3[] points = null;
-        int nx, ny,n,missing;
-        double dx,dy;
+        private static BedHeightMap form = null;
+        private RHVector3[] points = null;
+        private int nx, ny, n, missing;
+        private double dx, dy;
 
-        double minx, miny, maxx, maxy;
-        double zmin, zmax, zavg,zcenter;
-        Bitmap bmap;
+        private double minx, miny, maxx, maxy;
+        private double zmin, zmax, zavg, zcenter;
+        private Bitmap bmap;
 
         public static void Execute()
         {
             if (form == null)
                 form = new BedHeightMap();
-            if(!form.Visible)
+            if (!form.Visible)
                 form.Show(null);
             form.BringToFront();
         }
+
         public BedHeightMap()
         {
             InitializeComponent();
@@ -41,6 +38,7 @@ namespace RepetierHost.view.calibration
                 Main.main.languageChanged += translate;
             }
         }
+
         public void translate()
         {
             this.Text = Trans.T("M_CREATE_HEIGHT_MAP");
@@ -59,6 +57,7 @@ namespace RepetierHost.view.calibration
             labelZAvg.Text = Trans.T("L_Z_AVG:");
             labelZCenter.Text = Trans.T("L_Z_CENTER:");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
@@ -67,14 +66,14 @@ namespace RepetierHost.view.calibration
 
         private void buttonMeasureHeights_Click(object sender, EventArgs e)
         {
-            minx = double.Parse(textXMin.Text,GCode.format);
+            minx = double.Parse(textXMin.Text, GCode.format);
             maxx = double.Parse(textXMax.Text, GCode.format);
             miny = double.Parse(textYMin.Text, GCode.format);
             maxy = double.Parse(textYMax.Text, GCode.format);
             nx = int.Parse(textXPoints.Text);
             ny = int.Parse(textYPoints.Text);
-            dx = (maxx-minx)/(double)(nx-1);
-            dy = (maxy-miny)/(double)(ny-1);
+            dx = (maxx - minx) / (double)(nx - 1);
+            dy = (maxy - miny) / (double)(ny - 1);
             n = nx * ny;
             points = new RHVector3[n];
             int x, y;
@@ -94,21 +93,23 @@ namespace RepetierHost.view.calibration
                 Main.conn.injectManualCommand("G1 X" + act.x.ToString("0.00", GCode.format) + " Y" + act.y.ToString("0.00", GCode.format) + " F" + Main.conn.travelFeedRate.ToString(GCode.format));
                 Main.conn.injectManualCommand("G30");
             }
-         /*   string text = "";
-            for (int i = 0; i < n; i++)
-            {
-                RHVector3 act = points[i];
-                text += "G1 X" + act.x.ToString("0.00", GCode.format) + " Y" + act.y.ToString("0.00", GCode.format) + " F" + Main.conn.travelFeedRate.ToString(GCode.format)+"\n";
-                text += "G30\n";
-            }
-            Clipboard.SetText(text);*/
+            /*   string text = "";
+               for (int i = 0; i < n; i++)
+               {
+                   RHVector3 act = points[i];
+                   text += "G1 X" + act.x.ToString("0.00", GCode.format) + " Y" + act.y.ToString("0.00", GCode.format) + " F" + Main.conn.travelFeedRate.ToString(GCode.format)+"\n";
+                   text += "G30\n";
+               }
+               Clipboard.SetText(text);*/
         }
+
         public RHVector3 findNearest(double x, double y)
         {
             RHVector3 best = null;
-            RHVector3 pos = new RHVector3(x,y,0);
+            RHVector3 pos = new RHVector3(x, y, 0);
             double bestdist = 1e20;
-            for(int i=0;i<n;i++) {
+            for (int i = 0; i < n; i++)
+            {
                 RHVector3 act = points[i];
                 double dist = act.Distance(pos);
                 if (dist < bestdist)
@@ -119,6 +120,9 @@ namespace RepetierHost.view.calibration
             }
             return best;
         }
+
+#pragma warning disable CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
+
         public MethodInvoker EnableButton = delegate
         {
             form.labelZMinValue.Text = form.zmin.ToString("0.00");
@@ -128,6 +132,9 @@ namespace RepetierHost.view.calibration
             form.buttonResultToClipboard.Enabled = true;
             form.UpdateMap();
         };
+
+#pragma warning restore CS1690 // Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
+
         public void Answer(string text)
         {
             string sz = Main.conn.extract(text, "Z-probe:");
@@ -158,43 +165,46 @@ namespace RepetierHost.view.calibration
                 Main.main.Invoke(EnableButton);
             }
         }
+
         public double interpolatedZ(double x, double y)
         {
             double px = (x - minx) / dx;
             double py = (y - miny) / dy;
             if (px < 0) px = 0;
             if (py < 0) py = 0;
-            if (px > nx-1) px = nx-1;
+            if (px > nx - 1) px = nx - 1;
             if (py > ny - 1) py = ny - 1;
             int px1 = (int)Math.Floor(px);
             int px2 = (int)Math.Ceiling(px);
             int py1 = (int)Math.Floor(py);
             int py2 = (int)Math.Ceiling(py);
-            RHVector3 r11 = points[py1*nx+px1];
-            RHVector3 r12 = points[py1*nx+px2];
-            RHVector3 r21 = points[py2*nx+px1];
-            RHVector3 r22 = points[py2*nx+px2];
+            RHVector3 r11 = points[py1 * nx + px1];
+            RHVector3 r12 = points[py1 * nx + px2];
+            RHVector3 r21 = points[py2 * nx + px1];
+            RHVector3 r22 = points[py2 * nx + px2];
             double sx = (x - r11.x) / dx;
             double sy = (y - r11.y) / dy;
             return r11.z * (1.0 - sx) * (1.0 - sy) + r12.z * sx * (1.0 - sy) + r21.z * (1.0 - sx) * sy + r22.z * sx * sy;
         }
+
         public Color colorForZ(double z)
         {
-            int r,g,b;
-            double dz = zmax-zcenter;
-            r = Math.Min(z > zcenter ? (int)(255.0 * ((z - zcenter))/dz) : 0,255);
-            b = z < zcenter ? Math.Min((int)(255.0 * ((zcenter-z)) / dz),255) : 0;
-            g = Math.Max(0,Math.Min((int)(255.0 * (dz-Math.Abs(z - zcenter)) / dz), 255));
+            int r, g, b;
+            double dz = zmax - zcenter;
+            r = Math.Min(z > zcenter ? (int)(255.0 * ((z - zcenter)) / dz) : 0, 255);
+            b = z < zcenter ? Math.Min((int)(255.0 * ((zcenter - z)) / dz), 255) : 0;
+            g = Math.Max(0, Math.Min((int)(255.0 * (dz - Math.Abs(z - zcenter)) / dz), 255));
             return Color.FromArgb(r, g, b);
         }
+
         public void UpdateMap()
         {
-            bmap = new Bitmap(nx*10,ny*10,PixelFormat.Format32bppArgb);
-            for (int x = 0; x < nx*10; x++)
+            bmap = new Bitmap(nx * 10, ny * 10, PixelFormat.Format32bppArgb);
+            for (int x = 0; x < nx * 10; x++)
             {
-                for (int y = 0; y < ny*10; y++)
+                for (int y = 0; y < ny * 10; y++)
                 {
-                    bmap.SetPixel(x, y, colorForZ(interpolatedZ(minx+(double)x*dx*0.1,maxy-(double)y*dy*0.1)));
+                    bmap.SetPixel(x, y, colorForZ(interpolatedZ(minx + (double)x * dx * 0.1, maxy - (double)y * dy * 0.1)));
                 }
             }
             map.Image = bmap;
@@ -206,15 +216,15 @@ namespace RepetierHost.view.calibration
             s.Append("X:\t");
             for (int x = 0; x < nx; x++)
             {
-                s.Append((minx+x*dx).ToString("0.00"));
+                s.Append((minx + x * dx).ToString("0.00"));
                 if (x < nx - 1)
                     s.Append("\t");
                 else
                     s.AppendLine();
             }
-            for (int y = ny-1; y >=0 ; y--)
+            for (int y = ny - 1; y >= 0; y--)
             {
-                s.Append("y:"+(miny+y*dy).ToString("0.00")+"\t");
+                s.Append("y:" + (miny + y * dy).ToString("0.00") + "\t");
                 for (int x = 0; x < nx; x++)
                 {
                     RHVector3 act = points[y * nx + x];

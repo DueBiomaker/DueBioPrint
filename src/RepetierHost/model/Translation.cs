@@ -1,12 +1,10 @@
-﻿using System;
+﻿using RepetierHost.view.utils;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using System.Globalization;
-using RepetierHost.view.utils;
+using System.Xml;
 
 namespace RepetierHost.model
 {
@@ -17,7 +15,7 @@ namespace RepetierHost.model
         public string fileshort;
         public Dictionary<string, string> trans;
 
-        public Translation(string _file,string _fileShort)
+        public Translation(string _file, string _fileShort)
         {
             file = _file;
             fileshort = _fileShort;
@@ -50,10 +48,12 @@ namespace RepetierHost.model
                 }
                 reader.Close();
             }
-            catch(Exception e) { 
-                MessageBox.Show("Error reading translation "+_file+":\n"+e.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            catch (Exception e)
+            {
+                MessageBox.Show("Error reading translation " + _file + ":\n" + e.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public override string ToString()
         {
             return language;
@@ -64,15 +64,16 @@ namespace RepetierHost.model
     {
         public Translation english = null;
         public Translation active = null;
-        public SortedList<string,Translation> translations;
-        static Trans trans = null;
+        public SortedList<string, Translation> translations;
+        private static Trans trans = null;
+
         public Trans(string folder)
         {
             string[] lfiles = Directory.GetFiles(folder, "*.xml");
             CultureInfo info = CultureInfo.CurrentUICulture;
             string deflang = info.TwoLetterISOLanguageName;
             //Console.WriteLine("Default language:" + deflang);
-            string lastactive = RegMemory.GetString("lastLanguage", deflang+".xml");
+            string lastactive = RegMemory.GetString("lastLanguage", deflang + ".xml");
             translations = new SortedList<string, Translation>();
             foreach (string l in lfiles)
             {
@@ -87,15 +88,18 @@ namespace RepetierHost.model
                     if (shortname == lastactive)
                         active = t;
                     translations.Add(t.language, t);
-                } catch {}
+                }
+                catch { }
             }
             Trans.trans = this;
         }
+
         public void selectLanguage(Translation t)
         {
             active = t;
             RegMemory.SetString("lastLanguage", t.fileshort);
         }
+
         public static string T(string id)
         {
             string res = null;
@@ -107,13 +111,15 @@ namespace RepetierHost.model
             if (res != null) return res;
             return id;
         }
+
         public static string T1(string id, string v1)
         {
             string res = T(id);
             res = res.Replace("$1", v1);
             return res;
         }
-        public static string T2(string id, string v1,string v2)
+
+        public static string T2(string id, string v1, string v2)
         {
             string res = T(id);
             res = res.Replace("$1", v1);

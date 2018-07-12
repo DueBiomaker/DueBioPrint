@@ -14,38 +14,48 @@
    limitations under the License.
 */
 
+using RepetierHost.view;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RepetierHost.view;
-using RepetierHost.model;
 
 namespace RepetierHost.model
 {
     public delegate void OnPosChange(GCode code, float x, float y, float z);
+
     public delegate void OnPosChangeFast(float x, float y, float z, float e);
+
     public delegate void OnAnalyzerChange();
+
     public class ExtruderData
     {
-        public ExtruderData(int _id) { id = _id; }
+        public ExtruderData(int _id)
+        {
+            id = _id;
+        }
+
         public int id;
-        public float temperature=0;
+        public float temperature = 0;
         public float e = 0;
         public float emax = 0;
         public float lastE = 0;
         public float eOffset = 0;
         public bool retracted = false;
     }
+
     public class GCodeAnalyzer
     {
         public event OnPosChange eventPosChanged;
+
         public event OnPosChangeFast eventPosChangedFast;
+
         public event OnAnalyzerChange eventChange;
+
         public int activeExtruderId = 0;
         public ExtruderData activeExtruder = null;
+
         //public float extruderTemp = 0;
         public Dictionary<int, ExtruderData> extruder = new Dictionary<int, ExtruderData>();
+
         public LinkedList<GCodeShort> unchangedLayer = new LinkedList<GCodeShort>();
         public bool uploading = false;
         public float bedTemp = 0;
@@ -82,18 +92,22 @@ namespace RepetierHost.model
             activeExtruder = extruder[activeExtruderId];
             bedTemp = 0;
         }
+
         public float RealX
         {
             get { return x + xOffset; }
         }
+
         public float RealY
         {
             get { return y + yOffset; }
         }
+
         public float RealZ
         {
             get { return z + zOffset; }
         }
+
         public float getTemperature(int extr)
         {
             if (extr < 0) extr = activeExtruderId;
@@ -101,6 +115,7 @@ namespace RepetierHost.model
                 extruder.Add(extr, new ExtruderData(extr));
             return extruder[extr].temperature;
         }
+
         public void setTemperature(int extr, float t)
         {
             if (extr < 0) extr = activeExtruderId;
@@ -112,6 +127,7 @@ namespace RepetierHost.model
             }
             else extruder[extr].temperature = t;
         }
+
         public void fireChanged()
         {
             if (eventChange != null)
@@ -123,6 +139,7 @@ namespace RepetierHost.model
                 catch { }
             }
         }
+
         // set to start condition
         public void start(bool fire)
         {
@@ -132,7 +149,7 @@ namespace RepetierHost.model
             List<int> keys = new List<int>();
             foreach (int k in extruder.Keys)
                 keys.Add(k);
-            if(!keys.Contains(activeExtruderId))
+            if (!keys.Contains(activeExtruderId))
                 keys.Add(activeExtruderId);
             foreach (int k in keys)
                 extruder[k] = new ExtruderData(k);
@@ -156,9 +173,10 @@ namespace RepetierHost.model
             printerHeight = Main.printerSettings.PrintAreaHeight;
             if (!privateAnalyzer)
                 Main.main.jobVisual.ResetQuality();
-            if(fire)
+            if (fire)
                 fireChanged();
         }
+
         public void StartJob()
         {
             layer = 0;
@@ -180,6 +198,7 @@ namespace RepetierHost.model
             if (!privateAnalyzer)
                 Main.main.jobVisual.ResetQuality();
         }
+
         public void Analyze(GCode code)
         {
             estimatedCommandTime = 1000;
@@ -276,7 +295,7 @@ namespace RepetierHost.model
                         }
                         if (x < Main.printerSettings.XMin) { x = Main.printerSettings.XMin; hasXHome = false; }
                         if (y < Main.printerSettings.YMin) { y = Main.printerSettings.YMin; hasYHome = false; }
-                        if (z < 0 && FormPrinterSettings.ps.printerType!=3) { z = 0; hasZHome = false; }
+                        if (z < 0 && FormPrinterSettings.ps.printerType != 3) { z = 0; hasZHome = false; }
                         if (x > Main.printerSettings.XMax) { hasXHome = false; }
                         if (y > Main.printerSettings.YMax) { hasYHome = false; }
                         if (z > printerHeight) { hasZHome = false; }
@@ -306,7 +325,7 @@ namespace RepetierHost.model
                         double time;
                         if (dx + dy + dz > 0.001)
                             time = Math.Sqrt(dx * dx + dy * dy + dz * dz) * 60.0f / f;
-                        else 
+                        else
                             time = de * 60.0f / f;
                         printingTime += time;
                         estimatedCommandTime = (long)(1100 * time);
@@ -316,6 +335,7 @@ namespace RepetierHost.model
                         lastZ = z;
                         activeExtruder.lastE = activeExtruder.e;
                         break;
+
                     case 2:
                     case 3:
                         {
@@ -367,7 +387,7 @@ namespace RepetierHost.model
                                     //if (z < 0) { z = 0; hasZHome = NO; }
                                     //if (z > printerHeight) { hasZHome = NO; }
                                 }
-                                if (code.hasE )
+                                if (code.hasE)
                                 {
                                     if (eRelative)
                                     {
@@ -401,7 +421,7 @@ namespace RepetierHost.model
                                 }
                             }
 
-                            float[] offset = new float[] { code.I, code.J};
+                            float[] offset = new float[] { code.I, code.J };
                             /* if(unit_inches) {
                                offset[0]*=25.4;
                                offset[1]*=25.4;
@@ -411,20 +431,20 @@ namespace RepetierHost.model
                             float r = code.R;
                             if (r > 0)
                             {
-                                /* 
+                                /*
                                   We need to calculate the center of the circle that has the designated radius and passes
                                   through both the current position and the target position. This method calculates the following
-                                  set of equations where [x,y] is the vector from current to target position, d == magnitude of 
+                                  set of equations where [x,y] is the vector from current to target position, d == magnitude of
                                   that vector, h == hypotenuse of the triangle formed by the radius of the circle, the distance to
-                                  the center of the travel vector. A vector perpendicular to the travel vector [-y,x] is scaled to the 
-                                  length of h [-y/d*h, x/d*h] and added to the center of the travel vector [x/2,y/2] to form the new point 
+                                  the center of the travel vector. A vector perpendicular to the travel vector [-y,x] is scaled to the
+                                  length of h [-y/d*h, x/d*h] and added to the center of the travel vector [x/2,y/2] to form the new point
                                   [i,j] at [x/2-y/d*h, y/2+x/d*h] which will be the center of our arc.
-          
+
                                   d^2 == x^2 + y^2
                                   h^2 == r^2 - (d/2)^2
                                   i == x/2 - y/d*h
                                   j == y/2 + x/d*h
-          
+
                                                                                        O <- [i,j]
                                                                                     -  |
                                                                           r      -     |
@@ -433,32 +453,32 @@ namespace RepetierHost.model
                                                                         -              |
                                                           [0,0] ->  C -----------------+--------------- T  <- [x,y]
                                                                     | <------ d/2 ---->|
-                    
+
                                   C - Current position
                                   T - Target position
                                   O - center of circle that pass through both C and T
                                   d - distance from C to T
                                   r - designated radius
                                   h - distance from center of CT to O
-          
+
                                   Expanding the equations:
 
                                   d -> sqrt(x^2 + y^2)
                                   h -> sqrt(4 * r^2 - x^2 - y^2)/2
-                                  i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2 
+                                  i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2
                                   j -> (y + (x * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2
-         
+
                                   Which can be written:
-          
+
                                   i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2))/sqrt(x^2 + y^2))/2
                                   j -> (y + (x * sqrt(4 * r^2 - x^2 - y^2))/sqrt(x^2 + y^2))/2
-          
+
                                   Which we for size and speed reasons optimize to:
 
                                   h_x2_div_d = sqrt(4 * r^2 - x^2 - y^2)/sqrt(x^2 + y^2)
                                   i = (x - (y * h_x2_div_d))/2
                                   j = (y + (x * h_x2_div_d))/2
-          
+
                                 */
                                 //if(unit_inches) r*=25.4;
                                 // Calculate the change in position along each selected axis
@@ -474,23 +494,21 @@ namespace RepetierHost.model
 
                                 /* The counter clockwise circle lies to the left of the target direction. When offset is positive,
                                    the left hand circle will be generated - when it is negative the right hand circle is generated.
-           
-           
+
                                                                                  T  <-- Target position
-                                                         
-                                                                                 ^ 
+
+                                                                                 ^
                                       Clockwise circles with this center         |          Clockwise circles with this center will have
                                       will have > 180 deg of angular travel      |          < 180 deg of angular travel, which is a good thing!
-                                                                       \         |          /   
+                                                                       \         |          /
                           center of arc when h_x2_div_d is positive ->  x <----- | -----> x <- center of arc when h_x2_div_d is negative
                                                                                  |
                                                                                  |
-                                                         
+
                                                                                  C  <-- Current position                                 */
 
-
-                                // Negative R is g-code-alese for "I want a circle with more than 180 degrees of travel" (go figure!), 
-                                // even though it is advised against ever generating such circles in a single line of g-code. By 
+                                // Negative R is g-code-alese for "I want a circle with more than 180 degrees of travel" (go figure!),
+                                // even though it is advised against ever generating such circles in a single line of g-code. By
                                 // inverting the sign of h_x2_div_d the center of the circles is placed on the opposite side of the line of
                                 // travel and thus we get the unadvisably long arcs as prescribed.
                                 if (r < 0)
@@ -501,7 +519,6 @@ namespace RepetierHost.model
                                 // Complete the operation by calculating the actual center of the arc
                                 offset[0] = 0.5f * (cx - (cy * h_x2_div_d));
                                 offset[1] = 0.5f * (cy + (cx * h_x2_div_d));
-
                             }
                             else
                             { // Offset mode specific computations
@@ -512,7 +529,7 @@ namespace RepetierHost.model
                             bool isclockwise = code.G == 2;
 
                             // Trace the arc
-                            arc(position, target, offset, r, isclockwise,code);
+                            arc(position, target, offset, r, isclockwise, code);
                             lastX = x;
                             lastY = y;
                             lastZ = z;
@@ -532,9 +549,9 @@ namespace RepetierHost.model
                                     layer++;
                                 }
                             }
-
                         }
                         break;
+
                     case 28:
                     case 161:
                         {
@@ -551,6 +568,7 @@ namespace RepetierHost.model
                             estimatedCommandTime = 60000;
                         }
                         break;
+
                     case 162:
                         {
                             bool homeAll = !(code.hasX || code.hasY || code.hasZ);
@@ -565,12 +583,15 @@ namespace RepetierHost.model
                             estimatedCommandTime = 60000;
                         }
                         break;
+
                     case 90:
                         relative = false;
                         break;
+
                     case 91:
                         relative = true;
                         break;
+
                     case 92:
                         if (FormPrinterSettings.ps.printerType != 3)
                         {
@@ -591,6 +612,7 @@ namespace RepetierHost.model
                             else
                                 Main.main.Invoke(eventPosChanged, code, x, y, z);
                         break;
+
                     default:
                         estimatedCommandTime = 5 * 60 * 1000;
                         break;
@@ -603,23 +625,29 @@ namespace RepetierHost.model
                     case 28:
                         uploading = true;
                         break;
+
                     case 29:
                         uploading = false;
                         break;
+
                     case 80:
                         powerOn = true;
                         fireChanged();
                         break;
+
                     case 81:
                         powerOn = false;
                         fireChanged();
                         break;
+
                     case 82:
                         eRelative = false;
                         break;
+
                     case 83:
                         eRelative = true;
                         break;
+
                     case 104:
                     case 109:
                         {
@@ -627,43 +655,51 @@ namespace RepetierHost.model
                             if (code.hasT) idx = code.T;
                             if (code.hasS) setTemperature(idx, code.S);
                             if (code.M == 109)
-                                estimatedCommandTime = 6*60*1000;
+                                estimatedCommandTime = 6 * 60 * 1000;
                         }
                         fireChanged();
                         break;
+
                     case 106:
                         fanOn = true;
                         if (code.hasS) fanVoltage = code.S;
                         fireChanged();
                         break;
+
                     case 107:
                         fanOn = false;
                         fireChanged();
                         break;
+
                     case 110:
                         lastline = code.N;
                         break;
+
                     case 111:
                         if (code.hasS)
                         {
                             debugLevel = code.S;
                         }
                         break;
+
                     case 140:
                     case 190:
                         if (code.hasS) bedTemp = code.S;
                         if (code.M == 190)
-                            estimatedCommandTime = 20*60*1000;
+                            estimatedCommandTime = 20 * 60 * 1000;
                         fireChanged();
                         break;
+
                     case 203: // Temp monitor
                         if (code.hasS)
                             tempMonitor = code.S;
                         break;
+
                     case 220:
                         if (code.hasS)
                             speedMultiply = code.S;
                         break;
+
                     case 108: // Catch fast commands to not get slowed down for beeing unknown
                     case 3:
                     case 4:
@@ -701,12 +737,15 @@ namespace RepetierHost.model
                     case 666:
                     case 908:
                         break;
+
                     case 116:
                         estimatedCommandTime = 20 * 60 * 1000;
                         break;
+
                     case 303:
                         estimatedCommandTime = 30 * 60 * 1000;
                         break;
+
                     default:
                         estimatedCommandTime = 5 * 60 * 1000;
                         break;
@@ -721,7 +760,8 @@ namespace RepetierHost.model
                 fireChanged();
             }
         }
-        private void arc(float[] position, float[] target, float[] offset, float radius, bool isclockwise,GCode code)
+
+        private void arc(float[] position, float[] target, float[] offset, float radius, bool isclockwise, GCode code)
         {
             //   int acceleration_manager_was_enabled = plan_is_acceleration_manager_enabled();
             //   plan_set_acceleration_manager_enabled(false); // disable acceleration management for the duration of the arc
@@ -746,12 +786,12 @@ namespace RepetierHost.model
             if (eventPosChangedFast == null) return;
             //uint16_t segments = (radius>=BIG_ARC_RADIUS ? floor(millimeters_of_travel/MM_PER_ARC_SEGMENT_BIG) : floor(millimeters_of_travel/MM_PER_ARC_SEGMENT));
             // Increase segment size if printing faster then computation speed allows
-            int segments = (int)Math.Min(millimeters_of_travel,millimeters_of_travel*10/radius);
+            int segments = (int)Math.Min(millimeters_of_travel, millimeters_of_travel * 10 / radius);
             if (segments > 32) segments = 32;
             if (segments == 0) segments = 1;
-            /*  
+            /*
               // Multiply inverse feed_rate to compensate for the fact that this movement is approximated
-              // by a number of discrete segments. The inverse feed_rate should be correct for the sum of 
+              // by a number of discrete segments. The inverse feed_rate should be correct for the sum of
               // all segments.
               if (invert_feed_rate) { feed_rate *= segments; }
             */
@@ -762,7 +802,7 @@ namespace RepetierHost.model
             float sin_Ti;
             float cos_Ti;
             int i;
-            
+
             for (i = 1; i < segments; i++)
             { // Increment (segments-1)
                 // Arc correction to radius vector. Computed only every N_ARC_CORRECTION increments.
@@ -782,7 +822,7 @@ namespace RepetierHost.model
                     {
                         lastZPrint = z;
                         layer++;
-                        if (code!=null)
+                        if (code != null)
                         {
                             if (!privateAnalyzer && Main.conn.connector.IsJobRunning() && Main.conn.connector.MaxLayer >= 0)
                             {
@@ -792,14 +832,15 @@ namespace RepetierHost.model
                         }
                     }
                 }
-                if (code!=null)
+                if (code != null)
                 {
                     if (privateAnalyzer)
                         eventPosChanged(code, center_axis0 + r_axis0, center_axis1 + r_axis1, z);
                     else
                         Main.main.Invoke(eventPosChanged, code, center_axis0 + r_axis0, center_axis1 + r_axis1, z);
-                } else
-                eventPosChangedFast(center_axis0 + r_axis0, center_axis1 + r_axis1, z, arc_target_e);
+                }
+                else
+                    eventPosChangedFast(center_axis0 + r_axis0, center_axis1 + r_axis1, z, arc_target_e);
             }
             // Ensure last segment arrives at target location.
             if (activeExtruder.e > activeExtruder.emax)
@@ -809,7 +850,7 @@ namespace RepetierHost.model
                 {
                     lastZPrint = z;
                     layer++;
-                    if (code!=null)
+                    if (code != null)
                     {
                         if (!privateAnalyzer && Main.conn.connector.IsJobRunning() && Main.conn.connector.MaxLayer >= 0)
                         {
@@ -819,7 +860,7 @@ namespace RepetierHost.model
                     }
                 }
             }
-            if (code!=null)
+            if (code != null)
             {
                 if (privateAnalyzer)
                     eventPosChanged(code, x, y, z);
@@ -828,8 +869,8 @@ namespace RepetierHost.model
             }
             else
                 eventPosChangedFast(x, y, z, activeExtruder.e);
-
         }
+
         public void analyzeShort(GCodeShort code)
         {
             isG1Move = false;
@@ -868,8 +909,9 @@ namespace RepetierHost.model
                                 {
                                     activeExtruder.retracted = false;
                                     activeExtruder.e = activeExtruder.emax;
-                                } else
-                                activeExtruder.e += code.e;
+                                }
+                                else
+                                    activeExtruder.e += code.e;
                                 if (activeExtruder.e > activeExtruder.emax)
                                 {
                                     activeExtruder.emax = activeExtruder.e;
@@ -960,6 +1002,7 @@ namespace RepetierHost.model
                     lastZ = z;
                     activeExtruder.lastE = activeExtruder.e;
                     break;
+
                 case 2:
                 case 3:
                     {
@@ -1073,20 +1116,20 @@ namespace RepetierHost.model
                         float r = code.getValueFor("R", -1000000);
                         if (r > 0)
                         {
-                            /* 
+                            /*
                               We need to calculate the center of the circle that has the designated radius and passes
                               through both the current position and the target position. This method calculates the following
-                              set of equations where [x,y] is the vector from current to target position, d == magnitude of 
+                              set of equations where [x,y] is the vector from current to target position, d == magnitude of
                               that vector, h == hypotenuse of the triangle formed by the radius of the circle, the distance to
-                              the center of the travel vector. A vector perpendicular to the travel vector [-y,x] is scaled to the 
-                              length of h [-y/d*h, x/d*h] and added to the center of the travel vector [x/2,y/2] to form the new point 
+                              the center of the travel vector. A vector perpendicular to the travel vector [-y,x] is scaled to the
+                              length of h [-y/d*h, x/d*h] and added to the center of the travel vector [x/2,y/2] to form the new point
                               [i,j] at [x/2-y/d*h, y/2+x/d*h] which will be the center of our arc.
-          
+
                               d^2 == x^2 + y^2
                               h^2 == r^2 - (d/2)^2
                               i == x/2 - y/d*h
                               j == y/2 + x/d*h
-          
+
                                                                                    O <- [i,j]
                                                                                 -  |
                                                                       r      -     |
@@ -1095,32 +1138,32 @@ namespace RepetierHost.model
                                                                     -              |
                                                       [0,0] ->  C -----------------+--------------- T  <- [x,y]
                                                                 | <------ d/2 ---->|
-                    
+
                               C - Current position
                               T - Target position
                               O - center of circle that pass through both C and T
                               d - distance from C to T
                               r - designated radius
                               h - distance from center of CT to O
-          
+
                               Expanding the equations:
 
                               d -> sqrt(x^2 + y^2)
                               h -> sqrt(4 * r^2 - x^2 - y^2)/2
-                              i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2 
+                              i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2
                               j -> (y + (x * sqrt(4 * r^2 - x^2 - y^2)) / sqrt(x^2 + y^2)) / 2
-         
+
                               Which can be written:
-          
+
                               i -> (x - (y * sqrt(4 * r^2 - x^2 - y^2))/sqrt(x^2 + y^2))/2
                               j -> (y + (x * sqrt(4 * r^2 - x^2 - y^2))/sqrt(x^2 + y^2))/2
-          
+
                               Which we for size and speed reasons optimize to:
 
                               h_x2_div_d = sqrt(4 * r^2 - x^2 - y^2)/sqrt(x^2 + y^2)
                               i = (x - (y * h_x2_div_d))/2
                               j = (y + (x * h_x2_div_d))/2
-          
+
                             */
                             //if(unit_inches) r*=25.4;
                             // Calculate the change in position along each selected axis
@@ -1136,23 +1179,21 @@ namespace RepetierHost.model
 
                             /* The counter clockwise circle lies to the left of the target direction. When offset is positive,
                                the left hand circle will be generated - when it is negative the right hand circle is generated.
-           
-           
+
                                                                              T  <-- Target position
-                                                         
-                                                                             ^ 
+
+                                                                             ^
                                   Clockwise circles with this center         |          Clockwise circles with this center will have
                                   will have > 180 deg of angular travel      |          < 180 deg of angular travel, which is a good thing!
-                                                                   \         |          /   
+                                                                   \         |          /
                       center of arc when h_x2_div_d is positive ->  x <----- | -----> x <- center of arc when h_x2_div_d is negative
                                                                              |
                                                                              |
-                                                         
+
                                                                              C  <-- Current position                                 */
 
-
-                            // Negative R is g-code-alese for "I want a circle with more than 180 degrees of travel" (go figure!), 
-                            // even though it is advised against ever generating such circles in a single line of g-code. By 
+                            // Negative R is g-code-alese for "I want a circle with more than 180 degrees of travel" (go figure!),
+                            // even though it is advised against ever generating such circles in a single line of g-code. By
                             // inverting the sign of h_x2_div_d the center of the circles is placed on the opposite side of the line of
                             // travel and thus we get the unadvisably long arcs as prescribed.
                             if (r < 0)
@@ -1163,7 +1204,6 @@ namespace RepetierHost.model
                             // Complete the operation by calculating the actual center of the arc
                             offset[0] = 0.5f * (cx - (cy * h_x2_div_d));
                             offset[1] = 0.5f * (cy + (cx * h_x2_div_d));
-
                         }
                         else
                         { // Offset mode specific computations
@@ -1174,7 +1214,7 @@ namespace RepetierHost.model
                         bool isclockwise = code.compressedCommand == 2;
 
                         // Trace the arc
-                        arc(position, target, offset, r, isclockwise,null);
+                        arc(position, target, offset, r, isclockwise, null);
                         lastX = x;
                         lastY = y;
                         lastZ = z;
@@ -1188,9 +1228,9 @@ namespace RepetierHost.model
                                 layer++;
                             }
                         }
-
                     }
                     break;
+
                 case 4:
                     {
                         bool homeAll = !(code.hasX || code.hasY || code.hasZ);
@@ -1201,6 +1241,7 @@ namespace RepetierHost.model
                         // [delegate positionChangedFastX:x y:y z:z e:e];
                     }
                     break;
+
                 case 5:
                     {
                         bool homeAll = !(code.hasX || code.hasY || code.hasZ);
@@ -1210,12 +1251,15 @@ namespace RepetierHost.model
                         //[delegate positionChangedFastX:x y:y z:z e:e];
                     }
                     break;
+
                 case 6:
                     relative = false;
                     break;
+
                 case 7:
                     relative = true;
                     break;
+
                 case 8:
                     if (FormPrinterSettings.ps.printerType != 3)
                     {
@@ -1231,6 +1275,7 @@ namespace RepetierHost.model
                     }
                     if (code.hasE) { activeExtruder.eOffset = activeExtruder.e - code.e; activeExtruder.lastE = activeExtruder.e = activeExtruder.eOffset; }
                     break;
+
                 case 12: // Host command
                     {
                         string hc = code.text.Trim();
@@ -1247,12 +1292,15 @@ namespace RepetierHost.model
                         }
                     }
                     break;
+
                 case 9:
                     eRelative = false;
                     break;
+
                 case 10:
                     eRelative = true;
                     break;
+
                 case 11:
                     activeExtruderId = code.tool;
                     if (!extruder.ContainsKey(activeExtruderId))
@@ -1276,6 +1324,7 @@ namespace RepetierHost.model
             code.tool = activeExtruderId;
             code.emax = totalFilamentUsed();
         }
+
         public float totalFilamentUsed()
         {
             float sum = 0;

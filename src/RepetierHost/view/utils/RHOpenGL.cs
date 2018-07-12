@@ -1,12 +1,10 @@
-﻿using System;
+﻿using OpenTK.Graphics;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Graphics;
-using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
 {
@@ -14,9 +12,10 @@ namespace RepetierHost.view.utils
     {
         public RHOpenGL()
         //    : base(new GraphicsMode(32, 24, 8, RHOpenGL.MaxAntiAlias()))
-//            : base(new GraphicsMode(32, 24, 8, 4), 2, 0, GraphicsContextFlags.ForwardCompatible)
+        //            : base(new GraphicsMode(32, 24, 8, 4), 2, 0, GraphicsContextFlags.ForwardCompatible)
         {
         }
+
         public static int MaxAntiAlias()
         {
             var aa_modes = new List<int>();
@@ -24,7 +23,7 @@ namespace RepetierHost.view.utils
             do
             {
                 GraphicsMode mode = new GraphicsMode(32, 24, 0, aa);
-                Console.WriteLine("Samples:"+mode.Samples);
+                Console.WriteLine("Samples:" + mode.Samples);
                 if (!aa_modes.Contains(mode.Samples))
                     aa_modes.Add(aa);
                 aa += 2;
@@ -33,6 +32,7 @@ namespace RepetierHost.view.utils
             Console.WriteLine("Best AntiAlias:" + best);
             return best;
         }
+
         // Returns a System.Drawing.Bitmap with the contents of the current framebuffer
         // Call Dispose on bitmap when done
         public void SaveScreenshot(string file)
@@ -50,6 +50,7 @@ namespace RepetierHost.view.utils
             bmp.Save(file, ImageFormat.Png);
             bmp.Dispose();
         }
+
         protected override bool IsInputKey(Keys keyData)
         {
             switch (keyData)
@@ -59,6 +60,7 @@ namespace RepetierHost.view.utils
                 case Keys.Up:
                 case Keys.Down:
                     return true;
+
                 case Keys.Shift | Keys.Right:
                 case Keys.Shift | Keys.Left:
                 case Keys.Shift | Keys.Up:

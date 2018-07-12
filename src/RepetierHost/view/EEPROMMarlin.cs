@@ -13,28 +13,22 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 
-   written by scuba 
+   written by scuba
 */
 
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using RepetierHost.model;
 using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class EEPROMMarlin : Form
     {
-        EEPROMMarlinStorage storage;
-        bool reinit = true;       
-        
+        private EEPROMMarlinStorage storage;
+        private bool reinit = true;
+
         public EEPROMMarlin()
         {
             InitializeComponent();
@@ -45,6 +39,7 @@ namespace RepetierHost.view
             Main.main.languageChanged += translate;
             newline(Main.conn.eepromm);
         }
+
         private void translate()
         {
             Text = Trans.T("W_EEPROM_MARLIN");
@@ -64,14 +59,15 @@ namespace RepetierHost.view
             buttonAbort.Text = Trans.T("B_CANCEL");
             buttonLoad.Text = Trans.T("B_M_LOAD");
             buttonRestore.Text = Trans.T("B_M_RESTORE");
-            buttonSave.Text = Trans.T("B_M_SAVE");            
+            buttonSave.Text = Trans.T("B_M_SAVE");
         }
+
         private void buttonLoad_Click(object sender, EventArgs e)
         {
             reinit = false;
             storage.Update();
         }
-        
+
         private void buttonRestore_Click(object sender, EventArgs e)
         {
             reinit = true;
@@ -139,10 +135,12 @@ namespace RepetierHost.view
                 storage.Update();
             }
         }
+
         private void EEPROMMarlin_FormClosing(object sender, FormClosingEventArgs e)
         {
             RegMemory.StoreWindowPos("eepromMarlinWindow", this, false, false);
         }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             storage.SX = xstepsbox.Text;
@@ -170,7 +168,7 @@ namespace RepetierHost.view
             storage.HOX = hoxbox.Text;
             storage.HOY = hoybox.Text;
             storage.HOZ = hozbox.Text;
-            
+
             storage.Save();
 
             string message = Trans.T("L_M_CONFIRM_WRITE"); // "Settings stored to running config.\n Write Changes to EEPROM?";
@@ -184,12 +182,13 @@ namespace RepetierHost.view
                 buttonAbort_Click_1(null, null);
             }
         }
+
         private void floatPos_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
             try
             {
-                float x = float.Parse(box.Text,GCode.format);
+                float x = float.Parse(box.Text, GCode.format);
                 if (x >= 0)
                     errorProvider.SetError(box, "");
                 else
@@ -200,6 +199,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, Trans.T("L_NOT_A_NUMBER"));
             }
         }
+
         private void int_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -213,6 +213,5 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, Trans.T("L_NOT_AN_INTEGER"));
             }
         }
-
     }
 }

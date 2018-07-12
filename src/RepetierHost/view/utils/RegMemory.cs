@@ -1,38 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.Win32;
-using System.IO;
+﻿using Microsoft.Win32;
 using RepetierHost.model;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
 {
     public class RegMemory
     {
-        static RegistryKey mainKey = null;
-        static RegistryKey windowKey = null;
+        private static RegistryKey mainKey = null;
+        private static RegistryKey windowKey = null;
 
-        static void initKeys()
+        private static void initKeys()
         {
             if (mainKey != null) return;
             mainKey = Custom.BaseKey; // Registry.CurrentUser.CreateSubKey("SOFTWARE\\Repetier");
             windowKey = mainKey.CreateSubKey("window");
-
         }
+
         public static int GetInt(string r, int def)
         {
             initKeys();
             return (int)windowKey.GetValue(r, def);
         }
+
         public static void SetInt(string r, int val)
         {
             initKeys();
             windowKey.SetValue(r, val);
         }
+
         public static long GetLong(string r, long def)
         {
             initKeys();
@@ -41,11 +40,13 @@ namespace RepetierHost.view.utils
             long.TryParse(v, out l);
             return l;
         }
+
         public static void SetLong(string r, long val)
         {
             initKeys();
             windowKey.SetValue(r, val.ToString());
         }
+
         public static double GetDouble(string r, double def)
         {
             initKeys();
@@ -54,46 +55,55 @@ namespace RepetierHost.view.utils
             double.TryParse(sval, NumberStyles.Float, GCode.format, out val);
             return val;
         }
+
         public static void SetDouble(string r, double val)
         {
             initKeys();
             windowKey.SetValue(r, val.ToString(GCode.format));
         }
+
         public static bool GetBool(string r, bool def)
         {
             initKeys();
             return (int)windowKey.GetValue(r, def ? 1 : 0) != 0;
         }
+
         public static void SetBool(string r, bool val)
         {
             initKeys();
             windowKey.SetValue(r, val ? 1 : 0);
         }
+
         public static string GetString(string r, string def)
         {
             initKeys();
             return (string)windowKey.GetValue(r, def);
         }
+
         public static void SetString(string r, string val)
         {
             initKeys();
             windowKey.SetValue(r, val);
         }
+
         public static Color GetColor(string r, Color def)
         {
             int v = GetInt(r, def.ToArgb());
             return Color.FromArgb(v);
         }
+
         public static void SetColor(string r, Color val)
         {
             SetInt(r, val.ToArgb());
         }
+
         public static string WindowPosToString(Form f, bool state)
         {
             Rectangle rest = f.DesktopBounds;
             return rest.X.ToString() + "|" +
                 rest.Y.ToString() + (state ? f.WindowState.ToString() : "");
         }
+
         public static string WindowPosSizeToString(Form f, bool state)
         {
             Rectangle rest = f.DesktopBounds;
@@ -110,6 +120,7 @@ namespace RepetierHost.view.utils
                 rest.Height.ToString() + "|" +
                 (state ? f.WindowState.ToString() : "");
         }
+
         private static bool IsVisibleOnAnyScreen(Rectangle rect)
         {
             foreach (Screen screen in Screen.AllScreens)
@@ -121,6 +132,7 @@ namespace RepetierHost.view.utils
             }
             return false;
         }
+
         private static bool IsVisibleOnAnyScreen(Point pnt)
         {
             foreach (Screen screen in Screen.AllScreens)
@@ -132,6 +144,7 @@ namespace RepetierHost.view.utils
             }
             return false;
         }
+
         public static void StringToWindowPos(Form f, string pos, int screenId)
         {
             if (string.IsNullOrEmpty(pos)) return;
@@ -147,14 +160,14 @@ namespace RepetierHost.view.utils
                 windowSize = new Size(int.Parse(numbers[2]),
                     int.Parse(numbers[3]));
                 winBounds = new Rectangle(windowPoint, windowSize);
-            } else
+            }
+            else
                 winBounds = new Rectangle(windowPoint, f.Size);
             string windowString = "Normal";
             if (numbers.Length == 3 || numbers.Length == 5)
                 windowString = numbers[numbers.Length - 1];
             if (windowString == "Normal")
             {
-
                 bool locOkay = IsVisibleOnAnyScreen(windowPoint);
                 bool okay = IsVisibleOnAnyScreen(winBounds);
 
@@ -172,6 +185,7 @@ namespace RepetierHost.view.utils
                 f.WindowState = FormWindowState.Maximized;
             }
         }
+
         public static void StoreWindowPos(string name, Form f, bool storeSize, bool storeState)
         {
             string s = storeSize ? WindowPosSizeToString(f, storeState) : WindowPosToString(f, storeState);
@@ -187,19 +201,23 @@ namespace RepetierHost.view.utils
             }
             SetInt(name + "Screen", scIdx);
         }
+
         public static void RestoreWindowPos(string name, Form f)
         {
             string s = GetString(name, "");
             if (s == "") return;
             StringToWindowPos(f, s, GetInt(name + "Screen", 0));
         }
+
         public class HistoryFile
         {
             public string file;
+
             public HistoryFile(string fname)
             {
                 file = fname;
             }
+
             public override string ToString()
             {
                 int p = file.LastIndexOf(Path.DirectorySeparatorChar);
@@ -207,11 +225,13 @@ namespace RepetierHost.view.utils
                 return file.Substring(p + 1);
             }
         }
+
         public class FilesHistory
         {
             public LinkedList<HistoryFile> list = new LinkedList<HistoryFile>();
-            string name;
-            int maxLength;
+            private string name;
+            private int maxLength;
+
             public FilesHistory(string id, int max)
             {
                 name = id;
@@ -226,6 +246,7 @@ namespace RepetierHost.view.utils
                     }
                 }
             }
+
             public void Save(string fname)
             {
                 if (list.Count > 0 && list.First.Value.file == fname) return;

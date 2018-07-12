@@ -14,27 +14,22 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
-using RepetierHost.view.utils;
 using RepetierHost.model;
+using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.IO;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class SoundConfig : Form
     {
         public static SoundConfig config = null;
-        string filePrintFinished = "";
-        string filePrintPaused = "";
-        string fileError = "";
-        string fileSoundCommand = "";
+        private string filePrintFinished = "";
+        private string filePrintPaused = "";
+        private string fileError = "";
+        private string fileSoundCommand = "";
 
         public SoundConfig()
         {
@@ -51,6 +46,7 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("SOUND_CONFIGURATION");
@@ -70,11 +66,13 @@ namespace RepetierHost.view
             buttonBrowseSoundCommand.Text = Trans.T("B_BROWSE");
             buttonOK.Text = Trans.T("B_OK");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         public void saveSettings()
         {
             RegMemory.SetString("soundPrintFinished", filePrintFinished);
@@ -86,6 +84,7 @@ namespace RepetierHost.view
             RegMemory.SetBool("soundErrorEnabled", checkError.Checked);
             RegMemory.SetBool("soundSoundCommandEnabled", checkSoundCommand.Checked);
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             saveSettings();
@@ -101,6 +100,7 @@ namespace RepetierHost.view
                 player.Play();
             }
         }
+
         static public void PlayPrintPaused(bool force)
         {
             if (!File.Exists(config.filePrintPaused)) return;
@@ -110,6 +110,7 @@ namespace RepetierHost.view
                 player.Play();
             }
         }
+
         static public void PlayError(bool force)
         {
             if (!File.Exists(config.fileError)) return;
@@ -119,6 +120,7 @@ namespace RepetierHost.view
                 player.Play();
             }
         }
+
         static public void PlaySoundCommand(bool force)
         {
             if (!File.Exists(config.fileSoundCommand)) return;

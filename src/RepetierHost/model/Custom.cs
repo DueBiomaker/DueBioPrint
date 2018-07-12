@@ -14,15 +14,9 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Win32;
+using System.Collections.Generic;
 using System.IO;
-using RepetierHost.model;
-using System.Globalization;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace RepetierHost.model
@@ -30,17 +24,18 @@ namespace RepetierHost.model
     public class Custom
     {
         private static RegistryKey baseKey;
-        private static Dictionary<string,string> dic;
+        private static Dictionary<string, string> dic;
+
         public static void Initialize()
         {
             dic = new Dictionary<string, string>();
             dic["registryFolder"] = "Repetier";
-            string customfile = Application.StartupPath + Path.DirectorySeparatorChar+"data"+Path.DirectorySeparatorChar+"custom.ini";
-            if(File.Exists(customfile))
+            string customfile = Application.StartupPath + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + "custom.ini";
+            if (File.Exists(customfile))
                 ReadFile(customfile);
-            baseKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\"+dic["registryFolder"]);
-
+            baseKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\" + dic["registryFolder"]);
         }
+
         public static void ReadFile(string fname)
         {
             string line;
@@ -61,6 +56,7 @@ namespace RepetierHost.model
 
             file.Close();
         }
+
         public static bool GetBool(string name, bool def)
         {
             if (!dic.ContainsKey(name)) return def;
@@ -69,6 +65,7 @@ namespace RepetierHost.model
             if (val == "0" || val == "no" || val == "false") return false;
             return def;
         }
+
         public static int GetInteger(string name, int def)
         {
             if (!dic.ContainsKey(name)) return def;
@@ -77,11 +74,13 @@ namespace RepetierHost.model
             int.TryParse(val, out ival);
             return ival;
         }
+
         public static string GetString(string name, string def)
         {
             if (!dic.ContainsKey(name)) return def;
             return dic[name];
         }
+
         public static RegistryKey BaseKey
         {
             get { return baseKey; }

@@ -14,37 +14,33 @@
    limitations under the License.
 */
 
+using RepetierHost.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
-using System.Windows;
-using Microsoft.Win32;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
     public delegate void ContentChangedEvent();
+
     public partial class RepetierEditor : UserControl
     {
         public enum UndoAction
         {
             ReplaceSelection = 1,
-
         }
+
         public class Undo
         {
-            int col, row, selCol, selRow;
-            string text,oldtext;
-            UndoAction action;
-            public Undo(UndoAction act, string t,string ot, int c, int r, int sc, int sr)
+            private int col, row, selCol, selRow;
+            private string text, oldtext;
+            private UndoAction action;
+
+            public Undo(UndoAction act, string t, string ot, int c, int r, int sc, int sr)
             {
                 action = act;
                 text = t;
@@ -54,7 +50,8 @@ namespace RepetierHost.view
                 selCol = sc;
                 selRow = sr;
             }
-            public void DeleteSelection(RepetierEditor e,int cstart,int rstart,int cend,int rend)
+
+            public void DeleteSelection(RepetierEditor e, int cstart, int rstart, int cend, int rend)
             {
                 // start row = begin first + end last row
                 e.lines[rstart] = new GCodeShort(e.lines[rstart].text.Substring(0, cstart) + e.lines[rend].text.Substring(cend));
@@ -64,7 +61,8 @@ namespace RepetierHost.view
                 e.col = e.selCol = cstart;
                 if (e.lines.Count == 0) e.Clear();
             }
-            private void InsertString(RepetierEditor e,string s)
+
+            private void InsertString(RepetierEditor e, string s)
             {
                 int rstart = row;
                 int cstart = col;
@@ -101,7 +99,8 @@ namespace RepetierHost.view
                 }
                 e.row += la.Length - 1;
             }
-            private void EndPos(RepetierEditor e, string s,out int cpos,out int rpos)
+
+            private void EndPos(RepetierEditor e, string s, out int cpos, out int rpos)
             {
                 int rstart = row;
                 int cstart = col;
@@ -145,9 +144,10 @@ namespace RepetierHost.view
                 InsertString(e, oldtext);
                 e.row = row;
                 e.col = col;
-                e.PositionShowCursor(true,false);
+                e.PositionShowCursor(true, false);
                 e.Changed();
             }
+
             public void RedoAction(RepetierEditor e)
             {
                 int rstart = row;
@@ -165,7 +165,7 @@ namespace RepetierHost.view
                 e._col = col;
                 e.selCol = selCol;
                 e.selRow = selRow;
-                DeleteSelection(e,cstart,rstart,cend,rend);
+                DeleteSelection(e, cstart, rstart, cend, rend);
                 InsertString(e, text);
                 if (text.Length == 0)
                 {
@@ -183,18 +183,21 @@ namespace RepetierHost.view
                 e.Changed();
             }
         }
+
         public class Content
         {
             //public string Text;
             public List<GCodeShort> textArray;
-            int col=0, row=0, selCol=0, selRow=0;
-            int topRow=0, topCol=0;
-            bool hasSel;
-            LinkedList<Undo> undo = new LinkedList<Undo>();
-            LinkedList<Undo> redo = new LinkedList<Undo>();
-            RepetierEditor editor = null;
+
+            private int col = 0, row = 0, selCol = 0, selRow = 0;
+            private int topRow = 0, topCol = 0;
+            private bool hasSel;
+            private LinkedList<Undo> undo = new LinkedList<Undo>();
+            private LinkedList<Undo> redo = new LinkedList<Undo>();
+            private RepetierEditor editor = null;
             public string name;
             public int etype; // 0 = G-Code, 1 = prepend, 2 = append
+
             public Content(RepetierEditor e, int tp, string _name)
             {
                 name = _name;
@@ -204,6 +207,7 @@ namespace RepetierHost.view
                 editor = e;
                 etype = tp;
             }
+
             public string Text
             {
                 get
@@ -231,6 +235,7 @@ namespace RepetierHost.view
                 col = row = selCol = selRow = topCol = topRow = topCol = 0;
                 hasSel = false;
             }
+
             public void FromActive()
             {
                 col = editor._col;
@@ -242,6 +247,7 @@ namespace RepetierHost.view
                 hasSel = editor.hasSel;
                 //Text = editor.Text;
             }
+
             public void ToActive()
             {
                 editor.lines = textArray;
@@ -258,20 +264,25 @@ namespace RepetierHost.view
                 editor.toolColumn.Text = "C" + (col + 1).ToString();
                 UpdateUndoButtons();
             }
+
             public void UpdateUndoButtons()
             {
                 editor.toolUndo.Enabled = undo.Count > 0;
                 editor.toolRedo.Enabled = redo.Count > 0;
             }
-            public void ClearUndo() {
+
+            public void ClearUndo()
+            {
                 undo.Clear();
                 redo.Clear();
                 UpdateUndoButtons();
             }
+
             public override string ToString()
             {
                 return name;
             }
+
             public void Undo()
             {
                 if (undo.Count > 0)
@@ -283,6 +294,7 @@ namespace RepetierHost.view
                 }
                 UpdateUndoButtons();
             }
+
             public void Redo()
             {
                 if (redo.Count > 0)
@@ -294,6 +306,7 @@ namespace RepetierHost.view
                 }
                 UpdateUndoButtons();
             }
+
             public void AddUndo(Undo u)
             {
                 undo.AddFirst(u);
@@ -302,72 +315,81 @@ namespace RepetierHost.view
                 UpdateUndoButtons();
             }
         }
-        Content cur = null;
+
+        private Content cur = null;
         public Commands commands = null;
-        public event ContentChangedEvent contentChangedEvent=null;
-        int changedCounter = 0;
+
+        public event ContentChangedEvent contentChangedEvent = null;
+
+        private int changedCounter = 0;
         public int _row = 0, _col = 0;
         public int selCol = 0, selRow = 0;
-        bool hasSel = false,forceSel=false;
-        int _topRow = 0; // First visible row
-        int _topCol = 0;
-        bool _overwrite = false;
-        int rowsVisible = 10;
-        int colsVisible = 10;
-        int maxCol = 10;
-        Font drawFont = new Font(FontFamily.GenericMonospace/*"Courier New"*/, 12,GraphicsUnit.Pixel);
-        SolidBrush blackBrush = new SolidBrush(Color.Black);
-        Brush commandBrush = Brushes.DarkBlue;
-        Brush commentBrush = Brushes.OliveDrab;
-        Brush paramTypeBrush = Brushes.Maroon;
-        Brush linesBgColor = Brushes.CadetBlue;
-        Brush linesBgAltColor = Brushes.DarkCyan;
-        Brush linesTextColor = Brushes.White;
-        Brush backBrush = Brushes.White;
-        Brush evenBackBrush = Brushes.Linen;
-        Brush hostBrush = Brushes.SeaGreen;
-        Brush selectionBrush = Brushes.DarkTurquoise;
-        Brush selectionTextColor = Brushes.White;
-        Pen cursorBrush = Pens.Black;
-        float fontHeight;
-        float fontWidth;
-        bool hasFocus = false;
-        int linesWidth = 100;
-        bool ignoreMouseDown = true;
-        bool blink = true;
-        int _maxLayer = 0;
-        int _showMode = 0;
-        int _showMinLayer = 0;
-        int _showMaxLayer = 1;
+        private bool hasSel = false, forceSel = false;
+        private int _topRow = 0; // First visible row
+        private int _topCol = 0;
+        private bool _overwrite = false;
+        private int rowsVisible = 10;
+        private int colsVisible = 10;
+        private int maxCol = 10;
+        private Font drawFont = new Font(FontFamily.GenericMonospace/*"Courier New"*/, 12, GraphicsUnit.Pixel);
+        private SolidBrush blackBrush = new SolidBrush(Color.Black);
+        private Brush commandBrush = Brushes.DarkBlue;
+        private Brush commentBrush = Brushes.OliveDrab;
+        private Brush paramTypeBrush = Brushes.Maroon;
+        private Brush linesBgColor = Brushes.CadetBlue;
+        private Brush linesBgAltColor = Brushes.DarkCyan;
+        private Brush linesTextColor = Brushes.White;
+        private Brush backBrush = Brushes.White;
+        private Brush evenBackBrush = Brushes.Linen;
+        private Brush hostBrush = Brushes.SeaGreen;
+        private Brush selectionBrush = Brushes.DarkTurquoise;
+        private Brush selectionTextColor = Brushes.White;
+        private Pen cursorBrush = Pens.Black;
+        private float fontHeight;
+        private float fontWidth;
+        private bool hasFocus = false;
+        private int linesWidth = 100;
+        private bool ignoreMouseDown = true;
+        private bool blink = true;
+        private int _maxLayer = 0;
+        private int _showMode = 0;
+        private int _showMinLayer = 0;
+        private int _showMaxLayer = 1;
         public double printingTime = 0;
+
         public event EventHandler ShowModeChanged;
+
         public event EventHandler ShowMinLayerChanged;
+
         public event EventHandler ShowMaxLayerChanged;
+
         public event EventHandler MaxLayerChanged;
 
-        List<GCodeShort> lines=null;
-        [DllImport("User32.dll")]
-        static extern bool CreateCaret(IntPtr hWnd, int hBitmap, int nWidth, int nHeight);
+        private List<GCodeShort> lines = null;
 
         [DllImport("User32.dll")]
-        static extern bool SetCaretPos(int x, int y);
+        private static extern bool CreateCaret(IntPtr hWnd, int hBitmap, int nWidth, int nHeight);
 
         [DllImport("User32.dll")]
-        static extern bool DestroyCaret();
+        private static extern bool SetCaretPos(int x, int y);
 
         [DllImport("User32.dll")]
-        static extern bool ShowCaret(IntPtr hWnd);
+        private static extern bool DestroyCaret();
 
         [DllImport("User32.dll")]
-        static extern bool HideCaret(IntPtr hWnd); 
+        private static extern bool ShowCaret(IntPtr hWnd);
+
+        [DllImport("User32.dll")]
+        private static extern bool HideCaret(IntPtr hWnd);
+
         public RepetierEditor()
         {
             InitializeComponent();
-            
+
             fontHeight = drawFont.Height;
             editor.MouseWheel += MouseWheelHandler;
-            
-    //        Text = System.IO.File.ReadAllText("d:\\arduino\\Mendel\\models\\work\\oozetest.gcode");
+
+            //        Text = System.IO.File.ReadAllText("d:\\arduino\\Mendel\\models\\work\\oozetest.gcode");
             Content c = new Content(this, 0, "G-Code");
             //c.Text = ""; // System.IO.File.ReadAllText("d:\\arduino\\Mendel\\models\\foambowl_export.gcode");
             toolFile.Items.Clear();
@@ -393,7 +415,8 @@ namespace RepetierHost.view
             Main.main.languageChanged += translate;
             translate();
         }
-        void translate()
+
+        private void translate()
         {
             toolCopy.ToolTipText = Trans.T("L_COPY");
             toolCut.ToolTipText = Trans.T("L_CUT");
@@ -411,7 +434,7 @@ namespace RepetierHost.view
             ((Content)toolFile.Items[2]).name = Trans.T("L_END_CODE");
             ((Content)toolFile.Items[3]).name = Trans.T("L_RUN_ON_KILL");
             ((Content)toolFile.Items[4]).name = Trans.T("L_RUN_ON_PAUSE");
-            ((Content)toolFile.Items[5]).name = Trans.T1("L_SCRIPT_X","1");
+            ((Content)toolFile.Items[5]).name = Trans.T1("L_SCRIPT_X", "1");
             ((Content)toolFile.Items[6]).name = Trans.T1("L_SCRIPT_X", "2");
             ((Content)toolFile.Items[7]).name = Trans.T1("L_SCRIPT_X", "3");
             ((Content)toolFile.Items[8]).name = Trans.T1("L_SCRIPT_X", "4");
@@ -424,6 +447,7 @@ namespace RepetierHost.view
             buttonGoFirstLayer.Text = Trans.T("L_FIRST_LAYER");
             buttonGoLastLayer.Text = Trans.T("L_LAST_LAYER");
         }
+
         public int FileIndex
         {
             get
@@ -434,6 +458,7 @@ namespace RepetierHost.view
                 return i;
             }
         }
+
         protected void OnShowModeChanged(EventArgs e)
         {
             if (ShowModeChanged != null)
@@ -441,6 +466,7 @@ namespace RepetierHost.view
                 ShowModeChanged(this, e);
             }
         }
+
         protected void OnShowMinLayerChanged(EventArgs e)
         {
             if (ShowMinLayerChanged != null)
@@ -448,6 +474,7 @@ namespace RepetierHost.view
                 ShowMinLayerChanged(this, e);
             }
         }
+
         protected void OnShowMaxLayerChanged(EventArgs e)
         {
             if (ShowMaxLayerChanged != null)
@@ -455,6 +482,7 @@ namespace RepetierHost.view
                 ShowMaxLayerChanged(this, e);
             }
         }
+
         protected void OnMaxLayerChanged(EventArgs e)
         {
             if (MaxLayerChanged != null)
@@ -462,6 +490,7 @@ namespace RepetierHost.view
                 MaxLayerChanged(this, e);
             }
         }
+
         public int ShowMode
         {
             get { return _showMode; }
@@ -476,6 +505,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         public int ShowMinLayer
         {
             get { return _showMinLayer; }
@@ -500,6 +530,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         public int ShowMaxLayer
         {
             get { return _showMaxLayer; }
@@ -518,12 +549,13 @@ namespace RepetierHost.view
                         sliderShowFirstLayer.Value = value;
                         OnShowMinLayerChanged(EventArgs.Empty);
                     }
-                    if(_showMode!=0)
-                        if(contentChangedEvent != null)
+                    if (_showMode != 0)
+                        if (contentChangedEvent != null)
                             contentChangedEvent();
                 }
             }
         }
+
         public int MaxLayer
         {
             get { return _maxLayer; }
@@ -540,44 +572,56 @@ namespace RepetierHost.view
                 }
             }
         }
+
         private int MaxCol
         {
             get { return maxCol; }
-            set {
+            set
+            {
                 if (value == maxCol) return;
                 maxCol = value;
                 scrollColumns.Maximum = Math.Max(0, maxCol - colsVisible + 2);
             }
         }
+
         private int topCol
         {
             get { return _topCol; }
-            set { _topCol = value; if (_topCol > scrollColumns.Maximum) scrollColumns.Maximum = _topCol;
-                scrollColumns.Value = _topCol; 
+            set
+            {
+                _topCol = value; if (_topCol > scrollColumns.Maximum) scrollColumns.Maximum = _topCol;
+                scrollColumns.Value = _topCol;
             }
         }
+
         public void UpdateLayerInfo()
         {
             if (_row < 0 || _row >= lines.Count) return;
             GCodeShort s = lines[_row];
-            toolLayer.Text = Trans.T1("L_LAYER_X",(!s.hasLayer ? "-" : s.layer.ToString()))+(s.emax>0?" "+Trans.T1("L_FILAMENT_POS",s.emax.ToString("0.0")):"");
-            toolExtruder.Text = Trans.T1("L_EXTRUDER_X",(!s.hasLayer ? "-" : s.tool.ToString()));
+            toolLayer.Text = Trans.T1("L_LAYER_X", (!s.hasLayer ? "-" : s.layer.ToString())) + (s.emax > 0 ? " " + Trans.T1("L_FILAMENT_POS", s.emax.ToString("0.0")) : "");
+            toolExtruder.Text = Trans.T1("L_EXTRUDER_X", (!s.hasLayer ? "-" : s.tool.ToString()));
         }
+
         private int col
         {
             get { return _col; }
             set
             {
-                _col = value; 
-                toolColumn.Text = Trans.T1("L_EDITOR_C",(col + 1).ToString());
+                _col = value;
+                toolColumn.Text = Trans.T1("L_EDITOR_C", (col + 1).ToString());
             }
         }
+
         private int row
         {
             get { return _row; }
-            set { _row = value; toolRow.Text = Trans.T1("L_EDITOR_R",(row + 1).ToString());
-                UpdateLayerInfo(); if(Main.main.threedview!=null) Main.main.threedview.UpdateChanges(); }
+            set
+            {
+                _row = value; toolRow.Text = Trans.T1("L_EDITOR_R", (row + 1).ToString());
+                UpdateLayerInfo(); if (Main.main.threedview != null) Main.main.threedview.UpdateChanges();
+            }
         }
+
         private int topRow
         {
             get { return _topRow; }
@@ -588,17 +632,20 @@ namespace RepetierHost.view
                 scrollRows.Value = _topRow;
             }
         }
+
         private bool overwrite
         {
             get { return _overwrite; }
             set { _overwrite = value; toolMode.Text = value ? Trans.T("L_OVERWRITE") : Trans.T("L_INSERT"); CreateCursor(); }
         }
+
         public void AppendLine(string l)
         {
             lines.Add(new GCodeShort(l));
             MaxCol = Math.Max(maxCol, l.Length);
             scrollRows.Maximum = lines.Count;
         }
+
         /// <summary>
         /// Replaces current content with text. Resets undo cache.
         /// </summary>
@@ -615,10 +662,10 @@ namespace RepetierHost.view
             {
                 ignoreMouseDown = Control.MouseButtons != MouseButtons.None;
                 cur.ClearUndo();
-                string[] la = value.Replace("\r\n","\n").Replace('\r','\n').Split('\n');
+                string[] la = value.Replace("\r\n", "\n").Replace('\r', '\n').Split('\n');
                 Clear();
                 lines.Clear();
-                
+
                 maxCol = 1;
                 if (la.Length == 0) la = new string[] { "" };
                 foreach (string s in la)
@@ -635,6 +682,7 @@ namespace RepetierHost.view
                 Changed();
             }
         }
+
         /// <summary>
         /// Sets focus on editor
         /// </summary>
@@ -642,6 +690,7 @@ namespace RepetierHost.view
         {
             editor.Focus();
         }
+
         /// <summary>
         /// Clears active editor
         /// </summary>
@@ -655,20 +704,24 @@ namespace RepetierHost.view
             PositionShowCursor(true, false);
             Changed();
         }
+
         private void DrawRow(Graphics g, int line, GCodeShort code, float x, float y)
         {
             string text = code.text;
             float s1 = 0, s2 = 0;
-            g.FillRectangle(((line & 1)==0?backBrush:evenBackBrush), linesWidth, y, editor.Width - linesWidth, fontHeight);
+            g.FillRectangle(((line & 1) == 0 ? backBrush : evenBackBrush), linesWidth, y, editor.Width - linesWidth, fontHeight);
             string ln = line.ToString();
             line--;
-            int minc=-1, maxc=-1;
+            int minc = -1, maxc = -1;
             if (line >= Math.Min(row, selRow) && line <= Math.Max(row, selRow))
             { // mark selection
-                if(row<selRow || (row==selRow && col<selCol)) {
-                    minc = col;maxc=selCol;
-                } else {
-                    minc = selCol;maxc=col;
+                if (row < selRow || (row == selRow && col < selCol))
+                {
+                    minc = col; maxc = selCol;
+                }
+                else
+                {
+                    minc = selCol; maxc = col;
                 }
                 if (line > Math.Min(row, selRow)) { minc = 0; s1 = linesWidth; }
                 else s1 = linesWidth + minc * fontWidth;
@@ -680,12 +733,12 @@ namespace RepetierHost.view
             string command = "";
             string parameter = "";
             float ps = linesWidth + x;
-            int i,ac=0;
+            int i, ac = 0;
             if (text.StartsWith("@"))
             {
                 for (i = 0; i < text.Length; i++)
                 {
-                    g.DrawString(text[i].ToString(), drawFont,(ac >=minc && ac<maxc ? selectionTextColor : hostBrush), ps, y);
+                    g.DrawString(text[i].ToString(), drawFont, (ac >= minc && ac < maxc ? selectionTextColor : hostBrush), ps, y);
                     ac++;
                     ps += fontWidth;
                 }
@@ -711,7 +764,7 @@ namespace RepetierHost.view
             {
                 for (i = 0; i < command.Length; i++)
                 {
-                    g.DrawString(command[i].ToString(), drawFont, (ac >=minc && ac<maxc ? selectionTextColor :commandBrush), ps, y);
+                    g.DrawString(command[i].ToString(), drawFont, (ac >= minc && ac < maxc ? selectionTextColor : commandBrush), ps, y);
                     ps += fontWidth;
                     ac++;
                 }
@@ -721,10 +774,10 @@ namespace RepetierHost.view
                 for (i = 0; i < parameter.Length; i++)
                 {
                     char c = parameter[i];
-                    if((c>='A' && c<='Z') || (c>='a' && c<='z')) 
-                        g.DrawString(c.ToString(), drawFont,(ac >=minc && ac<maxc ? selectionTextColor : paramTypeBrush), ps, y);
+                    if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                        g.DrawString(c.ToString(), drawFont, (ac >= minc && ac < maxc ? selectionTextColor : paramTypeBrush), ps, y);
                     else
-                        g.DrawString(c.ToString(), drawFont, (ac >=minc && ac<maxc ? selectionTextColor :blackBrush), ps, y);
+                        g.DrawString(c.ToString(), drawFont, (ac >= minc && ac < maxc ? selectionTextColor : blackBrush), ps, y);
                     ps += fontWidth;
                     ac++;
                 }
@@ -733,18 +786,19 @@ namespace RepetierHost.view
             {
                 for (i = 0; i < comment.Length; i++)
                 {
-                    g.DrawString(comment[i].ToString(), drawFont,(ac >=minc && ac<maxc ? selectionTextColor : commentBrush), ps, y);
+                    g.DrawString(comment[i].ToString(), drawFont, (ac >= minc && ac < maxc ? selectionTextColor : commentBrush), ps, y);
                     ps += fontWidth;
                     ac++;
                 }
             }
-            if((code.layer & 1)==0)
+            if ((code.layer & 1) == 0)
                 g.FillRectangle(linesBgColor, 0, y, linesWidth, fontHeight);
             else
                 g.FillRectangle(linesBgAltColor, 0, y, linesWidth, fontHeight);
             g.DrawString(ln, drawFont, linesTextColor, linesWidth - 3 - fontWidth * ln.Length, y);
             PositionCursor();
         }
+
         private void CreateCursor()
         {
             if (!Main.IsMono)
@@ -754,6 +808,7 @@ namespace RepetierHost.view
             }
             PositionCursor();
         }
+
         private void HideCursor()
         {
             if (!Main.IsMono)
@@ -763,28 +818,30 @@ namespace RepetierHost.view
             }
             else editor.Invalidate();
         }
+
         private void PositionCursor()
         {
             UpdateHelp();
             if (!hasFocus) return;
-            int x,y;
-            x = (int)(linesWidth + (col - topCol) * fontWidth+1);
-            y = (int)((row-topRow)*fontHeight);
+            int x, y;
+            x = (int)(linesWidth + (col - topCol) * fontWidth + 1);
+            y = (int)((row - topRow) * fontHeight);
             if (!Main.IsMono)
             {
                 SetCaretPos(x, y);
             }
         }
+
         private void editor_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             SizeF sz = g.MeasureString("MMMMMMMMMM", drawFont);
-            fontWidth = (int)(sz.Width/10)+1;
+            fontWidth = (int)(sz.Width / 10) + 1;
             fontHeight = (int)Math.Ceiling(sz.Height);
             string maxl = lines.Count.ToString();
-            linesWidth = (int)(fontWidth * maxl.Length+6);
+            linesWidth = (int)(fontWidth * maxl.Length + 6);
             rowsVisible = (int)Math.Ceiling((double)editor.Height / fontHeight);
-            colsVisible = (int)Math.Ceiling((double)(editor.Width-linesWidth) / fontWidth);
+            colsVisible = (int)Math.Ceiling((double)(editor.Width - linesWidth) / fontWidth);
 
             int r;
             int rmax = rowsVisible;
@@ -792,9 +849,9 @@ namespace RepetierHost.view
                 rmax = lines.Count - topRow;
             for (r = 0; r < rmax; r++)
             {
-                DrawRow(g, topRow + r + 1, lines[topRow + r], -fontWidth*topCol, r * fontHeight);
+                DrawRow(g, topRow + r + 1, lines[topRow + r], -fontWidth * topCol, r * fontHeight);
             }
-            if (Main.IsMono && blink && editor.Focused && _col>=topCol && _row>=topRow && _row<=topRow+rowsVisible)
+            if (Main.IsMono && blink && editor.Focused && _col >= topCol && _row >= topRow && _row <= topRow + rowsVisible)
             {
                 int x, y;
                 x = (int)(linesWidth + (col - topCol) * fontWidth + 1);
@@ -802,12 +859,13 @@ namespace RepetierHost.view
                 g.DrawLine(cursorBrush, x, y, x, y + fontHeight);
                 if (_overwrite)
                 {
-                    g.DrawLine(cursorBrush,x, y + fontHeight,x+fontWidth,y+fontHeight);
-                    g.DrawLine(cursorBrush, x + fontWidth, y + fontHeight,x+fontWidth, y);
-                    g.DrawLine(cursorBrush, x + fontWidth, y,x, y);
+                    g.DrawLine(cursorBrush, x, y + fontHeight, x + fontWidth, y + fontHeight);
+                    g.DrawLine(cursorBrush, x + fontWidth, y + fontHeight, x + fontWidth, y);
+                    g.DrawLine(cursorBrush, x + fontWidth, y, x, y);
                 }
             }
         }
+
         private void CursorDown()
         {
             if (row < lines.Count - 1)
@@ -816,6 +874,7 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void CursorPageDown()
         {
             if (row + rowsVisible < lines.Count)
@@ -831,10 +890,12 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void goLayer(int lay)
         {
             int line = 0;
-            foreach(GCodeShort gc in cur.textArray) {
+            foreach (GCodeShort gc in cur.textArray)
+            {
                 if (gc.layer == lay) break;
                 line++;
             }
@@ -851,6 +912,7 @@ namespace RepetierHost.view
             PositionShowCursor();
             editor.Focus();
         }
+
         private void CursorPageUp()
         {
             if (topRow > 0)
@@ -867,11 +929,13 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void PositionShowCursor()
         {
-            PositionShowCursor(false,true);
+            PositionShowCursor(false, true);
         }
-        private void PositionShowCursor(bool repaint,bool moved)
+
+        private void PositionShowCursor(bool repaint, bool moved)
         {
             scrollRows.Maximum = lines.Count();
             repaint |= hasSel;
@@ -926,24 +990,28 @@ namespace RepetierHost.view
             if (repaint) { editor.Invalidate(); UpdateHelp(); }
             else PositionCursor();
         }
+
         private void CursorUp()
         {
-            if (row >0)
+            if (row > 0)
             {
                 row--;
                 PositionShowCursor();
             }
         }
+
         private void CursorEnd()
         {
             col = lines[row].Length;
             PositionShowCursor();
         }
+
         private void CursorStart()
         {
             col = 0;
             PositionShowCursor();
         }
+
         private bool CursorLeft()
         {
             if (col > 0)
@@ -959,9 +1027,10 @@ namespace RepetierHost.view
             }
             return true;
         }
+
         private void CursorRight()
         {
-            if (col <lines[row].Length)
+            if (col < lines[row].Length)
             {
                 col++;
                 PositionShowCursor();
@@ -973,23 +1042,25 @@ namespace RepetierHost.view
             }
         }
 
-        private void InsertChar(char c) {
+        private void InsertChar(char c)
+        {
             cur.AddUndo(new Undo(UndoAction.ReplaceSelection, c.ToString(), getSelection(), col, row, selCol, selRow));
             if (hasSelection)
                 DeleteSelection(false);
             string l = lines[row].text;
-            if(col>l.Length) col = l.Length;
-            if(_overwrite && col < l.Length)
-                lines[row] = new GCodeShort(l.Substring(0, col) + c.ToString() + l.Substring(col+1));
+            if (col > l.Length) col = l.Length;
+            if (_overwrite && col < l.Length)
+                lines[row] = new GCodeShort(l.Substring(0, col) + c.ToString() + l.Substring(col + 1));
             else
-                lines[row] = new GCodeShort(l.Substring(0,col)+c.ToString()+l.Substring(col));
+                lines[row] = new GCodeShort(l.Substring(0, col) + c.ToString() + l.Substring(col));
             col++;
             PositionShowCursor(true, false);
             Changed();
         }
+
         private void InsertString(string s)
         {
-            cur.AddUndo(new Undo(UndoAction.ReplaceSelection,s,getSelection(),col,row,selCol,selRow));
+            cur.AddUndo(new Undo(UndoAction.ReplaceSelection, s, getSelection(), col, row, selCol, selRow));
             if (hasSelection)
                 DeleteSelection(false);
             s = s.Replace("\r\n", "\n");
@@ -1010,9 +1081,10 @@ namespace RepetierHost.view
             for (int i = 0; i < la2.Length; i++)
                 lines.Insert(row + 1 + i, new GCodeShort(la2[i]));
             row += la.Length - 1;
-            PositionShowCursor(true,false);
+            PositionShowCursor(true, false);
             Changed();
         }
+
         public string getSelection()
         {
             int rstart = row;
@@ -1048,6 +1120,7 @@ namespace RepetierHost.view
             }
             return sb.ToString();
         }
+
         public void DeleteSelection(bool redraw)
         {
             int rstart = row;
@@ -1066,7 +1139,7 @@ namespace RepetierHost.view
             cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", getSelection(), col, row, selCol, selRow));
             // start row = begin first + end last row
             lines[rstart] = new GCodeShort(lines[rstart].text.Substring(0, cstart) + lines[rend].text.Substring(cend));
-            if(rend>rstart)
+            if (rend > rstart)
                 lines.RemoveRange(rstart + 1, rend - rstart);
             row = selRow = rstart;
             col = selCol = cstart;
@@ -1075,56 +1148,61 @@ namespace RepetierHost.view
                 PositionShowCursor(true, false);
             Changed();
         }
+
         public void DeleteChar()
         {
             string t = lines[row].text;
             if (t.Length == col)
             { // Join with next line
                 if (row == lines.Count - 1) return;
-                lines[row] = new GCodeShort(lines[row].text+lines[row + 1].text);
+                lines[row] = new GCodeShort(lines[row].text + lines[row + 1].text);
                 lines.RemoveAt(row + 1);
-                cur.AddUndo(new Undo(UndoAction.ReplaceSelection,"","\n",col,row,0,row+1));
+                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", "\n", col, row, 0, row + 1));
             }
             else
             {
-                cur.AddUndo(new Undo(UndoAction.ReplaceSelection,"",t.Substring(col,1),col,row,col+1,row));
+                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", t.Substring(col, 1), col, row, col + 1, row));
                 lines[row] = new GCodeShort(t.Substring(0, col) + t.Substring(col + 1));
             }
             editor.Invalidate();
             Changed();
         }
+
         public void Backspace()
         {
             string t = lines[row].text;
             if (col > t.Length)
             {
                 col = t.Length;
-            } else
-            if (col==0)
+            }
+            else
+            if (col == 0)
             { // Join with next line
                 if (row == 0) return;
-                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", "\n", col, row, lines[row-1].Length, row -1));
-                col = lines[row-1].Length;
-                lines[row - 1] = new GCodeShort(lines[row - 1].text+lines[row].text);
+                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", "\n", col, row, lines[row - 1].Length, row - 1));
+                col = lines[row - 1].Length;
+                lines[row - 1] = new GCodeShort(lines[row - 1].text + lines[row].text);
                 lines.RemoveAt(row);
                 row--;
             }
             else
             {
-                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", t.Substring(col-1, 1), col, row, col -1, row));
-                lines[row] = new GCodeShort(t.Substring(0, col-1) + t.Substring(col ));
+                cur.AddUndo(new Undo(UndoAction.ReplaceSelection, "", t.Substring(col - 1, 1), col, row, col - 1, row));
+                lines[row] = new GCodeShort(t.Substring(0, col - 1) + t.Substring(col));
                 CursorLeft();
             }
             PositionShowCursor(true, false);
             Changed();
         }
+
         public bool hasSelection
         {
-            get {return row!=selRow || col!=selCol;}
+            get { return row != selRow || col != selCol; }
         }
+
         private void editor_Click(object sender, EventArgs e)
         {
-            if(!editor.Focused)
+            if (!editor.Focused)
                 editor.Focus();
         }
 
@@ -1137,46 +1215,55 @@ namespace RepetierHost.view
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Up:
                     CursorUp();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Left:
                     CursorLeft();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Right:
                     CursorRight();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.End:
                     CursorEnd();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Home:
                     CursorStart();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.PageDown:
                     CursorPageDown();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.PageUp:
                     CursorPageUp();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Return:
                     InsertString("\n");
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Delete:
                     if (hasSelection)
                     {
@@ -1189,6 +1276,7 @@ namespace RepetierHost.view
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Back:
                     if (hasSelection)
                     {
@@ -1201,9 +1289,11 @@ namespace RepetierHost.view
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Insert:
                     overwrite = !overwrite;
                     break;
+
                 case Keys.A:
                     if (e.Control)
                     {
@@ -1212,29 +1302,33 @@ namespace RepetierHost.view
                         row = Math.Max(0, lines.Count - 1);
                         col = lines[row].Length;
                         forceSel = true;
-                        PositionShowCursor(true,true);
+                        PositionShowCursor(true, true);
                         forceSel = false;
                         hasSel = true;
                         e.Handled = true;
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.C:
                     if (e.Control)
                     {
-                        if(hasSelection)
+                        if (hasSelection)
                             Clipboard.SetText(getSelection());
                         e.Handled = true;
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.V:
-                    if(e.Control) {
+                    if (e.Control)
+                    {
                         InsertString(Clipboard.GetText());
                         e.Handled = true;
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.X:
                     if (e.Control)
                     {
@@ -1247,6 +1341,7 @@ namespace RepetierHost.view
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.Z:
                     if (e.Control)
                     {
@@ -1255,6 +1350,7 @@ namespace RepetierHost.view
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.Y:
                     if (e.Control)
                     {
@@ -1273,6 +1369,7 @@ namespace RepetierHost.view
             topRow = scrollRows.Value;
             editor.Invalidate();
         }
+
         private void MouseWheelHandler(object sender, MouseEventArgs e)
         {
             if (e.Delta != 0)
@@ -1284,6 +1381,7 @@ namespace RepetierHost.view
                 editor.Invalidate();
             }
         }
+
         private void scrollColumns_ValueChanged(object sender, EventArgs e)
         {
             topCol = scrollColumns.Value;
@@ -1310,12 +1408,13 @@ namespace RepetierHost.view
         private void timer_Tick(object sender, EventArgs e)
         {
             blink = !blink;
-            if(changedCounter>0) {
+            if (changedCounter > 0)
+            {
                 changedCounter--;
-                if(changedCounter==0 && contentChangedEvent!=null)
+                if (changedCounter == 0 && contentChangedEvent != null)
                     contentChangedEvent();
             }
-            if(Main.IsMono && editor.Focused && _col>=topCol && _row>=topRow && _row<=topRow+rowsVisible)
+            if (Main.IsMono && editor.Focused && _col >= topCol && _row >= topRow && _row <= topRow + rowsVisible)
                 editor.Invalidate();
         }
 
@@ -1326,7 +1425,6 @@ namespace RepetierHost.view
                 InsertChar(e.KeyChar);
             }
             e.Handled = true;
-           
         }
 
         private void splitContainer_KeyUp(object sender, KeyEventArgs e)
@@ -1345,16 +1443,15 @@ namespace RepetierHost.view
             //CreateCursor();
             if (Control.ModifierKeys == Keys.Shift)
             {
-                row = Math.Max(0,Math.Min(lines.Count-1,topRow + (int)(e.Y / fontHeight)));
-                col = Math.Max(topCol,Math.Min(lines[row].Length,topCol + (int)(Math.Round((e.X - linesWidth) / fontWidth))));
+                row = Math.Max(0, Math.Min(lines.Count - 1, topRow + (int)(e.Y / fontHeight)));
+                col = Math.Max(topCol, Math.Min(lines[row].Length, topCol + (int)(Math.Round((e.X - linesWidth) / fontWidth))));
             }
             else
             {
                 row = selRow = Math.Max(0, Math.Min(lines.Count - 1, topRow + (int)(e.Y / fontHeight)));
                 col = selCol = Math.Max(topCol, Math.Min(lines[row].Length, topCol + (int)(Math.Round((e.X - linesWidth) / fontWidth))));
             }
-            PositionCursor();    
-           
+            PositionCursor();
         }
 
         private void editor_MouseMove(object sender, MouseEventArgs e)
@@ -1371,9 +1468,12 @@ namespace RepetierHost.view
                 PositionCursor();
             }
         }
-        public void Changed() {
+
+        public void Changed()
+        {
             changedCounter = 4;
         }
+
         private void editor_SizeChanged(object sender, EventArgs e)
         {
             scrollColumns.Maximum = Math.Max(0, maxCol - colsVisible + 2);
@@ -1395,7 +1495,7 @@ namespace RepetierHost.view
 
         private void toolCopy_Click(object sender, EventArgs e)
         {
-            if(hasSelection)
+            if (hasSelection)
                 Clipboard.SetText(getSelection());
         }
 
@@ -1469,6 +1569,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         public void UpdatePrependAppend()
         {
             Content c = (Content)toolFile.Items[1];
@@ -1501,11 +1602,13 @@ namespace RepetierHost.view
             c.ResetPos();
             if (c == cur) c.ToActive();
         }
+
         public List<GCodeShort> getContentArray(int idx)
         {
             Content c = (Content)toolFile.Items[idx];
             return c.textArray;
         }
+
         public string getContent(int idx)
         {
             Content c = (Content)toolFile.Items[idx];
@@ -1514,6 +1617,7 @@ namespace RepetierHost.view
                 sb.AppendLine(code.text);
             return sb.ToString();
         }
+
         public void fastLayerUpdate()
         {
             GCodeAnalyzer a = new GCodeAnalyzer(true);
@@ -1527,21 +1631,22 @@ namespace RepetierHost.view
             if (a.printingTime > 0)
             {
                 printingTime = a.printingTime;
-                int sec = (int)(printingTime*(1+0.01*Main.conn.addPrintingTime));
+                int sec = (int)(printingTime * (1 + 0.01 * Main.conn.addPrintingTime));
                 int hours = sec / 3600;
                 sec -= 3600 * hours;
-                int min = sec/60;
-                sec-=min*60;
+                int min = sec / 60;
+                sec -= min * 60;
                 StringBuilder s = new StringBuilder();
                 if (hours > 0)
                     s.Append(Trans.T1("L_TIME_H:", hours.ToString())); //"h:");
-                if (min > 0 || hours>0)
+                if (min > 0 || hours > 0)
                     s.Append(Trans.T1("L_TIME_M:", min.ToString()));
                 s.Append(Trans.T1("L_TIME_S", sec.ToString()));
-                toolPrintingTime.Text = Trans.T1("L_PRINTING_TIME:",s.ToString());
+                toolPrintingTime.Text = Trans.T1("L_PRINTING_TIME:", s.ToString());
             }
         }
-        public void setContent(int idx,string text)
+
+        public void setContent(int idx, string text)
         {
             Content c = (Content)toolFile.Items[idx];
             if (c == cur)
@@ -1554,10 +1659,12 @@ namespace RepetierHost.view
             }
             fastLayerUpdate();
         }
+
         public void selectContent(int idx)
         {
             toolFile.SelectedIndex = idx;
         }
+
         public bool autopreview
         {
             get { return toolPreview.Checked; }
@@ -1577,14 +1684,15 @@ namespace RepetierHost.view
 
         private void editor_KeyUp(object sender, KeyEventArgs e)
         {
-
         }
 
         private void editor_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             e.IsInputKey = true;
         }
-        string lastHelpCommand = "";
+
+        private string lastHelpCommand = "";
+
         public void UpdateHelp()
         {
             if (commands == null) return;
@@ -1610,7 +1718,7 @@ namespace RepetierHost.view
             s.Append(desc.command);
             s.Append(":");
             s.Append(desc.title);
-            s.Append("\\b0 \\line "+Trans.T("L_SYNTAX")+":");
+            s.Append("\\b0 \\line " + Trans.T("L_SYNTAX") + ":");
             s.Append(desc.command);
             s.Append(" ");
             foreach (CommandParameter pa in desc.parameter)
@@ -1620,16 +1728,15 @@ namespace RepetierHost.view
             s.Append("}");
             help.Rtf = s.ToString();
             //help.Rtf = @"{\rtf1\ansi This text is in \b bold\b0, " +
-//@"this is in \i italics\i0, " +
-//@"and this is \ul underlined\ul0.}";
+            //@"this is in \i italics\i0, " +
+            //@"and this is \ul underlined\ul0.}";
 
             return;
-
         }
 
         private void toolPreview_Click(object sender, EventArgs e)
         {
-                toolPreview.Checked = !toolPreview.Checked;
+            toolPreview.Checked = !toolPreview.Checked;
         }
 
         private void editor_MouseEnter(object sender, EventArgs e)

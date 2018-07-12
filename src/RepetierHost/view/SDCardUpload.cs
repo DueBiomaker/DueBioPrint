@@ -14,16 +14,11 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using RepetierHost.view.utils;
 using RepetierHost.model;
+using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
@@ -31,6 +26,7 @@ namespace RepetierHost.view
     {
         public static SDCardUpload f = null;
         public bool exit = false;
+
         public static SDCardUpload Execute()
         {
             if (f == null)
@@ -40,13 +36,15 @@ namespace RepetierHost.view
             f.ShowDialog();
             return f;
         }
+
         public SDCardUpload()
         {
             InitializeComponent();
-            RegMemory.RestoreWindowPos("sdcardUploadWindow",this);
+            RegMemory.RestoreWindowPos("sdcardUploadWindow", this);
             translate();
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("W_SD_CARD_UPLOAD");
@@ -60,11 +58,13 @@ namespace RepetierHost.view
             buttonCancel.Text = Trans.T("B_CANCEL");
             buttonOK.Text = Trans.T("B_OK");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             exit = true;
@@ -95,7 +95,7 @@ namespace RepetierHost.view
                 string t = box.Text;
                 if (t.Length > 12 || t.Length == 0) ok = false;
                 int p = t.IndexOf('.');
-                if (p>8) ok = false;
+                if (p > 8) ok = false;
                 if (p < 0 && t.Length > 8) ok = false;
                 int i;
                 for (i = 0; i < t.Length; i++)
@@ -118,7 +118,7 @@ namespace RepetierHost.view
                 ok = false;
             }
             buttonOK.Enabled = ok;
-            if(ok)
+            if (ok)
                 errorProvider.SetError(box, "");
             else
                 errorProvider.SetError(box, Trans.T("L_NOT_VALID_83_FILENAME")); //"Not a valid 8.3 filename.");

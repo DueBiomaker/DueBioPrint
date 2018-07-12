@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.IO;
 
@@ -41,11 +39,13 @@ namespace RepetierHost.view.utils
             FileInfo f = new FileInfo(exe);
             exeName = f.Name;
         }
+
         public string wrapQuotes(string text)
         {
             if (text.StartsWith("\"") && text.EndsWith("\"")) return text;
             return "\"" + text.Replace("\"", "\\\"") + "\"";
         }
+
         public void run()
         {
             if (!File.Exists(exe)) return;
@@ -73,6 +73,7 @@ namespace RepetierHost.view.utils
                 list.Remove(this);
             }
         }
+
         private void runFinsihed(object sender, System.EventArgs e)
         {
             process.Close();
@@ -80,6 +81,7 @@ namespace RepetierHost.view.utils
             process = null;
             list.Remove(this);
         }
+
         private void OutputDataHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
             // Collect the command output.
@@ -88,6 +90,7 @@ namespace RepetierHost.view.utils
                 Main.conn.log("<" + exeName + "> " + outLine.Data, false, 4);
             }
         }
+
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)

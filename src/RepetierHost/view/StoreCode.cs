@@ -14,22 +14,18 @@
    limitations under the License.
 */
 
+using RepetierHost.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.IO;
-using RepetierHost.model;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class StoreCode : Form
     {
         private static StoreCode form = null;
+
         public static void Execute()
         {
             if (form == null)
@@ -38,12 +34,14 @@ namespace RepetierHost.view
             }
             form.ShowDialog();
         }
+
         public StoreCode()
         {
             InitializeComponent();
             translate();
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("W_SAVE_GCODE_DIRECT_PRINT");
@@ -54,6 +52,7 @@ namespace RepetierHost.view
             buttonCancel.Text = Trans.T("B_CANCEL");
             buttonSave.Text = Trans.T("B_SAVE");
         }
+
         private void buttonSave_Click(object sender, EventArgs e)
         {
             Close();
@@ -68,6 +67,7 @@ namespace RepetierHost.view
             Close();
             //Hide();
         }
+
         private void writeArray(BinaryWriter file, List<GCodeShort> list, bool binary)
         {
             foreach (GCodeShort code in list)
@@ -92,6 +92,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         private void writeString(BinaryWriter file, string code, bool binary)
         {
             GCode gc = new GCode();
@@ -113,6 +114,7 @@ namespace RepetierHost.view
                     file.Write(enc.GetBytes(cmd + "\n"));
             }
         }
+
         public void saveJob(string name)
         {
             bool binary = checkBinary.Checked;
@@ -129,7 +131,7 @@ namespace RepetierHost.view
                 if (con.afterJobDisableExtruder)
                 {
                     for (int i = 0; i < Main.conn.numberExtruder; i++)
-                        writeString(file, "M104 S0 T"+i.ToString(), binary);
+                        writeString(file, "M104 S0 T" + i.ToString(), binary);
                 }
                 if (con.afterJobDisablePrintbed)
                     writeString(file, "M140 S0", binary);
@@ -139,8 +141,7 @@ namespace RepetierHost.view
                     writeString(file, "G1 X" + con.disposeX.ToString(GCode.format) + " Y" + con.disposeY.ToString(GCode.format) + " F" + con.travelFeedRate.ToString(GCode.format), binary);
                 }
                 if (con.afterJobDisableMotors)
-                    writeString(file,"M84",binary);
-
+                    writeString(file, "M84", binary);
             }
             file.Close();
         }

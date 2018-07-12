@@ -14,20 +14,19 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using RepetierHost.model;
+using System;
+using System.Windows.Forms;
 
 namespace RepetierHost
 {
-    static class Program
+    internal static class Program
     {
         /// <summary>
         /// Der Haupteinstiegspunkt für die Anwendung.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

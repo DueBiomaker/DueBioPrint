@@ -14,25 +14,23 @@
    limitations under the License.
 */
 
+using Microsoft.Win32;
+using RepetierHost.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
-using Microsoft.Win32;
 
 namespace RepetierHost.view
 {
     public partial class LogView : UserControl
     {
         public Color errorColor = Color.FromArgb(238, 198, 198);
-        public Color warningColor = Color.FromArgb(223,175,83);
+        public Color warningColor = Color.FromArgb(223, 175, 83);
         public Color infoColor = Color.FromArgb(140, 179, 251);
-        RegistryKey key;
+        private RegistryKey key;
+
         public LogView()
         {
             InitializeComponent();
@@ -44,7 +42,9 @@ namespace RepetierHost.view
                 translate();
             }
         }
-        static bool readingReg = false;
+
+        private static bool readingReg = false;
+
         public void translate()
         {
             labelShowInLog.Text = Trans.T("L_SHOW_IN_LOG");
@@ -57,6 +57,7 @@ namespace RepetierHost.view
             buttonCopy.Text = Trans.T("B_COPY");
             buttonClearLog.Text = Trans.T("B_CLEAR_LOG");
         }
+
         public void FormToReg()
         {
             if (readingReg) return;
@@ -66,8 +67,8 @@ namespace RepetierHost.view
             key.SetValue("logACK", switchACK.On ? 1 : 0);
             key.SetValue("logInfo", switchInfo.On ? 1 : 0);
             key.SetValue("logAutoscroll", switchAutoscroll.On ? 1 : 0);
-
         }
+
         public void RegToForm()
         {
             readingReg = true;
@@ -79,6 +80,7 @@ namespace RepetierHost.view
             switchAutoscroll.On = 1 == (int)key.GetValue("logAutoscroll", switchAutoscroll.On ? 1 : 0);
             readingReg = false;
         }
+
         private void filter()
         {
             listLog.Clear();
@@ -95,24 +97,27 @@ namespace RepetierHost.view
             }
             listLog.UpdateBox();
         }
+
         private void logUpdate(LogLine line)
         {
             logAppend(line);
             listLog.UpdateBox();
         }
+
         private bool isAck(string t)
         {
             if (t.StartsWith("ok") || t.StartsWith("wait")) return true;
-            if (t.IndexOf("SD printing byte")!=-1) return true;
-            if (t.IndexOf("Not SD printing")!=-1) return true;
-            if (t.IndexOf("SpeedMultiply:")!=-1) return true;
+            if (t.IndexOf("SD printing byte") != -1) return true;
+            if (t.IndexOf("Not SD printing") != -1) return true;
+            if (t.IndexOf("SpeedMultiply:") != -1) return true;
             if (t.IndexOf("FlowMultiply:") != -1) return true;
             if (t.IndexOf("TargetExtr0:") != -1) return true;
-            if (t.IndexOf("TargetExtr1:")!=-1) return true;
-            if (t.IndexOf("TargetBed:")!=-1) return true;
-            if (t.IndexOf("Fanspeed:")!=-1) return true;
+            if (t.IndexOf("TargetExtr1:") != -1) return true;
+            if (t.IndexOf("TargetBed:") != -1) return true;
+            if (t.IndexOf("Fanspeed:") != -1) return true;
             return false;
         }
+
         private void UpdateNewEntries(object sender, EventArgs e)
         {
             LinkedList<LogLine> nl = null;
@@ -127,7 +132,7 @@ namespace RepetierHost.view
             {
                 LogLine line = nl.First.Value;
                 if (switchACK.On == false && isAck(line.text)) nl.RemoveFirst();
-                else if (line.level == 0 && line.response==false && switchCommandsSend.On == false) nl.RemoveFirst();
+                else if (line.level == 0 && line.response == false && switchCommandsSend.On == false) nl.RemoveFirst();
                 else if (line.level == 1 && switchWarnings.On == false) nl.RemoveFirst();
                 else if (line.level == 2 && switchErrors.On == false) nl.RemoveFirst();
                 else if (line.level == 3 && switchInfo.On == false) nl.RemoveFirst();
@@ -138,10 +143,11 @@ namespace RepetierHost.view
                 logAppend(line);
             listLog.UpdateBox();
         }
+
         private void logAppend(LogLine line)
         {
             if (switchACK.On == false && isAck(line.text)) return;
-            if (line.level == 0 && line.response==false && switchCommandsSend.On == false) return;
+            if (line.level == 0 && line.response == false && switchCommandsSend.On == false) return;
             if (line.level == 1 && switchWarnings.On == false) return;
             if (line.level == 2 && switchErrors.On == false) return;
             if (line.level == 3 && switchInfo.On == false) return;
@@ -157,12 +163,11 @@ namespace RepetierHost.view
             Main.conn.clearLog();
         }
 
-
         private void toolCopy_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
             string sel = listLog.getSelection();
-            if(sel.Length>0)
+            if (sel.Length > 0)
                 Clipboard.SetText(sel);
         }
 
@@ -172,7 +177,6 @@ namespace RepetierHost.view
             Main.conn.eventLogUpdate += logUpdate;
             Application.Idle += new EventHandler(UpdateNewEntries);
         }
-
 
         private void switchCommandsSend_OnChange(SwitchButton button)
         {

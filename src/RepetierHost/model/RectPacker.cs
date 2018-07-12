@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model
 {
     public class PackerPos
     {
         public int x, y;
-        public PackerPos() { }
+
+        public PackerPos()
+        {
+        }
+
         public PackerPos(int _x, int _y)
         {
             x = _x;
             y = _y;
         }
+
         public bool isEqual(PackerPos obj)
         {
             return x == obj.x && y == obj.y;
@@ -24,6 +27,7 @@ namespace RepetierHost.model
     {
         public int w, h;
         public object obj;
+
         public PackerRect(int _x, int _y, int _w, int _h, object _obj)
         {
             x = _x;
@@ -32,16 +36,19 @@ namespace RepetierHost.model
             h = _h;
             obj = _obj;
         }
+
         public bool containsPoint(PackerPos p)
         {
             return (p.x >= x && p.y >= y &&
                 p.x < (x + w) && p.y < (y + h));
         }
+
         public bool containsRect(PackerRect r)
         {
             return (r.x >= x && r.y >= y &&
                 (r.x + r.w) <= (x + w) && (r.y + r.h) <= (y + h));
         }
+
         public bool intersects(PackerRect r)
         {
             return w > 0 && h > 0 && r.w > 0 && r.h > 0 &&
@@ -58,15 +65,14 @@ namespace RepetierHost.model
             return (a.w > b.w && a.w > b.h) ||
             (a.h > b.w && a.h > b.h);
         }
-
     }
 
     public class RectPacker
     {
-        PackerRect size;
+        private PackerRect size;
         public List<PackerRect> vRects;
-        List<PackerPos> vPositions;
-        long area;
+        private List<PackerPos> vPositions;
+        private long area;
         // ----------------------------------------------------------------------------------------
         // Name        : RectPlacement.cpp
         // Description : A class that fits subrectangles into a power-of-2 rectangle
@@ -75,37 +81,36 @@ namespace RepetierHost.model
         // ----------------------------------------------------------------------------------------
 
         /*
-         You have a bunch of rectangular pieces. You need to arrange them in a 
-         rectangular surface so that they don't overlap, keeping the total area of the 
-         rectangle as small as possible. This is fairly common when arranging characters 
-         in a bitmapped font, lightmaps for a 3D engine, and I guess other situations as 
+         You have a bunch of rectangular pieces. You need to arrange them in a
+         rectangular surface so that they don't overlap, keeping the total area of the
+         rectangle as small as possible. This is fairly common when arranging characters
+         in a bitmapped font, lightmaps for a 3D engine, and I guess other situations as
          well.
- 
-         The idea of this algorithm is that, as we add rectangles, we can pre-select 
-         "interesting" places where we can try to add the next rectangles. For optimal 
-         results, the rectangles should be added in order. I initially tried using area 
-         as a sorting criteria, but it didn't work well with very tall or very flat 
-         rectangles. I then tried using the longest dimension as a selector, and it 
+
+         The idea of this algorithm is that, as we add rectangles, we can pre-select
+         "interesting" places where we can try to add the next rectangles. For optimal
+         results, the rectangles should be added in order. I initially tried using area
+         as a sorting criteria, but it didn't work well with very tall or very flat
+         rectangles. I then tried using the longest dimension as a selector, and it
          worked much better. So much for intuition...
- 
-         These "interesting" places are just to the right and just below the currently 
-         added rectangle. The first rectangle, obviously, goes at the top left, the next 
-         one would go either to the right or below this one, and so on. It is a weird way 
+
+         These "interesting" places are just to the right and just below the currently
+         added rectangle. The first rectangle, obviously, goes at the top left, the next
+         one would go either to the right or below this one, and so on. It is a weird way
          to do it, but it seems to work very nicely.
- 
+
          The way we search here is fairly brute-force, the fact being that for most off-
-         line purposes the performance seems more than adequate. I have generated a 
-         japanese font with around 8500 characters and all the time was spent generating 
+         line purposes the performance seems more than adequate. I have generated a
+         japanese font with around 8500 characters and all the time was spent generating
          the bitmaps.
- 
-         Also, for all we care, we could grow the parent rectangle in a different way 
-         than power of two. It just happens that power of 2 is very convenient for 
+
+         Also, for all we care, we could grow the parent rectangle in a different way
+         than power of two. It just happens that power of 2 is very convenient for
          graphics hardware textures.
- 
+
          I'd be interested in hearing of other approaches to this problem. Make sure
          to post them on http://www.flipcode.com
          */
-
 
         public RectPacker(int _w, int _h)
         {
@@ -115,7 +120,8 @@ namespace RepetierHost.model
             vPositions.Add(new PackerPos(0, 0));
             area = 0;
         }
-        void end()
+
+        private void end()
         {
             vPositions.Clear();
             vRects.Clear();
@@ -129,8 +135,10 @@ namespace RepetierHost.model
                 return size.w > 0;
             }
         }
+
         public int w { get { return size.w; } }
         public int h { get { return size.h; } }
+
         public long totalArea
         {
             get { return size.w * size.h; }
@@ -149,7 +157,6 @@ namespace RepetierHost.model
                     return false;
             return true;
         }
-
 
         // --------------------------------------------------------------------------------
         // Name        : AddPosition
@@ -235,7 +242,6 @@ namespace RepetierHost.model
             }
             return bFound;
         }
-
 
         // --------------------------------------------------------------------------------
         // Name        : AddAtEmptySpotAutoGrow

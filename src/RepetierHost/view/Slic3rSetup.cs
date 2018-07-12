@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RepetierHost.model;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
     public partial class Slic3rSetup : Form
     {
-        static Slic3rSetup form = null;
+        private static Slic3rSetup form = null;
+
         public static void Execute()
         {
             if (form == null)
@@ -24,6 +20,7 @@ namespace RepetierHost.view
             else
                 form.Show();
         }
+
         public Slic3rSetup()
         {
             InitializeComponent();
@@ -31,11 +28,13 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         private void translate()
         {
             Text = Trans.T("W_SLIC3R_SETUP");
@@ -45,12 +44,13 @@ namespace RepetierHost.view
             labelSlic3rExecutable.Text = Trans.T("L_SLIC3R_EXECUTABLE");
             labelSlic3rInfo.Text = Trans.T("L_SLIC3R_INFO");
             labelSlic3rVersion.Text = Trans.T("L_SLIC3R_VERSION");
-            labelSlic3rLeaveBlankConfig.Text = Trans.T("L_SLIC3R_BLANK_CONFIG");            
+            labelSlic3rLeaveBlankConfig.Text = Trans.T("L_SLIC3R_BLANK_CONFIG");
             buttonBrowseConfigDir.Text = Trans.T("B_BROWSE");
             buttonBrowseExecutable.Text = Trans.T("B_BROWSE");
             buttonCancel.Text = Trans.T("B_CANCEL");
             buttonOK.Text = Trans.T("B_OK");
         }
+
         private void LoadData()
         {
             BasicConfiguration b = BasicConfiguration.basicConf;
@@ -61,19 +61,20 @@ namespace RepetierHost.view
             comboVersion.SelectedIndex = comboVersion.Items.Count - b.Slic3rVersionGroup - 1;
             //checkBoxUseBundledVersion.Checked = b.InternalSlic3rUseBundledVersion;
         }
-       /* private void buttonBrowseSlic3r_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-                textPath.Text = openFileDialog.FileName;
-        }
 
-        private void buttonBrowseIni_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-                textIni.Text = openFileDialog.FileName;
+        /* private void buttonBrowseSlic3r_Click(object sender, EventArgs e)
+         {
+             if (openFileDialog.ShowDialog() == DialogResult.OK)
+                 textPath.Text = openFileDialog.FileName;
+         }
 
-        }
-        */
+         private void buttonBrowseIni_Click(object sender, EventArgs e)
+         {
+             if (openFileDialog.ShowDialog() == DialogResult.OK)
+                 textIni.Text = openFileDialog.FileName;
+         }
+         */
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             BasicConfiguration b = BasicConfiguration.basicConf;

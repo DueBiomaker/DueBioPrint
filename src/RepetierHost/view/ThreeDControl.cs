@@ -14,27 +14,18 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Platform.Windows;
 using OpenTK;
-using System.Diagnostics;
-using System.Globalization;
+using OpenTK.Graphics.OpenGL;
 using RepetierHost.model;
 using RepetierHost.model.geom;
-using System.Reflection;
-using System.Security;
-using System.Drawing.Drawing2D;
-using System.Runtime.InteropServices;
 using RepetierHost.view.utils;
+using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
@@ -43,28 +34,28 @@ namespace RepetierHost.view
     public partial class ThreeDControl : UserControl
     {
         public ThreeDCamera cam;
-        float bedRadius;
-        FormPrinterSettings ps = Main.printerSettings;
-        bool loaded = false;
-        int xPos, yPos, lastXpos, lastYpos;
-        float rotateX, rotateY;
-        Stopwatch fpsTimer = new Stopwatch();
-        int mode = 0;
-        int slowCounter = 0; // Indicates slow framerates
-        uint timeCall = 0;
+        private float bedRadius;
+        private FormPrinterSettings ps = Main.printerSettings;
+        private bool loaded = false;
+        private int xPos, yPos, lastXpos, lastYpos;
+        private float rotateX, rotateY;
+        private Stopwatch fpsTimer = new Stopwatch();
+        private int mode = 0;
+        private int slowCounter = 0; // Indicates slow framerates
+        private uint timeCall = 0;
         public float zoom = 1.0f;
         public Matrix4 lookAt, persp, modelView;
         public float nearDist, farDist, aspectRatio, nearHeight, midHeight;
-        Coordinate coord;
-        bool render;
+        private Coordinate coord;
+        private bool render;
 
-        float lastMoveBodyX, lastMoveBodyY;
-        float lastMoveViewpointX, lastMoveViewpointY;
-        float zoomSpeed, lastZoomSpeed;
-        float lastRotateX, lastRotateY;
+        private float lastMoveBodyX, lastMoveBodyY;
+        private float lastMoveViewpointX, lastMoveViewpointY;
+        private float zoomSpeed, lastZoomSpeed;
+        private float lastRotateX, lastRotateY;
 
-        float filter = 0.7f; // filter of moves/rotation
-        float moveFilter = 0.35f; // filter for movements of objects
+        private float filter = 0.7f; // filter of moves/rotation
+        private float moveFilter = 0.35f; // filter for movements of objects
 
         public ThreeDView view = null;
 
@@ -82,6 +73,7 @@ namespace RepetierHost.view
 
             toolStrip1.Location = new Point(-toolStrip1.Width, 0);
         }
+
         private void translate()
         {
             //toolMove.ToolTipText = Trans.T("L_MOVE_CAMERA");
@@ -95,6 +87,7 @@ namespace RepetierHost.view
             toolStripClear.ToolTipText = Trans.T("T_CLEAR_OBJECTS");
             toolParallelProjection.ToolTipText = Trans.T("L_USE_PARALLEL_PROJECTION");
         }
+
         public void SetView(ThreeDView view)
         {
             this.view = view;
@@ -108,6 +101,7 @@ namespace RepetierHost.view
             toolStripClear.Enabled = view.objectsSelected;
             UpdateChanges();
         }
+
         public void MakeVisible(bool vis)
         {
             //return;
@@ -128,12 +122,14 @@ namespace RepetierHost.view
             }
             gl.Visible = vis;
         }
+
         public void SetObjectSelected(bool sel)
         {
             toolMoveObject.Enabled = sel;
             toolStripClear.Enabled = sel;
             view.objectsSelected = sel;
         }
+
         public bool AutoUpdateable
         {
             get { return view.autoupdateable; }
@@ -151,14 +147,17 @@ namespace RepetierHost.view
                 toolStripClear.Visible = value;
             }
         }
+
         public void UpdateChanges()
         {
             render = true;
         }
+
         protected override void OnPaint(PaintEventArgs pe)
         {
             base.OnPaint(pe);
         }
+
         private void SetupViewport()
         {
             try
@@ -184,14 +183,15 @@ namespace RepetierHost.view
                     persp = Matrix4.CreatePerspectiveFieldOfView((float)(angle), aspectRatio, nearDist, farDist);
                 GL.LoadMatrix(ref persp);
                 // GL.Ortho(0, w, 0, h, -1, 1); // Bottom-left corner pixel has coordinate (0, 0)
-
             }
             catch { }
         }
+
         public OpenTK.Graphics.Color4 convertColor(Color col)
         {
             return new OpenTK.Graphics.Color4(col.R, col.G, col.B, col.A);
         }
+
         private void AddLights()
         {
             //Enable lighting
@@ -251,6 +251,7 @@ namespace RepetierHost.view
 
             GL.Enable(EnableCap.Lighting);
         }
+
         private void DetectDrawingMethod()
         {
             // Check drawing method
@@ -265,12 +266,15 @@ namespace RepetierHost.view
                     else
                         Main.threeDSettings.drawMethod = 0;
                     break;
+
                 case 1: // VBOs
                     Main.threeDSettings.drawMethod = 2;
                     break;
+
                 case 2: // drawElements
                     Main.threeDSettings.drawMethod = 1;
                     break;
+
                 case 3: // elements
                     Main.threeDSettings.drawMethod = 0;
                     break;
@@ -278,6 +282,7 @@ namespace RepetierHost.view
             if (om != Main.threeDSettings.drawMethod)
                 Main.main.updateTravelMoves();
         }
+
         private void DrawViewpoint()
         {
             GL.Color4(convertColor(Main.threeDSettings.printerFrame.BackColor));
@@ -293,8 +298,8 @@ namespace RepetierHost.view
             GL.End();
             GL.Enable(EnableCap.Lighting);
             GL.Enable(EnableCap.DepthTest);
-
         }
+
         private void DrawModels()
         {
             GL.Disable(EnableCap.LineSmooth);
@@ -369,6 +374,7 @@ namespace RepetierHost.view
                 }
             }
         }
+
         private void DrawPrintbedFrame()
         {
             float dx1 = ps.DumpAreaLeft;
@@ -568,6 +574,7 @@ namespace RepetierHost.view
                 GL.DepthFunc(DepthFunction.Less);
             }
         }
+
         private void DrawPrintbedBase()
         {
             float dx1 = ps.DumpAreaLeft;
@@ -667,19 +674,19 @@ namespace RepetierHost.view
                 }
                 GL.PopMatrix();
                 GL.Disable(EnableCap.Blend);
-
             }
         }
-        bool oldCut = false;
-        int oldPosition = -1;
-        int oldInclination = -1;
-        int oldAzimuth = -1;
+
+        private bool oldCut = false;
+        private int oldPosition = -1;
+        private int oldInclination = -1;
+        private int oldAzimuth = -1;
         public bool updateCuts = false;
         public RHVector3 cutPos = new RHVector3(0, 0, 0);
         public RHVector3 cutDirection = new RHVector3(0, 0, 1);
-        RHBoundingBox cutBBox = new RHBoundingBox();
+        private RHBoundingBox cutBBox = new RHBoundingBox();
 
-        void UpdateCutData()
+        private void UpdateCutData()
         {
             updateCuts = true;
             cutBBox.Clear();
@@ -735,6 +742,7 @@ namespace RepetierHost.view
             cutPos.y = center.y + spos * cutDirection.y;
             cutPos.z = center.z + spos * cutDirection.z;
         }
+
         private void gl_Paint(object sender, PaintEventArgs e)
         {
             if (view == null) return;
@@ -820,14 +828,14 @@ namespace RepetierHost.view
                 }
                 else if (slowCounter > 0)
                     slowCounter--;
-
             }
             catch { }
             updateCuts = false;
             oldCut = Main.main.objectPlacement.checkCutFaces.Checked;
         }
 
-        static bool configureSettings = true;
+        private static bool configureSettings = true;
+
         private void ThreeDControl_Load(object sender, EventArgs e)
         {
             if (configureSettings)
@@ -878,6 +886,7 @@ namespace RepetierHost.view
             loaded = true;
             SetupViewport();
         }
+
         private Matrix4 GluPickMatrix(float x, float y, float width, float height, int[] viewport)
         {
             Matrix4 result = Matrix4.Identity;
@@ -894,6 +903,7 @@ namespace RepetierHost.view
             result = Matrix4.Mult(Matrix4.Scale(scaleX, scaleY, 1.0f), result);
             return result;
         }
+
         public uint lastDepth = 0;
         public Geom3DLine viewLine = null; // Direction of view
         public Geom3DVector pickPoint = new Geom3DVector(0, 0, 0); // Coordinates of last pick
@@ -928,6 +938,7 @@ namespace RepetierHost.view
             plane.intersectLine(pickLine, cross);
             */
         }
+
         private ThreeDModel Picktest(Geom3DLine pickLine, int x, int y)
         {
             if (view == null)
@@ -951,7 +962,6 @@ namespace RepetierHost.view
             Matrix4 m = GluPickMatrix(x, viewport[3] - y, 1, 1, viewport);
             GL.MultMatrix(ref m);
 
-
             //GluPerspective(45, 32 / 24, 0.1f, 100.0f);
             //Matrix4 projection = Matrix4.CreatePerspectiveFieldOfView((float)Math.PI / 4, 1, 0.1f, 100.0f);
             GL.MultMatrix(ref persp);
@@ -971,7 +981,6 @@ namespace RepetierHost.view
             double norm_x = (double)window_x / (double)(viewport[2] / 2);
             float fpy = (float)(nearHeight * 0.5 * norm_y) * (toolParallelProjection.Checked ? 1f : 1f);
             float fpx = (float)(nearHeight * 0.5 * aspectRatio * norm_x) * (toolParallelProjection.Checked ? 1f : 1f);
-
 
             Vector4 frontPointN = (toolParallelProjection.Checked ? new Vector4(fpx, fpy, 0, 1) : new Vector4(0, 0, 0, 1));
             Vector4 dirN = (toolParallelProjection.Checked ? new Vector4(0, 0, -nearDist, 0) : new Vector4(fpx, fpy, -nearDist, 0));
@@ -1038,11 +1047,11 @@ namespace RepetierHost.view
                 Geom3DPlane objplane = new Geom3DPlane(crossPlanePoint, viewLine.dir);
                 objplane.intersectLine(pickLine, pickPoint);
                 //Main.conn.log("Objekttreffer: " + pickPoint, false, 3);
-
             }
             //PrinterConnection.logInfo("Hits: " + hits);
             return selected;
         }
+
         private void gl_Resize(object sender, EventArgs e)
         {
             SetupViewport();
@@ -1050,8 +1059,8 @@ namespace RepetierHost.view
             render = true;
         }
 
-        Geom3DPlane movePlane = new Geom3DPlane(new Geom3DVector(0, 0, 0), new Geom3DVector(0, 0, 1)); // Plane where object movement occurs
-        Geom3DVector moveStart = new Geom3DVector(0, 0, 0), moveLast = new Geom3DVector(0, 0, 0), movePos = new Geom3DVector(0, 0, 0);
+        private Geom3DPlane movePlane = new Geom3DPlane(new Geom3DVector(0, 0, 0), new Geom3DVector(0, 0, 1)); // Plane where object movement occurs
+        private Geom3DVector moveStart = new Geom3DVector(0, 0, 0), moveLast = new Geom3DVector(0, 0, 0), movePos = new Geom3DVector(0, 0, 0);
 
         private void ThreeDControl_MouseEnter(object sender, EventArgs e)
         {
@@ -1110,7 +1119,7 @@ namespace RepetierHost.view
             lastZoomSpeed = 0;
         }
 
-        void Application_Idle(object sender, EventArgs e)
+        private void Application_Idle(object sender, EventArgs e)
         {
             if (!loaded || !Main.ApplicationIsActivated())
                 return;
@@ -1233,6 +1242,7 @@ namespace RepetierHost.view
             toolZoom.Checked = mode == 3;
             toolMoveObject.Checked = mode == 4;
         }
+
         private void toolRotate_Click(object sender, EventArgs e)
         {
             SetMode(0);
@@ -1244,30 +1254,35 @@ namespace RepetierHost.view
             cam.defaultDistance = 1.6f * (float)Math.Sqrt(ps.PrintAreaDepth * ps.PrintAreaDepth + ps.PrintAreaWidth * ps.PrintAreaWidth + ps.PrintAreaHeight * ps.PrintAreaHeight);
             cam.minDistance = 0.001 * cam.defaultDistance;
         }
+
         public void frontView()
         {
             SetCameraDefaults();
             cam.OrientFront();
             render = true;
         }
+
         public void backView()
         {
             SetCameraDefaults();
             cam.OrientBack();
             render = true;
         }
+
         public void leftView()
         {
             SetCameraDefaults();
             cam.OrientLeft();
             render = true;
         }
+
         public void rightView()
         {
             SetCameraDefaults();
             cam.OrientRight();
             render = true;
         }
+
         public void topView()
         {
             SetCameraDefaults();
@@ -1276,28 +1291,33 @@ namespace RepetierHost.view
                 toolParallelProjection.Checked = true;
             render = true;
         }
+
         public void bottomView()
         {
             SetCameraDefaults();
             cam.OrientBottom();
             render = true;
         }
+
         public void isometricView()
         {
             SetCameraDefaults();
             cam.OrientIsometric();
             render = true;
         }
+
         public void FitPrinter()
         {
             cam.FitPrinter();
             render = true;
         }
+
         public void FitObjects()
         {
             cam.FitObjects();
             render = true;
         }
+
         private void toolResetView_Click(object sender, EventArgs e)
         {
             SetCameraDefaults();
@@ -1397,6 +1417,7 @@ namespace RepetierHost.view
         {
             topView();
         }
+
         protected override bool IsInputKey(Keys keyData)
         {
             switch (keyData)
@@ -1406,6 +1427,7 @@ namespace RepetierHost.view
                 case Keys.Up:
                 case Keys.Down:
                     return true;
+
                 case Keys.Shift | Keys.Right:
                 case Keys.Shift | Keys.Left:
                 case Keys.Shift | Keys.Up:
@@ -1414,6 +1436,7 @@ namespace RepetierHost.view
             }
             return base.IsInputKey(keyData);
         }
+
         public void ThreeDControl_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left)
@@ -1500,7 +1523,7 @@ namespace RepetierHost.view
                 slidePanel.OnUpdate += slidePanel_OnUpdate;
                 Point loc = parent.PointToScreen(child.Location);
                 Size size = child.Size;
-                new Thread(delegate()
+                new Thread(delegate ()
                 {
                     do
                     {
@@ -1517,7 +1540,7 @@ namespace RepetierHost.view
             }
         }
 
-        void slidePanel_OnUpdate(Control panel, double phase)
+        private void slidePanel_OnUpdate(Control panel, double phase)
         {
             render = true;
         }

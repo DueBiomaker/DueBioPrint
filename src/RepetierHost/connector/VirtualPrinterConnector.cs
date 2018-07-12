@@ -1,33 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.Win32;
 using RepetierHost.model;
-using System.Windows.Forms;
-using Microsoft.Win32;
-using System.Data;
-using System.ComponentModel;
-using System.Threading;
-using System.IO.Ports;
-using System.IO;
 using RepetierHost.view.utils;
-using System.Timers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO.Ports;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace RepetierHost.connector
 {
-    public class VirtualPrinterConnector : PrinterConnectorBase, INotifyPropertyChanged,IDisposable
+    public class VirtualPrinterConnector : PrinterConnectorBase, INotifyPropertyChanged, IDisposable
     {
-        VirtualPrinterPanel panel = null;
+        private VirtualPrinterPanel panel = null;
         private RegistryKey key = null;
-        public event PropertyChangedEventHandler PropertyChanged;
-        private string baudRate = "250000";
-        VirtualPrinter virtualPrinter;
-        PrinterConnection con;
-        int receiveCacheSize = 127;
-        bool pingpong = false;
-        int transferProtocol = 0;
 
-        bool connected = false;
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private string baudRate = "250000";
+        private VirtualPrinter virtualPrinter;
+        private PrinterConnection con;
+        private int receiveCacheSize = 127;
+        private bool pingpong = false;
+        private int transferProtocol = 0;
+
+        private bool connected = false;
         public bool garbageCleared = false; // Skip old output
         public LinkedList<GCode> injectCommands = new LinkedList<GCode>();
         public LinkedList<GCode> history = new LinkedList<GCode>();
@@ -38,13 +35,13 @@ namespace RepetierHost.connector
         public LinkedList<int> nackLines = new LinkedList<int>(); // Lines, whoses receivement were not acknowledged
         public SerialPort serial = null;
         public Printjob job;
-        Thread writeThread = null;
-        int binaryVersion = 0;
+        private Thread writeThread = null;
+        private int binaryVersion = 0;
         private long lastCommandSend = DateTime.Now.Ticks;
         private Object nextlineLock = new Object();
         public float lastlogprogress = -1000;
         protected ManualResetEvent injectLock = new ManualResetEvent(true);
-        bool readyForNextSend = true;
+        private bool readyForNextSend = true;
 
         public VirtualPrinterConnector()
         {
@@ -52,13 +49,14 @@ namespace RepetierHost.connector
             con = Main.conn;
             job = new Printjob(Main.conn);
         }
-        protected virtual void Dispose(bool disposing) 
+
+        protected virtual void Dispose(bool disposing)
         {
-            if (disposing) 
+            if (disposing)
             {
                 if (panel != null)
                     panel.Dispose();
-                if(injectLock !=null)
+                if (injectLock != null)
                     ((IDisposable)injectLock).Dispose();
                 panel = null;
                 injectLock = null;
@@ -67,8 +65,8 @@ namespace RepetierHost.connector
 
         public void Dispose()
         {
-                Dispose(true);
-                GC.SuppressFinalize(this);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         // Disposable types implement a finalizer.
@@ -76,6 +74,7 @@ namespace RepetierHost.connector
         {
             Dispose(false);
         }
+
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)
@@ -89,7 +88,6 @@ namespace RepetierHost.connector
         public override void Deactivate()
         {
         }
-
 
         public override void RunPeriodicalTasks()
         {
@@ -141,6 +139,7 @@ namespace RepetierHost.connector
             Main.main.Invoke(Main.main.UpdateJobButtons);
             return true;
         }
+
         public override bool Disconnect(bool force)
         {
             if (!connected) return true;
@@ -163,12 +162,13 @@ namespace RepetierHost.connector
             con.firePrinterAction(Trans.T("L_IDLE"));
             Main.main.Invoke(Main.main.UpdateJobButtons);
             return true;
-
         }
+
         public override bool IsConnected()
         {
             return connected;
         }
+
         public override void InjectManualCommand(string command)
         {
             if (!connected) return;
@@ -188,8 +188,8 @@ namespace RepetierHost.connector
                     con.firePrinterAction(Trans.T1("L_X_COMMANDS_WAITING", injectCommands.Count.ToString()));
                 }
             }
-
         }
+
         public override void InjectManualCommandFirst(string command)
         {
             GCode gc = new GCode();
@@ -209,6 +209,7 @@ namespace RepetierHost.connector
                 }
             }
         }
+
         public override bool HasInjectedMCommand(int code)
         {
             bool has = false;
@@ -234,8 +235,8 @@ namespace RepetierHost.connector
                 panel.Connect(this);
             }
             return panel;
-
         }
+
         public override string Name
         {
             get
@@ -243,6 +244,7 @@ namespace RepetierHost.connector
                 return Trans.T("L_VIRTUAL_CONNECTION");
             }
         }
+
         public override string Id
         {
             get
@@ -255,21 +257,26 @@ namespace RepetierHost.connector
         {
             this.key = key;
         }
+
         public override void SaveToRegistry()
         {
             key.SetValue("baud", baudRate);
         }
+
         public override void LoadFromRegistry()
         {
             BaudRate = (string)key.GetValue("baud", baudRate);
         }
+
         public override void Emergency()
         {
         }
+
         public override void ToggleETAMode()
         {
             job.etaModeNormal = !job.etaModeNormal;
         }
+
         public override string ETA { get { return job.ETA; } }
 
         public override void RunJob()
@@ -281,8 +288,10 @@ namespace RepetierHost.connector
             job.EndJob();
             Main.main.Invoke(Main.main.UpdateJobButtons);
         }
-        float pauseX, pauseY, pauseZ, pauseE, pauseF;
-        bool pauseRelative;
+
+        private float pauseX, pauseY, pauseZ, pauseE, pauseF;
+        private bool pauseRelative;
+
         public override void PauseJob(string text)
         {
             if (paused) return;
@@ -306,6 +315,7 @@ namespace RepetierHost.connector
                 eventPauseChanged(true);
             }
         }
+
         public override void ContinueJob()
         {
             GCodeAnalyzer a = con.analyzer;
@@ -325,6 +335,7 @@ namespace RepetierHost.connector
                 eventPauseChanged(false);
             }
         }
+
         public override Printjob Job { get { return job; } }
 
         public override void KillJob()
@@ -332,6 +343,7 @@ namespace RepetierHost.connector
             job.KillJob();
             Main.main.Invoke(Main.main.UpdateJobButtons);
         }
+
         public override bool IsJobRunning()
         {
             return job.dataComplete;
@@ -341,6 +353,7 @@ namespace RepetierHost.connector
         {
             return Name;
         }
+
         public override bool IsPaused
         {
             get
@@ -348,6 +361,7 @@ namespace RepetierHost.connector
                 return paused;
             }
         }
+
         public override int MaxLayer
         {
             get
@@ -355,6 +369,7 @@ namespace RepetierHost.connector
                 return job.maxLayer;
             }
         }
+
         public override int InjectedCommands { get { return injectCommands.Count; } }
 
         public string BaudRate
@@ -366,13 +381,16 @@ namespace RepetierHost.connector
                 OnPropertyChanged(new PropertyChangedEventArgs("BaudRate"));
             }
         }
+
         public override void ResendLine(int line)
         {
         }
+
         public override void TrySendNextLine()
         {
             TrySendNextLine2();
         }
+
         public bool TrySendNextLine2()
         {
             string logtext = null;
@@ -509,6 +527,7 @@ namespace RepetierHost.connector
             }
             return false;
         }
+
         private int receivedCount()
         {
             int n = 0;
@@ -519,7 +538,9 @@ namespace RepetierHost.connector
             }
             return n;
         }
+
         private Object injectLockLock = new Object();
+
         public override void GetInjectLock()
         {
             try
@@ -536,10 +557,12 @@ namespace RepetierHost.connector
                 injectLock = false;
             }*/
         }
+
         public override void ReturnInjectLock()
         {
             injectLock.Set();
         }
+
         public override void AnalyzeResponse(string res)
         {
             string h;

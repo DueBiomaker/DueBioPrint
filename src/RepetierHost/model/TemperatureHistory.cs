@@ -1,12 +1,12 @@
 ﻿/*
  Copyright 2011 repetier repetierdev@gmail.com
- 
+
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
- 
+
  http://www.apache.org/licenses/LICENSE-2.0
- 
+
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -14,21 +14,22 @@
  limitations under the License.
 */
 
+using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
-using RepetierHost.view.utils;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RepetierHost.model
 {
     public class TemperatureEntry
     {
         public long time;
-        // values <-1000 are not present 
+
+        // values <-1000 are not present
         public float output;
+
         public float extruder;
         public float bed;
         public float avgExtruder;
@@ -46,6 +47,7 @@ namespace RepetierHost.model
             targetBed = tar;
             targetExtruder = tare;
         }
+
         public TemperatureEntry(int mon, float tmp, float outp, float tar, float tare)
         {
             time = DateTime.UtcNow.Ticks;
@@ -61,17 +63,20 @@ namespace RepetierHost.model
                 case 3:
                     extruder = tmp;
                     break;
+
                 case 100:
                     bed = tmp;
                     break;
             }
         }
     }
+
     public class TemperatureList
     {
         public double minTime;
         public double maxTime;
         public LinkedList<TemperatureEntry> entries;
+
         public TemperatureList()
         {
             entries = new LinkedList<TemperatureEntry>();
@@ -104,7 +109,7 @@ namespace RepetierHost.model
         public TemperatureList hourHistory;
         public LinkedList<TemperatureList> lists;
         public TemperatureList currentHistory;
-        public int currentPos=0;
+        public int currentPos = 0;
         public long currentHour;
         public int avgPeriod;
         public int currentZoomLevel;
@@ -129,7 +134,7 @@ namespace RepetierHost.model
             setupColor();
             /* NSUserDefaults *d = NSUserDefaults.standardUserDefaults;
              NSArray *arr = [NSArray arrayWithObjects:@"tempBackgroundColor",
-                             @"tempGridColor",@"tempAxisColor",@"tempFontColor",  
+                             @"tempGridColor",@"tempAxisColor",@"tempFontColor",
                              @"tempExtruderColor",@"tempAvgExtruderColor",
                              @"tempBedColor",@"tempAvgBedColor",@"tempTargetExtruderColor",@"tempTargetBedColor",
                              @"tempOutputColor",@"tempAvgOutputColor",
@@ -149,12 +154,13 @@ namespace RepetierHost.model
             xpos = 100;
             // for(NSString *key in arr)
             //     [d addObserver:self forKeyPath:key options:NSKeyValueObservingOptionNew context:NULL];
-            ToolStripMenuItem item = new ToolStripMenuItem(Trans.T("L_PAST_60_MINUTES"),null,Main.main.selectTimePeriod);
+            ToolStripMenuItem item = new ToolStripMenuItem(Trans.T("L_PAST_60_MINUTES"), null, Main.main.selectTimePeriod);
             item.Tag = 0;
             lists.AddLast(history);
             Main.main.timeperiodMenuItem.DropDownItems.Add(item);
             CurrentPos = 0;
         }
+
         public int CurrentPos
         {
             get { return currentPos; }
@@ -170,6 +176,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public int CurrentZoomLevel
         {
             get { return currentZoomLevel; }
@@ -184,6 +191,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public int AvgPeriod
         {
             get { return avgPeriod; }
@@ -198,15 +206,19 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool ShowExtruder
         {
             get { return showExtruder; }
-            set { showExtruder = value; Main.main.showExtruderTemperaturesMenuItem.Checked = value;
-            RegMemory.SetBool("tempShowExtruder", value);
-            if (Main.main.tabControlView.SelectedIndex == 1)
-                Main.main.tabPageTemp.Refresh();
+            set
+            {
+                showExtruder = value; Main.main.showExtruderTemperaturesMenuItem.Checked = value;
+                RegMemory.SetBool("tempShowExtruder", value);
+                if (Main.main.tabControlView.SelectedIndex == 1)
+                    Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool ShowBed
         {
             get { return showBed; }
@@ -218,6 +230,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool ShowAverage
         {
             get { return showAverage; }
@@ -229,6 +242,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool Autoscroll
         {
             get { return autoscoll; }
@@ -240,6 +254,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool ShowOutput
         {
             get { return showOutput; }
@@ -251,6 +266,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public bool ShowTarget
         {
             get { return showTarget; }
@@ -262,6 +278,7 @@ namespace RepetierHost.model
                     Main.main.tabPageTemp.Refresh();
             }
         }
+
         public void setupColor()
         {
             CurrentZoomLevel = RegMemory.GetInt("tempZoomLevel", 15);
@@ -292,6 +309,7 @@ namespace RepetierHost.model
             outputColor = RegMemory.GetColor("tempOutputColor", Color.FromArgb(178, 13, 128, 15));
             avgOutputColor = RegMemory.GetColor("tempAvgOutputColor", Color.FromArgb(255, 0, 128, 255));
         }
+
         public void addNotify(TemperatureEntry ent)
         {
             history.entries.AddLast(ent);
@@ -339,7 +357,7 @@ namespace RepetierHost.model
                 currentHour = lhour;
                 DateTime now = DateTime.Now;
                 string stime = now.ToString("MMMM dd, HH");
-                ToolStripMenuItem item = new ToolStripMenuItem(stime,null, Main.main.selectTimePeriod);
+                ToolStripMenuItem item = new ToolStripMenuItem(stime, null, Main.main.selectTimePeriod);
                 item.Tag = lists.Count;
                 hourHistory = new TemperatureList();
                 hourHistory.minTime = lhour * 36000000000;

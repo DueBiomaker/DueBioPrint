@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model.geom
 {
@@ -20,7 +18,8 @@ namespace RepetierHost.model.geom
         public bool hasIntersections = false;
         public int algHelper;
         public int shell = -1;
-        public TopoTriangle(TopoModel model,TopoVertex v1, TopoVertex v2, TopoVertex v3, double nx, double ny, double nz)
+
+        public TopoTriangle(TopoModel model, TopoVertex v1, TopoVertex v2, TopoVertex v3, double nx, double ny, double nz)
         {
             vertices[0] = v1;
             vertices[1] = v2;
@@ -42,12 +41,13 @@ namespace RepetierHost.model.geom
             RecomputeNormal();
             if (normalTest.ScalarProduct(normal) < 0)
                 FlipDirection();
-           /* double d1 = edges[0].EdgeLength;
-            double d2 = edges[1].EdgeLength;
-            double d3 = edges[2].EdgeLength;
-            if (d1 < epsilonZero || d2 < epsilonZero || d3 < epsilonZero)
-                Console.WriteLine("Df:" + this);*/
+            /* double d1 = edges[0].EdgeLength;
+             double d2 = edges[1].EdgeLength;
+             double d3 = edges[2].EdgeLength;
+             if (d1 < epsilonZero || d2 < epsilonZero || d3 < epsilonZero)
+                 Console.WriteLine("Df:" + this);*/
         }
+
         public TopoTriangle(TopoModel model, TopoVertex v1, TopoVertex v2, TopoVertex v3)
         {
             vertices[0] = v1;
@@ -72,15 +72,17 @@ namespace RepetierHost.model.geom
             if (d1 < epsilonZero || d2 < epsilonZero || d3 < epsilonZero)
                 Console.WriteLine("Df:" + this);*/
         }
+
         public void Unlink(TopoModel model)
         {
-            edges[0].disconnectFace(this,model);
-            edges[1].disconnectFace(this,model);
-            edges[2].disconnectFace(this,model);
+            edges[0].disconnectFace(this, model);
+            edges[1].disconnectFace(this, model);
+            edges[2].disconnectFace(this, model);
             vertices[0].disconnectFace(this);
             vertices[1].disconnectFace(this);
             vertices[2].disconnectFace(this);
         }
+
         public void FlipDirection()
         {
             normal.Scale(-1);
@@ -99,6 +101,7 @@ namespace RepetierHost.model.geom
             normal = d1.CrossProduct(d2);
             normal.NormalizeSafe();
         }
+
         public int VertexIndexFor(TopoVertex test)
         {
             if (test == vertices[0]) return 0;
@@ -106,6 +109,7 @@ namespace RepetierHost.model.geom
             if (test == vertices[2]) return 2;
             return -1;
         }
+
         public double SignedVolume()
         {
             return vertices[0].pos.ScalarProduct(vertices[1].pos.CrossProduct(vertices[2].pos)) / 6.0;
@@ -115,7 +119,7 @@ namespace RepetierHost.model.geom
         {
             RHVector3 d1 = vertices[1].pos.Subtract(vertices[0].pos);
             RHVector3 d2 = vertices[2].pos.Subtract(vertices[1].pos);
-            return 0.5* d1.CrossProduct(d2).Length;
+            return 0.5 * d1.CrossProduct(d2).Length;
         }
 
         public TopoEdge EdgeWithVertices(TopoVertex v1, TopoVertex v2)
@@ -127,16 +131,19 @@ namespace RepetierHost.model.geom
             }
             return null;
         }
+
         public bool IsDegenerated()
         {
-            if (vertices[0] == vertices[1] || vertices[1] == vertices[2] || vertices[2] == vertices[0]) 
+            if (vertices[0] == vertices[1] || vertices[1] == vertices[2] || vertices[2] == vertices[0])
                 return true;
             return false;
         }
+
         public bool IsIsolated()
         {
             return vertices[0].connectedFaces == 1 && vertices[1].connectedFaces == 1 && vertices[2].connectedFaces == 1;
         }
+
         /// <summary>
         /// Checks if all vertices are colinear preventing a normal computation. If point are coliniear the center vertex is
         /// moved in the direction of the edge to allow normal computations.
@@ -147,10 +154,12 @@ namespace RepetierHost.model.geom
             RHVector3 d1 = vertices[1].pos.Subtract(vertices[0].pos);
             RHVector3 d2 = vertices[2].pos.Subtract(vertices[1].pos);
             double angle = d1.Angle(d2);
-            if (angle > 0.001 && angle<Math.PI-0.001) return false;
+            if (angle > 0.001 && angle < Math.PI - 0.001) return false;
             return true;
         }
-        public void FixColinear(TopoModel model) {
+
+        public void FixColinear(TopoModel model)
+        {
             RHVector3 center = vertices[0].pos.Add(vertices[1].pos).Add(vertices[2].pos);
             center.Scale(1 / 3.0);
             int best = -1;
@@ -165,8 +174,8 @@ namespace RepetierHost.model.geom
                     best = i;
                 }
             }
-            if(best==-1) throw new Exception("CheckIfColinearAndFix called on isolated triangle");
-            edges[(best + 1) % 3].InsertVertex(model,vertices[best]);
+            if (best == -1) throw new Exception("CheckIfColinearAndFix called on isolated triangle");
+            edges[(best + 1) % 3].InsertVertex(model, vertices[best]);
             /*
             // Find an other face sharing vertex
             TopoTriangle otherFace = null;
@@ -205,6 +214,7 @@ namespace RepetierHost.model.geom
             moveVertex.pos = moveVertex.pos.Add(line);
             RecomputeNormal();*/
         }
+
         public int NumberOfSharedVertices(TopoTriangle tri)
         {
             int sameVertices = 0;
@@ -221,17 +231,20 @@ namespace RepetierHost.model.geom
             }
             return sameVertices;
         }
+
         public bool SameNormalOrientation(TopoTriangle test)
         {
             for (int i = 0; i < 3; i++)
             {
-                for(int j =0;j<3;j++) {
+                for (int j = 0; j < 3; j++)
+                {
                     if (vertices[i] == test.vertices[j] && vertices[(i + 1) % 3] == test.vertices[(j + 2) % 3])
                         return true;
                 }
             }
             return false;
         }
+
         public RHVector3 Center
         {
             get
@@ -241,45 +254,49 @@ namespace RepetierHost.model.geom
                 return c;
             }
         }
-        public bool IntersectsLine(RHVector3 lineStart, RHVector3 lineDirection,out double delta)
+
+        public bool IntersectsLine(RHVector3 lineStart, RHVector3 lineDirection, out double delta)
         {
             RHVector3 A = vertices[0].pos;
             RHVector3 a = vertices[1].pos.Subtract(A);
             RHVector3 b = vertices[2].pos.Subtract(A);
-            double det = ((a.x*b.y-a.y*b.x)*lineDirection.z+(a.z*b.x-a.x*b.z)*lineDirection.y+(a.y*b.z-a.z*b.y)*lineDirection.x);
+            double det = ((a.x * b.y - a.y * b.x) * lineDirection.z + (a.z * b.x - a.x * b.z) * lineDirection.y + (a.y * b.z - a.z * b.y) * lineDirection.x);
             delta = 0;
             if (det == 0) return false; // Coplanar doe snot count as intersection here.
-            double alpha = ((b.x * lineDirection.y - b.y * lineDirection.x) * lineStart.z + 
-                (b.z * lineDirection.x - b.x * lineDirection.z) * lineStart.y + 
-                (b.y * lineDirection.z - b.z * lineDirection.y) * lineStart.x + 
-                (A.y * b.x - A.x * b.y) * lineDirection.z + (A.x * b.z - A.z * b.x) * lineDirection.y + 
+            double alpha = ((b.x * lineDirection.y - b.y * lineDirection.x) * lineStart.z +
+                (b.z * lineDirection.x - b.x * lineDirection.z) * lineStart.y +
+                (b.y * lineDirection.z - b.z * lineDirection.y) * lineStart.x +
+                (A.y * b.x - A.x * b.y) * lineDirection.z + (A.x * b.z - A.z * b.x) * lineDirection.y +
                 (A.z * b.y - A.y * b.z) * lineDirection.x) / det;
-            double beta = -((a.x * lineDirection.y - a.y * lineDirection.x) * lineStart.z + 
-                (a.z * lineDirection.x - a.x * lineDirection.z) * lineStart.y + 
-                (a.y * lineDirection.z - a.z * lineDirection.y) * lineStart.x + 
-                (a.x * A.y - a.y * A.x) * lineDirection.z + (a.z * A.x - a.x * A.z) * lineDirection.y + 
+            double beta = -((a.x * lineDirection.y - a.y * lineDirection.x) * lineStart.z +
+                (a.z * lineDirection.x - a.x * lineDirection.z) * lineStart.y +
+                (a.y * lineDirection.z - a.z * lineDirection.y) * lineStart.x +
+                (a.x * A.y - a.y * A.x) * lineDirection.z + (a.z * A.x - a.x * A.z) * lineDirection.y +
                 (a.y * A.z - a.z * A.y) * lineDirection.x) / det;
-            if( alpha >= 0 && beta >= 0 && alpha + beta < 1) {
-                delta = -((a.x * b.y - a.y * b.x) * lineStart.z + (a.z * b.x - a.x * b.z) * lineStart.y + 
-                    (a.y * b.z - a.z * b.y) * lineStart.x + (a.x * A.y - a.y * A.x) * b.z + 
+            if (alpha >= 0 && beta >= 0 && alpha + beta < 1)
+            {
+                delta = -((a.x * b.y - a.y * b.x) * lineStart.z + (a.z * b.x - a.x * b.z) * lineStart.y +
+                    (a.y * b.z - a.z * b.y) * lineStart.x + (a.x * A.y - a.y * A.x) * b.z +
                     (a.z * A.x - a.x * A.z) * b.y + (a.y * A.z - a.z * A.y) * b.x) / det;
                 return true;
             }
             return false;
         }
+
         public double DistanceToPlane(RHVector3 pos)
         {
             double d = vertices[0].pos.ScalarProduct(normal);
-            return pos.ScalarProduct(normal)-d;
+            return pos.ScalarProduct(normal) - d;
         }
-        private bool InPlaneIntersectLine(int idx1,int idx2, RHVector3 a1, RHVector3 a2, RHVector3 b1, RHVector3 b2)
+
+        private bool InPlaneIntersectLine(int idx1, int idx2, RHVector3 a1, RHVector3 a2, RHVector3 b1, RHVector3 b2)
         {
             double ax = a2[idx1] - a1[idx1];
-            double ay = a2[idx2]-a1[idx2];
+            double ay = a2[idx2] - a1[idx2];
             double bx = b2[idx1] - b1[idx1];
-            double by = b2[idx2]-b1[idx2];
-            double det = ax*by-ay*bx;
-            if(det==0) return false; // Parallel is not intersect
+            double by = b2[idx2] - b1[idx2];
+            double det = ax * by - ay * bx;
+            if (det == 0) return false; // Parallel is not intersect
             double alpha = -(bx * b1[idx2] - by * b1[idx1] + a1[idx1] * by - a1[idx2] * bx) / det;
             if (alpha < epsilonZeroMinus || alpha > epsilonOnePlus) return false;
             double beta = -(ax * b1[idx2] - ay * b1[idx1] - ax * a1[idx2] + ay * a1[idx1]) / det;
@@ -288,7 +305,8 @@ namespace RepetierHost.model.geom
                 Console.WriteLine("InPlane beta=" + beta);
             return intersect;
         }
-        private bool InPlaneIntersectLineSmall(int idx1,int idx2, RHVector3 a1, RHVector3 a2, RHVector3 b1, RHVector3 b2)
+
+        private bool InPlaneIntersectLineSmall(int idx1, int idx2, RHVector3 a1, RHVector3 a2, RHVector3 b1, RHVector3 b2)
         {
             double ax = a2[idx1] - a1[idx1];
             double ay = a2[idx2] - a1[idx2];
@@ -304,22 +322,24 @@ namespace RepetierHost.model.geom
                 Console.WriteLine("InPlane beta=" + beta);
             return intersect;
         }
-        private bool InPlanePointInside(int d1,int d2, RHVector3 p)
+
+        private bool InPlanePointInside(int d1, int d2, RHVector3 p)
         {
             RHVector3 A = vertices[0].pos;
-            double ax = vertices[1].pos[d1]-vertices[0].pos[d1];
-            double ay = vertices[1].pos[d2]-vertices[0].pos[d2];
-            double bx = vertices[2].pos[d1]-vertices[0].pos[d1];
-            double by = vertices[2].pos[d2]-vertices[0].pos[d2];
-            double det = ax*by-ay*bx;
-            if(det==0) return false;
+            double ax = vertices[1].pos[d1] - vertices[0].pos[d1];
+            double ay = vertices[1].pos[d2] - vertices[0].pos[d2];
+            double bx = vertices[2].pos[d1] - vertices[0].pos[d1];
+            double by = vertices[2].pos[d2] - vertices[0].pos[d2];
+            double det = ax * by - ay * bx;
+            if (det == 0) return false;
             double alpha = -(bx * p[d2] - by * p[d1] + A[d1] * by - A[d2] * bx) / det;
             double beta = (ax * p[d2] - ay * p[d1] - ax * A[d2] + ay * A[d1]) / det;
             bool intersect = alpha >= epsilonZeroMinus && beta >= epsilonZeroMinus && alpha + beta <= epsilonOnePlus;
             if (intersect && debugIntersections)
-                Console.WriteLine("InPlanePointInside alpha="+alpha+", beta = "+beta);
+                Console.WriteLine("InPlanePointInside alpha=" + alpha + ", beta = " + beta);
             return intersect;
         }
+
         private void DominantAxis(out int d1, out int d2)
         {
             double n1 = Math.Abs(normal.x);
@@ -341,22 +361,23 @@ namespace RepetierHost.model.geom
                 d2 = 1;
             }
         }
-        private bool IntersectsSharedVertex(TopoVertex shared, TopoVertex[] a, TopoVertex[] b,TopoTriangle tri)
+
+        private bool IntersectsSharedVertex(TopoVertex shared, TopoVertex[] a, TopoVertex[] b, TopoTriangle tri)
         {
             double d1 = DistanceToPlane(b[0].pos);
-            double d2 = DistanceToPlane(b[1].pos);            
+            double d2 = DistanceToPlane(b[1].pos);
             // Compute intersection point with plane
-            int idx1,idx2;
+            int idx1, idx2;
             DominantAxis(out idx1, out idx2);
-            if (Math.Abs(d1) < 1e-8 && Math.Abs(d2)<1e-8) // In plane
+            if (Math.Abs(d1) < 1e-8 && Math.Abs(d2) < 1e-8) // In plane
             {
-                if (InPlanePointInside(idx1,idx2, b[0].pos))
+                if (InPlanePointInside(idx1, idx2, b[0].pos))
                     return true;
-                if (InPlanePointInside(idx1,idx2, b[1].pos))
+                if (InPlanePointInside(idx1, idx2, b[1].pos))
                     return true;
-                if (InPlaneIntersectLineSmall(idx1,idx2, a[0].pos, a[1].pos, shared.pos, b[0].pos))
+                if (InPlaneIntersectLineSmall(idx1, idx2, a[0].pos, a[1].pos, shared.pos, b[0].pos))
                     return true;
-                if (InPlaneIntersectLineSmall(idx1,idx2, a[0].pos, a[1].pos, shared.pos, b[1].pos))
+                if (InPlaneIntersectLineSmall(idx1, idx2, a[0].pos, a[1].pos, shared.pos, b[1].pos))
                     return true;
                 return false;
             }
@@ -369,28 +390,31 @@ namespace RepetierHost.model.geom
             p1.AddInternal(b[0].pos);
             p2.AddInternal(b[1].pos);*/
             RHVector3 inter = new RHVector3((1 - factor) * p1.x + factor * p2.x, (1 - factor) * p1.y + factor * p2.y, (1 - factor) * p1.z + factor * p2.z);
-            if(inter.Subtract(shared.pos).Length < epsilonZero) {
+            if (inter.Subtract(shared.pos).Length < epsilonZero)
+            {
                 if (Math.Abs(d1) < epsilonZero || Math.Abs(d2) < epsilonZero)
                     return false; // Connection ends at shared vertex - does not count as intersection
             }
-            if (InPlanePointInside(idx1,idx2, inter))
+            if (InPlanePointInside(idx1, idx2, inter))
                 return true;
-            if(InPlaneIntersectLineSmall(idx1,idx2,a[0].pos,a[1].pos,shared.pos,inter)) 
+            if (InPlaneIntersectLineSmall(idx1, idx2, a[0].pos, a[1].pos, shared.pos, inter))
                 return true;
             return false;
         }
+
         private bool IntersectsSharedEdge(TopoVertex[] shared, TopoVertex a, TopoVertex b, TopoTriangle tri)
         {
             // Test if coplanar. If not no intersection is possible
             if (Math.Abs(DistanceToPlane(b.pos)) > epsilonZero) return false;
-            int idx2,idx1;
+            int idx2, idx1;
             DominantAxis(out idx1, out idx2);
-            if (InPlanePointInside(idx1,idx2, b.pos)) 
+            if (InPlanePointInside(idx1, idx2, b.pos))
                 return true;
-            if(tri.InPlanePointInside(idx1,idx2,a.pos)) 
+            if (tri.InPlanePointInside(idx1, idx2, a.pos))
                 return true;
             return false;
         }
+
         public bool Intersects(TopoTriangle tri)
         {
             // First detect shared edges for more reliable and faster tests
@@ -429,8 +453,8 @@ namespace RepetierHost.model.geom
                     if (!isDouble)
                         uniqueB[nUniqueB++] = tri.vertices[i];
                 }
-                if (nShared == 1) return IntersectsSharedVertex(shared[0], uniqueA, uniqueB,tri);
-                if (nShared == 2) return IntersectsSharedEdge(shared, uniqueA[0], uniqueB[0],tri);
+                if (nShared == 1) return IntersectsSharedVertex(shared[0], uniqueA, uniqueB, tri);
+                if (nShared == 2) return IntersectsSharedEdge(shared, uniqueA[0], uniqueB[0], tri);
                 return true;
             }
             // Nice to read but unoptimized intersection computation
@@ -459,47 +483,49 @@ namespace RepetierHost.model.geom
             {
                 if (detAr1 != 0) return false; // other parallel plance
                 // Select plane for computation x-y or x-z based on normal
-                int idx1,idx2;
-                DominantAxis(out idx1,out idx2);
-                if (InPlaneIntersectLine(idx1,idx2, vertices[0].pos, vertices[1].pos, tri.vertices[0].pos, tri.vertices[1].pos)) 
+                int idx1, idx2;
+                DominantAxis(out idx1, out idx2);
+                if (InPlaneIntersectLine(idx1, idx2, vertices[0].pos, vertices[1].pos, tri.vertices[0].pos, tri.vertices[1].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[0].pos, vertices[1].pos, tri.vertices[1].pos, tri.vertices[2].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[0].pos, vertices[1].pos, tri.vertices[1].pos, tri.vertices[2].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[0].pos, vertices[1].pos, tri.vertices[2].pos, tri.vertices[0].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[0].pos, vertices[1].pos, tri.vertices[2].pos, tri.vertices[0].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[1].pos, vertices[2].pos, tri.vertices[0].pos, tri.vertices[1].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[1].pos, vertices[2].pos, tri.vertices[0].pos, tri.vertices[1].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[1].pos, vertices[2].pos, tri.vertices[1].pos, tri.vertices[2].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[1].pos, vertices[2].pos, tri.vertices[1].pos, tri.vertices[2].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[1].pos, vertices[2].pos, tri.vertices[2].pos, tri.vertices[0].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[1].pos, vertices[2].pos, tri.vertices[2].pos, tri.vertices[0].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[2].pos, vertices[0].pos, tri.vertices[0].pos, tri.vertices[1].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[2].pos, vertices[0].pos, tri.vertices[0].pos, tri.vertices[1].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[2].pos, vertices[0].pos, tri.vertices[1].pos, tri.vertices[2].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[2].pos, vertices[0].pos, tri.vertices[1].pos, tri.vertices[2].pos))
                     return true;
-                if (InPlaneIntersectLine(idx1,idx2, vertices[2].pos, vertices[0].pos, tri.vertices[2].pos, tri.vertices[0].pos)) 
+                if (InPlaneIntersectLine(idx1, idx2, vertices[2].pos, vertices[0].pos, tri.vertices[2].pos, tri.vertices[0].pos))
                     return true;
                 // Test if point inside. 1 test per triangle is enough
-                if (InPlanePointInside(idx1,idx2, tri.vertices[0].pos)) 
+                if (InPlanePointInside(idx1, idx2, tri.vertices[0].pos))
                     return true;
-                if (InPlanePointInside(idx1,idx2, tri.vertices[1].pos)) 
+                if (InPlanePointInside(idx1, idx2, tri.vertices[1].pos))
                     return true;
-                if (InPlanePointInside(idx1,idx2, tri.vertices[2].pos)) 
+                if (InPlanePointInside(idx1, idx2, tri.vertices[2].pos))
                     return true;
-                if (tri.InPlanePointInside(idx1,idx2, vertices[0].pos)) 
+                if (tri.InPlanePointInside(idx1, idx2, vertices[0].pos))
                     return true;
-                if (tri.InPlanePointInside(idx1,idx2, vertices[1].pos)) 
+                if (tri.InPlanePointInside(idx1, idx2, vertices[1].pos))
                     return true;
-                if (tri.InPlanePointInside(idx1,idx2, vertices[2].pos)) 
+                if (tri.InPlanePointInside(idx1, idx2, vertices[2].pos))
                     return true;
                 return false;
             }
-            double beta1=-1, beta2=-1, beta3=-1;
-            if (detAq1 != 0) {
+            double beta1 = -1, beta2 = -1, beta3 = -1;
+            if (detAq1 != 0)
+            {
                 beta1 = -detAr1 / detAq1;
                 if (beta1 >= epsilonZeroMinus && beta1 <= epsilonOnePlus) intersect = 1;
             }
-            if(detAq2!=0) {
+            if (detAq2 != 0)
+            {
                 beta2 = -detAr1 / detAq2;
                 if (beta2 >= epsilonZeroMinus && beta2 <= epsilonOnePlus) intersect |= 2;
             }
@@ -540,25 +566,25 @@ namespace RepetierHost.model.geom
                     t = q2.Subtract(T);
                 }
             }
-            if ((intersect & 4) == 4 && T!=null && (t == null || t.Length<epsilonZero))
+            if ((intersect & 4) == 4 && T != null && (t == null || t.Length < epsilonZero))
             {
                 RHVector3 q3 = tri.vertices[1].pos.Subtract(tri.vertices[2].pos);
                 q3.Scale(beta3);
                 q3.AddInternal(tri.vertices[2].pos);
                 t = q3.Subtract(T);
             }
-            if (t == null) 
+            if (t == null)
                 return false;
             if (t.Length < epsilonZero)
             { // Only one point touches the plane
-                int idx1,idx2;
+                int idx1, idx2;
                 DominantAxis(out idx1, out idx2);
-                return InPlanePointInside(idx1,idx2, T);
+                return InPlanePointInside(idx1, idx2, T);
             }
             // Compute intersection points with this triangle
-            double d1 = p1.x*t.y-p1.y*t.x;
-            double d2 = p1.x*t.z-p1.z*t.x;
-            double delta1=-1,delta2=-1,delta3=-1,gamma1=-1,gamma2=-1,gamma3=-1;
+            double d1 = p1.x * t.y - p1.y * t.x;
+            double d2 = p1.x * t.z - p1.z * t.x;
+            double delta1 = -1, delta2 = -1, delta3 = -1, gamma1 = -1, gamma2 = -1, gamma3 = -1;
             if (Math.Abs(d1) > epsilonZero || Math.Abs(d2) > epsilonZero)
             {
                 if (Math.Abs(d1) > Math.Abs(d2))
@@ -591,7 +617,7 @@ namespace RepetierHost.model.geom
             p2.SubtractInternal(p1); // p2 is now p3!
             d1 = p2.x * t.y - p2.y * t.x;
             d2 = p2.x * t.z - p2.z * t.x;
-            if (Math.Abs(d1)>epsilonZero || Math.Abs(d2)>epsilonZero)
+            if (Math.Abs(d1) > epsilonZero || Math.Abs(d2) > epsilonZero)
             {
                 if (Math.Abs(d1) > Math.Abs(d2))
                 {
@@ -616,34 +642,35 @@ namespace RepetierHost.model.geom
             if (delta1 >= epsilonZeroMinus && delta1 <= epsilonOnePlus) intersect |= 1;
             if (delta2 >= epsilonZeroMinus && delta2 <= epsilonOnePlus) intersect |= 2;
             if (delta3 >= epsilonZeroMinus && delta3 <= epsilonOnePlus) intersect |= 4;
-         /*   if (gamma1 == 0) gamma1 = -1;
-            if (gamma2 == 0) gamma2 = -1;
-            if (gamma3 == 0) gamma3 = -1;*/
+            /*   if (gamma1 == 0) gamma1 = -1;
+               if (gamma2 == 0) gamma2 = -1;
+               if (gamma3 == 0) gamma3 = -1;*/
             if (gamma1 == 0) intersect &= ~1;
             if (gamma2 == 0) intersect &= ~2;
             if (gamma3 == 0) intersect &= ~4;
             /*       if ((intersect & 3) == 3) return gamma1 * gamma2 < 0;
                    if ((intersect & 5) == 5) return gamma1 * gamma3 < 0;
                    if ((intersect & 6) == 6) return gamma3 * gamma2 < 0;*/
-            if ((intersect & 3) == 3) 
+            if ((intersect & 3) == 3)
                 if (gamma1 * gamma2 < 0)
                     return true;
                 else
                     return false;
             if ((intersect & 5) == 5)
-                if( gamma1 * gamma3 < 0)
+                if (gamma1 * gamma3 < 0)
                     return true;
                 else
                     return false;
-            if ((intersect & 6) == 6) 
+            if ((intersect & 6) == 6)
                 if (gamma3 * gamma2 < 0)
                     return true;
                 else
                     return false;
-           // if (intersect!=0) happens only with numeric problems
+            // if (intersect!=0) happens only with numeric problems
             //    return true;
             return false; // No intersection found :-)
         }
+
         public int LongestEdgeIndex()
         {
             int best = 0;
@@ -659,6 +686,7 @@ namespace RepetierHost.model.geom
             }
             return best;
         }
+
         public void LongestShortestEdgeLength(out int longestEdge, out double longestEdgeLength, out int shortestEdge, out double shortestEdgeLength)
         {
             longestEdge = shortestEdge = 0;
@@ -678,6 +706,7 @@ namespace RepetierHost.model.geom
                 }
             }
         }
+
         public double AngleEdgePoint(int edge, RHVector3 point)
         {
             double a = edges[edge].EdgeLength;
@@ -685,6 +714,7 @@ namespace RepetierHost.model.geom
             double c = edges[edge].v2.pos.Subtract(point).Length;
             return Math.Acos((b * b + c * c - a * a) / (2 * b * c));
         }
+
         /// <summary>
         /// Returns triangle quality in terms of outer circle diameter/inner circle diameter > 2
         /// </summary>
@@ -700,6 +730,7 @@ namespace RepetierHost.model.geom
                 return a * (a + b + c) / (bc2 * sinalpha * sinalpha);
             }
         }
+
         static public double TriangleQualityFromPositions(RHVector3 p1, RHVector3 p2, RHVector3 p3)
         {
             double a = p1.Distance(p2);
@@ -709,43 +740,49 @@ namespace RepetierHost.model.geom
             double sinalpha = Math.Sin(Math.Acos((b * b + c * c - a * a) / (bc2)));
             return a * (a + b + c) / (bc2 * sinalpha * sinalpha);
         }
-        public bool SmoothAspectRatio(TopoModel model,double maxRatio)
+
+        public bool SmoothAspectRatio(TopoModel model, double maxRatio)
         {
-            double maxLen,minLen;
-            int maxIdx,minIdx;
-            LongestShortestEdgeLength(out maxIdx,out maxLen,out minIdx,out minLen);
-            if (minLen == 0) 
+            double maxLen, minLen;
+            int maxIdx, minIdx;
+            LongestShortestEdgeLength(out maxIdx, out maxLen, out minIdx, out minLen);
+            if (minLen == 0)
                 return false;
-            if (maxLen>1 && maxLen / minLen > maxRatio)
+            if (maxLen > 1 && maxLen / minLen > maxRatio)
             {
                 RHVector3 center = edges[maxIdx].v1.pos.Add(edges[maxIdx].v2.pos);
                 center.Scale(0.5);
                 TopoVertex newVertex = new TopoVertex(0, center);
                 model.addVertex(newVertex);
-                edges[maxIdx].InsertVertex(model,newVertex);
+                edges[maxIdx].InsertVertex(model, newVertex);
                 return true;
             }
             return false;
         }
+
         public override string ToString()
         {
-            return "Tri: " + vertices[0] + " | " + vertices[1] + " | " + vertices[2]+
-                " Edges:"+edges[0].faces.Count+"/"+edges[1].faces.Count+"/"+edges[2].faces.Count;
+            return "Tri: " + vertices[0] + " | " + vertices[1] + " | " + vertices[2] +
+                " Edges:" + edges[0].faces.Count + "/" + edges[1].faces.Count + "/" + edges[2].faces.Count;
         }
     }
+
     public class TopoTriangleDistance : IComparer<TopoTriangleDistance>, IComparable<TopoTriangleDistance>
     {
         public double distance;
         public TopoTriangle triangle;
+
         public TopoTriangleDistance(double dist, TopoTriangle tri)
         {
             triangle = tri;
             distance = dist;
         }
+
         public int Compare(TopoTriangleDistance td1, TopoTriangleDistance td2)
         {
             return -td1.distance.CompareTo(td2.distance);
         }
+
         public int CompareTo(TopoTriangleDistance td)
         {
             return -distance.CompareTo(td.distance);

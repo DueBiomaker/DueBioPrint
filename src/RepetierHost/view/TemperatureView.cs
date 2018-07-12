@@ -1,33 +1,29 @@
-﻿using System;
+﻿using RepetierHost.model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Data;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
     public partial class TemperatureView : UserControl
     {
-        double[] tempTickSizes = { 100, 50, 25, 20, 10, 5, 1 };
-        double[] timeTickSizes = { 1800000, 900000, 600000, 300000, 60000, 30000, 15000, 5000, 1000 };
-        Font font = null;
-        TemperatureHistory hist;
-        double righttime;
-        double lefttime;
-        double timeScale;
-        double tempScale;
-        double outScale;
-        double minTemp, maxTemp;
-        double timeTick;
-        double tempTick;
-        float axisWidth;
-        float tickExtra = 3, spaceExtra = 3;
-        float timeWidth, timeHeight, tempWidth;
+        private double[] tempTickSizes = { 100, 50, 25, 20, 10, 5, 1 };
+        private double[] timeTickSizes = { 1800000, 900000, 600000, 300000, 60000, 30000, 15000, 5000, 1000 };
+        private Font font = null;
+        private TemperatureHistory hist;
+        private double righttime;
+        private double lefttime;
+        private double timeScale;
+        private double tempScale;
+        private double outScale;
+        private double minTemp, maxTemp;
+        private double timeTick;
+        private double tempTick;
+        private float axisWidth;
+        private float tickExtra = 3, spaceExtra = 3;
+        private float timeWidth, timeHeight, tempWidth;
 
         public TemperatureView()
         {
@@ -67,7 +63,7 @@ namespace RepetierHost.view
             bool hasTemp = false;
             foreach (TemperatureEntry e in hist.currentHistory.entries)
             {
-                if (e.time/10000 < lefttime || e.time/10000 > righttime) continue;
+                if (e.time / 10000 < lefttime || e.time / 10000 > righttime) continue;
                 if (hist.ShowExtruder)
                 {
                     { if (e.extruder >= 0) { if (!hasTemp) { minTemp = maxTemp = e.extruder; hasTemp = true; } else { minTemp = Math.Min(e.extruder, minTemp); maxTemp = Math.Max(e.extruder, maxTemp); } } }
@@ -129,7 +125,6 @@ namespace RepetierHost.view
                 outputRect = new Rectangle((int)fontLeft, (int)h1, (int)(width - 2 * fontLeft), (int)(h2 - fontBottom - marginTop));
                 drawGrid(outputRect, false, g);
             }
-
         }
 
         private void drawGrid(Rectangle rect, bool isTemp, Graphics g)
@@ -304,7 +299,8 @@ namespace RepetierHost.view
             g.ResetClip();
         }
 
-        int mdx;
+        private int mdx;
+
         private void TemperatureView_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
@@ -26,16 +20,19 @@ namespace RepetierHost.view.utils
             p.timer.Start();
             return p;
         }
+
         public void Finished()
         {
             if (Parent != null)
                 Parent.Controls.Remove(this);
             timer.Stop();
         }
+
         public InfoProgressPanel()
         {
             InitializeComponent();
         }
+
         public string Action
         {
             get { return action; }
@@ -47,12 +44,15 @@ namespace RepetierHost.view.utils
                 }
             }
         }
+
         public int Progress
         {
-            get { lock(mutex) return progress; }
-            set { lock(mutex) progress = value;}
+            get { lock (mutex) return progress; }
+            set { lock (mutex) progress = value; }
         }
-        public bool IsKilled {get {return killed;}}
+
+        public bool IsKilled { get { return killed; } }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             lock (mutex)

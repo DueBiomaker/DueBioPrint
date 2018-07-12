@@ -14,23 +14,19 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO;
 using RepetierHost.model;
 using RepetierHost.view.utils;
+using System;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class SlicerPanel : UserControl
     {
-        bool updating = false;
+        private bool updating = false;
+
         public SlicerPanel()
         {
             InitializeComponent();
@@ -57,7 +53,9 @@ namespace RepetierHost.view
                 mainBindingSource.DataSource = Main.printerModel;
             }
         }
-        void translate() {
+
+        private void translate()
+        {
             buttonKillSlicing.Text = Trans.T("B_KILL_SLICING_PROCESS");
             buttonSetupSkeinforge.Text = Trans.T("B_SETUP_SKEINFORGE");
             buttonSetupSlic3r.Text = Trans.T("B_SETUP_SLIC3R");
@@ -72,15 +70,17 @@ namespace RepetierHost.view
             labelSlic3rExtruder1.Text = Trans.T1("L_EXTRUDER_X:", "1");
             labelSlic3rExtruder2.Text = Trans.T1("L_EXTRUDER_X:", "2");
             labelSlic3rExtruder3.Text = Trans.T1("L_EXTRUDER_X:", "3");
-            if(Main.slicer!=null)
+            if (Main.slicer != null)
                 buttonStartSlicing.Text = Trans.T1("L_SLICE_WITH", Main.slicer.SlicerName);
         }
+
         private string noINI(string ini)
         {
             if (ini.EndsWith(".ini"))
                 return ini.Substring(0, ini.Length - 4);
             return ini;
         }
+
         public string slic3rDirectory
         {
             get
@@ -91,7 +91,7 @@ namespace RepetierHost.view
                 {
                     if (Main.IsMono)
                     {
-                        cdir =  System.Environment.GetEnvironmentVariable("HOME")+"/.Slic3r";
+                        cdir = System.Environment.GetEnvironmentVariable("HOME") + "/.Slic3r";
                         //Console.WriteLine("Slic3r home:" + cdir);
                         return cdir;
                         //return "~/.Slic3r";
@@ -99,17 +99,19 @@ namespace RepetierHost.view
                     }
                     else
                     {
-                        cdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+ Path.DirectorySeparatorChar + "Slic3r";
+                        cdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + Path.DirectorySeparatorChar + "Slic3r";
                     }
                 }
                 //Console.WriteLine("App dir:" + cdir);
                 return cdir; // +Path.DirectorySeparatorChar + "Slic3r";
             }
         }
+
         public MethodInvoker UpdateSelectionInvoker = delegate
         {
             Main.main.slicerPanel.UpdateSelection();
         };
+
         public void UpdateSelection()
         {
             BasicConfiguration b = BasicConfiguration.basicConf;
@@ -131,7 +133,8 @@ namespace RepetierHost.view
                 comboSlic3rPrinterSettings.Enabled = true;
                 if (b.Slic3rPrinterSettings.Length > 0)
                     comboSlic3rPrinterSettings.SelectedItem = old;
-                if(comboSlic3rPrinterSettings.SelectedIndex<0 && rgFiles.Count() > 0) {
+                if (comboSlic3rPrinterSettings.SelectedIndex < 0 && rgFiles.Count() > 0)
+                {
                     b.Slic3rPrinterSettings = noINI(rgFiles[0].Name);
                     comboSlic3rPrinterSettings.SelectedIndex = 0;
                 }
@@ -154,7 +157,7 @@ namespace RepetierHost.view
                 comboSlic3rPrintSettings.Enabled = true;
                 if (b.Slic3rPrintSettings.Length > 0)
                     comboSlic3rPrintSettings.SelectedItem = old;
-                if (comboSlic3rPrintSettings.SelectedIndex<0 && rgFiles.Count() > 0)
+                if (comboSlic3rPrintSettings.SelectedIndex < 0 && rgFiles.Count() > 0)
                 {
                     b.Slic3rPrintSettings = noINI(rgFiles[0].Name);
                     comboSlic3rPrintSettings.SelectedIndex = 0;
@@ -184,12 +187,12 @@ namespace RepetierHost.view
                     comboSlic3rFilamentSettings2.Items.Add(noINI(fi.Name));
                     comboSlic3rFilamentSettings3.Items.Add(noINI(fi.Name));
                 }
-                comboSlic3rFilamentSettings.Enabled = Main.conn.numberExtruder>0;
+                comboSlic3rFilamentSettings.Enabled = Main.conn.numberExtruder > 0;
                 comboSlic3rFilamentSettings2.Enabled = Main.conn.numberExtruder > 1;
                 comboSlic3rFilamentSettings3.Enabled = Main.conn.numberExtruder > 2;
                 if (b.Slic3rFilamentSettings.Length > 0)
                     comboSlic3rFilamentSettings.SelectedItem = old1;
-                if (comboSlic3rFilamentSettings.SelectedIndex<0 && rgFiles.Count() > 0)
+                if (comboSlic3rFilamentSettings.SelectedIndex < 0 && rgFiles.Count() > 0)
                 {
                     b.Slic3rFilamentSettings = noINI(rgFiles[0].Name);
                     comboSlic3rFilamentSettings.SelectedIndex = 0;
@@ -246,7 +249,6 @@ namespace RepetierHost.view
             }
             else comboSkeinProfile.Enabled = false;
 
-
             if (Main.slicer.ActiveSlicer == Slicer.SlicerID.Slic3r)
             {
                 switchSkeinforge.On = false;
@@ -288,7 +290,7 @@ namespace RepetierHost.view
         {
             if (!updating)
             {
-                if (Main.IsMono && comboSlic3rPrinterSettings.SelectedItem!=null)
+                if (Main.IsMono && comboSlic3rPrinterSettings.SelectedItem != null)
                     Main.printerModel.Slic3rPrinter = (string)comboSlic3rPrinterSettings.SelectedItem;
             }
         }
@@ -296,7 +298,6 @@ namespace RepetierHost.view
         private void buttonSlic3rConfigure_Click(object sender, EventArgs e)
         {
             Main.slic3r.RunConfig();
-
         }
 
         private void buttonSkeinConfigure_Click(object sender, EventArgs e)
@@ -304,11 +305,10 @@ namespace RepetierHost.view
             Main.main.skeinforge.RunSkeinforge();
         }
 
-        
         private void switchSlic3rActive_OnChange(SwitchButton button)
         {
-            if (updating || Main.slicer==null) return;
-                Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
+            if (updating || Main.slicer == null) return;
+            Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
         }
 
         private void switchSkeinforge_OnChange(SwitchButton button)

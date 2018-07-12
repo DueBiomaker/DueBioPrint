@@ -15,21 +15,18 @@
 
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 namespace RepetierHost.model
 {
     public interface GCodeExecutor
     {
         void queueGCodeScript(string gcodeToExecute);
     }
+
     public class PrinterConnectionGCodeExecutor : GCodeExecutor
     {
         private PrinterConnection conn;
         private bool startImmediatelly;
+
         public PrinterConnectionGCodeExecutor(PrinterConnection conn, bool startImmediatelly)
         {
             this.conn = conn;
@@ -50,7 +47,6 @@ namespace RepetierHost.model
             conn.connector.ReturnInjectLock();
             conn.connector.Job.EndJob();*/
 
-
             // Load Generated GCode as current job.
             //Main.main.editor.Text = gcodeToExecute;
             Main.main.editor.setContent(0, gcodeToExecute);
@@ -61,6 +57,5 @@ namespace RepetierHost.model
                 conn.connector.RunJob();
             }
         }
-
     }
 }

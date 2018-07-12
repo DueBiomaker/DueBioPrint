@@ -16,9 +16,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.IO;
 
 namespace RepetierHost.model
 {
@@ -26,11 +26,13 @@ namespace RepetierHost.model
     {
         public string name;
         public Dictionary<string, string> entries;
+
         public IniSection(string _name)
         {
             entries = new Dictionary<string, string>();
             name = _name;
         }
+
         public void addLine(string l)
         {
             int p = l.IndexOf('=');
@@ -38,12 +40,13 @@ namespace RepetierHost.model
             if (!entries.ContainsKey(name))
                 entries.Add(name, l);
         }
+
         public void merge(IniSection s)
         {
             foreach (String name in s.entries.Keys)
             {
-                if (name == "extrusion_multiplier" || name == "filament_diameter" || name=="first_layer_temperature"
-                    || name =="temperature")
+                if (name == "extrusion_multiplier" || name == "filament_diameter" || name == "first_layer_temperature"
+                    || name == "temperature")
                 {
                     if (entries.ContainsKey(name))
                     {
@@ -61,10 +64,12 @@ namespace RepetierHost.model
             }
         }
     }
+
     public class IniFile
     {
         public string path = "";
         public Dictionary<string, IniSection> sections = new Dictionary<string, IniSection>();
+
         public void read(string _path)
         {
             if (_path != null)
@@ -95,6 +100,7 @@ namespace RepetierHost.model
                 actSect.addLine(line);
             }
         }
+
         public void add(IniFile f)
         {
             foreach (IniSection s in f.sections.Values)
@@ -108,6 +114,7 @@ namespace RepetierHost.model
                     ms.addLine(ent);
             }
         }
+
         /// <summary>
         /// Merges the values of both ini files by seperating values by a ,
         /// </summary>
@@ -129,6 +136,7 @@ namespace RepetierHost.model
                     ms.addLine(ent);*/
             }
         }
+
         public void flatten()
         {
             IniSection flat = sections[""];
@@ -143,6 +151,7 @@ namespace RepetierHost.model
             foreach (IniSection s in dellist)
                 sections.Remove(s.name);
         }
+
         public void write(string path)
         {
             LinkedList<string> lines = new LinkedList<string>();

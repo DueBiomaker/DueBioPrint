@@ -16,9 +16,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using RepetierHost.view;
 
 namespace RepetierHost.model
 {
@@ -29,6 +27,7 @@ namespace RepetierHost.model
             public int line;
             public long time;
         }
+
         public bool etaModeNormal = true;
         public bool dataComplete = false;
         public int totalLines;
@@ -38,10 +37,12 @@ namespace RepetierHost.model
         public int mode = 0; // 0 = no job defines, 1 = printing, 2 = finished, 3 = aborted
         public double computedPrintingTime = 0;
         public DateTime jobStarted, jobFinished;
-        LinkedList<GCodeCompressed> jobList = new LinkedList<GCodeCompressed>();
+        private LinkedList<GCodeCompressed> jobList = new LinkedList<GCodeCompressed>();
+
         //LinkedList<PrintTime> times = new LinkedList<PrintTime>();
-        PrinterConnection con;
-        GCodeAnalyzer ana = null;
+        private PrinterConnection con;
+
+        private GCodeAnalyzer ana = null;
 
         public Printjob(PrinterConnection c)
         {
@@ -64,6 +65,7 @@ namespace RepetierHost.model
             con.analyzer.StartJob();
             Main.main.Invoke(Main.main.UpdateJobButtons);
         }
+
         public void EndJob()
         {
             if (jobList.Count == 0)
@@ -78,6 +80,7 @@ namespace RepetierHost.model
             jobStarted = DateTime.Now;
             con.firePrinterAction(Trans.T("L_PRINTING..."));
         }
+
         public void KillJob()
         {
             mode = 3;
@@ -100,6 +103,7 @@ namespace RepetierHost.model
             DoEndKillActions();
             Main.main.printPanel.Invoke(Main.main.printPanel.SetStatusJobKilled);
         }
+
         public void DoEndKillActions()
         {
             if (exclusive) // not a normal print job
@@ -110,17 +114,18 @@ namespace RepetierHost.model
             con.connector.GetInjectLock();
             if (con.afterJobDisableExtruder)
             {
-                for(int i=0;i<Main.conn.numberExtruder;i++) 
-                    con.injectManualCommand("M104 S0 T"+i.ToString());
+                for (int i = 0; i < Main.conn.numberExtruder; i++)
+                    con.injectManualCommand("M104 S0 T" + i.ToString());
             }
-            if(con.afterJobDisablePrintbed) 
+            if (con.afterJobDisablePrintbed)
                 con.injectManualCommand("M140 S0");
             con.connector.ReturnInjectLock();
             if (con.afterJobGoDispose)
                 con.doDispose();
-            if(con.afterJobDisableMotors)
+            if (con.afterJobDisableMotors)
                 con.injectManualCommand("M84");
         }
+
         public void PushData(string code)
         {
             code = code.Replace('\r', '\n');
@@ -137,6 +142,7 @@ namespace RepetierHost.model
                 }
             }
         }
+
         public void PushGCodeShortArray(List<GCodeShort> codes)
         {
             foreach (GCodeShort line in codes)
@@ -155,6 +161,7 @@ namespace RepetierHost.model
             }
             computedPrintingTime = ana.printingTime;
         }
+
         /// <summary>
         /// Check, if more data is stored
         /// </summary>
@@ -163,11 +170,13 @@ namespace RepetierHost.model
         {
             return linesSend < totalLines;
         }
+
         public GCode PeekData()
         {
             if (jobList.Count == 0) return null;
             return new GCode(jobList.First.Value);
         }
+
         public GCode PopData()
         {
             GCode gc = null;
@@ -205,19 +214,19 @@ namespace RepetierHost.model
                 ticks -= 60000 * min;
                 long sec = ticks / 1000;
                 //Main.conn.log("Printjob finished at " + jobFinished.ToShortDateString()+" "+jobFinished.ToShortTimeString(),false,3);
-                Main.conn.log(Trans.T1("L_PRINTJOB_FINISHED_AT",jobFinished.ToShortDateString() + " " + jobFinished.ToShortTimeString()), false, 3);
+                Main.conn.log(Trans.T1("L_PRINTJOB_FINISHED_AT", jobFinished.ToShortDateString() + " " + jobFinished.ToShortTimeString()), false, 3);
                 StringBuilder s = new StringBuilder();
                 if (hours > 0)
-                    s.Append(Trans.T1("L_TIME_H:",hours.ToString())); //"h:");
+                    s.Append(Trans.T1("L_TIME_H:", hours.ToString())); //"h:");
                 if (min > 0 || hours > 0)
-                    s.Append(Trans.T1("L_TIME_M:",min.ToString()));
-                s.Append(Trans.T1("L_TIME_S",sec.ToString()));
+                    s.Append(Trans.T1("L_TIME_M:", min.ToString()));
+                s.Append(Trans.T1("L_TIME_S", sec.ToString()));
                 //Main.conn.log("Printing time:"+s.ToString(),false,3);
                 //Main.conn.log("Lines send:" + linesSend.ToString(), false, 3);
                 //Main.conn.firePrinterAction("Finished in "+s.ToString());
-                Main.conn.log(Trans.T1("L_PRINTING_TIME:",s.ToString()), false, 3);
-                Main.conn.log(Trans.T1("L_LINES_SEND:X",linesSend.ToString()), false, 3);
-                Main.conn.firePrinterAction(Trans.T1("L_FINISHED_IN",s.ToString()));
+                Main.conn.log(Trans.T1("L_PRINTING_TIME:", s.ToString()), false, 3);
+                Main.conn.log(Trans.T1("L_LINES_SEND:X", linesSend.ToString()), false, 3);
+                Main.conn.firePrinterAction(Trans.T1("L_FINISHED_IN", s.ToString()));
                 DoEndKillActions();
                 Main.main.Invoke(Main.main.UpdateJobButtons);
                 Main.main.printPanel.Invoke(Main.main.printPanel.SetStatusJobFinished);
@@ -225,15 +234,19 @@ namespace RepetierHost.model
             }
             return gc;
         }
-        public float PercentDone {
-            get {
-              if(totalLines==0) return 100f;
-              return 100f*(float)linesSend/(float)totalLines;
+
+        public float PercentDone
+        {
+            get
+            {
+                if (totalLines == 0) return 100f;
+                return 100f * (float)linesSend / (float)totalLines;
             }
         }
+
         public static String DoubleToTime(double time)
         {
-            long ticks = (long)(time*1000);
+            long ticks = (long)(time * 1000);
             long hours = ticks / 3600000;
             ticks -= 3600000 * hours;
             long min = ticks / 60000;
@@ -247,8 +260,11 @@ namespace RepetierHost.model
             s.Append(Trans.T1("L_TIME_S", sec.ToString()));
             return s.ToString();
         }
-        public String ETA {
-            get {
+
+        public String ETA
+        {
+            get
+            {
                 //if (linesSend < 3) return "---";
                 try
                 {
@@ -294,9 +310,10 @@ namespace RepetierHost.model
                 }
             }
         }
+
         public LinkedList<GCodeCompressed> GetPendingJobCommands()
         {
             return new LinkedList<GCodeCompressed>(jobList);
-        } 
+        }
     }
 }

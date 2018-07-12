@@ -15,16 +15,12 @@
 
 */
 
+using RepetierHost.model;
+using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
-using RepetierHost.view.utils;
 
 namespace RepetierHost.view
 {
@@ -62,16 +58,19 @@ namespace RepetierHost.view
             {
                 case (Keys.Escape):
                     Cancel();
-                break;
+                    break;
+
                 case (Keys.Delete):
                     KillSelectedJob();
-                break;
+                    break;
+
                 case (Keys.Return):
                     RestoreSelectedJob();
-                break;
+                    break;
+
                 case (Keys.F2):
                     RenameSelectedJob();
-                break;
+                    break;
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
@@ -118,7 +117,6 @@ namespace RepetierHost.view
             }
         }
 
-        
         private void RestoreSelectedJob()
         {
             this.selectedJob = (PendingPrintJob)pendingJobsListbox.SelectedItem;
@@ -198,7 +196,5 @@ namespace RepetierHost.view
 
             return snapshotName;
         }
-    
     }
-
 }

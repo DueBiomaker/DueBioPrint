@@ -14,46 +14,44 @@
    limitations under the License.
 */
 
+using RepetierHost.model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
     public partial class LogBox : UserControl
     {
-        int _row = 0;
-        int selRow = 0;
-        bool hasSel = false, forceSel = false;
-        int _topRow = 0; // First visible row
-        int rowsVisible = 10,colsVisible = 7;
-        Font drawFont = new Font(FontFamily.GenericMonospace/*"Courier New"*/, 12, GraphicsUnit.Pixel);
-        SolidBrush blackBrush = new SolidBrush(Color.Black);
-        Brush normalBrush = Brushes.DarkBlue;
-        Brush infoBrush = Brushes.DarkBlue;
-        Brush warningBrush = Brushes.OrangeRed;
-        Brush errorBrush = Brushes.Maroon;
-        Brush linesBgColor = Brushes.CadetBlue;
-        Brush linesTextColor = Brushes.White;
-        Brush backBrush = Brushes.White;
-        Brush evenBackBrush = Brushes.Linen;
-        Brush selectionBrush = Brushes.LightSeaGreen;
-        Brush selectionTextBrush = Brushes.White;
-        float fontHeight;
-        float fontWidth;
-        bool hasFocus = false;
-        int linesWidth = 100;
-        bool ignoreMouseDown = false;
-        bool ignoreScrollChange = false;
-        int maxLines = 2000;
+        private int _row = 0;
+        private int selRow = 0;
+        private bool hasSel = false, forceSel = false;
+        private int _topRow = 0; // First visible row
+        private int rowsVisible = 10, colsVisible = 7;
+        private Font drawFont = new Font(FontFamily.GenericMonospace/*"Courier New"*/, 12, GraphicsUnit.Pixel);
+        private SolidBrush blackBrush = new SolidBrush(Color.Black);
+        private Brush normalBrush = Brushes.DarkBlue;
+        private Brush infoBrush = Brushes.DarkBlue;
+        private Brush warningBrush = Brushes.OrangeRed;
+        private Brush errorBrush = Brushes.Maroon;
+        private Brush linesBgColor = Brushes.CadetBlue;
+        private Brush linesTextColor = Brushes.White;
+        private Brush backBrush = Brushes.White;
+        private Brush evenBackBrush = Brushes.Linen;
+        private Brush selectionBrush = Brushes.LightSeaGreen;
+        private Brush selectionTextBrush = Brushes.White;
+        private float fontHeight;
+        private float fontWidth;
+        private bool hasFocus = false;
+        private int linesWidth = 100;
+        private bool ignoreMouseDown = false;
+        private bool ignoreScrollChange = false;
+        private int maxLines = 2000;
         public bool Autoscroll = true;
-        List<LogLine> lines = new List<LogLine>();
+        private List<LogLine> lines = new List<LogLine>();
 
         public LogBox()
         {
@@ -61,18 +59,20 @@ namespace RepetierHost.view
             fontHeight = drawFont.Height;
             log.MouseWheel += MouseWheelHandler;
         }
+
         public void ScrollBottom()
         {
             if (lines.Count >= rowsVisible - 1)
             {
-                topRow = lines.Count - rowsVisible+1;
+                topRow = lines.Count - rowsVisible + 1;
             }
         }
+
         public void UpdateBox()
         {
             ignoreScrollChange = true;
             topRow = Math.Min(topRow, lines.Count - rowsVisible - 1);
-            scroll.Maximum = Math.Max(0,lines.Count-rowsVisible-1);
+            scroll.Maximum = Math.Max(0, lines.Count - rowsVisible - 1);
             scroll.Value = topRow;
             scroll.LargeChange = Math.Max(1, rowsVisible - 1);
             if (Autoscroll && !hasFocus)
@@ -80,14 +80,16 @@ namespace RepetierHost.view
             ignoreScrollChange = false;
             log.Invalidate();
         }
+
         public void Clear()
         {
             topRow = _row = selRow = 0;
             lines.Clear();
         }
+
         public void Add(LogLine l)
         {
-            if(!hasFocus)
+            if (!hasFocus)
                 while (lines.Count >= maxLines)
                 {
                     _row--;
@@ -96,11 +98,13 @@ namespace RepetierHost.view
                 }
             lines.Add(l);
         }
+
         private int row
         {
             get { return _row; }
             set { _row = value; }
         }
+
         private int topRow
         {
             get { return _topRow; }
@@ -114,6 +118,7 @@ namespace RepetierHost.view
                 ignoreScrollChange = false;
             }
         }
+
         private void DrawRow(Graphics g, int line, LogLine logline, float y)
         {
             int p = logline.text.IndexOf(" : ");
@@ -126,7 +131,7 @@ namespace RepetierHost.view
                 text = logline.text.Substring(p + 3);
             }
             Brush fontBrush = normalBrush;
-            Brush bgBrush = ((line & 1)!=0 ? evenBackBrush : backBrush);
+            Brush bgBrush = ((line & 1) != 0 ? evenBackBrush : backBrush);
             if (hasFocus && line >= Math.Min(row, selRow) && line <= Math.Max(row, selRow))
             { // mark selection
                 bgBrush = selectionBrush;
@@ -139,24 +144,29 @@ namespace RepetierHost.view
                     case 0:
                         fontBrush = normalBrush;
                         break;
+
                     case 1:
                         fontBrush = warningBrush;
                         break;
+
                     case 2:
                         fontBrush = errorBrush;
                         break;
+
                     case 3:
                         fontBrush = infoBrush;
                         break;
+
                     case 4:
                         fontBrush = normalBrush;
                         break;
                 }
             }
-            g.FillRectangle(bgBrush, linesWidth, y, log.Width-linesWidth, fontHeight);
-            g.DrawString(text, drawFont, fontBrush, linesWidth+4, y);
+            g.FillRectangle(bgBrush, linesWidth, y, log.Width - linesWidth, fontHeight);
+            g.DrawString(text, drawFont, fontBrush, linesWidth + 4, y);
             g.DrawString(time, drawFont, linesTextColor, linesWidth - 3 - fontWidth * time.Length, y);
         }
+
         private void log_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -178,6 +188,7 @@ namespace RepetierHost.view
                 DrawRow(g, topRow + r, lines.ElementAt(topRow + r), r * fontHeight);
             }
         }
+
         private void CursorDown()
         {
             if (row < lines.Count - 1)
@@ -186,17 +197,20 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void CursorHome()
         {
             _row = topRow = 0;
             PositionShowCursor();
         }
+
         private void CursorEnd()
         {
             _row = lines.Count - 1;
             topRow = Math.Max(0, lines.Count - rowsVisible - 1);
             PositionShowCursor();
         }
+
         private void CursorPageDown()
         {
             if (row + rowsVisible < lines.Count)
@@ -211,6 +225,7 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void CursorPageUp()
         {
             if (topRow > 0)
@@ -227,10 +242,12 @@ namespace RepetierHost.view
                 PositionShowCursor();
             }
         }
+
         private void PositionShowCursor()
         {
             PositionShowCursor(false, true);
         }
+
         private void PositionShowCursor(bool repaint, bool moved)
         {
             scroll.Maximum = lines.Count();
@@ -267,8 +284,8 @@ namespace RepetierHost.view
                 hasSel = false;
             }
             log.Invalidate();
-            
         }
+
         private void CursorUp()
         {
             if (row > 0)
@@ -289,15 +306,16 @@ namespace RepetierHost.view
                 rend = row;
             }
             int i;
-            rend = Math.Max(0,Math.Min(rend, lines.Count - 1));
-            rstart = Math.Max(0,Math.Min(rstart, lines.Count - 1));
+            rend = Math.Max(0, Math.Min(rend, lines.Count - 1));
+            rstart = Math.Max(0, Math.Min(rstart, lines.Count - 1));
             StringBuilder sb = new StringBuilder();
             for (i = rstart; i <= rend; i++)
             {
-                sb.AppendLine(lines[i].text);                
+                sb.AppendLine(lines[i].text);
             }
             return sb.ToString();
         }
+
         public bool hasSelection
         {
             get { return row != selRow; }
@@ -312,31 +330,37 @@ namespace RepetierHost.view
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Up:
                     CursorUp();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.End:
                     CursorEnd();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.Home:
                     CursorHome();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.PageDown:
                     CursorPageDown();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.PageUp:
                     CursorPageUp();
                     e.Handled = true;
                     e.SuppressKeyPress = true;
                     break;
+
                 case Keys.A:
                     if (e.Control)
                     {
@@ -350,6 +374,7 @@ namespace RepetierHost.view
                         e.SuppressKeyPress = true;
                     }
                     break;
+
                 case Keys.C:
                 case Keys.X:
                     if (e.Control)
@@ -368,12 +393,13 @@ namespace RepetierHost.view
             topRow = scroll.Value;
             log.Invalidate();
         }
+
         private void MouseWheelHandler(object sender, MouseEventArgs e)
         {
             if (e.Delta != 0)
             {
                 if (e.Delta > 0)
-                    topRow -= rowsVisible/2;
+                    topRow -= rowsVisible / 2;
                 else
                     topRow += rowsVisible / 2;
                 log.Invalidate();
@@ -384,10 +410,9 @@ namespace RepetierHost.view
         {
             if (e.KeyChar >= 32)
             {
-               // InsertChar(e.KeyChar);
+                // InsertChar(e.KeyChar);
             }
             e.Handled = true;
-
         }
 
         private void log_MouseDown(object sender, MouseEventArgs e)
@@ -404,7 +429,6 @@ namespace RepetierHost.view
                 row = selRow = Math.Max(0, Math.Min(lines.Count - 1, topRow + (int)(e.Y / fontHeight)));
             }
             PositionShowCursor();
-
         }
 
         private void log_MouseMove(object sender, MouseEventArgs e)
@@ -417,7 +441,7 @@ namespace RepetierHost.view
                 if (row > topRow - 4 + rowsVisible && topRow + rowsVisible - 3 < lines.Count) topRow++;
                 hasSel = true;
                 forceSel = true;
-                PositionShowCursor(true,true);
+                PositionShowCursor(true, true);
                 forceSel = false;
             }
         }
@@ -429,7 +453,6 @@ namespace RepetierHost.view
 
         private void log_KeyUp(object sender, KeyEventArgs e)
         {
-
         }
 
         private void log_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -452,7 +475,6 @@ namespace RepetierHost.view
         {
             hasFocus = true;
             log.Invalidate();
-
         }
 
         private void log_Leave(object sender, EventArgs e)

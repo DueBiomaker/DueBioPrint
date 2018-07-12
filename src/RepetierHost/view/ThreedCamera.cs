@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenTK.Graphics.OpenGL;
-using OpenTK.Platform.Windows;
-using OpenTK;
+﻿using OpenTK;
 using RepetierHost.model;
 using RepetierHost.model.geom;
+using System;
 
 namespace RepetierHost.view
 {
@@ -18,12 +13,14 @@ namespace RepetierHost.view
         public double theta = 0;
         public double phi = 0;
         public double angle = 15.0 * Math.PI / 180;
-        FormPrinterSettings ps = Main.printerSettings;
-        ThreeDControl control;
+        private FormPrinterSettings ps = Main.printerSettings;
+        private ThreeDControl control;
+
         public ThreeDCamera(ThreeDControl ctl)
         {
             control = ctl;
         }
+
         public Vector3 CameraPosition
         {
             get
@@ -35,6 +32,7 @@ namespace RepetierHost.view
                 return cam;
             }
         }
+
         public Vector3 EdgeTranslation()
         {
             double dist = 0.06;
@@ -44,6 +42,7 @@ namespace RepetierHost.view
             trans.Z = (float)(dist * Math.Cos(phi));
             return trans;
         }
+
         public Vector3 ViewDirection()
         {
             Vector3 direction = new Vector3();
@@ -52,16 +51,18 @@ namespace RepetierHost.view
             direction.Z = (float)(-Math.Cos(phi));
             return direction;
         }
+
         public void OrientFront()
         {
             viewCenter.X = defaultCenter.X;
             viewCenter.Y = defaultCenter.Y;
             viewCenter.Z = defaultCenter.Z;
-            theta = -Math.PI/2;
+            theta = -Math.PI / 2;
             phi = Math.PI / 2;
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientBack()
         {
             viewCenter.X = defaultCenter.X;
@@ -72,6 +73,7 @@ namespace RepetierHost.view
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientLeft()
         {
             viewCenter.X = defaultCenter.X;
@@ -82,6 +84,7 @@ namespace RepetierHost.view
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientRight()
         {
             viewCenter.X = defaultCenter.X;
@@ -92,6 +95,7 @@ namespace RepetierHost.view
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientTop()
         {
             viewCenter.X = defaultCenter.X;
@@ -102,6 +106,7 @@ namespace RepetierHost.view
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientBottom()
         {
             viewCenter.X = defaultCenter.X;
@@ -112,6 +117,7 @@ namespace RepetierHost.view
             distance = defaultDistance;
             FitPrinter();
         }
+
         public void OrientIsometric()
         {
             viewCenter.X = defaultCenter.X;
@@ -123,7 +129,8 @@ namespace RepetierHost.view
             FitPrinter();
         }
 
-        public void Zoom(double dis) {
+        public void Zoom(double dis)
+        {
             distance += dis;
             if (distance < minDistance)
                 distance = minDistance;
@@ -138,6 +145,7 @@ namespace RepetierHost.view
                 angle = Math.Atan(distance * Math.Tan(15.0 * Math.PI / 180.0));
             }
         }
+
         public void Rotate(double side, double updown)
         {
             theta += side;
@@ -152,9 +160,10 @@ namespace RepetierHost.view
                 phi = 1e-5;
             //Console.WriteLine("Phi:" + phi);
             //if (Math.Abs(phi) < 1e-5) phi = 1e-5;
-
         }
-        public void RotateDegrees(double rotX, double rotZ) {
+
+        public void RotateDegrees(double rotX, double rotZ)
+        {
             theta += rotX * Math.PI / 180.0;
             phi += rotZ * Math.PI / 180.0;
             while (theta > Math.PI)
@@ -167,12 +176,12 @@ namespace RepetierHost.view
                 phi = 1e-5;
             //Console.WriteLine("Phi:" + phi);
             //if (Math.Abs(phi) < 1e-5) phi = 1e-5;
-
         }
-        public void Pan(double leftRight, double upDown,double dist)
+
+        public void Pan(double leftRight, double upDown, double dist)
         {
             if (dist < 0) dist = distance;
-            leftRight *= Math.Max(1,dist) * Math.Tan(angle)*2.0;
+            leftRight *= Math.Max(1, dist) * Math.Tan(angle) * 2.0;
             upDown *= -Math.Max(1, dist) * Math.Tan(angle) * 2.0;
             Vector3 ud = new Vector3(0, 0, 1);
             Vector3 camCenter = new Vector3();
@@ -187,6 +196,7 @@ namespace RepetierHost.view
             viewCenter.Y += (float)(leftRight * lr.Y + upDown * ud.Y);
             viewCenter.Z += (float)(leftRight * lr.Z + upDown * ud.Z);
         }
+
         public RHBoundingBox PrinterBoundingBox()
         {
             RHBoundingBox b = new RHBoundingBox();
@@ -194,6 +204,7 @@ namespace RepetierHost.view
             b.Add(ps.BedLeft + ps.PrintAreaWidth, ps.BedFront + ps.PrintAreaDepth, 1.0 * ps.PrintAreaHeight);
             return b;
         }
+
         public RHBoundingBox ObjectsBoundingBox()
         {
             RHBoundingBox b = new RHBoundingBox();
@@ -205,10 +216,12 @@ namespace RepetierHost.view
             if (b.minPoint == null) return PrinterBoundingBox();
             return b;
         }
+
         public void FitPrinter()
         {
             FitBoundingBox(PrinterBoundingBox());
         }
+
         public void FitObjects()
         {
             FitBoundingBox(ObjectsBoundingBox());

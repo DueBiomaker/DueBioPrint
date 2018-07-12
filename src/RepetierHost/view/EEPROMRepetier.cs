@@ -14,24 +14,20 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using RepetierHost.model;
 using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class EEPROMRepetier : Form
     {
-        EEPROMStorage storage;
-        BindingList<EEPROMParameter> data = new BindingList<EEPROMParameter>();
-        bool reinit = true;
+        private EEPROMStorage storage;
+        private BindingList<EEPROMParameter> data = new BindingList<EEPROMParameter>();
+        private bool reinit = true;
+
         public EEPROMRepetier()
         {
             InitializeComponent();
@@ -46,22 +42,26 @@ namespace RepetierHost.view
             translate();
             Main.main.languageChanged += translate;
         }
+
         public void translate()
         {
             Text = Trans.T("W_FIRMWARE_EEPROM_SETTINGS");
             buttonAbort.Text = Trans.T("B_CANCEL");
             buttonOK.Text = Trans.T("B_OK");
         }
+
         public void Show2()
         {
             reinit = true;
             Show();
             BringToFront();
         }
+
         private void newline(EEPROMParameter p)
         {
             data.Add(p);
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             storage.Save();

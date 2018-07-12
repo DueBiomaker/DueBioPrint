@@ -14,20 +14,18 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
 
 namespace RepetierHost.model
 {
     public class SkeinConfig
     {
-        string[] lines;
-        string[] orig;
-        string path;
-        bool exists;
+        private string[] lines;
+        private string[] orig;
+        private string path;
+        private bool exists;
+
         public SkeinConfig(string _path)
         {
             path = _path;
@@ -36,25 +34,29 @@ namespace RepetierHost.model
             lines = File.ReadAllLines(path);
             orig = (string[])lines.Clone();
         }
+
         public void writeModified()
         {
             if (!exists) return;
             File.WriteAllLines(path, lines);
         }
+
         public void writeOriginal()
         {
             if (!exists) return;
             File.WriteAllLines(path, orig);
         }
+
         private int lineForKey(string key)
         {
             key += "\t";
             for (int i = 0; i < lines.Count(); i++)
             {
-                if(lines[i].StartsWith(key)) return i;
+                if (lines[i].StartsWith(key)) return i;
             }
             return -1;
         }
+
         public string getValue(string key)
         {
             if (!exists) return null;
@@ -62,6 +64,7 @@ namespace RepetierHost.model
             if (idx < 0) return null;
             return lines[idx].Substring(key.Length + 1);
         }
+
         public void setValue(string key, string val)
         {
             if (!exists) return;

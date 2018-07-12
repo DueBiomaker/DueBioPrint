@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model.geom
 {
@@ -9,35 +7,43 @@ namespace RepetierHost.model.geom
     {
         public HashSet<TopoTriangle> triangles = new HashSet<TopoTriangle>();
         public TopoTriangleNode tree = null;
-        public void Add(TopoTriangle triangle) {
+
+        public void Add(TopoTriangle triangle)
+        {
             triangles.Add(triangle);
             if (tree != null)
                 tree.AddTriangle(triangle);
         }
+
         public bool Remove(TopoTriangle triangle)
         {
             if (tree != null)
                 tree.RemoveTriangle(triangle);
             return triangles.Remove(triangle);
         }
+
         public System.Collections.IEnumerator GetEnumerator()
         {
             foreach (TopoTriangle t in triangles)
-               yield return t;
+                yield return t;
         }
+
         public void Clear()
         {
             tree = null;
             triangles.Clear();
         }
+
         public bool Contains(TopoTriangle test)
         {
             return triangles.Contains(test);
         }
+
         public int Count
         {
             get { return triangles.Count; }
         }
+
         public void PrepareFastSearch()
         {
             tree = new TopoTriangleNode(null);
@@ -46,6 +52,7 @@ namespace RepetierHost.model.geom
                 tree.AddTriangle(triangle);
             }
         }
+
         public HashSet<TopoTriangle> FindIntersectionCandidates(TopoTriangle triangle)
         {
             if (tree == null) PrepareFastSearch();
@@ -54,24 +61,28 @@ namespace RepetierHost.model.geom
             return result;
         }
     }
+
     public class TopoTriangleNode
     {
-        int dimension = -1;
-        double middlePosition;
-        int nextTrySplit = 50;
-        TopoTriangleNode parent = null;
-        TopoTriangleNode left = null;
-        TopoTriangleNode middle = null;
-        TopoTriangleNode right = null;
-        RHBoundingBox box = new RHBoundingBox();
+        private int dimension = -1;
+        private double middlePosition;
+        private int nextTrySplit = 50;
+        private TopoTriangleNode parent = null;
+        private TopoTriangleNode left = null;
+        private TopoTriangleNode middle = null;
+        private TopoTriangleNode right = null;
+        private RHBoundingBox box = new RHBoundingBox();
         private HashSet<TopoTriangle> triangles = null;
 
         public TopoTriangleNode(TopoTriangleNode _parent)
         {
             parent = _parent;
         }
-        public void AddTriangle(TopoTriangle triangle) {
-            if(left == null && triangles == null) {
+
+        public void AddTriangle(TopoTriangle triangle)
+        {
+            if (left == null && triangles == null)
+            {
                 triangles = new HashSet<TopoTriangle>();
             }
             if (triangles != null)
@@ -90,6 +101,7 @@ namespace RepetierHost.model.geom
                     middle.AddTriangle(triangle);
             }
         }
+
         public bool RemoveTriangle(TopoTriangle triangle)
         {
             TopoTriangleNode node = FindNodeForTriangle(triangle);
@@ -97,6 +109,7 @@ namespace RepetierHost.model.geom
                 return node.triangles.Remove(triangle);
             return false;
         }
+
         public TopoTriangleNode FindNodeForTriangle(TopoTriangle triangle)
         {
             if (triangles != null) return this;
@@ -107,25 +120,27 @@ namespace RepetierHost.model.geom
             else
                 return middle.FindNodeForTriangle(triangle);
         }
-        public void FindIntersectionCandidates(TopoTriangle triangle,HashSet<TopoTriangle> resultList)
+
+        public void FindIntersectionCandidates(TopoTriangle triangle, HashSet<TopoTriangle> resultList)
         {
             if (triangles != null) // end leaf, test all boxes for intersection
             {
                 foreach (TopoTriangle test in triangles)
                 {
-                    if(test!=triangle && test.boundingBox.IntersectsBox(triangle.boundingBox))
+                    if (test != triangle && test.boundingBox.IntersectsBox(triangle.boundingBox))
                         resultList.Add(test);
                 }
                 return;
             }
             if (left == null) return;
-            if(triangle.boundingBox.minPoint[dimension]<middlePosition)
-                left.FindIntersectionCandidates(triangle,resultList);
-            if(triangle.boundingBox.maxPoint[dimension]>middlePosition)
-                right.FindIntersectionCandidates(triangle,resultList);
-            if(triangle.boundingBox.minPoint[dimension]<middlePosition && triangle.boundingBox.maxPoint[dimension]>middlePosition)
-                middle.FindIntersectionCandidates(triangle,resultList);
+            if (triangle.boundingBox.minPoint[dimension] < middlePosition)
+                left.FindIntersectionCandidates(triangle, resultList);
+            if (triangle.boundingBox.maxPoint[dimension] > middlePosition)
+                right.FindIntersectionCandidates(triangle, resultList);
+            if (triangle.boundingBox.minPoint[dimension] < middlePosition && triangle.boundingBox.maxPoint[dimension] > middlePosition)
+                middle.FindIntersectionCandidates(triangle, resultList);
         }
+
         private void TrySplit()
         {
             int newDim = 0;

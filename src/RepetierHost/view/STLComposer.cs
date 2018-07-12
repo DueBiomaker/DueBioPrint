@@ -14,26 +14,25 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Threading;
-using System.Globalization;
-using System.IO;
 using OpenTK;
 using RepetierHost.model;
 using RepetierHost.model.geom;
 using RepetierHost.view.utils;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public delegate void RepairToolDelegate(PrintModel model);
+
     public delegate void ObjectModelRemovedEvent(PrintModel model);
 
     public partial class STLComposer : UserControl
@@ -44,7 +43,9 @@ namespace RepetierHost.view
         private CopyObjectsDialog copyDialog = new CopyObjectsDialog();
         private Dictionary<ListViewItem, Button> delButtonList = new Dictionary<ListViewItem, Button>();
         private RepairToolDelegate repairToolDeleagte = null;
+
         public event ObjectModelRemovedEvent objectModelRemovedEvent = null;
+
         public STLComposer()
         {
             InitializeComponent();
@@ -71,11 +72,13 @@ namespace RepetierHost.view
             }
             catch { }
         }
+
         public void ConnectRepairTool(RepairToolDelegate tool)
         {
             repairToolDeleagte = tool;
             toolRepair.Visible = true;
         }
+
         public void translate()
         {
             labelTranslation.Text = Trans.T("L_TRANSLATION:");
@@ -110,6 +113,7 @@ namespace RepetierHost.view
             //if (Main.slicer != null)
             //    buttonSlice.Text = Trans.T1("L_SLICE_WITH", Main.slicer.SlicerName);
         }
+
         public void AddObject(PrintModel model)
         {
             ListViewItem item = new ListViewItem(model.name);
@@ -130,11 +134,12 @@ namespace RepetierHost.view
             delButtonList.Add(item, button);
             item.SubItems.Add("");
             item.SubItems.Add("");
-            item.SubItems.Add("");            
+            item.SubItems.Add("");
             listObjects.Controls.Add(button);
             listObjects.Items.Add(item);
             SetObjectSelected(model, true);
         }
+
         public void RemoveObject(PrintModel model)
         {
             ListViewItem item = null;
@@ -159,7 +164,9 @@ namespace RepetierHost.view
             if (objectModelRemovedEvent != null)
                 objectModelRemovedEvent(model);
         }
-        public LinkedList<PrintModel> ListObjects(bool selected) {
+
+        public LinkedList<PrintModel> ListObjects(bool selected)
+        {
             LinkedList<PrintModel> list = new LinkedList<PrintModel>();
             if (selected)
             {
@@ -173,6 +180,7 @@ namespace RepetierHost.view
             }
             return list;
         }
+
         public PrintModel SingleSelectedModel
         {
             get
@@ -181,10 +189,12 @@ namespace RepetierHost.view
                 return (PrintModel)listObjects.SelectedItems[0].Tag;
             }
         }
+
         public void Update3D()
         {
             Main.main.threedview.UpdateChanges();
         }
+
         private void float_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -198,6 +208,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, "Not a number.");
             }
         }
+
         public void UpdateAnalyserData()
         {
             PrintModel model = SingleSelectedModel;
@@ -248,7 +259,7 @@ namespace RepetierHost.view
         private void updateEnabled()
         {
             int n = listObjects.SelectedItems.Count;
-            Debug.WriteLine("updateENabled "+n);
+            Debug.WriteLine("updateENabled " + n);
             if (n != 1)
             {
                 textRotX.Enabled = false;
@@ -301,6 +312,7 @@ namespace RepetierHost.view
             //buttonSlice.Enabled = listObjects.Items.Count > 0;
             toolSavePlate.Enabled = listObjects.Items.Count > 0;
         }
+
         public void openAndAddObject(string file)
         {
             PrintModel model = new PrintModel();
@@ -311,7 +323,7 @@ namespace RepetierHost.view
             ipp.Dock = DockStyle.Top;
             panelControls.Controls.Add(ipp);
             panelControls.Update();
-            model.Load(file,ipp);
+            model.Load(file, ipp);
             model.Center(Main.printerSettings.PrintAreaWidth / 2, Main.printerSettings.PrintAreaDepth / 2);
             model.Land();
             if (model.ActiveModel.triangles.Count > 0)
@@ -325,11 +337,12 @@ namespace RepetierHost.view
             }
             else
             {
-                if(!ipp.IsKilled)
+                if (!ipp.IsKilled)
                     MessageBox.Show(Trans.T1("L_LOADING_3D_FAILED", file), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             ipp.Finished();
         }
+
         private void buttonAddSTL_Click(object sender, EventArgs e)
         {
             if (openFileSTL.ShowDialog() == DialogResult.OK)
@@ -338,6 +351,7 @@ namespace RepetierHost.view
                     openAndAddObject(fname);
             }
         }
+
         /// <summary>
         /// Checks the state of the object.
         /// If it is outside print are it starts pulsing
@@ -400,6 +414,7 @@ namespace RepetierHost.view
                 listObjects.Refresh();
             }
         }
+
         private void listSTLObjects_SelectedIndexChanged(object sender, EventArgs e)
         {
             Main.main.threedview.updateCuts = true;
@@ -426,6 +441,7 @@ namespace RepetierHost.view
             }
             Main.main.threedview.UpdateChanges();
         }
+
         public bool LockAspectRatio
         {
             get
@@ -439,6 +455,7 @@ namespace RepetierHost.view
                 textScaleZ.Enabled = !value;
             }
         }
+
         private void textTransX_TextChanged(object sender, EventArgs e)
         {
             PrintModel stl = SingleSelectedModel;
@@ -465,6 +482,7 @@ namespace RepetierHost.view
             updateSTLState(stl);
             Main.main.threedview.UpdateChanges();
         }
+
         private void objectMoved(float dx, float dy)
         {
             //STL stl = (STL)listSTLObjects.SelectedItem;
@@ -482,6 +500,7 @@ namespace RepetierHost.view
             }
             Main.main.threedview.UpdateChanges();
         }
+
         public void SetObjectSelected(PrintModel model, bool select)
         {
             foreach (ListViewItem item in listObjects.Items)
@@ -490,31 +509,34 @@ namespace RepetierHost.view
                     item.Selected = select;
             }
         }
+
         private void objectSelected(ThreeDModel sel)
         {
             if (Control.ModifierKeys == Keys.Shift)
             {
                 if (!sel.Selected)
-                    SetObjectSelected((PrintModel)sel,true);
+                    SetObjectSelected((PrintModel)sel, true);
             }
             else
                 if (Control.ModifierKeys == Keys.Control)
-                {
-                    if (sel.Selected)
-                        SetObjectSelected((PrintModel)sel,false);
-                    else
-                        SetObjectSelected((PrintModel)sel, true);
-                }
+            {
+                if (sel.Selected)
+                    SetObjectSelected((PrintModel)sel, false);
                 else
+                    SetObjectSelected((PrintModel)sel, true);
+            }
+            else
+            {
+                foreach (ListViewItem test in listObjects.Items)
                 {
-                    foreach (ListViewItem test in listObjects.Items) {
-                        if (test.Selected && (PrintModel)test.Tag != (PrintModel)sel)
-                            test.Selected = false;
-                    }
-                    //listObjects.SelectedItems.Clear();
-                    SetObjectSelected((PrintModel)sel,true);
+                    if (test.Selected && (PrintModel)test.Tag != (PrintModel)sel)
+                        test.Selected = false;
                 }
+                //listObjects.SelectedItems.Clear();
+                SetObjectSelected((PrintModel)sel, true);
+            }
         }
+
         private void textScaleX_TextChanged(object sender, EventArgs e)
         {
             PrintModel model = SingleSelectedModel;
@@ -574,6 +596,7 @@ namespace RepetierHost.view
             updateSTLState(stl);
             Main.main.threedview.UpdateChanges();
         }
+
         private void buttonRemoveObject_Click(object sender, EventArgs e)
         {
             PrintModel model = (PrintModel)((Button)sender).Tag;
@@ -582,6 +605,7 @@ namespace RepetierHost.view
             autosizeFailed = false;
             Main.main.threedview.UpdateChanges();
         }
+
         public void buttonRemoveSTL_Click(object sender, EventArgs e)
         {
             //STL stl = (STL)listSTLObjects.SelectedItem;
@@ -603,21 +627,23 @@ namespace RepetierHost.view
                 saveComposition(saveSTL.FileName);
             }
         }
+
         private bool AssertVector3NotNaN(Vector3 v)
         {
             //return true;
             if (float.IsNaN(v.X) || float.IsNaN(v.Y) || float.IsNaN(v.Z))
             {
-            RLog.info("NaN value in STL file export");
+                RLog.info("NaN value in STL file export");
                 return false;
             }
             if (float.IsInfinity(v.X) || float.IsInfinity(v.Y) || float.IsInfinity(v.Z))
             {
-               RLog.info("Infinity value in STL file export");
+                RLog.info("Infinity value in STL file export");
                 return false;
             }
             return true;
         }
+
         private void saveComposition(string filename)
         {
             TopoModel model = new TopoModel();
@@ -627,7 +653,7 @@ namespace RepetierHost.view
                 model.Merge(stl.ActiveModel, stl.trans);
             }
             if (filename.EndsWith(".obj") || filename.EndsWith(".OBJ"))
-                model.exportObj(filename,true);
+                model.exportObj(filename, true);
             else
                 model.exportSTL(filename, writeSTLBinary);
             Slicer.lastBox.Clear();
@@ -654,7 +680,6 @@ namespace RepetierHost.view
             {
                 stl.Center(Main.printerSettings.BedLeft + Main.printerSettings.PrintAreaWidth / 2, Main.printerSettings.BedFront + Main.printerSettings.PrintAreaDepth / 2);
                 listSTLObjects_SelectedIndexChanged(null, null);
-
             }
             Main.main.threedview.UpdateChanges();
         }
@@ -683,7 +708,7 @@ namespace RepetierHost.view
             if (listObjects.Items.Count > 1)
                 t += " + " + (listObjects.Items.Count - 1).ToString();
             Main.main.Title = t;
-            if(Main.slicer.ActiveSlicer == RepetierHost.view.utils.Slicer.SlicerID.Slic3r)
+            if (Main.slicer.ActiveSlicer == RepetierHost.view.utils.Slicer.SlicerID.Slic3r)
                 dir += Path.DirectorySeparatorChar + "composition.obj";
             else
                 dir += Path.DirectorySeparatorChar + "composition.stl";
@@ -758,6 +783,7 @@ namespace RepetierHost.view
             }
             Main.main.threedview.UpdateChanges();
         }
+
         private void buttonAutoplace_Click(object sender, EventArgs e)
         {
             Autoposition();
@@ -790,7 +816,9 @@ namespace RepetierHost.view
             }
             Main.main.threedview.UpdateChanges();
         }
-        static bool inRecheckFiles = false;
+
+        private static bool inRecheckFiles = false;
+
         public void recheckChangedFiles()
         {
             if (inRecheckFiles) return;
@@ -846,7 +874,7 @@ namespace RepetierHost.view
         {
             if (listObjects.SelectedItems.Count != 1) return;
             PrintModel model = (PrintModel)ListObjects(true).First.Value;
-            if (model != null && repairToolDeleagte!=null)
+            if (model != null && repairToolDeleagte != null)
                 repairToolDeleagte(model);
         }
 
@@ -855,18 +883,19 @@ namespace RepetierHost.view
             if (e.ColumnIndex == 1)
             {
                 e.DrawDefault = false;
-              //  if ((e.ItemState & ListViewItemStates.Selected) == 0)
-              //      e.DrawBackground();
-    
+                //  if ((e.ItemState & ListViewItemStates.Selected) == 0)
+                //      e.DrawBackground();
+
                 Graphics g = e.Graphics;
                 PrintModel model = (PrintModel)e.Item.Tag;
                 g.DrawImage(imageList16.Images[model.Model.manifold ? 2 : 3], e.Bounds.Left + e.Bounds.Width / 2 - 8, e.Bounds.Top + e.Bounds.Height / 2 - 8);
-            } else if (e.ColumnIndex == 2)
+            }
+            else if (e.ColumnIndex == 2)
             {
                 PrintModel model = (PrintModel)e.Item.Tag;
                 e.DrawDefault = false;
-              //  if ((e.ItemState & ListViewItemStates.Selected) == 0)
-              //      e.DrawBackground();
+                //  if ((e.ItemState & ListViewItemStates.Selected) == 0)
+                //      e.DrawBackground();
                 Graphics g = e.Graphics;
                 int idx = model.outside ? 3 : 2;
                 g.DrawImage(imageList16.Images[idx], e.Bounds.Left + e.Bounds.Width / 2 - 8, e.Bounds.Top + e.Bounds.Height / 2 - 8);
@@ -877,9 +906,9 @@ namespace RepetierHost.view
                 //if ((e.ItemState & ListViewItemStates.Selected) == 0)
                 //    e.DrawBackground();
                 Button b = delButtonList.ContainsKey(e.Item) ? delButtonList[e.Item] : null;
-                if (b!=null)
+                if (b != null)
                 {
-                    b.Bounds = new Rectangle(e.Bounds.Left+1,e.Bounds.Top+1,e.Bounds.Width-2,e.Bounds.Height-2);
+                    b.Bounds = new Rectangle(e.Bounds.Left + 1, e.Bounds.Top + 1, e.Bounds.Width - 2, e.Bounds.Height - 2);
                     b.Visible = true;
                 }
             }
@@ -897,20 +926,20 @@ namespace RepetierHost.view
         private void buttonLockAspect_Click(object sender, EventArgs e)
         {
             LockAspectRatio = !LockAspectRatio;
-            if(LockAspectRatio)
-                textScaleX_TextChanged(null,null);
+            if (LockAspectRatio)
+                textScaleX_TextChanged(null, null);
         }
 
         private void listObjects_ClientSizeChanged(object sender, EventArgs e)
         {
-            int nameWith = listObjects.Width - columnCollision.Width - columnMesh.Width - columnDelete.Width-5;
+            int nameWith = listObjects.Width - columnCollision.Width - columnMesh.Width - columnDelete.Width - 5;
             if (nameWith > 0)
                 columnName.Width = nameWith;
         }
 
         private void toolFixNormals_Click(object sender, EventArgs e)
         {
-            foreach(PrintModel model in ListObjects(true))
+            foreach (PrintModel model in ListObjects(true))
                 model.FixNormals();
             updateEnabled();
             Main.main.threedview.UpdateChanges();
@@ -930,14 +959,14 @@ namespace RepetierHost.view
 
         private void cutPositionSlider_ValueChanged(object sender, EventArgs e)
         {
-            if(checkCutFaces.Checked)
+            if (checkCutFaces.Checked)
                 Main.main.threedview.UpdateChanges();
         }
 
         private void toolSplitObject_Click(object sender, EventArgs e)
         {
             PrintModel act = SingleSelectedModel;
-            if(act==null) return;
+            if (act == null) return;
             List<TopoModel> models = act.ActiveModel.SplitIntoSurfaces();
             if (models.Count == 1) return;
             int idx = 1;
@@ -955,7 +984,7 @@ namespace RepetierHost.view
         {
             PrintModel act = SingleSelectedModel;
             if (act == null) return;
-            act.ShowRepaired(act.activeModel == 0 && act.repairedModel!=null);
+            act.ShowRepaired(act.activeModel == 0 && act.repairedModel != null);
             UpdateAnalyserData();
         }
 
@@ -983,6 +1012,7 @@ namespace RepetierHost.view
             }
         }
     }
+
     public class EnglishStreamWriter : StreamWriter
     {
         public EnglishStreamWriter(Stream path)
@@ -990,6 +1020,7 @@ namespace RepetierHost.view
         {
             Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
         }
+
         public override IFormatProvider FormatProvider
         {
             get

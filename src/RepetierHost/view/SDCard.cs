@@ -14,20 +14,19 @@
    limitations under the License.
 */
 
+using RepetierHost.model;
+using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
-using RepetierHost.view.utils;
 
 namespace RepetierHost.view
 {
     public delegate void OnResponse(string response);
+
     public partial class SDCard : Form
     {
         public class FileEntry
@@ -35,7 +34,8 @@ namespace RepetierHost.view
             public bool isDirectory;
             public string name;
             public string folder;
-            public string size="";
+            public string size = "";
+
             public FileEntry(string[] fparts)
             {
                 if (fparts[0].StartsWith("/")) fparts[0] = fparts[0].Substring(1);
@@ -48,7 +48,7 @@ namespace RepetierHost.view
                 {
                     name = parts[parts.Length - 2];
                     folder = string.Join("/", parts, 0, parts.Length - 2);
-                    if(parts.Length>2) folder+="/";
+                    if (parts.Length > 2) folder += "/";
                     if (name != "..")
                     {
                         SDCard.f.allDirs.Add(fullname, this);
@@ -63,16 +63,17 @@ namespace RepetierHost.view
                     else
                     {
                         folder = string.Join("/", parts, 0, parts.Length - 1) + "/";
-                        if (name!=".." && !SDCard.f.allDirs.Keys.Contains(folder))
+                        if (name != ".." && !SDCard.f.allDirs.Keys.Contains(folder))
                         {
                             FileEntry ent = new FileEntry(folder);
-                            SDCard.f.allDirs.Add(folder,ent );
+                            SDCard.f.allDirs.Add(folder, ent);
                             SDCard.f.allFiles.AddLast(ent);
                             SDCard.f.allFiles.AddLast(new FileEntry(new string[] { folder.ToLower() + "../", "" }));
                         }
                     }
                 }
             }
+
             public FileEntry(string directory)
             {
                 isDirectory = true;
@@ -93,33 +94,38 @@ namespace RepetierHost.view
                 }
             }
         }
+
         public Dictionary<string, FileEntry> allDirs = new Dictionary<string, FileEntry>();
         public LinkedList<FileEntry> allFiles = new LinkedList<FileEntry>();
-        static SDCard f = null;
-        bool mounted = true;
-        bool printing = false;
-        bool printPaused = false;
-        bool uploading = false;
-        bool readFilenames = false;
-        bool updateFilenames = false;
-        bool startPrint = false;
-        long startTime = 0;
-        int printWait = 0;
-        int waitDelete = 0;
-        string currentDirectory = "";
+        private static SDCard f = null;
+        private bool mounted = true;
+        private bool printing = false;
+        private bool printPaused = false;
+        private bool uploading = false;
+        private bool readFilenames = false;
+        private bool updateFilenames = false;
+        private bool startPrint = false;
+        private long startTime = 0;
+        private int printWait = 0;
+        private int waitDelete = 0;
+        private string currentDirectory = "";
+
         private event OnResponse ana;
-        public static void Execute() {
+
+        public static void Execute()
+        {
             if (f == null)
             {
                 f = new SDCard();
                 Main.conn.eventResponse += f.analyzeEvent;
             }
             f.RefreshFilenames();
-            if(!f.Visible)
+            if (!f.Visible)
                 f.Show(Main.main);
             f.BringToFront();
             f.updateButtons();
         }
+
         public static void Disconnected()
         {
             if (f == null) return;
@@ -133,14 +139,16 @@ namespace RepetierHost.view
             f.startPrint = false;
             f.currentDirectory = "";
         }
+
         public SDCard()
         {
             ana += analyzer;
             InitializeComponent();
-            RegMemory.RestoreWindowPos("sdcardWindow",this);
+            RegMemory.RestoreWindowPos("sdcardWindow", this);
             translate();
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("W_SD_CARD_MANAGER");
@@ -155,17 +163,20 @@ namespace RepetierHost.view
             toolUnmount.ToolTipText = Trans.T("L_UNMOUNT_SD_CARD");
             toolNewFolder.ToolTipText = Trans.T("L_NEW_FOLDER");
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         public void RefreshFilenames()
         {
             updateFilenames = false;
             allFiles.Clear();
             Main.conn.injectManualCommand("M20");
         }
+
         private void analyzeEvent(string res)
         {
             try
@@ -174,6 +185,7 @@ namespace RepetierHost.view
             }
             catch { }
         }
+
         private string reduceSpace(string a)
         {
             StringBuilder b = new StringBuilder();
@@ -186,24 +198,28 @@ namespace RepetierHost.view
             }
             return b.ToString();
         }
-        void fillFiles(string folder)
+
+        private void fillFiles(string folder)
         {
             Text = Trans.T("W_SD_CARD_MANAGER") + (currentDirectory.Length > 0 ? " - " + currentDirectory : "");
             files.Items.Clear();
-            foreach(FileEntry f in allFiles) {
+            foreach (FileEntry f in allFiles)
+            {
                 if (f.folder == folder)
                 {
-                    ListViewItem item = new ListViewItem(new string[] { f.name, f.size },(f.isDirectory?1:0));
+                    ListViewItem item = new ListViewItem(new string[] { f.name, f.size }, (f.isDirectory ? 1 : 0));
                     item.Tag = f;
                     files.Items.Add(item);
                 }
             }
         }
+
         private void analyzer(string res)
         {
             if (readFilenames)
             {
-                if(res.StartsWith("End file list")) {
+                if (res.StartsWith("End file list"))
+                {
                     readFilenames = false;
                     fillFiles(currentDirectory);
                     return;
@@ -213,14 +229,15 @@ namespace RepetierHost.view
                 //files.Items.Add(new ListViewItem(parts));
                 return;
             }
-            if(res.StartsWith("Begin file list")) {
+            if (res.StartsWith("Begin file list"))
+            {
                 readFilenames = true;
                 allFiles.Clear();
                 allDirs.Clear();
                 return;
             }
             // Printing done?
-            if (res.IndexOf("Not SD printing") != -1 || res.IndexOf("Done printing file")!=-1)
+            if (res.IndexOf("Not SD printing") != -1 || res.IndexOf("Done printing file") != -1)
             {
                 printing = false;
                 toolStatus.Text = Trans.T("L_PRINT_FINISHED"); // "Print finished";
@@ -239,7 +256,7 @@ namespace RepetierHost.view
                 }
             }
             else if (res.IndexOf("SD init fail") != -1 || res.IndexOf("volume.init failed") != -1 ||
-                res.IndexOf("openRoot failed")!=-1) // mount failed
+                res.IndexOf("openRoot failed") != -1) // mount failed
             {
                 mounted = false;
             }
@@ -252,21 +269,24 @@ namespace RepetierHost.view
             }
             else if (res.IndexOf("Done saving file") != -1) // save finished
             {
-                double time = (double)(DateTime.Now.Ticks-startTime)*0.0000001;
+                double time = (double)(DateTime.Now.Ticks - startTime) * 0.0000001;
                 uploading = false;
                 progress.Value = 200;
                 toolStatus.Text = Trans.T("L_UPLOAD_FINISHED"); // "Upload finished.";
                 updateFilenames = true;
                 Main.conn.log(Trans.T1("L_UPLOADING_TIME", Printjob.DoubleToTime(time)), false, 3);
             }
-            else if(res.Contains("Invalid directory")) {
-                if(uploading) {
+            else if (res.Contains("Invalid directory"))
+            {
+                if (uploading)
+                {
                     Main.conn.connector.KillJob();
                     Main.conn.analyzer.uploading = false;
                     uploading = false;
                     toolStatus.Text = Trans.T("L_UPLOAD_FAILED"); // "Upload failed.";
                 }
-            } else if (res.IndexOf("File selected") != -1)
+            }
+            else if (res.IndexOf("File selected") != -1)
             {
                 toolStatus.Text = Trans.T("L_SD_PRINTING..."); // "SD printing ...";
                 progress.Value = 0;
@@ -292,6 +312,7 @@ namespace RepetierHost.view
                 toolStatus.Text = Trans.T("L_DELETE_FAILED"); // "Delete failed";
             }
         }
+
         private void updateButtons()
         {
             if (!Main.conn.connector.IsConnected())
@@ -326,8 +347,8 @@ namespace RepetierHost.view
                 toolUnmount.Enabled = true;
                 toolNewFolder.Enabled = true;
             }
-
         }
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
             Hide();
@@ -348,8 +369,8 @@ namespace RepetierHost.view
                 progress.Value = 0;
                 job.BeginJob();
                 job.exclusive = true;
-                job.PushData("M28 " +(currentDirectory.Length>0?"/":"")+currentDirectory+f.textFilename.Text);
-                if(f.checkAppendPrepend.Checked)
+                job.PushData("M28 " + (currentDirectory.Length > 0 ? "/" : "") + currentDirectory + f.textFilename.Text);
+                if (f.checkAppendPrepend.Checked)
                     job.PushGCodeShortArray(Main.main.editor.getContentArray(1));
                 if (f.radioCurrent.Checked)
                 {
@@ -378,7 +399,7 @@ namespace RepetierHost.view
                     if (con.afterJobDisableExtruder)
                     {
                         for (int i = 0; i < Main.conn.numberExtruder; i++)
-                            job.PushData("M104 S0 T"+i.ToString());
+                            job.PushData("M104 S0 T" + i.ToString());
                     }
                     if (con.afterJobDisablePrintbed)
                         job.PushData("M140 S0");
@@ -400,7 +421,7 @@ namespace RepetierHost.view
             if (printing && printWait == 0)
             {
                 printWait = 2;
-                if(!Main.conn.connector.HasInjectedMCommand(27))
+                if (!Main.conn.connector.HasInjectedMCommand(27))
                     Main.conn.injectManualCommand("M27");
             }
             if (printWait <= 0) printWait = 2;
@@ -428,7 +449,8 @@ namespace RepetierHost.view
 
         private void toolStopPrint_Click(object sender, EventArgs e)
         {
-            if(uploading) {
+            if (uploading)
+            {
                 Main.conn.connector.KillJob();
                 Main.conn.analyzer.uploading = false;
                 uploading = false;
@@ -457,7 +479,8 @@ namespace RepetierHost.view
                 Main.conn.injectManualCommand("M24");
                 return;
             }
-            foreach(ListViewItem v in files.SelectedItems) {
+            foreach (ListViewItem v in files.SelectedItems)
+            {
                 string name = v.Text;
                 Main.conn.injectManualCommand("M23 " + (currentDirectory.Length > 0 ? "/" : "") + currentDirectory + name);
                 break;
@@ -482,16 +505,16 @@ namespace RepetierHost.view
             Main.conn.injectManualCommand("M22");
             mounted = false;
             currentDirectory = "";
-            MessageBox.Show(Trans.T("L_REMOVE_SD_CARD")/*"You can remove the sd card."*/,Trans.T("L_INFORMATION"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(Trans.T("L_REMOVE_SD_CARD")/*"You can remove the sd card."*/, Trans.T("L_INFORMATION"), MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             if (files.SelectedItems.Count == 0) return;
-            string fname = (currentDirectory.Length>0?"/":"")+currentDirectory+files.SelectedItems[0].Text;
+            string fname = (currentDirectory.Length > 0 ? "/" : "") + currentDirectory + files.SelectedItems[0].Text;
             //if (MessageBox.Show("Really delete "+fname,"Security question",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
-            if (MessageBox.Show(Trans.T1("L_REALLY_DELETE_X",fname), Trans.T("L_SECURITY_QUESTION"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
+            if (MessageBox.Show(Trans.T1("L_REALLY_DELETE_X", fname), Trans.T("L_SECURITY_QUESTION"), MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 waitDelete = 6;
                 Main.conn.injectManualCommand("M30 " + fname);
             }
@@ -501,6 +524,7 @@ namespace RepetierHost.view
         {
             RegMemory.StoreWindowPos("sdcardWindow", this, false, false);
         }
+
         public static bool validate83Filename(string t)
         {
             bool ok = true;
@@ -532,6 +556,7 @@ namespace RepetierHost.view
             }
             return ok;
         }
+
         private void toolNewFolder_Click(object sender, EventArgs e)
         {
             string foldername = StringInput.GetString(Trans.T("L_CREATE_FOLDER"), Trans.T("L_CREATE_FOLDER_INFO")).ToLower();
@@ -542,19 +567,19 @@ namespace RepetierHost.view
                 MessageBox.Show(Trans.T("L_NOT_VALID_83_FILENAME"), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Main.conn.injectManualCommand("M32 " +(currentDirectory.Length>0?"/":"")+currentDirectory + foldername);
+            Main.conn.injectManualCommand("M32 " + (currentDirectory.Length > 0 ? "/" : "") + currentDirectory + foldername);
             RefreshFilenames();
         }
 
         private void files_DoubleClick(object sender, EventArgs e)
         {
-            if(files.SelectedItems.Count<1) return;
+            if (files.SelectedItems.Count < 1) return;
             FileEntry sel = (FileEntry)files.SelectedItems[0].Tag;
             if (sel.isDirectory)
             {
                 if (sel.name == "..")
                     currentDirectory = allDirs[sel.folder].folder;
-                else 
+                else
                     currentDirectory = sel.folder + sel.name + "/";
                 fillFiles(currentDirectory);
             }

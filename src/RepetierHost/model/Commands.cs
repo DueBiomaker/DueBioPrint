@@ -1,11 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Xml;
 using System.IO;
-using Microsoft.Win32;
-using System.Windows.Forms;
+using System.Xml;
 
 namespace RepetierHost.model
 {
@@ -22,6 +18,7 @@ namespace RepetierHost.model
             string o = n.Attributes["optional"].InnerText;
             if (o.Equals("1")) optional = true;
         }
+
         public override string ToString()
         {
             if (optional)
@@ -29,12 +26,14 @@ namespace RepetierHost.model
             return parameter + "\\{{\\i " + description + "}\\} ";
         }
     }
+
     public class CommandDescription
     {
         public string command;
         public string title;
         public LinkedList<CommandParameter> parameter = new LinkedList<CommandParameter>();
         public string description;
+
         public CommandDescription(XmlNode n)
         {
             try
@@ -53,33 +52,37 @@ namespace RepetierHost.model
             catch { }
         }
     }
+
     public class Commands
     {
         public Dictionary<string, CommandDescription> commands;
+
         public Commands()
         {
             commands = new Dictionary<string, CommandDescription>();
         }
+
         public void Read(string firmware, string lang)
         {
             RegistryKey repetierKey = Custom.BaseKey; // Registry.CurrentUser.CreateSubKey("SOFTWARE\\Repetier");
 
             string basedir = (string)repetierKey.GetValue("installPath");
 
-            ReadFile(basedir + Path.DirectorySeparatorChar+"data"+Path.DirectorySeparatorChar+"default"+
-                Path.DirectorySeparatorChar+"syntax_en.xml");
-            if(lang.Equals("en")==false)
-                ReadFile(basedir + Path.DirectorySeparatorChar+"data"+Path.DirectorySeparatorChar+"default"+
-                    Path.DirectorySeparatorChar+"syntax_"+lang+".xml");
+            ReadFile(basedir + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + "default" +
+                Path.DirectorySeparatorChar + "syntax_en.xml");
+            if (lang.Equals("en") == false)
+                ReadFile(basedir + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + "default" +
+                    Path.DirectorySeparatorChar + "syntax_" + lang + ".xml");
             if (firmware.Equals("default") == false)
             {
-                ReadFile(basedir + Path.DirectorySeparatorChar+"data"+Path.DirectorySeparatorChar+firmware+
-                    Path.DirectorySeparatorChar+"syntax_en.xml");
+                ReadFile(basedir + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + firmware +
+                    Path.DirectorySeparatorChar + "syntax_en.xml");
                 if (lang.Equals("en") == false)
-                    ReadFile(basedir + Path.DirectorySeparatorChar+"data"+Path.DirectorySeparatorChar+firmware+
-                        Path.DirectorySeparatorChar+"syntax_" + lang + ".xml");
+                    ReadFile(basedir + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + firmware +
+                        Path.DirectorySeparatorChar + "syntax_" + lang + ".xml");
             }
         }
+
         private void ReadFile(string file)
         {
             if (!File.Exists(file)) return;

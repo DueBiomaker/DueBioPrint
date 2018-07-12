@@ -14,18 +14,16 @@
    limitations under the License.
 */
 
+using OpenTK;
+using RepetierHost.view;
+using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using RepetierHost.model;
-using RepetierHost.view;
-using System.IO;
-using OpenTK;
-using System.Windows.Forms;
-using System.Globalization;
 using System.Diagnostics;
-using RepetierHost.view.utils;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace RepetierHost.model.geom
 {
@@ -55,6 +53,7 @@ namespace RepetierHost.model.geom
             ipp.Action = Trans.T(name);
             ipp.Progress = 0;
         }
+
         public void Progress(double prg)
         {
             prg *= 100.0;
@@ -63,11 +62,13 @@ namespace RepetierHost.model.geom
             if (prg > 100) prg = 100;
             ipp.Progress = (int)prg;
         }
+
         public bool IsActionStopped()
         {
             if (ipp == null) return false;
             return ipp.IsKilled;
         }
+
         public void clear()
         {
             vertices.Clear();
@@ -76,6 +77,7 @@ namespace RepetierHost.model.geom
             boundingBox.Clear();
             intersectionsUpToDate = false;
         }
+
         public TopoModel Copy()
         {
             TopoModel newModel = new TopoModel();
@@ -106,6 +108,7 @@ namespace RepetierHost.model.geom
             newModel.normalsOriented = normalsOriented;
             return newModel;
         }
+
         public void Merge(TopoModel model, Matrix4 trans)
         {
             int nOld = vertices.Count;
@@ -127,11 +130,13 @@ namespace RepetierHost.model.geom
             RemoveUnusedDatastructures();
             intersectionsUpToDate = false;
         }
+
         public void addVertex(TopoVertex v)
         {
             vertices.Add(v);
             boundingBox.Add(v.pos);
         }
+
         public TopoVertex findVertexOrNull(RHVector3 pos)
         {
             return vertices.SearchPoint(pos);
@@ -142,6 +147,7 @@ namespace RepetierHost.model.geom
               }
               return null;*/
         }
+
         public TopoVertex addVertex(RHVector3 pos)
         {
             /*if (Math.Abs(pos.x + 3.94600009918213) < 0.001 && Math.Abs(pos.y + 2.16400003433228) < 0.001 && Math.Abs(pos.z - 7.9980001449585) < 0.001)
@@ -156,6 +162,7 @@ namespace RepetierHost.model.geom
             }
             return newVertex;
         }
+
         public void UpdateVertexNumbers()
         {
             int i = 1;
@@ -164,6 +171,7 @@ namespace RepetierHost.model.geom
                 v.id = i++;
             }
         }
+
         public TopoEdge getOrCreateEdgeBetween(TopoVertex v1, TopoVertex v2)
         {
             foreach (TopoTriangle t in v1.connectedFacesList)
@@ -183,12 +191,13 @@ namespace RepetierHost.model.geom
             edges.AddLast(newEdge);
             return newEdge;
         }
+
         public void UpdateIntersectingTriangles()
         {
             if (intersectionsUpToDate) return;
             intersectingTriangles.Clear();
             HashSet<TopoTriangle> candidates;
-            int counter = 0,n = triangles.Count;
+            int counter = 0, n = triangles.Count;
             StartAction("L_INTERSECTION_TESTS");
             foreach (TopoTriangle test in triangles)
             {
@@ -216,7 +225,7 @@ namespace RepetierHost.model.geom
                             test.hasIntersections = true;
                             test.bad = true;
                             intersectingTriangles.Add(test);
-                           // Debug.WriteLine(test);
+                            // Debug.WriteLine(test);
                         }
                         if (candidate.hasIntersections == false)
                         {
@@ -230,6 +239,7 @@ namespace RepetierHost.model.geom
             }
             intersectionsUpToDate = true;
         }
+
         public TopoTriangle addTriangle(double p1x, double p1y, double p1z, double p2x, double p2y, double p2z,
             double p3x, double p3y, double p3z, double nx, double ny, double nz)
         {
@@ -239,7 +249,8 @@ namespace RepetierHost.model.geom
             TopoTriangle triangle = new TopoTriangle(this, v1, v2, v3, nx, ny, nz);
             return AddTriangle(triangle);
         }
-        public TopoTriangle addTriangle(RHVector3 p1,RHVector3 p2,RHVector3 p3,RHVector3 normal)
+
+        public TopoTriangle addTriangle(RHVector3 p1, RHVector3 p2, RHVector3 p3, RHVector3 normal)
         {
             TopoVertex v1 = addVertex(p1);
             TopoVertex v2 = addVertex(p2);
@@ -247,6 +258,7 @@ namespace RepetierHost.model.geom
             TopoTriangle triangle = new TopoTriangle(this, v1, v2, v3, normal.x, normal.y, normal.z);
             return AddTriangle(triangle);
         }
+
         public TopoTriangle AddTriangle(TopoTriangle triangle)
         {
             if (triangle.IsDegenerated())
@@ -255,11 +267,13 @@ namespace RepetierHost.model.geom
                 triangles.Add(triangle);
             return triangle;
         }
+
         public void removeTriangle(TopoTriangle triangle)
         {
             triangle.Unlink(this);
             triangles.Remove(triangle);
         }
+
         public void UpdateNormals()
         {
             CountShells();
@@ -294,8 +308,8 @@ namespace RepetierHost.model.geom
                     {
                         if (test != triangle && test.IntersectsLine(lineStart, lineDirection, out delta))
                         {
-                           // Debug.WriteLine(test);
-                           // Debug.WriteLine(triangle);
+                            // Debug.WriteLine(test);
+                            // Debug.WriteLine(triangle);
                             if (delta > 0) hits++;
                         }
                     }
@@ -308,7 +322,7 @@ namespace RepetierHost.model.geom
                     // End old
                     double volume = SignedShellVolume(testShell);
                     //if ((volume < 0 && !fliper) || (volume > 0 && fliper))
-                    if(fliper)
+                    if (fliper)
                     {
                         foreach (TopoTriangle flip in triangles)
                         {
@@ -341,7 +355,7 @@ namespace RepetierHost.model.geom
                 foreach (TopoTriangle t in front)
                 {
                     cnt++;
-                    if((cnt % 2000) == 0)
+                    if ((cnt % 2000) == 0)
                         Application.DoEvents();
                     for (i = 0; i < 3; i++)
                     {
@@ -364,6 +378,7 @@ namespace RepetierHost.model.geom
                 newFront = new HashSet<TopoTriangle>();
             }
         }
+
         public bool CheckNormals()
         {
             CountShells();
@@ -396,12 +411,12 @@ namespace RepetierHost.model.geom
                     }
                     if ((hits & 1) == 1)
                     {
-                        fliper = true;  
+                        fliper = true;
                     }
                     double volume = SignedShellVolume(testShell);
                     //if ((volume < 0 && !fliper) || (volume > 0 && fliper))
                     //if (SignedShellVolume(testShell) < 0)
-                    if(fliper)
+                    if (fliper)
                     {
                         normalsOriented = false;
                         return false;
@@ -415,7 +430,7 @@ namespace RepetierHost.model.geom
             }
             return true;
         }
-        
+
         public double Surface()
         {
             double surface = 0;
@@ -425,7 +440,7 @@ namespace RepetierHost.model.geom
             }
             return surface;
         }
-        
+
         public double Volume()
         {
             double volume = 0;
@@ -433,7 +448,7 @@ namespace RepetierHost.model.geom
                 volume += t.SignedVolume();
             return Math.Abs(volume);
         }
-        
+
         public double SignedShellVolume(int shell)
         {
             double volume = 0;
@@ -463,7 +478,7 @@ namespace RepetierHost.model.geom
                 foreach (TopoTriangle t in front)
                 {
                     cnt++;
-                    if((cnt % 2000) == 0)
+                    if ((cnt % 2000) == 0)
                         Application.DoEvents();
                     for (i = 0; i < 3; i++)
                     {
@@ -487,6 +502,7 @@ namespace RepetierHost.model.geom
             }
             return true;
         }
+
         public int MarkPlanarRegions()
         {
             ResetTriangleMarker();
@@ -500,6 +516,7 @@ namespace RepetierHost.model.geom
             }
             return regionCounter;
         }
+
         private void FloodFillPlanarRegions(TopoTriangle good, int marker)
         {
             good.algHelper = marker;
@@ -531,6 +548,7 @@ namespace RepetierHost.model.geom
                 newFront = new HashSet<TopoTriangle>();
             }
         }
+
         public HashSet<TopoEdge> OpenLoopEdges()
         {
             HashSet<TopoEdge> list = new HashSet<TopoEdge>();
@@ -541,6 +559,7 @@ namespace RepetierHost.model.geom
             }
             return list;
         }
+
         public bool JoinTouchedOpenEdges(double limit)
         {
             /*Console.WriteLine("Open Edges:");
@@ -592,6 +611,7 @@ namespace RepetierHost.model.geom
             if (somethingChanged) intersectionsUpToDate = false;
             return somethingChanged;
         }
+
         public bool RemoveUnusedDatastructures()
         {
             LinkedList<TopoEdge> removeEdges = new LinkedList<TopoEdge>();
@@ -616,6 +636,7 @@ namespace RepetierHost.model.geom
                 vertex.id = vertexNumber++;
             return changed;
         }
+
         public void ResetTriangleMarker()
         {
             foreach (TopoTriangle triangle in triangles)
@@ -623,6 +644,7 @@ namespace RepetierHost.model.geom
                 triangle.algHelper = 0;
             }
         }
+
         public bool RemoveDegeneratedFaces()
         {
             bool changed = false;
@@ -674,6 +696,7 @@ namespace RepetierHost.model.geom
             if (changed) intersectionsUpToDate = false;
             return changed;
         }
+
         public void statistics()
         {
             shells = CountShells();
@@ -682,6 +705,7 @@ namespace RepetierHost.model.geom
             RLog.info(Trans.T("L_ANA_FACES") + triangles.Count);
             RLog.info(Trans.T("L_ANA_SHELLS") + shells);
         }
+
         public int RemoveColinearFaces()
         {
             LinkedList<TopoTriangle> todo = new LinkedList<TopoTriangle>();
@@ -698,6 +722,7 @@ namespace RepetierHost.model.geom
             if (todo.Count > 0) intersectionsUpToDate = false;
             return todo.Count;
         }
+
         public void RepairUnobtrusive()
         {
             RemoveDegeneratedFaces();
@@ -708,6 +733,7 @@ namespace RepetierHost.model.geom
             RemoveUnusedDatastructures();
             UpdateNormals();
         }
+
         public void UpdateEdgeTypes()
         {
             manyShardEdges = 0;
@@ -720,6 +746,7 @@ namespace RepetierHost.model.geom
                     manyShardEdges++;
             }
         }
+
         public void Analyse()
         {
             RLog.info(Trans.T("L_STARTING_ANALYSER"));
@@ -748,14 +775,8 @@ namespace RepetierHost.model.geom
             }
             UpdateVertexNumbers();
             RLog.info(Trans.T("L_ANALYSER_FINISHED"));
-            if (false)
-            {
-                Debug.WriteLine("Intersecting triangles:");
-                foreach (TopoTriangle t in intersectingTriangles)
-                    Debug.WriteLine(t);
-                Debug.WriteLine("========");
-            }
         }
+
         public void AnalyseFast()
         {
             RLog.info(Trans.T("L_STARTING_ANALYSER"));
@@ -782,14 +803,8 @@ namespace RepetierHost.model.geom
             }
             UpdateVertexNumbers();
             RLog.info(Trans.T("L_ANALYSER_FINISHED"));
-            if (false)
-            {
-                Debug.WriteLine("Intersecting triangles:");
-                foreach (TopoTriangle t in intersectingTriangles)
-                    Debug.WriteLine(t);
-                Debug.WriteLine("========");
-            }
         }
+
         public void RetestIntersectingTriangles()
         {
             foreach (TopoTriangle t in intersectingTriangles)
@@ -802,6 +817,7 @@ namespace RepetierHost.model.geom
                 }
             }
         }
+
         public TopoTriangle IntersectsTriangleAnyTriangle(TopoTriangle test)
         {
             HashSet<TopoTriangle> candidates = triangles.FindIntersectionCandidates(test);
@@ -811,6 +827,7 @@ namespace RepetierHost.model.geom
             }
             return null;
         }
+
         public void checkEdgesOver2()
         {
             foreach (TopoEdge e in edges)
@@ -822,6 +839,7 @@ namespace RepetierHost.model.geom
                 }
             }
         }
+
         public void updateBad()
         {
             badTriangles = badEdges = 0;
@@ -842,6 +860,7 @@ namespace RepetierHost.model.geom
                     badTriangles++;
             }
         }
+
         private void FloodFillTriangles(TopoTriangle tri, int value)
         {
             tri.algHelper = value;
@@ -869,6 +888,7 @@ namespace RepetierHost.model.geom
                 newFront = new HashSet<TopoTriangle>();
             }
         }
+
         private void FloodFillShells(TopoTriangle tri, int value)
         {
             tri.shell = value;
@@ -896,6 +916,7 @@ namespace RepetierHost.model.geom
                 newFront = new HashSet<TopoTriangle>();
             }
         }
+
         public int CountShells()
         {
             foreach (TopoTriangle t in triangles)
@@ -911,6 +932,7 @@ namespace RepetierHost.model.geom
             }
             return nShells;
         }
+
         public List<TopoModel> SplitIntoSurfaces()
         {
             CountShells();
@@ -938,9 +960,9 @@ namespace RepetierHost.model.geom
                     double delta;
                     foreach (TopoTriangle test in triangles)
                     {
-                        if(test.IntersectsLine(lineStart, lineDirection, out delta))
+                        if (test.IntersectsLine(lineStart, lineDirection, out delta))
                         {
-                            intersections.Add(new TopoTriangleDistance(delta,test));
+                            intersections.Add(new TopoTriangleDistance(delta, test));
                         }
                     }
                     intersections.Sort();
@@ -958,7 +980,7 @@ namespace RepetierHost.model.geom
                             }
                             else
                             {
-                                int trueShell = tdStack.ElementAt(tdStack.Count-1).triangle.algHelper;
+                                int trueShell = tdStack.ElementAt(tdStack.Count - 1).triangle.algHelper;
                                 foreach (TopoTriangle t in triangles)
                                 {
                                     if (t.algHelper == shell)
@@ -998,8 +1020,7 @@ namespace RepetierHost.model.geom
             return models;
         }
 
-
-        public void CutMesh(Submesh mesh, RHVector3 normal, RHVector3 point,int defaultFaceColor)
+        public void CutMesh(Submesh mesh, RHVector3 normal, RHVector3 point, int defaultFaceColor)
         {
             TopoPlane plane = new TopoPlane(normal, point);
             bool drawEdges = Main.threeDSettings.ShowEdges;
@@ -1054,7 +1075,8 @@ namespace RepetierHost.model.geom
                 }
             }
         }
-        public void FillMesh(Submesh mesh,int defaultColor)
+
+        public void FillMesh(Submesh mesh, int defaultColor)
         {
             bool drawEdges = Main.threeDSettings.ShowEdges;
             foreach (TopoTriangle t in triangles)
@@ -1068,7 +1090,7 @@ namespace RepetierHost.model.geom
                 }
                 else
                 {
-                    if(t.edges[0].connectedFaces != 2)
+                    if (t.edges[0].connectedFaces != 2)
                         mesh.AddEdge(t.vertices[0].pos, t.vertices[1].pos, Submesh.MESHCOLOR_ERROREDGE);
                     if (t.edges[1].connectedFaces != 2)
                         mesh.AddEdge(t.vertices[1].pos, t.vertices[2].pos, Submesh.MESHCOLOR_ERROREDGE);
@@ -1077,6 +1099,7 @@ namespace RepetierHost.model.geom
                 }
             }
         }
+
         public void FillMeshTrianglesOnly(Submesh mesh, int defaultColor)
         {
             bool drawEdges = Main.threeDSettings.ShowEdges;
@@ -1141,6 +1164,7 @@ namespace RepetierHost.model.geom
             w.Close();
             fs.Close();
         }
+
         public void exportSTL(string filename, bool binary)
         {
             FileStream fs = File.Open(filename, FileMode.Create);
@@ -1204,9 +1228,10 @@ namespace RepetierHost.model.geom
             }
             fs.Close();
         }
+
         private RHVector3 extractVector(string s)
         {
-            RHVector3 v = new RHVector3(0,0,0);
+            RHVector3 v = new RHVector3(0, 0, 0);
             s = s.Trim().Replace("  ", " ");
             int p = s.IndexOf(' ');
             if (p < 0) throw new Exception("Format error");
@@ -1219,6 +1244,7 @@ namespace RepetierHost.model.geom
             double.TryParse(s, NumberStyles.Float, GCode.format, out v.z);
             return v;
         }
+
         private void ReadArray(Stream stream, byte[] data)
         {
             int offset = 0;
@@ -1233,7 +1259,8 @@ namespace RepetierHost.model.geom
                 offset += read;
             }
         }
-        public bool importObj(string filename,double scale=1)
+
+        public bool importObj(string filename, double scale = 1)
         {
             clear();
             bool error = false;
@@ -1242,7 +1269,7 @@ namespace RepetierHost.model.geom
                 string[] text = System.IO.File.ReadAllText(filename).Split(new string[] { "\r\n", "\n" }, StringSplitOptions.None);
                 int vPos = 0;
                 int vnPos = 0;
-                int count = 0,countMax = text.Length;
+                int count = 0, countMax = text.Length;
                 List<TopoVertex> vList = new List<TopoVertex>();
                 List<RHVector3> vnList = new List<RHVector3>();
                 foreach (string currentLine in text)
@@ -1325,11 +1352,12 @@ namespace RepetierHost.model.geom
             }
             return error;
         }
-        private void importSTLAscii(string filename,double scale)
+
+        private void importSTLAscii(string filename, double scale)
         {
             string text = System.IO.File.ReadAllText(filename);
             int lastP = 0, p, pend, normal, outer, vertex, vertex2;
-            int count = 0,max = text.Length;
+            int count = 0, max = text.Length;
             while ((p = text.IndexOf("facet", lastP)) > 0)
             {
                 count++;
@@ -1363,7 +1391,7 @@ namespace RepetierHost.model.geom
             }
         }
 
-        public void importSTL(string filename,double scale=1)
+        public void importSTL(string filename, double scale = 1)
         {
             StartAction("L_LOADING...");
             clear();
@@ -1384,7 +1412,7 @@ namespace RepetierHost.model.geom
                 if (f.Length != 84 + nTri * 50)
                 {
                     f.Close();
-                    importSTLAscii(filename,scale);
+                    importSTLAscii(filename, scale);
                 }
                 else
                 {
@@ -1394,7 +1422,7 @@ namespace RepetierHost.model.geom
                         if (i % 2000 == 0)
                         {
                             Application.DoEvents();
-                            if(IsActionStopped()) return;
+                            if (IsActionStopped()) return;
                         }
                         RHVector3 normal = new RHVector3(r.ReadSingle(), r.ReadSingle(), r.ReadSingle());
                         RHVector3 p1 = new RHVector3(r.ReadSingle(), r.ReadSingle(), r.ReadSingle());
@@ -1417,7 +1445,7 @@ namespace RepetierHost.model.geom
             }
         }
 
-        public bool import3Ds(string filename,double scale=1)
+        public bool import3Ds(string filename, double scale = 1)
         {
             _3DSLoader loader = new _3DSLoader();
             _3DSLoader._3DScene scene = loader.Load(filename);
@@ -1445,6 +1473,5 @@ namespace RepetierHost.model.geom
             }
             return true;
         }
-
     }
 }

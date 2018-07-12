@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO.Ports;
 
 namespace RepetierHost.model
@@ -28,6 +25,7 @@ namespace RepetierHost.model
             {
             }
         }
+
         public new void Dispose()
         {
             Dispose(true);
@@ -35,24 +33,23 @@ namespace RepetierHost.model
 
         protected override void Dispose(bool disposing)
         {
+            try
+            {
+                /*
+                ** because of the issue with the FTDI USB serial device,
+                ** the call to the stream's finalize is suppressed
+                **
+                ** an attempt to un-suppress the stream's finalize is made
+                ** here, but if it fails, the exception is caught and
+                ** ignored
+                */
+                GC.ReRegisterForFinalize(BaseStream);
+            }
+            catch
+            {
+            }
 
-        try
-            {
-            /*
-            ** because of the issue with the FTDI USB serial device,
-            ** the call to the stream's finalize is suppressed
-            **
-            ** an attempt to un-suppress the stream's finalize is made
-            ** here, but if it fails, the exception is caught and
-            ** ignored
-            */
-            GC.ReRegisterForFinalize(BaseStream);
-            }
-        catch
-            {
-            }
-                
-        base.Dispose(disposing);
+            base.Dispose(disposing);
         }
-    }    
+    }
 }

@@ -14,33 +14,28 @@
    limitations under the License.
 */
 
+using Microsoft.Win32;
+using RepetierHost.model;
+using RepetierHost.view.utils;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using System.Diagnostics;
-using Microsoft.Win32;
-using RepetierHost.view.utils;
-using RepetierHost.model;
 
 namespace RepetierHost.view
 {
     public partial class Skeinforge : Form
     {
         public RegistryKey repetierKey;
-        Process procSkein = null;
-        Process procConvert = null;
-        string slicefile = null;
-        SkeinConfig profileConfig = null;
-        SkeinConfig exportConfig = null;
-        SkeinConfig extrusionConfig = null;
-        SkeinConfig multiplyConfig = null;
-        string name = "Skeinforge";
+        private Process procSkein = null;
+        private Process procConvert = null;
+        private string slicefile = null;
+        private SkeinConfig profileConfig = null;
+        private SkeinConfig exportConfig = null;
+        private SkeinConfig extrusionConfig = null;
+        private SkeinConfig multiplyConfig = null;
+        private string name = "Skeinforge";
 
         public Skeinforge()
         {
@@ -55,6 +50,7 @@ namespace RepetierHost.view
                 name = "Skeinforge";
             Main.main.languageChanged += translate;
         }
+
         private void translate()
         {
             Text = Trans.T("W_SKEIN_SETTINGS");
@@ -77,18 +73,20 @@ namespace RepetierHost.view
             buttonBrosePyPy.Text = Trans.T("B_BROWSE");
             buttonBrowseProfilesDir.Text = Trans.T("B_BROWSE");
             buttonBrowseWorkingDirectory.Text = Trans.T("B_BROWSE");
-            
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         public string wrapQuotes(string text)
         {
             if (text.StartsWith("\"") && text.EndsWith("\"")) return text;
             return "\"" + text.Replace("\"", "\\\"") + "\"";
         }
+
         public void RestoreConfigs()
         {
             if (profileConfig != null)
@@ -104,6 +102,7 @@ namespace RepetierHost.view
             extrusionConfig = null;
             multiplyConfig = null;
         }
+
         public void RunSkeinforge()
         {
             if (procSkein != null)
@@ -145,16 +144,18 @@ namespace RepetierHost.view
                 Main.conn.log(e.ToString(), false, 2);
             }
         }
+
         public void KillSlice()
         {
             if (procConvert != null)
             {
                 procConvert.Kill();
                 procConvert = null;
-                Main.conn.log(Trans.T1("L_SKEIN_KILLED",name),false,2); //"Skeinforge slicing process killed on user request.", false, 2);
+                Main.conn.log(Trans.T1("L_SKEIN_KILLED", name), false, 2); //"Skeinforge slicing process killed on user request.", false, 2);
                 RestoreConfigs();
             }
         }
+
         public string findSkeinforgeProfiles()
         {
             if (Directory.Exists(textProfilesDir.Text))
@@ -162,18 +163,19 @@ namespace RepetierHost.view
             string test = ((Environment.OSVersion.Platform == PlatformID.Unix ||
                    Environment.OSVersion.Platform == PlatformID.MacOSX)
     ? Environment.GetEnvironmentVariable("HOME")
-    : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")) + Path.DirectorySeparatorChar + ".skeinforge"+Path.DirectorySeparatorChar+"profiles";
+    : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%")) + Path.DirectorySeparatorChar + ".skeinforge" + Path.DirectorySeparatorChar + "profiles";
             if (Directory.Exists(test)) return test;
             return null;
         }
+
         public string findPypy()
         {
             if (File.Exists(textPypy.Text)) // use preconfigured
                 return textPypy.Text;
-            string[] possibleNames = { "pypy.exe", "pypy"};
+            string[] possibleNames = { "pypy.exe", "pypy" };
             if (textPypy.Text.Length > 1)
             {
-                if(File.Exists(textPypy.Text))
+                if (File.Exists(textPypy.Text))
                     return textPypy.Text;
             }
             // Search in PATH environment var
@@ -186,7 +188,7 @@ namespace RepetierHost.view
                         return Path.GetFullPath(Path.Combine(path, exname));
                 }
             }
-            string[] possibleNames2 = { "python.exe", "python2","python"};
+            string[] possibleNames2 = { "python.exe", "python2", "python" };
             foreach (string test in (Environment.GetEnvironmentVariable("PATH") ?? "").Split(Path.PathSeparator))
             {
                 string path = test.Trim();
@@ -199,11 +201,12 @@ namespace RepetierHost.view
 
             return findPythonw();
         }
+
         public string findPythonw()
         {
             if (File.Exists(textPython.Text)) // use preconfigured
                 return textPython.Text;
-            string[] possibleNames = { "pythonw.exe", "python2","python" };
+            string[] possibleNames = { "pythonw.exe", "python2", "python" };
             if (textPypy.Text.Length > 1)
             {
                 if (File.Exists(textPypy.Text))
@@ -221,13 +224,15 @@ namespace RepetierHost.view
             }
             return null;
         }
+
         public string findCraft()
         {
-            if(textSkeinforgeCraft.Text.Length>1 && File.Exists(textSkeinforgeCraft.Text)) return textSkeinforgeCraft.Text;
+            if (textSkeinforgeCraft.Text.Length > 1 && File.Exists(textSkeinforgeCraft.Text)) return textSkeinforgeCraft.Text;
             if (File.Exists("/usr/lib/python2.7/site-packages/skeinforge/skeinforge_application/skeinforge_utilities/skeinforge_craft.py"))
                 return "/usr/lib/python2.7/site-packages/skeinforge/skeinforge_application/skeinforge_utilities/skeinforge_craft.py";
             return null;
         }
+
         public string findSkeinforge()
         {
             if (textSkeinforge.Text.Length > 1 && File.Exists(textSkeinforge.Text)) return textSkeinforge.Text;
@@ -235,6 +240,7 @@ namespace RepetierHost.view
                 return "/usr/lib/python2.7/site-packages/skeinforge/skeinforge_application/skeinforge.py";
             return null;
         }
+
         public string PyPy
         {
             get
@@ -242,11 +248,12 @@ namespace RepetierHost.view
                 return findPypy();
             }
         }
+
         public void RunSlice(string file, string profile)
         {
             if (procConvert != null)
             {
-                MessageBox.Show(Trans.T("L_SKEIN_STILL_RUNNING") /*"Last slice job still running. Slicing of new job is canceled."*/,Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Trans.T("L_SKEIN_STILL_RUNNING") /*"Last slice job still running. Slicing of new job is canceled."*/, Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string py = PyPy;
@@ -267,11 +274,11 @@ namespace RepetierHost.view
                 MessageBox.Show(Trans.T("L_SKEINCRAFT_PROFILES_NOT_FOUND"), Trans.T("L_ERROR"), MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            profileConfig = new SkeinConfig(Path.Combine(profdir,"skeinforge_profile.csv"));
-            extrusionConfig = new SkeinConfig(Path.Combine(profdir,"extrusion.csv"));
-            exportConfig = new SkeinConfig(Path.Combine(profdir,"extrusion" +
+            profileConfig = new SkeinConfig(Path.Combine(profdir, "skeinforge_profile.csv"));
+            extrusionConfig = new SkeinConfig(Path.Combine(profdir, "extrusion.csv"));
+            exportConfig = new SkeinConfig(Path.Combine(profdir, "extrusion" +
                 Path.DirectorySeparatorChar + profile + Path.DirectorySeparatorChar + "export.csv"));
-            multiplyConfig = new SkeinConfig(Path.Combine(profdir,"extrusion" +
+            multiplyConfig = new SkeinConfig(Path.Combine(profdir, "extrusion" +
                 Path.DirectorySeparatorChar + profile + Path.DirectorySeparatorChar + "multiply.csv"));
             // Set profile to extrusion
             /* cutting	False
@@ -334,7 +341,9 @@ winding	False
                 RestoreConfigs();
             }
         }
+
         public delegate void LoadGCode(String myString);
+
         private void ConversionExited(object sender, System.EventArgs e)
         {
             if (procConvert == null) return;
@@ -348,12 +357,14 @@ winding	False
             }
             catch { }
         }
+
         private void SkeinExited(object sender, System.EventArgs e)
         {
             procSkein.Close();
             procSkein = null;
             Main.main.Invoke(Main.main.slicerPanel.UpdateSelectionInvoker);
         }
+
         private static void OutputDataHandler(object sendingProcess,
             DataReceivedEventArgs outLine)
         {
@@ -362,7 +373,7 @@ winding	False
             {
                 string[] lines = outLine.Data.Split((char)0x0d);
                 foreach (string l in lines)
-                    Main.conn.log("<"+Main.main.skeinforge.name+"> " + l, false, 4);
+                    Main.conn.log("<" + Main.main.skeinforge.name + "> " + l, false, 4);
             }
         }
 
@@ -379,9 +390,9 @@ winding	False
             if (export == null || export != "True") export = ""; else export = "_export";
             return stl + export + "." + extension;
         }
+
         private void regToForm()
         {
-
             textSkeinforge.Text = (string)repetierKey.GetValue("SkeinforgePath", textSkeinforge.Text);
             textSkeinforgeCraft.Text = (string)repetierKey.GetValue("SkeinforgeCraftPath", textSkeinforgeCraft.Text);
             textPython.Text = (string)repetierKey.GetValue("SkeinforgePython", textPython.Text);
@@ -391,6 +402,7 @@ winding	False
             textWorkingDirectory.Text = (string)repetierKey.GetValue("SkeinforgeWorkdir", textWorkingDirectory.Text);
             textProfilesDir.Text = BasicConfiguration.basicConf.SkeinforgeProfileDir;
         }
+
         private void FormToReg()
         {
             BasicConfiguration.basicConf.SkeinforgeProfileDir = textProfilesDir.Text;
@@ -402,6 +414,7 @@ winding	False
             //repetierKey.SetValue("SkeinforgePostfix", textPostfix.Text);
             repetierKey.SetValue("SkeinforgeWorkdir", textWorkingDirectory.Text);
         }
+
         private void buttonAbort_Click(object sender, EventArgs e)
         {
             regToForm();

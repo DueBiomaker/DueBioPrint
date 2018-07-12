@@ -12,17 +12,13 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
- 
+
    Code spend by Tomáš Chládek
 */
 
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Timers;
 using System.Windows.Forms;
 
 namespace RepetierHost.view.utils

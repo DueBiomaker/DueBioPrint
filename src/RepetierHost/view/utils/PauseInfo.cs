@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using RepetierHost.model;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model;
-using RepetierHost;
 
 namespace RepetierHost.view.utils
 {
     public partial class PauseInfo : Form
     {
-        private static PauseInfo form=null;
-       // private static float x, y, z,e,f;
-      //  private static bool relative;
-        public static void ShowPause(string info) {
+        private static PauseInfo form = null;
+
+        // private static float x, y, z,e,f;
+        //  private static bool relative;
+        public static void ShowPause(string info)
+        {
             if (form == null)
             {
                 form = new PauseInfo();
@@ -33,30 +29,34 @@ namespace RepetierHost.view.utils
             if (form.Visible == false)
                 form.Show();
         }
+
         public PauseInfo()
         {
             InitializeComponent();
             translate();
             Main.main.languageChanged += translate;
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         public void translate()
         {
             Text = Trans.T("W_PRINT_PAUSED");
             labelPauseHint.Text = Trans.T("L_PAUSE_HINT");
             buttonContinuePrinting.Text = Trans.T("B_CONTINUE_PRINTING");
         }
+
         private void buttonContinuePrinting_Click(object sender, EventArgs e)
         {
             ContinueJob();
         }
 
         private void ContinueJob()
-        { 
+        {
             Main.conn.connector.ContinueJob();
             /*
             GCodeAnalyzer a = Main.conn.analyzer;

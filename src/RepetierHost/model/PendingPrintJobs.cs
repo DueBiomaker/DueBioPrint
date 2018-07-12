@@ -17,15 +17,16 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
+using System.Linq;
 
 namespace RepetierHost.model
 {
     public class PendingPrintJobsException : Exception
     {
-        public PendingPrintJobsException(string message, Exception e) : base(message, e) {}
+        public PendingPrintJobsException(string message, Exception e) : base(message, e)
+        {
+        }
     }
 
     /// <summary>
@@ -197,7 +198,6 @@ namespace RepetierHost.model
         public const string SnapshotTypeStateAndRemainingGCode = "state-and-remaining-gcode";
         public const string ContainerVersion = "1.0";
 
-
         public static PrintingStateSnapshot LoadSnapshotFile(string path)
         {
             Stream stream = File.OpenRead(path);
@@ -210,6 +210,7 @@ namespace RepetierHost.model
                 stream.Close();
             }
         }
+
         public static PrintingStateSnapshot LoadSnapshotFile(Stream stream)
         {
             System.Xml.Serialization.XmlSerializer x = new System.Xml.Serialization.XmlSerializer(typeof(SnapshotContainer));
@@ -237,7 +238,6 @@ namespace RepetierHost.model
             }
         }
 
-
         public static void SaveSnapshotFile(PrintingStateSnapshot state, string path)
         {
             Stream stream = File.OpenWrite(path);
@@ -250,6 +250,7 @@ namespace RepetierHost.model
                 stream.Close();
             }
         }
+
         public static void SaveSnapshotFile(PrintingStateSnapshot state, Stream fileStream)
         {
             SnapshotContainer container = new SnapshotContainer();
@@ -276,5 +277,4 @@ namespace RepetierHost.model
             public PrintingStateSnapshot snapshot;
         }
     }
-
 }

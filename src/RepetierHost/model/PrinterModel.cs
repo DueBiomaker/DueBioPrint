@@ -13,17 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
-using System.IO;
-using System.Threading;
+
 using Microsoft.Win32;
-using System.Diagnostics;
-using RepetierHost;
 using RepetierHost.view.utils;
+using System.ComponentModel;
 
 namespace RepetierHost.model
 {
@@ -38,6 +31,7 @@ namespace RepetierHost.model
         private string slic3rFilament3;
         private string skeinforgeProfile;
         private Slicer.SlicerID activeSlicer = Slicer.SlicerID.Slic3r;
+
         public PrinterModel()
         {
             key = Main.printerSettings.currentPrinterKey;
@@ -53,6 +47,7 @@ namespace RepetierHost.model
             activeSlicer = (Slicer.SlicerID)(int)Main.main.repetierKey.GetValue("ActiveSlicer", (int)activeSlicer);
             readPrinterSettings();
         }
+
         public Slicer.SlicerID ActiveSlicer
         {
             get { return activeSlicer; }
@@ -64,6 +59,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("ActiveSlicer"));
             }
         }
+
         public string Slic3rPrint
         {
             get { return slic3rPrint; }
@@ -75,6 +71,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("Slic3rPrint"));
             }
         }
+
         public string Slic3rPrinter
         {
             get { return slic3rPrinter; }
@@ -86,6 +83,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("Slic3rPrinter"));
             }
         }
+
         public string Slic3rFilament1
         {
             get { return slic3rFilament1; }
@@ -97,6 +95,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("Slic3rFilament1"));
             }
         }
+
         public string Slic3rFilament2
         {
             get { return slic3rFilament2; }
@@ -108,6 +107,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("Slic3rFilament2"));
             }
         }
+
         public string Slic3rFilament3
         {
             get { return slic3rFilament3; }
@@ -119,6 +119,7 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("Slic3rFilament3"));
             }
         }
+
         public string SkeinforgeProfile
         {
             get { return skeinforgeProfile; }
@@ -130,7 +131,9 @@ namespace RepetierHost.model
                 OnPropertyChanged(new PropertyChangedEventArgs("SkeinforgeProfile"));
             }
         }
-        private void readPrinterSettings() {
+
+        private void readPrinterSettings()
+        {
             updating = true;
             Slic3rPrint = (string)key.GetValue("slic3rPrint", slic3rPrint);
             Slic3rPrinter = (string)key.GetValue("slic3rPrinter", slic3rPrinter);
@@ -141,11 +144,15 @@ namespace RepetierHost.model
             ActiveSlicer = (Slicer.SlicerID)key.GetValue("activeSlicer", activeSlicer);
             updating = false;
         }
-        public void PrinterChanged(RegistryKey printerKey,bool printerChanged) {
+
+        public void PrinterChanged(RegistryKey printerKey, bool printerChanged)
+        {
             key = printerKey;
             readPrinterSettings();
         }
+
         public event PropertyChangedEventHandler PropertyChanged;
+
         protected virtual void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             if (PropertyChanged != null)

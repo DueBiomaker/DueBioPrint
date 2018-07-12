@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using RepetierHost.model;
-using System.Globalization;
+﻿using RepetierHost.model;
 using RepetierHost.view.utils;
+using System;
+using System.ComponentModel;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
     public partial class SlicingParameter : Form
     {
-        static SlicingParameter form = null;
+        private static SlicingParameter form = null;
 
         public static void Execute()
         {
@@ -23,31 +18,36 @@ namespace RepetierHost.view
             form.ToForm();
             form.Show();
         }
+
         public SlicingParameter()
         {
             InitializeComponent();
             RegMemory.RestoreWindowPos("slicingParameterWindow", this);
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
         }
+
         private String ReadD(double d)
         {
             return d.ToString("0.0", GCode.format);
         }
+
         private String ReadD2(double d)
         {
             return d.ToString("0.00", GCode.format);
         }
+
         private double ToD(string t)
         {
             double d;
-            double.TryParse(t, NumberStyles.Float, GCode.format,out d);
+            double.TryParse(t, NumberStyles.Float, GCode.format, out d);
             return d;
         }
-        
+
         public void ToForm()
         {
             GCodeGenerator g = Main.generator;
@@ -70,17 +70,18 @@ namespace RepetierHost.view
             textClipFactor.Text = ReadD2(g.ClipFactor);
             textWidthOverThickness.Text = ReadD2(g.WidthOverHeight);
         }
+
         public void FromForm()
         {
             GCodeGenerator g = Main.generator;
             g.DefaultPrecision = comboDefaultPrecision.SelectedIndex;
             g.ExtruderPrecision = comboExtruderPrecision.SelectedIndex;
             int i;
-            int.TryParse(textTemperature.Text,out i);
+            int.TryParse(textTemperature.Text, out i);
             g.ExtruderTemperature = i;
             g.FilamentDiameter = ToD(textFilamentDiameter.Text);
             g.FilamentPackingDensity = ToD(textPackingDensity.Text);
-            g.FirstLayerHeight= ToD(textFirstLayerHeight.Text);
+            g.FirstLayerHeight = ToD(textFirstLayerHeight.Text);
             g.FirstLayerSpeedFactor = ToD(textFirstLayerSpeedFactor.Text);
             g.LayerHeight = ToD(textLayerHeight.Text);
             g.ExtruderRetractionSpeed = ToD(textRetractionSpeed.Text);
@@ -94,6 +95,7 @@ namespace RepetierHost.view
             g.WidthOverHeight = ToD(textWidthOverThickness.Text);
             g.Save();
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             FromForm();
@@ -104,6 +106,7 @@ namespace RepetierHost.view
         {
             Hide();
         }
+
         private void float_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -117,6 +120,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, "Not a number.");
             }
         }
+
         private void int_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;

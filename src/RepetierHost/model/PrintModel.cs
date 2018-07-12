@@ -14,23 +14,18 @@
    limitations under the License.
 */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using OpenTK;
-using OpenTK.Graphics.OpenGL;
-using System.IO;
-using System.Globalization;
-using System.Drawing;
-using System.Windows.Forms;
 using RepetierHost.model.geom;
-using RepetierHost.view;
 using RepetierHost.view.utils;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace RepetierHost.model
 {
     public delegate void PrintModelChangedEvent(PrintModel model);
+
     public class PrintModel : ThreeDModel
     {
         public TopoModel originalModel = new TopoModel();
@@ -38,13 +33,15 @@ namespace RepetierHost.model
         public int activeModel = 0;
         public string name = "Unknown";
         public string filename = "";
-        long lastModified = 0;
-        public bool outside = false,oldOutside = false;
-        public Matrix4 trans,invTrans;
+        private long lastModified = 0;
+        public bool outside = false, oldOutside = false;
+        public Matrix4 trans, invTrans;
         public Submesh submesh = new Submesh();
         public int activeSubmesh = -1;
         public RHBoundingBox bbox = new RHBoundingBox();
+
         public event PrintModelChangedEvent printModelChangedEvent = null;
+
         public TopoModel Model
         {
             get
@@ -52,6 +49,7 @@ namespace RepetierHost.model
                 return (activeModel == 0 ? originalModel : repairedModel);
             }
         }
+
         public TopoModel ActiveModel
         {
             get
@@ -60,12 +58,14 @@ namespace RepetierHost.model
                 return repairedModel;
             }
         }
+
         public void Reset()
         {
             repairedModel = originalModel.Copy();
             repairedModel.Analyse();
             ShowRepaired(true);
         }
+
         public void FixNormals()
         {
             if (repairedModel == null)
@@ -75,6 +75,7 @@ namespace RepetierHost.model
             //repairedModel.updateBad();
             ShowRepaired(true);
         }
+
         public void ShowRepaired(bool showRepaired)
         {
             if (showRepaired)
@@ -90,6 +91,7 @@ namespace RepetierHost.model
             if (printModelChangedEvent != null)
                 printModelChangedEvent(this);
         }
+
         public void RunTest()
         {
             if (repairedModel == null)
@@ -104,6 +106,7 @@ namespace RepetierHost.model
             repairedModel.updateBad();
             ShowRepaired(true);
         }
+
         public PrintModel copyPrintModel()
         {
             PrintModel stl = new PrintModel();
@@ -129,11 +132,12 @@ namespace RepetierHost.model
             stl.UpdateBoundingBox();
             return stl;
         }
-        public PrintModel cloneWithModel(TopoModel m,int idx)
+
+        public PrintModel cloneWithModel(TopoModel m, int idx)
         {
             PrintModel stl = new PrintModel();
             stl.filename = "";
-            stl.name = name+" ("+idx+")";
+            stl.name = name + " (" + idx + ")";
             stl.lastModified = lastModified;
             stl.Position.x = Position.x;
             stl.Position.y = Position.y;
@@ -158,12 +162,14 @@ namespace RepetierHost.model
             DateTime lastModiefied2 = File.GetLastWriteTime(filename);
             return lastModified != lastModiefied2.Ticks;
         }
+
         public void resetModifiedDate()
         {
             if (filename == null || filename.Length == 0) return;
             DateTime lastModified2 = File.GetLastWriteTime(filename);
             lastModified = lastModified2.Ticks;
         }
+
         public void reload()
         {
             if (File.Exists(filename))
@@ -180,7 +186,7 @@ namespace RepetierHost.model
             }
         }
 
-        public void Load(string file,InfoProgressPanel ipp)
+        public void Load(string file, InfoProgressPanel ipp)
         {
             filename = file;
             DateTime lastModified2 = File.GetLastWriteTime(filename);
@@ -258,10 +264,12 @@ namespace RepetierHost.model
             }
             originalModel.ipp = null;
         }
+
         public override string ToString()
         {
             return name;
         }
+
         /// <summary>
         /// Translate Object, so that the lowest point is 0.
         /// </summary>
@@ -270,6 +278,7 @@ namespace RepetierHost.model
             UpdateBoundingBox();
             Position.z -= zMin;
         }
+
         public void Center(float x, float y)
         {
             Land();
@@ -277,14 +286,16 @@ namespace RepetierHost.model
             Position.x += x - (float)center.x;
             Position.y += y - (float)center.y;
         }
+
         public override Vector3 getCenter()
         {
             return bbox.Center.asVector3();
         }
+
         public void UpdateMatrix()
         {
             Matrix4 transl = Matrix4.CreateTranslation(Position.x, Position.y, Position.z);
-            Matrix4 scale = Matrix4.Scale(Scale.x!=0 ? Scale.x : 1, Scale.y !=0 ? Scale.y : 1, Scale.z !=0 ? Scale.z : 1);
+            Matrix4 scale = Matrix4.Scale(Scale.x != 0 ? Scale.x : 1, Scale.y != 0 ? Scale.y : 1, Scale.z != 0 ? Scale.z : 1);
             Matrix4 rotx = Matrix4.CreateRotationX(Rotation.x * (float)Math.PI / 180.0f);
             Matrix4 roty = Matrix4.CreateRotationY(Rotation.y * (float)Math.PI / 180.0f);
             Matrix4 rotz = Matrix4.CreateRotationZ(Rotation.z * (float)Math.PI / 180.0f);
@@ -294,6 +305,7 @@ namespace RepetierHost.model
             trans = Matrix4.Mult(trans, transl);
             invTrans = Matrix4.Invert(trans);
         }
+
         public void UpdateBoundingBox()
         {
             UpdateMatrix();
@@ -312,6 +324,7 @@ namespace RepetierHost.model
             if (Main.main.objectPlacement.checkCutFaces.Checked)
                 Main.main.threedview.updateCuts = true;
         }
+
         private void includePoint(RHVector3 v)
         {
             float x, y, z;
@@ -321,6 +334,7 @@ namespace RepetierHost.model
             z = Vector4.Dot(trans.Column2, v4);
             bbox.Add(new RHVector3(x, y, z));
         }
+
         public void TransformPoint(ref Vector3 v, out float x, out float y, out float z)
         {
             Vector4 v4 = new Vector4(v, 1);
@@ -328,6 +342,7 @@ namespace RepetierHost.model
             y = Vector4.Dot(trans.Column1, v4);
             z = Vector4.Dot(trans.Column2, v4);
         }
+
         public void TransformPoint(RHVector3 v, out float x, out float y, out float z)
         {
             Vector4 v4 = v.asVector4();
@@ -335,13 +350,15 @@ namespace RepetierHost.model
             y = Vector4.Dot(trans.Column1, v4);
             z = Vector4.Dot(trans.Column2, v4);
         }
-        public void TransformPoint(RHVector3 v,RHVector3 outv)
+
+        public void TransformPoint(RHVector3 v, RHVector3 outv)
         {
             Vector4 v4 = v.asVector4();
             outv.x = Vector4.Dot(trans.Column0, v4);
             outv.y = Vector4.Dot(trans.Column1, v4);
             outv.z = Vector4.Dot(trans.Column2, v4);
         }
+
         public void ReverseTransformPoint(RHVector3 v, RHVector3 outv)
         {
             Vector4 v4 = v.asVector4();
@@ -349,14 +366,17 @@ namespace RepetierHost.model
             outv.y = Vector4.Dot(invTrans.Column1, v4);
             outv.z = Vector4.Dot(invTrans.Column2, v4);
         }
+
         public void ForceViewRegeneration()
         {
             ForceRefresh = true;
         }
-        bool lastShowEdges = false;
-        int lastRendered = -1; // 0 = all , 1 = mesh
-        bool lastSelected = false;
+
+        private bool lastShowEdges = false;
+        private int lastRendered = -1; // 0 = all , 1 = mesh
+        private bool lastSelected = false;
         public bool ForceRefresh = false;
+
         public override void Paint()
         {
             TopoModel model = ActiveModel;
@@ -364,16 +384,16 @@ namespace RepetierHost.model
             if (Main.main.objectPlacement.checkCutFaces.Checked)
             {
                 int cutpos = Main.main.objectPlacement.cutPositionSlider.Value;
-                if (ForceRefresh || Main.main.threedview.updateCuts || lastRendered!=1 || activeModel != activeSubmesh || lastShowEdges != Main.threeDSettings.ShowEdges || lastSelected != Selected)
+                if (ForceRefresh || Main.main.threedview.updateCuts || lastRendered != 1 || activeModel != activeSubmesh || lastShowEdges != Main.threeDSettings.ShowEdges || lastSelected != Selected)
                 {
                     RHVector3 normpoint = Main.main.threedview.cutPos.Add(Main.main.threedview.cutDirection);
                     RHVector3 point = new RHVector3(0, 0, 0);
                     ReverseTransformPoint(Main.main.threedview.cutPos, point);
                     ReverseTransformPoint(normpoint, normpoint);
                     RHVector3 normal = normpoint.Subtract(point);
-                    
+
                     submesh.Clear();
-                    model.CutMesh(submesh, normal, point,outside ? Submesh.MESHCOLOR_OUTSIDE : Submesh.MESHCOLOR_FRONTBACK);
+                    model.CutMesh(submesh, normal, point, outside ? Submesh.MESHCOLOR_OUTSIDE : Submesh.MESHCOLOR_FRONTBACK);
                     submesh.selected = Selected;
                     submesh.Compress();
                     lastShowEdges = Main.threeDSettings.ShowEdges;
@@ -396,13 +416,13 @@ namespace RepetierHost.model
                     lastRendered = 0;
                 }
             }
-            submesh.Draw(Main.threeDSettings.drawMethod,Main.main.threedview.cam.EdgeTranslation());
+            submesh.Draw(Main.threeDSettings.drawMethod, Main.main.threedview.cam.EdgeTranslation());
             ForceRefresh = false;
         }
+
         public OpenTK.Graphics.Color4 convertColor(Color col)
         {
             return new OpenTK.Graphics.Color4(col.R, col.G, col.B, col.A);
         }
-
     }
 }

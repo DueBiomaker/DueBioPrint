@@ -1,27 +1,24 @@
-﻿using System;
+﻿using RepetierHost.connector;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Threading;
-using RepetierHost.connector;
 
 namespace RepetierHost.model
 {
-    class VirtualPrinter
+    internal class VirtualPrinter
     {
-        float bedTemp = 20;
-        float[] extruderTemp = new float[3];
-        float[] extruderOut= new float[3];
-        GCodeAnalyzer ana;
-        LinkedList<string> output;
-        Thread writeThread = null;
-        int cnt = 0;
-        int baudrate = 250000;
-        int numExtruder = 3;
-        int activeExtruder = 0;
-        volatile int bytesin = 0;
-        VirtualPrinterConnector vcon;
+        private float bedTemp = 20;
+        private float[] extruderTemp = new float[3];
+        private float[] extruderOut = new float[3];
+        private GCodeAnalyzer ana;
+        private LinkedList<string> output;
+        private Thread writeThread = null;
+        private int cnt = 0;
+        private int baudrate = 250000;
+        private int numExtruder = 3;
+        private int activeExtruder = 0;
+        private volatile int bytesin = 0;
+        private VirtualPrinterConnector vcon;
 
         private void WriteThread()
         {
@@ -42,36 +39,37 @@ namespace RepetierHost.model
             }
         }
 
-        void timer_Tick(object sender, EventArgs e2)
+        private void timer_Tick(object sender, EventArgs e2)
         {
             string res = null;
             if (baudrate >= 250000) bytesin = 0;
             if (bytesin > 0)
             {
                 bytesin -= baudrate / 4000;
-            } else
-            do
-            {
-                res = null;
-                lock (output)
+            }
+            else
+                do
                 {
-                    if (output.Count > 0)
+                    res = null;
+                    lock (output)
                     {
-                        res = output.First.Value;
-                        output.RemoveFirst();
+                        if (output.Count > 0)
+                        {
+                            res = output.First.Value;
+                            output.RemoveFirst();
+                        }
                     }
-                }
-                if (res != null)
-                {
-                    if (res.Length > 0)
+                    if (res != null)
                     {
-                        vcon.AnalyzeResponse(res);
+                        if (res.Length > 0)
+                        {
+                            vcon.AnalyzeResponse(res);
+                        }
+                        Main.conn.connector.TrySendNextLine();
+                        //lastReceived = DateTime.Now.Ticks / 10000;
+                        //Main.conn.VirtualResponse(res);
                     }
-                    Main.conn.connector.TrySendNextLine();
-                    //lastReceived = DateTime.Now.Ticks / 10000;
-                    //Main.conn.VirtualResponse(res);
-                }
-            } while (res != null);
+                } while (res != null);
             cnt++;
             if (cnt > 500)
             {
@@ -90,6 +88,7 @@ namespace RepetierHost.model
                 }
             }
         }
+
         public VirtualPrinter(VirtualPrinterConnector vc)
         {
             vcon = vc;
@@ -112,6 +111,7 @@ namespace RepetierHost.model
         {
             writeThread.Abort();
         }
+
         public void receiveLine(GCode code)
         {
             bytesin += code.orig.Length;
@@ -124,12 +124,14 @@ namespace RepetierHost.model
                             output.AddLast("FIRMWARE_NAME:RepetierVirtualPrinter FIRMWARE_URL:https://github.com/repetier/Repetier-Firmware/ PROTOCOL_VERSION:1.0 MACHINE_TYPE:Mendel EXTRUDER_COUNT:1 REPETIER_PROTOCOL:1");
                             //output.AddLast("FIRMWARE_NAME:Marlin FIRMWARE_URL:https://github.com/repetier/Repetier-Firmware/ PROTOCOL_VERSION:1.0 MACHINE_TYPE:Mendel EXTRUDER_COUNT:1 REPETIER_PROTOCOL:1");
                             break;
+
                         case 105: // Print Temperatures
-                            output.AddLast("T:" + extruderTemp[activeExtruder].ToString("0") + " B:" + bedTemp.ToString("0.00")+" @:"+extruderOut[activeExtruder].ToString("0")+
-                                " T0:"+extruderTemp[0].ToString("0.00")+" @0:"+extruderOut[0].ToString("0")+
-                                " T1:"+extruderTemp[1].ToString("0.00")+" @1:"+extruderOut[1].ToString("0")+
-                                " T2:"+extruderTemp[2].ToString("0.00")+" @2:"+extruderOut[2].ToString("0"));
+                            output.AddLast("T:" + extruderTemp[activeExtruder].ToString("0") + " B:" + bedTemp.ToString("0.00") + " @:" + extruderOut[activeExtruder].ToString("0") +
+                                " T0:" + extruderTemp[0].ToString("0.00") + " @0:" + extruderOut[0].ToString("0") +
+                                " T1:" + extruderTemp[1].ToString("0.00") + " @1:" + extruderOut[1].ToString("0") +
+                                " T2:" + extruderTemp[2].ToString("0.00") + " @2:" + extruderOut[2].ToString("0"));
                             break;
+
                         case 205: // EEPROM Settings
                             output.AddLast("EPR:2 75 76800 Baudrate");
                             output.AddLast("EPR:2 79 0 Max. inactive time [ms,0=off]");

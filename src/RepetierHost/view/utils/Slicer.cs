@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Win32;
-using System.IO;
-using System.Diagnostics;
-using System.Windows.Forms;
-using RepetierHost.model;
-using System.ComponentModel;
+﻿using RepetierHost.model;
 using RepetierHost.model.geom;
+using System;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
 {
     public class Slicer : IDisposable
     {
-        public enum SlicerID  {Slic3r,Skeinforge,Slic3rExternal};
+        public enum SlicerID { Slic3r, Skeinforge, Slic3rExternal };
+
         private SlicerID _ActiveSlicer = SlicerID.Slic3r;
-        bool _hasSlic3r = false;
-        bool _hasSkeinforge = false;
-        bool _hasSlic3rExternal = false;
+        private bool _hasSlic3r = false;
+        private bool _hasSkeinforge = false;
+        private bool _hasSlic3rExternal = false;
         public static RHBoundingBox lastBox = new RHBoundingBox();
         private Skeinforge skein = null;
 
@@ -31,19 +28,22 @@ namespace RepetierHost.view.utils
 
             Update();
         }
+
         protected void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if(postproc!=null)
+                if (postproc != null)
                     postproc.Dispose();
             }
         }
+
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
         public bool hasSlic3r
         {
             get
@@ -51,6 +51,7 @@ namespace RepetierHost.view.utils
                 return _hasSlic3r;
             }
         }
+
         public bool hasSlic3rExternal
         {
             get
@@ -58,6 +59,7 @@ namespace RepetierHost.view.utils
                 return _hasSlic3rExternal;
             }
         }
+
         public bool hasSkeinforge
         {
             get
@@ -65,18 +67,22 @@ namespace RepetierHost.view.utils
                 return _hasSkeinforge;
             }
         }
+
         public string wrapQuotes(string text)
         {
             if (text.StartsWith("\"") && text.EndsWith("\"")) return text;
             return "\"" + text.Replace("\"", "\\\"") + "\"";
         }
+
         public delegate void LoadGCode(String myString);
-        string postprocessFile = null;
-        Process postproc=null;
+
+        private string postprocessFile = null;
+        private Process postproc = null;
+
         public void Postprocess(string file)
         {
             string dir = Main.globalSettings.Workdir;
-            if (Main.conn.runFilterEverySlice == false || postproc != null || dir.Length==0)
+            if (Main.conn.runFilterEverySlice == false || postproc != null || dir.Length == 0)
             {
                 SlicingInfo.f.Invoke(SlicingInfo.f.StopInfo);
                 LoadGCode lg = Main.main.LoadGCode;
@@ -89,7 +95,7 @@ namespace RepetierHost.view.utils
             // Copy file to work dir
             postprocessFile = file;
             string tmpfile = dir + Path.DirectorySeparatorChar + "filter.gcode";
-            File.Copy(file, tmpfile,true);
+            File.Copy(file, tmpfile, true);
             // run filter
             string full = Main.conn.filterCommand;
             int p = full.IndexOf(' ');
@@ -123,9 +129,8 @@ namespace RepetierHost.view.utils
             // Start the asynchronous read of the standard output stream.
             postproc.BeginOutputReadLine();
             postproc.BeginErrorReadLine();
-
-
         }
+
         private void PostprocessExited(object sender, System.EventArgs e)
         {
             postproc.Close();
@@ -136,15 +141,17 @@ namespace RepetierHost.view.utils
             if (SlicingInfo.f.checkStartBoxAfterSlicing.Checked && Main.conn.connector.IsConnected())
                 Main.main.Invoke(Main.main.StartJob);
         }
+
         private static void OutputDataHandler(object sendingProcess,
              DataReceivedEventArgs outLine)
         {
             // Collect the net view command output.
             if (!String.IsNullOrEmpty(outLine.Data))
             {
-                Main.conn.log("<Postprocess> "+outLine.Data, false, 4);
+                Main.conn.log("<Postprocess> " + outLine.Data, false, 4);
             }
         }
+
         private void printerPropertyChanged(object sender, PropertyChangedEventArgs evt)
         {
             if (evt.PropertyName == "ActiveSlicer")
@@ -153,10 +160,13 @@ namespace RepetierHost.view.utils
             }
         }
 
-        public SlicerID ActiveSlicer {
-            get {return _ActiveSlicer;}
-            set {
-                if(value!=_ActiveSlicer) {
+        public SlicerID ActiveSlicer
+        {
+            get { return _ActiveSlicer; }
+            set
+            {
+                if (value != _ActiveSlicer)
+                {
                     _ActiveSlicer = value;
                     Main.printerModel.ActiveSlicer = _ActiveSlicer;
                     //Main.main.repetierKey.SetValue("ActiveSlicer", (int)_ActiveSlicer);
@@ -165,19 +175,20 @@ namespace RepetierHost.view.utils
                 Main.main.skeinforgeToolStripMenuItem1.Checked = _ActiveSlicer == SlicerID.Skeinforge;
                 Main.main.externalSlic3rToolStripMenuItem.Checked = _ActiveSlicer == SlicerID.Slic3rExternal;
                 //Main.main.stlComposer1.buttonSlice.Text = Trans.T1("L_SLICE_WITH", SlicerName);
-                if( Main.main.slicerPanel!=null)
+                if (Main.main.slicerPanel != null)
                     Main.main.slicerPanel.UpdateSelection();
             }
         }
+
         public void Update()
         {
-            string basedir = (string)Main.main.repetierKey.GetValue("installPath","");
-            _hasSlic3r = Main.slic3r.findSlic3rExecutable()!=null;
+            string basedir = (string)Main.main.repetierKey.GetValue("installPath", "");
+            _hasSlic3r = Main.slic3r.findSlic3rExecutable() != null;
             /*if(basedir.Length>0) {
                 string exname = "slic3r.exe";
                 if (Environment.OSVersion.Platform == PlatformID.Unix)
                     exname = "bin" + Path.DirectorySeparatorChar + "slic3r";
-                if(Main.IsMac) 
+                if(Main.IsMac)
                     exname = "MacOS"+Path.DirectorySeparatorChar+"slic3r";
                 _hasSlic3r = File.Exists(basedir+Path.DirectorySeparatorChar+"Slic3r"+Path.DirectorySeparatorChar+exname);
             }
@@ -185,8 +196,9 @@ namespace RepetierHost.view.utils
                 (_hasSlic3r || File.Exists(BasicConfiguration.basicConf.ExternalSlic3rPath));
             */
             _hasSkeinforge = false;
-            if(skein.textPython.Text.Length>0 && skein.textSkeinforge.Text.Length>0 && 
-                skein.textSkeinforgeCraft.Text.Length>0) {
+            if (skein.textPython.Text.Length > 0 && skein.textSkeinforge.Text.Length > 0 &&
+                skein.textSkeinforgeCraft.Text.Length > 0)
+            {
                 _hasSkeinforge = File.Exists(skein.textPython.Text) && File.Exists(skein.textSkeinforge.Text) &&
                     File.Exists(skein.textSkeinforgeCraft.Text);
             }
@@ -209,6 +221,7 @@ namespace RepetierHost.view.utils
                 ActiveSlicer = SlicerID.Slic3r;
             else ActiveSlicer = _ActiveSlicer;
         }
+
         /// <summary>
         /// Convert STL in GCode and load into editor
         /// </summary>
@@ -224,19 +237,23 @@ namespace RepetierHost.view.utils
                     Main.slic3r.RunSliceExternal(file, Main.printerSettings.PrintAreaWidth / 2, Main.printerSettings.PrintAreaDepth / 2);
                     break;*/
                 case SlicerID.Skeinforge:
-                    skein.RunSlice(file,Main.printerModel.SkeinforgeProfile);
+                    skein.RunSlice(file, Main.printerModel.SkeinforgeProfile);
                     break;
             }
         }
+
         public string SlicerName
         {
-            get {
+            get
+            {
                 switch (_ActiveSlicer)
                 {
                     case SlicerID.Slic3r:
                         return "Slic3r";
+
                     case SlicerID.Slic3rExternal:
                         return "external Slic3r";
+
                     case SlicerID.Skeinforge:
                         {
                             if (BasicConfiguration.basicConf.SkeinforgeProfileDir.IndexOf("sfact") >= 0)

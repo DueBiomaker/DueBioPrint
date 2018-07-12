@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model.geom
 {
@@ -17,38 +15,46 @@ namespace RepetierHost.model.geom
             v1 = _v1;
             v2 = _v2;
         }
+
         public bool isBuildOf(TopoVertex _v1, TopoVertex _v2)
         {
             return (v1 == _v1 && v2 == _v2) || (v1 == _v2 && v2 == _v1);
         }
+
         public int connectedFaces
         {
             get { return faces.Count; }
         }
+
         public void connectFace(TopoTriangle face)
         {
             faces.AddLast(face);
         }
-        public void disconnectFace(TopoTriangle face,TopoModel model)
+
+        public void disconnectFace(TopoTriangle face, TopoModel model)
         {
             faces.Remove(face);
             if (faces.Count == 0)
                 model.edges.Remove(this);
         }
+
         public void MarkConnectedFacesBad()
         {
             foreach (TopoTriangle triangle in faces)
                 triangle.bad = true;
         }
+
         public double DihedralAngle()
         {
             if (faces.Count != 2) throw new Exception("DihedralAngle requires edge with 2 faces");
             return faces.First.Value.normal.AngleForNormalizedVectors(faces.Last.Value.normal);
         }
+
         public bool ContainsVertex(TopoVertex v)
         {
-            return v1==v || v2==v;
+            return v1 == v || v2 == v;
         }
+
         public List<TopoEdge> FindNeighbourEdgesWithOneFace()
         {
             List<TopoEdge> list = null;
@@ -59,7 +65,7 @@ namespace RepetierHost.model.geom
                 for (int e = 0; e < 3; e++)
                 {
                     TopoEdge testEdge = face.edges[e];
-                    if(testEdge.connectedFaces!=1) continue;
+                    if (testEdge.connectedFaces != 1) continue;
                     if (testEdge.ContainsVertex(v1))
                     {
                         if (list == null) list = new List<TopoEdge>();
@@ -83,10 +89,12 @@ namespace RepetierHost.model.geom
             }
             return list;
         }
+
         public double EdgeLength
         {
             get { return v1.pos.Subtract(v2.pos).Length; }
         }
+
         public TopoTriangle GetFaceExcept(TopoTriangle notThis)
         {
             foreach (TopoTriangle test in faces)
@@ -96,13 +104,15 @@ namespace RepetierHost.model.geom
             }
             return null;
         }
+
         /// <summary>
         /// Splits an edge and changes the connected triangles to maintain
         /// a topological correct system.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="vertex"></param>
-        public void InsertVertex(TopoModel model,TopoVertex vertex) {
+        public void InsertVertex(TopoModel model, TopoVertex vertex)
+        {
             LinkedList<TopoTriangle> delList = new LinkedList<TopoTriangle>();
             LinkedList<TopoTriangle> testFaces = new LinkedList<TopoTriangle>();
             foreach (TopoTriangle oldTriangle in faces)
@@ -125,7 +135,7 @@ namespace RepetierHost.model.geom
                                 TopoTriangle neigbour = newTriangle.edges[i].GetFaceExcept(newTriangle);
                                 if (neigbour != null)
                                 {
-                                    if(!newTriangle.SameNormalOrientation(neigbour))
+                                    if (!newTriangle.SameNormalOrientation(neigbour))
                                         newTriangle.FlipDirection();
                                     break;
                                 }
@@ -159,6 +169,7 @@ namespace RepetierHost.model.geom
                 model.removeTriangle(tri);
             }
         }
+
         public TopoTriangle FirstTriangle
         {
             get
@@ -167,15 +178,17 @@ namespace RepetierHost.model.geom
                 return faces.First.Value;
             }
         }
+
         public bool ProjectPoint(RHVector3 p, out double lambda, RHVector3 pProjected)
         {
             RHVector3 u = v2.pos.Subtract(v1.pos);
-            lambda = p.Subtract(v1.pos).ScalarProduct(u)/u.ScalarProduct(u);
+            lambda = p.Subtract(v1.pos).ScalarProduct(u) / u.ScalarProduct(u);
             pProjected.x = v1.pos.x + lambda * u.x;
             pProjected.y = v1.pos.y + lambda * u.y;
             pProjected.z = v1.pos.z + lambda * u.z;
             return lambda >= 0 && lambda <= 1;
         }
+
         public TopoVertex this[int pos]
         {
             get
@@ -184,13 +197,14 @@ namespace RepetierHost.model.geom
                 else return v2;
             }
         }
+
         public override string ToString()
         {
             return "Edge(" + connectedFaces + ") = [" + v1.pos + "," + v2.pos + "]";
         }
     }
 
-    public class TopoEdgePair: IComparer<TopoEdgePair>,IComparable<TopoEdgePair>
+    public class TopoEdgePair : IComparer<TopoEdgePair>, IComparable<TopoEdgePair>
     {
         public TopoEdge edgeA, edgeB;
         public double alphaBeta; // Sum of dihedral angles to a virtual shared triangle
@@ -233,14 +247,17 @@ namespace RepetierHost.model.geom
             if (alphaBeta > Math.PI) // normal was wrong direction
                 alphaBeta = 2 * Math.PI - alphaBeta;
         }
+
         public bool ContainsEdge(TopoEdge edge)
         {
             return edgeA == edge || edgeB == edge;
         }
+
         public bool ContainsEdgePair(TopoEdge a, TopoEdge b)
         {
             return ContainsEdge(a) && ContainsEdge(b);
         }
+
         public static bool ContainsListPair(List<TopoEdgePair> list, TopoEdge a, TopoEdge b)
         {
             foreach (TopoEdgePair pair in list)
@@ -249,6 +266,7 @@ namespace RepetierHost.model.geom
             }
             return false;
         }
+
         public TopoEdge CommonThirdEdge()
         {
             TopoVertex v1 = edgeA.v1;
@@ -265,6 +283,7 @@ namespace RepetierHost.model.geom
             }
             return null;
         }
+
         public TopoTriangle BuildTriangle(TopoModel model)
         {
             TopoVertex sharedPoint = null;
@@ -301,6 +320,7 @@ namespace RepetierHost.model.geom
             model.AddTriangle(newTriangle);
             return newTriangle;
         }
+
         public int Compare(TopoEdgePair pair1, TopoEdgePair pair2)
         {
             int returnValue = 1;
@@ -318,17 +338,20 @@ namespace RepetierHost.model.geom
             }
             return returnValue;
         }
+
         public bool Valid()
         {
             return edgeA.connectedFaces == 1 && edgeB.connectedFaces == 1;
         }
+
         public int CompareTo(TopoEdgePair pair)
         {
             return Compare(this, pair);
         }
+
         public override string ToString()
         {
-            return "EdgePair:" + edgeA + " - " + edgeB+" ab = "+alphaBeta;
+            return "EdgePair:" + edgeA + " - " + edgeB + " ab = " + alphaBeta;
         }
     }
 }

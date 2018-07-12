@@ -14,11 +14,7 @@
    limitations under the License.
 */
 
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
 
 namespace RepetierHost.model
 {
@@ -29,22 +25,24 @@ namespace RepetierHost.model
         public string description;
         public int type;
         public int position;
-        string val="";
-        bool changed = false;
+        private string val = "";
+        private bool changed = false;
 
         public EEPROMParameter(string line)
         {
             update(line);
         }
+
         public void update(string line)
         {
             string[] lines = line.Substring(4).Split(' ');
             int.TryParse(lines[0], out type);
             int.TryParse(lines[1], out position);
             val = lines[2];
-            description = line.Substring(7+lines[0].Length+lines[1].Length+lines[2].Length);
+            description = line.Substring(7 + lines[0].Length + lines[1].Length + lines[2].Length);
             changed = false;
         }
+
         public void save()
         {
             if (!changed) return; // nothing changed
@@ -54,41 +52,50 @@ namespace RepetierHost.model
             Main.conn.injectManualCommand(cmd);
             changed = false;
         }
+
         //[DisplayName("Description")]
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
+
         //[DisplayName("Value")]
-        public string Value {
+        public string Value
+        {
             get { return val; }
-            set { 
-                value = value.Replace(',','.').Trim(); 
-                if (val.Equals(value)) return; 
-                val = value; 
-                changed = true; 
+            set
+            {
+                value = value.Replace(',', '.').Trim();
+                if (val.Equals(value)) return;
+                val = value;
+                changed = true;
             }
         }
     }
+
     public class EEPROMStorage
     {
-        public Dictionary<int,EEPROMParameter> list;
+        public Dictionary<int, EEPROMParameter> list;
+
         public event OnEEPROMAdded eventAdded = null;
 
         public EEPROMStorage()
         {
-            list = new Dictionary<int,EEPROMParameter>();
+            list = new Dictionary<int, EEPROMParameter>();
         }
+
         public void Clear()
         {
             list.Clear();
         }
+
         public void Save()
         {
             foreach (EEPROMParameter p in list.Values)
                 p.save();
         }
+
         public void Add(string line)
         {
             if (!line.StartsWith("EPR:")) return;
@@ -99,10 +106,12 @@ namespace RepetierHost.model
             if (eventAdded != null)
                 Main.main.Invoke(eventAdded, p);
         }
+
         public void Update()
         {
             Main.conn.injectManualCommand("M205");
         }
+
         public EEPROMParameter Get(int pos)
         {
             return list[pos];

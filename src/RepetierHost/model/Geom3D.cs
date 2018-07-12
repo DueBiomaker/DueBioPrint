@@ -1,41 +1,45 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace RepetierHost.model
 {
     public class Geom3DVector
     {
         public float x, y, z;
+
         public Geom3DVector(float _x, float _y, float _z)
         {
             x = _x;
             y = _y;
             z = _z;
         }
+
         public Geom3DVector(Geom3DVector v)
         {
             x = v.x;
             y = v.y;
             z = v.z;
         }
+
         public Geom3DVector scale(float fac)
         {
             return new Geom3DVector(x * fac, y * fac, z * fac);
         }
+
         public Geom3DVector add(Geom3DVector v)
         {
             return new Geom3DVector(x + v.x, y + v.y, z + v.z);
         }
+
         public Geom3DVector sub(Geom3DVector v)
         {
             return new Geom3DVector(x - v.x, y - v.y, z - v.z);
         }
+
         public float Length
         {
             get { return (float)Math.Sqrt(x * x + y * y + z * z); }
         }
+
         public void normalize()
         {
             float f = 1.0f / Length;
@@ -43,15 +47,18 @@ namespace RepetierHost.model
             y *= f;
             z *= f;
         }
+
         public override string ToString()
         {
-            return "("+x+"; "+y+"; "+z+")";
+            return "(" + x + "; " + y + "; " + z + ")";
         }
     }
+
     public class Geom3DLine
     {
         public Geom3DVector point;
         public Geom3DVector dir;
+
         public Geom3DLine(Geom3DVector pt, Geom3DVector v, bool isDir)
         {
             point = new Geom3DVector(pt);
@@ -60,20 +67,24 @@ namespace RepetierHost.model
             else
                 dir = v.sub(pt);
         }
+
         public override string ToString()
         {
-            return "Line "+point+"->"+dir;
+            return "Line " + point + "->" + dir;
         }
     }
+
     public class Geom3DPlane
     {
         public Geom3DVector origin;
         public Geom3DVector normal;
+
         public Geom3DPlane(Geom3DVector o, Geom3DVector norm)
         {
             origin = new Geom3DVector(o);
             normal = new Geom3DVector(norm);
         }
+
         /// <summary>
         /// Inersection of plane with line
         /// </summary>
@@ -95,9 +106,10 @@ namespace RepetierHost.model
             inter.z = line.point.z + r * line.dir.z;
             return true;
         }
+
         public override string ToString()
         {
-            return "Plane "+origin+"*"+normal;
+            return "Plane " + origin + "*" + normal;
         }
     }
 }

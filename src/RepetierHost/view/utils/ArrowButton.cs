@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using RepetierHost.model;
+using System;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing.Drawing2D;
-using RepetierHost.model;
+using System.Windows.Forms;
 
 namespace RepetierHost.view.utils
 {
-    public delegate void ArrowValueChanged(ArrowButton sender,string value);
+    public delegate void ArrowValueChanged(ArrowButton sender, string value);
+
     public partial class ArrowButton : Button
     {
         private GraphicsPath path;
@@ -21,7 +17,9 @@ namespace RepetierHost.view.utils
         private Color gradientEnd = Color.Violet;
         private Color highGradientStart = Color.White;
         private Color highGradientEnd = Color.Red;
+
         public event ArrowValueChanged arrowValueChanged = null;
+
         private bool _clicked = false;
         private int hoverWidth;
         private int _rotation = 0;
@@ -36,39 +34,47 @@ namespace RepetierHost.view.utils
         {
             InitializeComponent();
         }
+
         public string CurrentValue
         {
             get { return currentValue; }
         }
+
         public float CurrentValueF
         {
             get { if (currentValue.Length == 0) return 0; return float.Parse(currentValue, GCode.format); }
         }
+
         public string Title
         {
             get { return title; }
             set { title = value; Invalidate(); }
         }
+
         public string PossibleValues
         {
             get { return possibleValues; }
             set { possibleValues = value; Invalidate(); }
         }
+
         public Color GradientStartColor
         {
             get { return gradientStart; }
             set { gradientStart = value; Invalidate(); }
         }
+
         public Color GradientEndColor
         {
             get { return gradientEnd; }
             set { gradientEnd = value; Invalidate(); }
         }
+
         public Color HighGradientStartColor
         {
             get { return highGradientStart; }
             set { highGradientStart = value; Invalidate(); }
         }
+
         public Color HighGradientEndColor
         {
             get { return highGradientEnd; }
@@ -80,11 +86,13 @@ namespace RepetierHost.view.utils
             get { return drawFont; }
             set { drawFont = value; Invalidate(); }
         }
+
         public float ArrowBaseHeight
         {
             get { return arrowBaseHeight; }
             set { arrowBaseHeight = value; Invalidate(); }
         }
+
         public int ArrowHeadWidth
         {
             get { return arrowHeadWidth; }
@@ -120,11 +128,11 @@ namespace RepetierHost.view.utils
             Rectangle rect = new Rectangle(0, 0, Width, Height);
 
             LinearGradientBrush linearBrush = null;
-            if(Enabled)
-              linearBrush = new LinearGradientBrush(rect,
-              gradientStart,
-              gradientEnd,
-              _rotation);
+            if (Enabled)
+                linearBrush = new LinearGradientBrush(rect,
+                gradientStart,
+                gradientEnd,
+                _rotation);
             else
                 linearBrush = new LinearGradientBrush(rect,
                 Color.SlateGray,
@@ -145,8 +153,8 @@ namespace RepetierHost.view.utils
             {
                 case 0:
                     {
-                        int h = Height-1;
-                        int w = Width-1;
+                        int h = Height - 1;
+                        int w = Width - 1;
                         int wa = w - arrowHeadWidth;
                         int h1 = (int)(h * (1 - arrowBaseHeight) / 2.0f);
                         PointF[] la =
@@ -176,11 +184,12 @@ namespace RepetierHost.view.utils
                         cliphover = new Region(new Rectangle(0, 0, hoverWidth, Height));
                     }
                     break;
+
                 case 90:
                     {
                         int h = Height - 1;
                         int w = Width - 1;
-                        int ha = h-arrowHeadWidth+1;
+                        int ha = h - arrowHeadWidth + 1;
                         int w1 = (int)(w * (1 - arrowBaseHeight) / 2.0f);
                         PointF[] la =
              {
@@ -207,14 +216,14 @@ namespace RepetierHost.view.utils
              };
                         innerPath.AddLines(la2);
                         cliphover = new Region(new Rectangle(0, 0, Width, hoverWidth));
-
                     }
                     break;
+
                 case 180:
                     {
                         int h = Height - 1;
                         int w = Width - 1;
-                        int wa = arrowHeadWidth+1;
+                        int wa = arrowHeadWidth + 1;
                         int h1 = (int)(h * (1 - arrowBaseHeight) / 2.0f);
                         PointF[] la =
              {
@@ -240,10 +249,10 @@ namespace RepetierHost.view.utils
                  new PointF(w+1,h1-1)
              };
                         innerPath.AddLines(la2);
-
                     }
-                    cliphover = new Region(new Rectangle(Width-hoverWidth, 0, hoverWidth, Height));
+                    cliphover = new Region(new Rectangle(Width - hoverWidth, 0, hoverWidth, Height));
                     break;
+
                 case 270:
                     {
                         int h = Height - 1;
@@ -275,7 +284,7 @@ namespace RepetierHost.view.utils
              };
                         innerPath.AddLines(la2);
 
-                        cliphover = new Region(new Rectangle(0, Height-hoverWidth, Width, hoverWidth));
+                        cliphover = new Region(new Rectangle(0, Height - hoverWidth, Width, hoverWidth));
                     }
                     break;
             }
@@ -295,38 +304,42 @@ namespace RepetierHost.view.utils
             g.Clip = new Region(path);
             switch (_rotation)
             {
-                case 0: {
-                    for (int i = 0; i < va.Length-1; i++)
-                    {
-                        int pos = (i + 1) * Width / va.Length;
-                        g.DrawLine(Pens.DarkGray,pos,0,pos,Height);
-                    }
-                }
-                    break;
-                case 180:
+                case 0:
                     {
                         for (int i = 0; i < va.Length - 1; i++)
                         {
-                            int pos = Width-(i + 1) * Width / va.Length;
+                            int pos = (i + 1) * Width / va.Length;
                             g.DrawLine(Pens.DarkGray, pos, 0, pos, Height);
                         }
                     }
                     break;
+
+                case 180:
+                    {
+                        for (int i = 0; i < va.Length - 1; i++)
+                        {
+                            int pos = Width - (i + 1) * Width / va.Length;
+                            g.DrawLine(Pens.DarkGray, pos, 0, pos, Height);
+                        }
+                    }
+                    break;
+
                 case 90:
                     {
                         for (int i = 0; i < va.Length - 1; i++)
                         {
                             int pos = (i + 1) * Height / va.Length;
-                            g.DrawLine(Pens.DarkGray,0, pos, Width, pos);
+                            g.DrawLine(Pens.DarkGray, 0, pos, Width, pos);
                         }
                     }
                     break;
+
                 case 270:
                     {
                         for (int i = 0; i < va.Length - 1; i++)
                         {
                             int pos = Height - (i + 1) * Height / va.Length;
-                            g.DrawLine(Pens.DarkGray,0, pos, Width, pos);
+                            g.DrawLine(Pens.DarkGray, 0, pos, Width, pos);
                         }
                     }
                     break;
@@ -372,6 +385,7 @@ namespace RepetierHost.view.utils
             _clicked = false;
             base.OnMouseUp(mevent);
         }
+
         protected override void OnMouseMove(MouseEventArgs mevent)
         {
             if (!Enabled) return;
@@ -382,12 +396,12 @@ namespace RepetierHost.view.utils
             if (_rotation == 0 || _rotation == 180)
             {
                 full = Width;
-                percent = (_rotation==0? mevent.X :Width-mevent.X) / (float)Width;
+                percent = (_rotation == 0 ? mevent.X : Width - mevent.X) / (float)Width;
             }
             else
             {
                 full = Height;
-                percent = (_rotation==90 ? mevent.Y : Height-mevent.Y)/ (float)Height;
+                percent = (_rotation == 90 ? mevent.Y : Height - mevent.Y) / (float)Height;
             }
             string[] vl = possibleValues.Split(';');
             int p = (int)(percent * vl.Length);

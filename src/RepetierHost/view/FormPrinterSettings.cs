@@ -14,29 +14,26 @@
    limitations under the License.
 */
 
+using Microsoft.Win32;
+using RepetierHost.connector;
+using RepetierHost.model;
+using RepetierHost.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.IO.Ports;
-using Microsoft.Win32;
-using RepetierHost.model;
-using RepetierHost.view.utils;
 using System.Globalization;
-using System.IO;
-using RepetierHost.connector;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
-    public delegate void PrinterChanged(RegistryKey printerKey,bool printerChanged);
+    public delegate void PrinterChanged(RegistryKey printerKey, bool printerChanged);
+
     public partial class FormPrinterSettings : Form
     {
         public static FormPrinterSettings ps = null;
+
         public event PrinterChanged eventPrinterChanged;
+
         public RegistryKey repetierKey;
         public RegistryKey printerKey;
         public RegistryKey currentPrinterKey;
@@ -45,8 +42,10 @@ namespace RepetierHost.view
         public float PrintAreaDepth;
         public float PrintAreaHeight;
         public float XMin, XMax, YMin, YMax, BedLeft, BedFront;
+
         //public bool HasDumpArea;
         public float DumpAreaLeft;
+
         public float DumpAreaFront;
         public float DumpAreaWidth;
         public float DumpAreaDepth;
@@ -55,8 +54,8 @@ namespace RepetierHost.view
         public float rostockRadius;
         public float cncZTop;
         private List<PrinterConnectorBase> connectors = new List<PrinterConnectorBase>();
-        int xhomeMode = 0, yhomeMode = 0, zhomemode = 0;
-        UserControl connectorPanel = null;
+        private int xhomeMode = 0, yhomeMode = 0, zhomemode = 0;
+        private UserControl connectorPanel = null;
 
         public FormPrinterSettings()
         {
@@ -80,25 +79,26 @@ namespace RepetierHost.view
             load(con.printerName);
             formToCon();
             UpdateDimensions();
-           /* if (Custom.GetBool("noDisposeArea", false))
-            {
-                labelDumpAreaDepth.Visible = false;
-                labelDumpAreaFront.Visible = false;
-                labelDumpAreaLeft.Visible = false;
-                labelDumpAreaWidth.Visible = false;
-                labelDumpUnit1.Visible = false;
-                labelDumpUnit2.Visible = false;
-                labelDumpUnit3.Visible = false;
-                labelDumpUnit4.Visible = false;
-                checkHasDumpArea.Visible = false;
-                textDumpAreaDepth.Visible = false;
-                textDumpAreaFront.Visible = false;
-                textDumpAreaLeft.Visible = false;
-                textDumpAreaWidth.Visible = false;
-            }*/
+            /* if (Custom.GetBool("noDisposeArea", false))
+             {
+                 labelDumpAreaDepth.Visible = false;
+                 labelDumpAreaFront.Visible = false;
+                 labelDumpAreaLeft.Visible = false;
+                 labelDumpAreaWidth.Visible = false;
+                 labelDumpUnit1.Visible = false;
+                 labelDumpUnit2.Visible = false;
+                 labelDumpUnit3.Visible = false;
+                 labelDumpUnit4.Visible = false;
+                 checkHasDumpArea.Visible = false;
+                 textDumpAreaDepth.Visible = false;
+                 textDumpAreaFront.Visible = false;
+                 textDumpAreaLeft.Visible = false;
+                 textDumpAreaWidth.Visible = false;
+             }*/
             Main.main.languageChanged += translate;
             translate();
         }
+
         public void translate()
         {
             labelAddPrintingTime.Text = Trans.T("L_ADD_PRINTING_TIME");
@@ -163,16 +163,19 @@ namespace RepetierHost.view
             comboBoxPrinterType.Items[3] = Trans.T("L_CNC_ROUTER");
             labelConnector.Text = Trans.T("L_CONNECTOR:");
         }
+
         public void addConnector(PrinterConnectorBase con)
         {
             connectors.Add(con);
             comboConnector.Items.Add(con.Name);
         }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
             this.Hide();
-        } 
+        }
+
         public void save(string printername)
         {
             if (printername.Length == 0) return;
@@ -217,16 +220,17 @@ namespace RepetierHost.view
             p.SetValue("rostockHeight", textBoxRostockHeight.Text);
             p.SetValue("rostockRadius", textBoxRostockRadius.Text);
             p.SetValue("cncZTop", textCNCZTop.Text);
-            p.SetValue("connector",Main.conn.connector.Id);
+            p.SetValue("connector", Main.conn.connector.Id);
             Main.conn.connector.SaveToRegistry();
         }
+
         public void load(string printername)
         {
             if (printername.Length == 0) return;
             comboPrinter.Text = printername;
             RegistryKey p = printerKey.CreateSubKey(printername);
             currentPrinterKey = p;
-            string id = (string)p.GetValue("connector","SerialConnector");
+            string id = (string)p.GetValue("connector", "SerialConnector");
             int idx = 0;
             foreach (PrinterConnectorBase b in connectors)
             {
@@ -235,9 +239,9 @@ namespace RepetierHost.view
             }
             comboConnector.SelectedIndex = idx;
             comboConnector_SelectedIndexChanged(null, null);
-            textTravelFeedrate.Text = (string)p.GetValue("travelFeedrate",textTravelFeedrate.Text);
-            textZFeedrate.Text = (string)p.GetValue("zAxisFeedrate",textZFeedrate.Text);
-            checkTemp.Checked = ((int)p.GetValue("checkTemp", checkTemp.Checked ? 1 : 0))==1?true:false;
+            textTravelFeedrate.Text = (string)p.GetValue("travelFeedrate", textTravelFeedrate.Text);
+            textZFeedrate.Text = (string)p.GetValue("zAxisFeedrate", textZFeedrate.Text);
+            checkTemp.Checked = ((int)p.GetValue("checkTemp", checkTemp.Checked ? 1 : 0)) == 1 ? true : false;
             trackTempPeriod.Value = (int)p.GetValue("checkTempInterval", trackTempPeriod.Value);
             textDisposeX.Text = (string)p.GetValue("disposeX", textDisposeX.Text);
             textDisposeY.Text = (string)p.GetValue("disposeY", textDisposeY.Text);
@@ -245,12 +249,12 @@ namespace RepetierHost.view
             checkGoDisposeAfterJob.Checked = 1 == (int)p.GetValue("goDisposeAfterJob", checkGoDisposeAfterJob.Checked ? 1 : 0);
             checkDisableHeatedBedAfterJob.Checked = 1 == (int)p.GetValue("disableHeatedBetAfterJob", checkDisableHeatedBedAfterJob.Checked ? 1 : 0);
             checkDisableExtruderAfterJob.Checked = 1 == (int)p.GetValue("disableExtruderAfterJob", checkDisableExtruderAfterJob.Checked ? 1 : 0);
-            checkDisableMotors.Checked = 1 == (int) p.GetValue("disableMotorsAfterJob", checkDisableMotors.Checked ? 1 : 0);
-            labelCheckEveryX.Text = Trans.T1("L_CHECK_EVERY_X",trackTempPeriod.Value.ToString());
+            checkDisableMotors.Checked = 1 == (int)p.GetValue("disableMotorsAfterJob", checkDisableMotors.Checked ? 1 : 0);
+            labelCheckEveryX.Text = Trans.T1("L_CHECK_EVERY_X", trackTempPeriod.Value.ToString());
             textPrintAreaWidth.Text = (string)p.GetValue("printAreaWidth", textPrintAreaWidth.Text);
             textPrintAreaDepth.Text = (string)p.GetValue("printAreaDepth", textPrintAreaDepth.Text);
             textPrintAreaHeight.Text = (string)p.GetValue("printAreaHeight", textPrintAreaHeight.Text);
-            bool hasDump = 1==(int)p.GetValue("hasDumpArea", 0);
+            bool hasDump = 1 == (int)p.GetValue("hasDumpArea", 0);
             textDumpAreaLeft.Text = (string)p.GetValue("dumpAreaLeft", textDumpAreaLeft.Text);
             textDumpAreaFront.Text = (string)p.GetValue("dumpAreaFront", textDumpAreaFront.Text);
             textDumpAreaWidth.Text = (string)p.GetValue("dumpAreaWidth", textDumpAreaWidth.Text);
@@ -279,6 +283,7 @@ namespace RepetierHost.view
             textBoxRostockRadius.Text = (string)p.GetValue("rostockRadius", textBoxRostockRadius.Text);
             textCNCZTop.Text = (string)p.GetValue("cncZTop", textCNCZTop.Text);
         }
+
         public void UpdateDimensions()
         {
             printerType = comboBoxPrinterType.SelectedIndex;
@@ -306,9 +311,9 @@ namespace RepetierHost.view
                 BedFront = BedLeft = -rostockRadius;
                 XMin = YMin = -rostockRadius;
                 XMax = YMax = rostockRadius;
-
             }
         }
+
         public bool PointInside(float x, float y, float z)
         {
             if (z < -0.001 || z > PrintAreaHeight) return false;
@@ -324,6 +329,7 @@ namespace RepetierHost.view
             }
             return true;
         }
+
         public void formToCon()
         {
             bool pnchanged = !con.printerName.Equals(comboPrinter.Text);
@@ -347,12 +353,12 @@ namespace RepetierHost.view
               }
               con.pingpong = checkPingPong.Checked;
             int.TryParse(textReceiveCacheSize.Text, out con.receiveCacheSize);
-            
+
              * */
             float.TryParse(textTravelFeedrate.Text, out con.travelFeedRate);
             float.TryParse(textZFeedrate.Text, out con.maxZFeedRate);
             con.autocheckTemp = checkTemp.Checked;
-            con.autocheckInterval = trackTempPeriod.Value*1000;
+            con.autocheckInterval = trackTempPeriod.Value * 1000;
             float.TryParse(textDisposeX.Text, NumberStyles.Float, GCode.format, out con.disposeX);
             float.TryParse(textDisposeY.Text, NumberStyles.Float, GCode.format, out con.disposeY);
             float.TryParse(textDisposeZ.Text, NumberStyles.Float, GCode.format, out con.disposeZ);
@@ -369,7 +375,7 @@ namespace RepetierHost.view
             {
                 try
                 {
-                    if(!(con.analyzer.activeExtruder.temperature>0))
+                    if (!(con.analyzer.activeExtruder.temperature > 0))
                         Main.main.printPanel.numericUpDownExtruder.Value = int.Parse(textDefaultExtruderTemp.Text);
                 }
                 catch (FormatException)
@@ -379,7 +385,7 @@ namespace RepetierHost.view
                 }
                 try
                 {
-                    if(!(con.analyzer.bedTemp>0))
+                    if (!(con.analyzer.bedTemp > 0))
                         Main.main.printPanel.numericPrintBed.Value = int.Parse(textDefaultHeatedBedTemp.Text);
                 }
                 catch (FormatException)
@@ -390,8 +396,9 @@ namespace RepetierHost.view
                 Main.main.printPanel.refillExtruder();
             }
             if (eventPrinterChanged != null)
-                eventPrinterChanged(currentPrinterKey,pnchanged);
+                eventPrinterChanged(currentPrinterKey, pnchanged);
         }
+
         public void conToForm()
         {
             comboPrinter.Text = con.printerName;
@@ -418,7 +425,7 @@ namespace RepetierHost.view
             textTravelFeedrate.Text = con.travelFeedRate.ToString(GCode.format);
             textZFeedrate.Text = con.maxZFeedRate.ToString(GCode.format);
             checkTemp.Checked = con.autocheckTemp;
-            trackTempPeriod.Value = (int)(con.autocheckInterval/1000);
+            trackTempPeriod.Value = (int)(con.autocheckInterval / 1000);
             textDisposeX.Text = con.disposeX.ToString(GCode.format);
             textDisposeY.Text = con.disposeY.ToString(GCode.format);
             textDisposeZ.Text = con.disposeZ.ToString(GCode.format);
@@ -438,6 +445,7 @@ namespace RepetierHost.view
                 textDefaultHeatedBedTemp.Text = Main.main.printPanel.numericPrintBed.Value.ToString("0");
             }
         }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             buttonApply_Click(null, null);
@@ -463,7 +471,7 @@ namespace RepetierHost.view
         private void buttonApply_Click(object sender, EventArgs e)
         {
             string name = comboPrinter.Text;
-            if(name.Length==0) return;
+            if (name.Length == 0) return;
             save(comboPrinter.Text);
             if (comboPrinter.Items.IndexOf(name) < 0)
             {
@@ -479,9 +487,9 @@ namespace RepetierHost.view
             if (comboPrinter.SelectedIndex < 0) return;
             load(comboPrinter.Text);
             formToCon();
-            UpdateDimensions(); 
+            UpdateDimensions();
             repetierKey.SetValue("currentPrinter", comboPrinter.Text);
-            if (Main.main != null && Main.main.printerIdLabel!=null)
+            if (Main.main != null && Main.main.printerIdLabel != null)
             {
                 bool updateName = false;
                 foreach (object o in comboPrinter.Items)
@@ -489,7 +497,7 @@ namespace RepetierHost.view
                     if (o.ToString() == Main.main.printerIdLabel.Text)
                         updateName = true;
                 }
-                if(updateName == true)
+                if (updateName == true)
                     Main.main.printerIdLabel.Text = comboPrinter.Text;
             }
             if (Main.main != null && Main.main.editor != null)
@@ -498,13 +506,13 @@ namespace RepetierHost.view
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Trans.T1("L_REALLY_DELETE_PRINTER",/*Do you realy want to delete all settings for*/ comboPrinter.Text),Trans.T("L_SECURITY_QUESTION"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (MessageBox.Show(Trans.T1("L_REALLY_DELETE_PRINTER",/*Do you realy want to delete all settings for*/ comboPrinter.Text), Trans.T("L_SECURITY_QUESTION"), MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 string name = comboPrinter.Text;
                 printerKey.DeleteSubKeyTree(comboPrinter.Text);
                 comboPrinter.Items.Remove(name);
                 comboPrinter.Text = "";
-                if(comboPrinter.Items.Count>0)
+                if (comboPrinter.Items.Count > 0)
                     comboPrinter.SelectedIndex = 0;
             }
         }
@@ -527,6 +535,7 @@ namespace RepetierHost.view
                 errorProvider.SetError(box, Trans.T("L_NOT_A_NUMBER"));
             }
         }
+
         private void int_Validating(object sender, CancelEventArgs e)
         {
             TextBox box = (TextBox)sender;
@@ -545,6 +554,7 @@ namespace RepetierHost.view
         {
             RegMemory.StoreWindowPos("printerSettingsWindow", this, false, false);
         }
+
         public float XHomePos
         {
             get
@@ -558,6 +568,7 @@ namespace RepetierHost.view
                 return 0;
             }
         }
+
         public float YHomePos
         {
             get
@@ -571,6 +582,7 @@ namespace RepetierHost.view
                 return 0;
             }
         }
+
         public float ZHomePos
         {
             get
@@ -615,7 +627,7 @@ namespace RepetierHost.view
                 Main.conn.connector.Deactivate();
             if (connectorPanel != null)
             {
-               tabPageConnection.Controls.Remove(connectorPanel);
+                tabPageConnection.Controls.Remove(connectorPanel);
             }
             Main.conn.connector = (PrinterConnectorBase)connectors[comboConnector.SelectedIndex];
             if (currentPrinterKey != null)
@@ -626,7 +638,7 @@ namespace RepetierHost.view
             connectorPanel = Main.conn.connector.ConnectionDialog();
             connectorPanel.Dock = DockStyle.Top;
             tabPageConnection.Controls.Add(connectorPanel);
-            tabPageConnection.Controls.SetChildIndex(connectorPanel,0);
+            tabPageConnection.Controls.SetChildIndex(connectorPanel, 0);
             Main.conn.connector.Activate();
             tabPageConnection.Refresh();
         }

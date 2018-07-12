@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenTK;
+﻿using OpenTK;
 using OpenTK.Graphics.OpenGL;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace RepetierHost.model.geom
@@ -12,6 +10,7 @@ namespace RepetierHost.model.geom
     {
         public int vertex1, vertex2;
         public int color;
+
         public SubmeshEdge(int v1, int v2, int col)
         {
             vertex1 = v1;
@@ -19,10 +18,12 @@ namespace RepetierHost.model.geom
             color = col;
         }
     }
+
     public class SubmeshTriangle
     {
         public int vertex1, vertex2, vertex3;
         public int color;
+
         public SubmeshTriangle(int v1, int v2, int v3, int col)
         {
             vertex1 = v1;
@@ -30,6 +31,7 @@ namespace RepetierHost.model.geom
             vertex3 = v3;
             color = col;
         }
+
         public void Normal(Submesh mesh, out float nx, out float ny, out float nz)
         {
             Vector3 v0 = mesh.vertices[vertex1];
@@ -58,6 +60,7 @@ namespace RepetierHost.model.geom
             }
         }
     }
+
     public class Submesh
     {
         public const int MESHCOLOR_FRONTBACK = -1;
@@ -71,8 +74,10 @@ namespace RepetierHost.model.geom
         public const int MESHCOLOR_BACK = -9;
 
         public List<Vector3> vertices = new List<Vector3>();
+
         //public Dictionary<RHVector3, int> rhvertextMap = new Dictionary<RHVector3, int>();
         public List<SubmeshEdge> edges = new List<SubmeshEdge>();
+
         public List<SubmeshTriangle> triangles = new List<SubmeshTriangle>();
         public List<SubmeshTriangle> trianglesError = new List<SubmeshTriangle>();
         public bool selected = false;
@@ -99,7 +104,7 @@ namespace RepetierHost.model.geom
             return (int)((c.A << 24) | (c.B << 16) | (c.G << 8) | c.R);
         }
 
-        int ConvertColorIndex(int idx)
+        private int ConvertColorIndex(int idx)
         {
             if (idx >= 0)
                 return 255 << 24 | idx;
@@ -109,32 +114,42 @@ namespace RepetierHost.model.geom
                     if (selected)
                         return ColorToRgba32(Main.threeDSettings.selectedFaces.BackColor);
                     return ColorToRgba32(Main.threeDSettings.faces.BackColor);
+
                 case MESHCOLOR_BACK:
                     return ColorToRgba32(Main.threeDSettings.insideFaces.BackColor);
+
                 case MESHCOLOR_ERRORFACE:
                     return ColorToRgba32(Main.threeDSettings.errorModel.BackColor);
+
                 case MESHCOLOR_ERROREDGE:
                     return ColorToRgba32(Main.threeDSettings.errorModelEdge.BackColor);
+
                 case MESHCOLOR_OUTSIDE:
                     return ColorToRgba32(Main.threeDSettings.outsidePrintbed.BackColor);
+
                 case MESHCOLOR_EDGE_LOOP:
                     return ColorToRgba32(Main.threeDSettings.edges.BackColor);
+
                 case MESHCOLOR_CUT_EDGE:
                     return ColorToRgba32(Main.threeDSettings.cutFaces.BackColor);
+
                 case MESHCOLOR_NORMAL:
                     return ColorToRgba32(Color.Blue);
+
                 case MESHCOLOR_EDGE:
                     return ColorToRgba32(Main.threeDSettings.edges.BackColor);
             }
             return ColorToRgba32(Color.Wheat);
         }
+
         /// <summary>
         /// Remove unneded temporary data
         /// </summary>
         public void Compress()
-         {
+        {
             Compress(false, 0);
         }
+
         public void Compress(bool override_color, int color)
         {
             glVertices = new float[3 * vertices.Count];
@@ -147,6 +162,7 @@ namespace RepetierHost.model.geom
             UpdateColors(override_color, color);
             vertices.Clear();
         }
+
         public int VertexId(RHVector3 v)
         {
             //if (rhvertextMap.ContainsKey(v))
@@ -171,7 +187,7 @@ namespace RepetierHost.model.geom
 
         public void AddTriangle(RHVector3 v1, RHVector3 v2, RHVector3 v3, int color)
         {
-            if(color == MESHCOLOR_ERRORFACE)
+            if (color == MESHCOLOR_ERRORFACE)
                 trianglesError.Add(new SubmeshTriangle(VertexId(v1), VertexId(v2), VertexId(v3), color));
             else
                 triangles.Add(new SubmeshTriangle(VertexId(v1), VertexId(v2), VertexId(v3), color));
@@ -185,6 +201,7 @@ namespace RepetierHost.model.geom
                 glBuffer = null;
             }
         }
+
         public void UpdateColors()
         {
             UpdateColors(false, 0);
@@ -194,7 +211,7 @@ namespace RepetierHost.model.geom
         {
             foreach (SubmeshTriangle t in triangles)
             {
-                if(!override_color)
+                if (!override_color)
                     glColors[t.vertex1] = glColors[t.vertex2] = glColors[t.vertex3] = ConvertColorIndex(t.color);
                 else
                     glColors[t.vertex1] = glColors[t.vertex2] = glColors[t.vertex3] = color;
@@ -230,6 +247,7 @@ namespace RepetierHost.model.geom
                 GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             }
         }
+
         public void UpdateDrawLists()
         {
             int idx = 0;
@@ -304,11 +322,13 @@ namespace RepetierHost.model.geom
                 glEdges[idx++] = e.vertex2;
             }
         }
+
         public OpenTK.Graphics.Color4 convertColor(Color col)
         {
             return new OpenTK.Graphics.Color4(col.R, col.G, col.B, col.A);
         }
-        public void Draw(int method,Vector3 edgetrans,bool forceFaces=false)
+
+        public void Draw(int method, Vector3 edgetrans, bool forceFaces = false)
         {
             GL.LightModel(LightModelParameter.LightModelTwoSide, 1);
             GL.Material(MaterialFace.Back, MaterialParameter.AmbientAndDiffuse, convertColor(Main.threeDSettings.insideFaces.BackColor));
@@ -399,7 +419,6 @@ namespace RepetierHost.model.geom
                 GL.DisableClientState(ArrayCap.ColorArray);
                 GL.DisableClientState(ArrayCap.VertexArray);
                 GL.DisableClientState(ArrayCap.NormalArray);
-
             }
             else if (method == 0)
             {
