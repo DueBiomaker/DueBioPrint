@@ -335,55 +335,7 @@ namespace RepetierHost
             {
                 Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
             }
-            if (Custom.GetBool("extraSupportButton", false))
-            {
-                supportToolStripMenuItem.Text = Custom.GetString("extraSupportText", "Support");
-            }
-            else
-            {
-                toolStripAskSeperator.Visible = false;
-                supportToolStripMenuItem.Visible = false;
-            }
-            if (Custom.GetString("extraLink1Title", "").Length > 0)
-            {
-                extraUrl1ToolStripMenuItem.Text = Custom.GetString("extraLink1Title", "");
-                toolStripAskSeperator.Visible = true;
-            }
-            else extraUrl1ToolStripMenuItem.Visible = false;
-            if (Custom.GetString("extraLink2Title", "").Length > 0)
-            {
-                extraUrl2ToolStripMenuItem.Text = Custom.GetString("extraLink2Title", "");
-                toolStripAskSeperator.Visible = true;
-            }
-            else extraUrl2ToolStripMenuItem.Visible = false;
-            if (Custom.GetString("extraLink3Title", "").Length > 0)
-            {
-                extraUrl3ToolStripMenuItem.Text = Custom.GetString("extraLink3Title", "");
-                toolStripAskSeperator.Visible = true;
-            }
-            else extraUrl3ToolStripMenuItem.Visible = false;
-            if (Custom.GetString("extraLink4Title", "").Length > 0)
-            {
-                extraUrl4ToolStripMenuItem.Text = Custom.GetString("extraLink4Title", "");
-                toolStripAskSeperator.Visible = true;
-            }
-            else extraUrl4ToolStripMenuItem.Visible = false;
-            if (Custom.GetString("extraLink5Title", "").Length > 0)
-            {
-                extraUrl5ToolStripMenuItem.Text = Custom.GetString("extraLink5Title", "");
-                toolStripAskSeperator.Visible = true;
-            }
-            else extraUrl5ToolStripMenuItem.Visible = false;
-            string supportImage = Custom.GetString("extraSupportToolbarImage", "");
-            if (supportImage.Length > 0 && File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + supportImage))
-            {
-                toolStripButtonSupport.Image = Image.FromFile(Application.StartupPath + Path.DirectorySeparatorChar + Custom.GetString("extraSupportToolbarImage", ""));
-                toolStripButtonSupport.Text = Custom.GetString("extraSupportText", "Support");
-            }
-            else
-            {
-                toolStripButtonSupport.Visible = false;
-            }
+            
             toolAction.Text = Trans.T("L_IDLE");
             toolConnection.Text = Trans.T("L_DISCONNECTED");
             updateTravelMoves();
@@ -536,19 +488,9 @@ namespace RepetierHost
             sendScript3ToolStripMenuItem.Text = Trans.T("M_SEND_SCRIPT_3");
             sendScript4ToolStripMenuItem.Text = Trans.T("M_SEND_SCRIPT_4");
             sendScript5ToolStripMenuItem.Text = Trans.T("M_SEND_SCRIPT_5");
-            repetierHostHomepageToolStripMenuItem.Text = Trans.T("M_REPETIER_HOST_HOMEPAGE");
-            repetierHostDownloadPageToolStripMenuItem.Text = Trans.T("M_REPETIER_HOST_DOWNLOAD_PAGE");
-            manualToolStripMenuItem.Text = Trans.T("M_MANUAL");
-            slic3rHomepageToolStripMenuItem.Text = Trans.T("M_SLIC3R_HOMEPAGE");
-            skeinforgeHomepageToolStripMenuItem.Text = Trans.T("M_SKEINFORGE_HOMEPAGE");
-            repRapWebsiteToolStripMenuItem.Text = Trans.T("M_REPRAP_WEBSITE");
-            repRapForumToolStripMenuItem.Text = Trans.T("M_REPRAP_FORUM");
-            thingiverseNewestToolStripMenuItem.Text = Trans.T("M_THINGIVERSE_NEWEST");
-            thingiversePopularToolStripMenuItem.Text = Trans.T("M_THINGIVERSE_POPULAR");
             aboutRepetierHostToolStripMenuItem.Text = Trans.T("M_ABOUT_REPETIER_HOST");
             checkForUpdatesToolStripMenuItem.Text = Trans.T("M_CHECK_FOR_UPDATES");
             quitToolStripMenuItem.Text = Trans.T("M_QUIT");
-            donateToolStripMenuItem.Text = Trans.T("M_DONATE");
             tabPage3DView.Text = Trans.T("TAB_3D_VIEW");
             tabPageTemp.Text = Trans.T("TAB_TEMPERATURE_CURVE");
             tabModel.Text = Trans.T("TAB_OBJECT_PLACEMENT");
@@ -1065,16 +1007,6 @@ namespace RepetierHost
             }
         }
 
-        private void repetierHostHomepageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.repetier.com");
-        }
-
-        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.repetier.com/documentation/repetier-host/");
-        }
-
         public MethodInvoker FirmwareDetected = delegate
         {
             Main.main.printPanel.UpdateConStatus(true);
@@ -1271,36 +1203,6 @@ namespace RepetierHost
             {
                 splitLog.Panel2Collapsed = true;
             }
-        }
-
-        private void repRapWebsiteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.reprap.org");
-        }
-
-        private void repRapForumToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://forum.reprap.org");
-        }
-
-        private void slic3rHomepageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.slic3r.org");
-        }
-
-        private void skeinforgeHomepageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://fabmetheus.crsndoo.com/");
-        }
-
-        private void thingiverseNewestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.thingiverse.com/newest");
-        }
-
-        private void thingiversePopularToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.thingiverse.com/popular");
         }
 
         private void slic3rToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1607,11 +1509,6 @@ namespace RepetierHost
             }
         }
 
-        public void repetierHostDownloadPageToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("downloadUrl", "http://www.repetier.com/download/"));
-        }
-
         private void sendScript1ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (GCodeShort code in editor.getContentArray(5))
@@ -1671,11 +1568,6 @@ namespace RepetierHost
             }
         }
 
-        private void donateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink("http://www.repetier.com/donate-or-support/");
-        }
-
         private void toolShowTravel_Click(object sender, EventArgs e)
         {
             threeDSettings.checkDisableTravelMoves.Checked = !threeDSettings.checkDisableTravelMoves.Checked;
@@ -1689,11 +1581,6 @@ namespace RepetierHost
         private void toolAction_Click(object sender, EventArgs e)
         {
             conn.connector.ToggleETAMode();
-        }
-
-        private void supportToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraSupportURL", "http://www.repetier.com"));
         }
 
         private void isometricToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1992,31 +1879,6 @@ namespace RepetierHost
         private void togglePrinterIdToolStripMenuItem_Click(object sender, EventArgs e)
         {
             splitPrinterId.Panel1Collapsed = !splitPrinterId.Panel1Collapsed;
-        }
-
-        private void extraUrl1ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraLink1URL", ""));
-        }
-
-        private void extraUrl2ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraLink2URL", ""));
-        }
-
-        private void extraUrl3ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraLink3URL", ""));
-        }
-
-        private void extraUrl4ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraLink4URL", ""));
-        }
-
-        private void extraUrl5ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            openLink(Custom.GetString("extraLink5URL", ""));
         }
 
         private void showCompassToolStripMenuItem_Click(object sender, EventArgs e)

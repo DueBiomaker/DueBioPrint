@@ -122,28 +122,8 @@
             this.sendScript5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repetierHostHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repetierHostDownloadPageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.slic3rHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.skeinforgeHomepageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.repRapWebsiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repRapForumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thingiverseNewestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thingiversePopularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutRepetierHostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripAskSeperator = new System.Windows.Forms.ToolStripSeparator();
-            this.supportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraUrl1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraUrl2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraUrl3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraUrl4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.extraUrl5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.status = new System.Windows.Forms.StatusStrip();
             this.toolConnection = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTempReading = new System.Windows.Forms.ToolStripStatusLabel();
@@ -159,7 +139,6 @@
             this.toolShowLog = new System.Windows.Forms.ToolStripButton();
             this.toolShowFilament = new System.Windows.Forms.ToolStripButton();
             this.toolStripEmergencyButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonSupport = new System.Windows.Forms.ToolStripButton();
             this.toolPrinterSettings = new System.Windows.Forms.ToolStripButton();
             this.toolShowTravel = new System.Windows.Forms.ToolStripButton();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -177,9 +156,9 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabModel = new System.Windows.Forms.TabPage();
             this.tabSlicer = new System.Windows.Forms.TabPage();
+            this.slicerPanel = new RepetierHost.view.SlicerPanel();
             this.tabGCode = new System.Windows.Forms.TabPage();
             this.tabPrint = new System.Windows.Forms.TabPage();
-            this.slicerPanel = new RepetierHost.view.SlicerPanel();
             this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
@@ -976,177 +955,25 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.repetierHostHomepageToolStripMenuItem,
-            this.repetierHostDownloadPageToolStripMenuItem,
-            this.manualToolStripMenuItem,
-            this.toolStripMenuItem2,
-            this.slic3rHomepageToolStripMenuItem,
-            this.skeinforgeHomepageToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.repRapWebsiteToolStripMenuItem,
-            this.repRapForumToolStripMenuItem,
-            this.thingiverseNewestToolStripMenuItem,
-            this.thingiversePopularToolStripMenuItem,
-            this.toolStripMenuItem1,
             this.aboutRepetierHostToolStripMenuItem,
-            this.donateToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem,
-            this.toolStripAskSeperator,
-            this.supportToolStripMenuItem,
-            this.extraUrl1ToolStripMenuItem,
-            this.extraUrl2ToolStripMenuItem,
-            this.extraUrl3ToolStripMenuItem,
-            this.extraUrl4ToolStripMenuItem,
-            this.extraUrl5ToolStripMenuItem});
+            this.checkForUpdatesToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // repetierHostHomepageToolStripMenuItem
-            // 
-            this.repetierHostHomepageToolStripMenuItem.Name = "repetierHostHomepageToolStripMenuItem";
-            this.repetierHostHomepageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.repetierHostHomepageToolStripMenuItem.Text = "Repetier-Host homepage";
-            this.repetierHostHomepageToolStripMenuItem.Click += new System.EventHandler(this.repetierHostHomepageToolStripMenuItem_Click);
-            // 
-            // repetierHostDownloadPageToolStripMenuItem
-            // 
-            this.repetierHostDownloadPageToolStripMenuItem.Name = "repetierHostDownloadPageToolStripMenuItem";
-            this.repetierHostDownloadPageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.repetierHostDownloadPageToolStripMenuItem.Text = "Repetier-Host download page";
-            this.repetierHostDownloadPageToolStripMenuItem.Click += new System.EventHandler(this.repetierHostDownloadPageToolStripMenuItem_Click);
-            // 
-            // manualToolStripMenuItem
-            // 
-            this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.manualToolStripMenuItem.Text = "Manual";
-            this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(229, 6);
-            // 
-            // slic3rHomepageToolStripMenuItem
-            // 
-            this.slic3rHomepageToolStripMenuItem.Name = "slic3rHomepageToolStripMenuItem";
-            this.slic3rHomepageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.slic3rHomepageToolStripMenuItem.Text = "Slic3r homepage";
-            this.slic3rHomepageToolStripMenuItem.Click += new System.EventHandler(this.slic3rHomepageToolStripMenuItem_Click);
-            // 
-            // skeinforgeHomepageToolStripMenuItem
-            // 
-            this.skeinforgeHomepageToolStripMenuItem.Name = "skeinforgeHomepageToolStripMenuItem";
-            this.skeinforgeHomepageToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.skeinforgeHomepageToolStripMenuItem.Text = "Skeinforge homepage";
-            this.skeinforgeHomepageToolStripMenuItem.Click += new System.EventHandler(this.skeinforgeHomepageToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(229, 6);
-            // 
-            // repRapWebsiteToolStripMenuItem
-            // 
-            this.repRapWebsiteToolStripMenuItem.Name = "repRapWebsiteToolStripMenuItem";
-            this.repRapWebsiteToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.repRapWebsiteToolStripMenuItem.Text = "RepRap website";
-            this.repRapWebsiteToolStripMenuItem.Click += new System.EventHandler(this.repRapWebsiteToolStripMenuItem_Click);
-            // 
-            // repRapForumToolStripMenuItem
-            // 
-            this.repRapForumToolStripMenuItem.Name = "repRapForumToolStripMenuItem";
-            this.repRapForumToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.repRapForumToolStripMenuItem.Text = "RepRap forum";
-            this.repRapForumToolStripMenuItem.Click += new System.EventHandler(this.repRapForumToolStripMenuItem_Click);
-            // 
-            // thingiverseNewestToolStripMenuItem
-            // 
-            this.thingiverseNewestToolStripMenuItem.Name = "thingiverseNewestToolStripMenuItem";
-            this.thingiverseNewestToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.thingiverseNewestToolStripMenuItem.Text = "Thingiverse newest";
-            this.thingiverseNewestToolStripMenuItem.Click += new System.EventHandler(this.thingiverseNewestToolStripMenuItem_Click);
-            // 
-            // thingiversePopularToolStripMenuItem
-            // 
-            this.thingiversePopularToolStripMenuItem.Name = "thingiversePopularToolStripMenuItem";
-            this.thingiversePopularToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.thingiversePopularToolStripMenuItem.Text = "Thingiverse popular";
-            this.thingiversePopularToolStripMenuItem.Click += new System.EventHandler(this.thingiversePopularToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(229, 6);
-            // 
             // aboutRepetierHostToolStripMenuItem
             // 
             this.aboutRepetierHostToolStripMenuItem.Name = "aboutRepetierHostToolStripMenuItem";
-            this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.aboutRepetierHostToolStripMenuItem.Text = "&About Repetier-Host";
             this.aboutRepetierHostToolStripMenuItem.Click += new System.EventHandler(this.aboutRepetierHostToolStripMenuItem_Click);
-            // 
-            // donateToolStripMenuItem
-            // 
-            this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
-            this.donateToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.donateToolStripMenuItem.Text = "Donate";
-            this.donateToolStripMenuItem.Click += new System.EventHandler(this.donateToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
-            // 
-            // toolStripAskSeperator
-            // 
-            this.toolStripAskSeperator.Name = "toolStripAskSeperator";
-            this.toolStripAskSeperator.Size = new System.Drawing.Size(229, 6);
-            // 
-            // supportToolStripMenuItem
-            // 
-            this.supportToolStripMenuItem.Name = "supportToolStripMenuItem";
-            this.supportToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.supportToolStripMenuItem.Text = "Support";
-            this.supportToolStripMenuItem.Click += new System.EventHandler(this.supportToolStripMenuItem_Click);
-            // 
-            // extraUrl1ToolStripMenuItem
-            // 
-            this.extraUrl1ToolStripMenuItem.Name = "extraUrl1ToolStripMenuItem";
-            this.extraUrl1ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.extraUrl1ToolStripMenuItem.Text = "extra url1";
-            this.extraUrl1ToolStripMenuItem.Click += new System.EventHandler(this.extraUrl1ToolStripMenuItem_Click);
-            // 
-            // extraUrl2ToolStripMenuItem
-            // 
-            this.extraUrl2ToolStripMenuItem.Name = "extraUrl2ToolStripMenuItem";
-            this.extraUrl2ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.extraUrl2ToolStripMenuItem.Text = "extra url2";
-            this.extraUrl2ToolStripMenuItem.Click += new System.EventHandler(this.extraUrl2ToolStripMenuItem_Click);
-            // 
-            // extraUrl3ToolStripMenuItem
-            // 
-            this.extraUrl3ToolStripMenuItem.Name = "extraUrl3ToolStripMenuItem";
-            this.extraUrl3ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.extraUrl3ToolStripMenuItem.Text = "extra url3";
-            this.extraUrl3ToolStripMenuItem.Click += new System.EventHandler(this.extraUrl3ToolStripMenuItem_Click);
-            // 
-            // extraUrl4ToolStripMenuItem
-            // 
-            this.extraUrl4ToolStripMenuItem.Name = "extraUrl4ToolStripMenuItem";
-            this.extraUrl4ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.extraUrl4ToolStripMenuItem.Text = "extra url4";
-            this.extraUrl4ToolStripMenuItem.Click += new System.EventHandler(this.extraUrl4ToolStripMenuItem_Click);
-            // 
-            // extraUrl5ToolStripMenuItem
-            // 
-            this.extraUrl5ToolStripMenuItem.Name = "extraUrl5ToolStripMenuItem";
-            this.extraUrl5ToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
-            this.extraUrl5ToolStripMenuItem.Text = "extra url5";
-            this.extraUrl5ToolStripMenuItem.Click += new System.EventHandler(this.extraUrl5ToolStripMenuItem_Click);
             // 
             // status
             // 
@@ -1214,7 +1041,6 @@
             this.toolShowLog,
             this.toolShowFilament,
             this.toolStripEmergencyButton,
-            this.toolStripButtonSupport,
             this.toolPrinterSettings,
             this.toolShowTravel});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
@@ -1312,18 +1138,6 @@
             this.toolStripEmergencyButton.Text = "Emergency stop";
             this.toolStripEmergencyButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripEmergencyButton.Click += new System.EventHandler(this.toolStripEmergencyButton_Click);
-            // 
-            // toolStripButtonSupport
-            // 
-            this.toolStripButtonSupport.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButtonSupport.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSupport.Image")));
-            this.toolStripButtonSupport.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonSupport.Name = "toolStripButtonSupport";
-            this.toolStripButtonSupport.Size = new System.Drawing.Size(53, 51);
-            this.toolStripButtonSupport.Text = "Support";
-            this.toolStripButtonSupport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.toolStripButtonSupport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButtonSupport.Click += new System.EventHandler(this.supportToolStripMenuItem_Click);
             // 
             // toolPrinterSettings
             // 
@@ -1529,6 +1343,15 @@
             this.tabSlicer.Text = "Slicer";
             this.tabSlicer.UseVisualStyleBackColor = true;
             // 
+            // slicerPanel
+            // 
+            this.slicerPanel.AutoScroll = true;
+            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slicerPanel.Location = new System.Drawing.Point(0, 0);
+            this.slicerPanel.Name = "slicerPanel";
+            this.slicerPanel.Size = new System.Drawing.Size(467, 270);
+            this.slicerPanel.TabIndex = 0;
+            // 
             // tabGCode
             // 
             this.tabGCode.AutoScroll = true;
@@ -1551,15 +1374,6 @@
             this.tabPrint.TabIndex = 0;
             this.tabPrint.Text = "Manual control";
             this.tabPrint.UseVisualStyleBackColor = true;
-            // 
-            // slicerPanel
-            // 
-            this.slicerPanel.AutoScroll = true;
-            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slicerPanel.Location = new System.Drawing.Point(0, 0);
-            this.slicerPanel.Name = "slicerPanel";
-            this.slicerPanel.Size = new System.Drawing.Size(467, 270);
-            this.slicerPanel.TabIndex = 0;
             // 
             // tdSettings
             // 
@@ -1636,9 +1450,6 @@
         private System.Windows.Forms.ToolStripMenuItem threeDSettingsMenu;
         private System.Windows.Forms.ToolStripMenuItem repetierSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jobStatusToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem repetierHostHomepageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manualToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         public System.Windows.Forms.ToolStripButton toolRunJob;
         public System.Windows.Forms.ToolStripButton toolKillJob;
         public System.Windows.Forms.ToolStripStatusLabel fpsLabel;
@@ -1662,14 +1473,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem slic3rConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem skeinforgeToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem slic3rHomepageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem skeinforgeHomepageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem repRapWebsiteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem repRapForumToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thingiverseNewestToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thingiversePopularToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         public System.Windows.Forms.ToolStripMenuItem slic3rToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem skeinforgeToolStripMenuItem1;
         public System.Windows.Forms.ToolStripMenuItem skeinforgeConfigurationToolStripMenuItem;
@@ -1717,7 +1520,6 @@
         private System.Windows.Forms.ToolStripMenuItem soundConfigurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripSaveJob;
         public System.Windows.Forms.ImageList imageList;
-        private System.Windows.Forms.ToolStripMenuItem repetierHostDownloadPageToolStripMenuItem;
         public System.Windows.Forms.TabPage tabSlicer;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem sendScript1ToolStripMenuItem;
@@ -1729,10 +1531,7 @@
         public RepetierHost.view.SlicerPanel slicerPanel;
         public System.Windows.Forms.ToolStrip toolStrip;
         public System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         public System.Windows.Forms.ToolStripButton toolShowTravel;
-        private System.Windows.Forms.ToolStripMenuItem supportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButtonSupport;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem isometricToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem frontViewToolStripMenuItem;
@@ -1755,12 +1554,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveStateToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitPrinterId;
         private System.Windows.Forms.ToolStripMenuItem togglePrinterIdToolStripMenuItem; 
-        private System.Windows.Forms.ToolStripSeparator toolStripAskSeperator;
-        private System.Windows.Forms.ToolStripMenuItem extraUrl1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraUrl2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraUrl3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraUrl4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem extraUrl5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showCompassToolStripMenuItem;
         private System.Windows.Forms.Button buttonChangeId;
         public System.Windows.Forms.Label printerIdLabel;
