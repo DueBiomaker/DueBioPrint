@@ -78,7 +78,6 @@ namespace RepetierHost.view
             labelEdges.Text = Trans.T("L_EDGES");
             labelExtruder1.Text = Trans.T1("L_EXTRUDER_X:", "1");
             labelExtruder2.Text = Trans.T1("L_EXTRUDER_X:", "2");
-            labelExtruder3.Text = Trans.T1("L_EXTRUDER_X:", "3");
             labelFaces.Text = Trans.T("L_FACES");
             labelFilamentVisInfo.Text = Trans.T("L_FILAMENT_VISUALIZATION_INFO");
             labelFilamentVisualization.Text = Trans.T("L_FILAMENT_VISUALIZATION");
@@ -224,7 +223,6 @@ Immediate (slow)*/
                 threedKey.SetValue("printerFrameColor", printerFrame.BackColor.ToArgb());
                 threedKey.SetValue("filamenColor", filament.BackColor.ToArgb());
                 threedKey.SetValue("filament2Color", filament2.BackColor.ToArgb());
-                threedKey.SetValue("filament3Color", filament3.BackColor.ToArgb());
                 threedKey.SetValue("hotFilamentColor", hotFilament.BackColor.ToArgb());
                 threedKey.SetValue("travelColor", travelMoves.BackColor.ToArgb());
                 threedKey.SetValue("selectedFilamentColor", selectedFilament.BackColor.ToArgb());
@@ -296,7 +294,6 @@ Immediate (slow)*/
                 printerFrame.BackColor = Color.FromArgb((int)threedKey.GetValue("printerFrameColor", printerFrame.BackColor.ToArgb()));
                 filament.BackColor = Color.FromArgb((int)threedKey.GetValue("filamenColor", filament.BackColor.ToArgb()));
                 filament2.BackColor = Color.FromArgb((int)threedKey.GetValue("filament2Color", filament2.BackColor.ToArgb()));
-                filament3.BackColor = Color.FromArgb((int)threedKey.GetValue("filament3Color", filament3.BackColor.ToArgb()));
                 hotFilament.BackColor = Color.FromArgb((int)threedKey.GetValue("hotFilamentColor", hotFilament.BackColor.ToArgb()));
                 travelMoves.BackColor = Color.FromArgb((int)threedKey.GetValue("travelColor", travelMoves.BackColor.ToArgb()));
                 selectedFilament.BackColor = Color.FromArgb((int)threedKey.GetValue("selectedFilamentColor", selectedFilament.BackColor.ToArgb()));

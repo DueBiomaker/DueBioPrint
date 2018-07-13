@@ -34,8 +34,6 @@
             this.groupColors2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.hotFilament = new System.Windows.Forms.Panel();
-            this.labelExtruder3 = new System.Windows.Forms.Label();
-            this.filament3 = new System.Windows.Forms.Panel();
             this.labelExtruder2 = new System.Windows.Forms.Label();
             this.labelTravelMoves = new System.Windows.Forms.Label();
             this.labelExtruder1 = new System.Windows.Forms.Label();
@@ -60,6 +58,7 @@
             this.labelBackgroundTop = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.showEdges = new System.Windows.Forms.CheckBox();
+            this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.comboDrawMethod = new System.Windows.Forms.ComboBox();
             this.labelDrawMethod = new System.Windows.Forms.Label();
             this.checkDisableFilamentVisualization = new System.Windows.Forms.CheckBox();
@@ -148,9 +147,9 @@
             this.specular3 = new System.Windows.Forms.Panel();
             this.specular4 = new System.Windows.Forms.Panel();
             this.diffuse4 = new System.Windows.Forms.Panel();
-            this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.groupColors2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -162,7 +161,6 @@
             this.groupVisualization.SuspendLayout();
             this.tabLights.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // groupColors2
@@ -185,8 +183,6 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
             this.tableLayoutPanel2.Controls.Add(this.hotFilament, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.labelExtruder3, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.filament3, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelExtruder2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.labelTravelMoves, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.labelExtruder1, 0, 0);
@@ -215,28 +211,6 @@
             this.hotFilament.Size = new System.Drawing.Size(111, 24);
             this.hotFilament.TabIndex = 1;
             this.hotFilament.Click += new System.EventHandler(this.hotFilament_Click);
-            // 
-            // labelExtruder3
-            // 
-            this.labelExtruder3.AutoSize = true;
-            this.labelExtruder3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelExtruder3.Location = new System.Drawing.Point(3, 60);
-            this.labelExtruder3.Name = "labelExtruder3";
-            this.labelExtruder3.Size = new System.Drawing.Size(58, 30);
-            this.labelExtruder3.TabIndex = 3;
-            this.labelExtruder3.Text = "Extruder 3:";
-            this.labelExtruder3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // filament3
-            // 
-            this.filament3.BackColor = System.Drawing.Color.Chocolate;
-            this.filament3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.filament3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.filament3.Location = new System.Drawing.Point(67, 63);
-            this.filament3.Name = "filament3";
-            this.filament3.Size = new System.Drawing.Size(111, 24);
-            this.filament3.TabIndex = 4;
-            this.filament3.Click += new System.EventHandler(this.changecolor_Click);
             // 
             // labelExtruder2
             // 
@@ -480,6 +454,10 @@
             this.showEdges.TabIndex = 0;
             this.showEdges.Text = "Show edges";
             this.showEdges.UseVisualStyleBackColor = true;
+            // 
+            // tdSettings
+            // 
+            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
             // 
             // comboDrawMethod
             // 
@@ -1486,10 +1464,6 @@
             this.diffuse4.TabIndex = 27;
             this.diffuse4.Click += new System.EventHandler(this.lightcolor_Click);
             // 
-            // tdSettings
-            // 
-            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
-            // 
             // ThreeDSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1510,6 +1484,7 @@
             this.groupColors2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -1527,7 +1502,6 @@
             this.tabLights.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1587,8 +1561,6 @@
         private System.Windows.Forms.GroupBox groupEditor;
         private System.Windows.Forms.Label labelSelectedFilament;
         public System.Windows.Forms.Panel selectedFilament;
-        public System.Windows.Forms.Panel filament3;
-        private System.Windows.Forms.Label labelExtruder3;
         public System.Windows.Forms.Panel filament2;
         private System.Windows.Forms.Label labelExtruder2;
         public System.Windows.Forms.CheckBox pulseOutside;

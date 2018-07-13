@@ -1524,7 +1524,6 @@ namespace RepetierHost.model
             for (int i = 0; i < MaxExtruder; i++)
             {
                 if (i == 1) col = Main.threeDSettings.filament2.BackColor;
-                else if (i == 2) col = Main.threeDSettings.filament3.BackColor;
                 else col = Main.threeDSettings.filament.BackColor;
                 defaultColor[0] = (float)col.R / 255.0f;
                 defaultColor[1] = (float)col.G / 255.0f;
