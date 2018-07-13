@@ -82,7 +82,6 @@ namespace RepetierHost.view
             float volt = 100f * trackFanVoltage.Value / 255;
             labelVoltage.Text = Trans.T1("L_OUTPUT_PERCENT", volt.ToString("0.0")); //"Output " + volt.ToString("0.0") + "%";
             switchPower.TextOff = switchPower.TextOn = Trans.T("B_POWER");
-            switchExtruderHeatOn.TextOff = switchExtruderHeatOn.TextOn = Trans.T("B_HEAT_EXTRUDER");
             switchBedHeat.TextOff = switchBedHeat.TextOn = Trans.T("B_HEAT_PRINTBED");
             switchFanOn.TextOff = switchFanOn.TextOn = Trans.T("B_FAN");
             groupBox_Fan.Text = Trans.T("L_FAN");
@@ -215,26 +214,9 @@ namespace RepetierHost.view
 
         private void tempUpdate(float extruder, float printbed)
         {
-            labelExtruderTemp.Text = extruder.ToString("0.00") + "°C /";
             labelPrintbedTemp.Text = printbed.ToString("0.00") + "°C /";
             string tr = "";
-            if (con.extruderTemp.Count == 1)
-            {
-                tr += Trans.T("L_EXTRUDER:") + " " + con.getTemperature(-1).ToString("0.00");
-                if (switchExtruderHeatOn.On) tr += "/" + ann.getTemperature(-1).ToString() + "°C";
-                else tr += "°C/" + Trans.T("L_OFF");
-                tr += " ";
-            }
-            else
-            {
-                foreach (int extr in con.extruderTemp.Keys)
-                {
-                    tr += Trans.T1("L_EXTRUDER_X", (extr + 1).ToString()) + ": " + con.getTemperature(extr).ToString("0.00");
-                    if (ann.getTemperature(extr) >= 20) tr += "/" + ann.getTemperature(extr).ToString() + "°C";
-                    else tr += "°C/" + Trans.T("L_OFF");
-                    tr += " ";
-                }
-            }
+
             if (con.bedTemp > 0)
             {
                 tr += Trans.T("L_BED:") + " " + con.bedTemp.ToString("0.00");
@@ -247,13 +229,8 @@ namespace RepetierHost.view
         public void analyzerChange()
         {
             createCommands = false;
-            if (ann.getTemperature(-1) > 0)
-                numericUpDownExtruder.Value = (int)ann.getTemperature(-1);
-            //    textExtruderSetTemp.Text = ann.extruderTemp.ToString();
             if (ann.bedTemp > 0)
                 numericPrintBed.Value = (int)ann.bedTemp;
-            //    textPrintbedTemp.Text = ann.bedTemp.ToString();
-            switchExtruderHeatOn.On = ann.getTemperature(-1) > 0;
             switchFanOn.On = ann.fanOn;
             if (ann.fanOn)
                 trackFanVoltage.Value = ann.fanVoltage;
@@ -361,9 +338,7 @@ namespace RepetierHost.view
             textGCode.Enabled = c;
             switchBedHeat.Enabled = c;
             switchFanOn.Enabled = c;
-            switchExtruderHeatOn.Enabled = c;
             trackFanVoltage.Enabled = c;
-            numericUpDownExtruder.Enabled = c;
             buttonExtrude.Enabled = c;
             numericPrintBed.Enabled = c;
             buttonSend.Enabled = c;
@@ -627,14 +602,6 @@ namespace RepetierHost.view
             //int temp = 0;
             //int.TryParse(textExtruderSetTemp.Text,out temp);
             con.connector.GetInjectLock();
-            if (switchExtruderHeatOn.On)
-            {
-                con.injectManualCommand("M104 S" + numericUpDownExtruder.Value);
-            }
-            else
-            {
-                con.injectManualCommand("M104 S0");
-            }
             con.connector.ReturnInjectLock();
         }
 
@@ -853,17 +820,6 @@ namespace RepetierHost.view
             {
                 con.ignoreFeedback();
                 con.injectManualCommand("M220 S" + sliderSpeed.Value.ToString());
-            }
-        }
-
-        private void numericUpDownExtruder_ValueChanged(object sender, EventArgs e)
-        {
-            if (!createCommands) return;
-            if (switchExtruderHeatOn.On)
-            {
-                con.connector.GetInjectLock();
-                con.injectManualCommand("M104 S" + numericUpDownExtruder.Value.ToString("0"));
-                con.connector.ReturnInjectLock();
             }
         }
 

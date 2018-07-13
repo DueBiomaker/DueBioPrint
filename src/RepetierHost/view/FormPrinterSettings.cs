@@ -375,16 +375,6 @@ namespace RepetierHost.view
             {
                 try
                 {
-                    if (!(con.analyzer.activeExtruder.temperature > 0))
-                        Main.main.printPanel.numericUpDownExtruder.Value = int.Parse(textDefaultExtruderTemp.Text);
-                }
-                catch (FormatException)
-                {
-                    Main.main.printPanel.numericUpDownExtruder.Value = 0;
-                    textDefaultExtruderTemp.Text = "0";
-                }
-                try
-                {
                     if (!(con.analyzer.bedTemp > 0))
                         Main.main.printPanel.numericPrintBed.Value = int.Parse(textDefaultHeatedBedTemp.Text);
                 }
@@ -441,7 +431,6 @@ namespace RepetierHost.view
             numericNumExtruder.Value = con.numExtruder;
             if (Main.main.printPanel != null)
             {
-                textDefaultExtruderTemp.Text = Main.main.printPanel.numericUpDownExtruder.Value.ToString("0");
                 textDefaultHeatedBedTemp.Text = Main.main.printPanel.numericPrintBed.Value.ToString("0");
             }
         }
