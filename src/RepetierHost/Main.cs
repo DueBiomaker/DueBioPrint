@@ -476,7 +476,6 @@ namespace RepetierHost
             heatedBedToolStripMenuItem.Text = Trans.T("M_HEATED_BED");
             printerInformationsToolStripMenuItem.Text = Trans.T("M_PRINTER_INFORMATION");
             jobStatusToolStripMenuItem.Text = Trans.T("M_JOB_STATUS");
-            menuSDCardManager.Text = Trans.T("M_SD_CARD_MANAGER");
             testCaseGeneratorToolStripMenuItem.Text = Trans.T("M_TEST_CASE_GENERATOR");
             sendScript1ToolStripMenuItem.Text = Trans.T("M_SEND_SCRIPT_1");
             sendScript2ToolStripMenuItem.Text = Trans.T("M_SEND_SCRIPT_2");

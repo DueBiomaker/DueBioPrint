@@ -771,13 +771,8 @@ namespace RepetierHost.view
             IniFile ini3_2 = new IniFile();
             if (Main.conn.numberExtruder > 1)
                 ini3_2.read(cdir + Path.DirectorySeparatorChar + "filament" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rFilament2 + ".ini");
-            IniFile ini3_3 = new IniFile();
-            if (Main.conn.numberExtruder > 2)
-                ini3_3.read(cdir + Path.DirectorySeparatorChar + "filament" + Path.DirectorySeparatorChar + Main.printerModel.Slic3rFilament3 + ".ini");
             if (Main.conn.numberExtruder > 1)
                 ini3.merge(ini3_2);
-            if (Main.conn.numberExtruder > 2)
-                ini3.merge(ini3_3);
             ini.add(ini2);
             ini.add(ini3);
             ini.flatten();

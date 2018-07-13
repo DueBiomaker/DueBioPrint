@@ -1187,7 +1187,6 @@ namespace RepetierHost.connector
                     resendNode = null;
                     history.Clear();
                 }
-                con.sdcardMounted = true;
                 con.analyzer.start(false);
                 readyForNextSend = true;
                 lock (nackLines)

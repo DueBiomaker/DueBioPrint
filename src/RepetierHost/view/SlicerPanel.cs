@@ -50,7 +50,6 @@ namespace RepetierHost.view
             labelPrintSettings.Text = Trans.T("L_PRINT_SETTINGS");
             labelSlic3rExtruder1.Text = Trans.T1("L_EXTRUDER_X:", "1");
             labelSlic3rExtruder2.Text = Trans.T1("L_EXTRUDER_X:", "2");
-            labelSlic3rExtruder3.Text = Trans.T1("L_EXTRUDER_X:", "3");
             if (Main.slicer != null)
                 buttonStartSlicing.Text = Trans.T1("L_SLICE_WITH", Main.slicer.SlicerName);
         }
@@ -154,11 +153,9 @@ namespace RepetierHost.view
             {
                 string old1 = Main.printerModel.Slic3rFilament1;
                 string old2 = Main.printerModel.Slic3rFilament2;
-                string old3 = Main.printerModel.Slic3rFilament3;
                 FileInfo[] rgFiles = di.GetFiles("*.ini");
                 comboSlic3rFilamentSettings.Items.Clear();
                 comboSlic3rFilamentSettings2.Items.Clear();
-                comboSlic3rFilamentSettings3.Items.Clear();
                 // L_FILAMENT_NONE
                 //comboSlic3rFilamentSettings2.Items.Add(Trans.T("L_FILAMENT_NONE"));
                 //comboSlic3rFilamentSettings3.Items.Add(Trans.T("L_FILAMENT_NONE"));
@@ -166,11 +163,9 @@ namespace RepetierHost.view
                 {
                     comboSlic3rFilamentSettings.Items.Add(noINI(fi.Name));
                     comboSlic3rFilamentSettings2.Items.Add(noINI(fi.Name));
-                    comboSlic3rFilamentSettings3.Items.Add(noINI(fi.Name));
                 }
                 comboSlic3rFilamentSettings.Enabled = Main.conn.numberExtruder > 0;
                 comboSlic3rFilamentSettings2.Enabled = Main.conn.numberExtruder > 1;
-                comboSlic3rFilamentSettings3.Enabled = Main.conn.numberExtruder > 2;
                 if (b.Slic3rFilamentSettings.Length > 0)
                     comboSlic3rFilamentSettings.SelectedItem = old1;
                 if (comboSlic3rFilamentSettings.SelectedIndex < 0 && rgFiles.Count() > 0)
@@ -185,14 +180,6 @@ namespace RepetierHost.view
                 {
                     b.Slic3rFilament2Settings = noINI(rgFiles[0].Name);
                     comboSlic3rFilamentSettings2.SelectedIndex = 0;
-                }
-
-                if (b.Slic3rFilament3Settings.Length > 0)
-                    comboSlic3rFilamentSettings3.SelectedItem = old3;
-                if (comboSlic3rFilamentSettings3.SelectedIndex < 0 && rgFiles.Count() > 0)
-                {
-                    b.Slic3rFilament3Settings = noINI(rgFiles[0].Name);
-                    comboSlic3rFilamentSettings3.SelectedIndex = 0;
                 }
             }
             else
@@ -264,15 +251,6 @@ namespace RepetierHost.view
             {
                 if (Main.IsMono && comboSlic3rFilamentSettings2.SelectedItem != null)
                     Main.printerModel.Slic3rFilament2 = (string)comboSlic3rFilamentSettings2.SelectedItem;
-            }
-        }
-
-        private void comboSlic3rFilamentSettings3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!updating)
-            {
-                if (Main.IsMono && comboSlic3rFilamentSettings3.SelectedItem != null)
-                    Main.printerModel.Slic3rFilament3 = (string)comboSlic3rFilamentSettings3.SelectedItem;
             }
         }
     }

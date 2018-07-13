@@ -109,7 +109,6 @@
             this.printerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printerInformationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jobStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuSDCardManager = new System.Windows.Forms.ToolStripMenuItem();
             this.testCaseGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.sendScript1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -823,7 +822,6 @@
             this.printerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.printerInformationsToolStripMenuItem,
             this.jobStatusToolStripMenuItem,
-            this.menuSDCardManager,
             this.testCaseGeneratorToolStripMenuItem,
             this.toolStripMenuItem6,
             this.sendScript1ToolStripMenuItem,
@@ -851,13 +849,6 @@
             this.jobStatusToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
             this.jobStatusToolStripMenuItem.Text = "Job status";
             this.jobStatusToolStripMenuItem.Click += new System.EventHandler(this.jobStatusToolStripMenuItem_Click);
-            // 
-            // menuSDCardManager
-            // 
-            this.menuSDCardManager.Name = "menuSDCardManager";
-            this.menuSDCardManager.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
-            this.menuSDCardManager.Size = new System.Drawing.Size(212, 22);
-            this.menuSDCardManager.Text = "SD card manager";
             // 
             // testCaseGeneratorToolStripMenuItem
             // 
@@ -1428,7 +1419,6 @@
         public System.Windows.Forms.TabControl tab;
         public System.Windows.Forms.TabPage tabPrint;
         public System.Windows.Forms.TabPage tabModel;
-        public System.Windows.Forms.ToolStripMenuItem menuSDCardManager;
         public System.Windows.Forms.SaveFileDialog saveJobDialog;
         public System.Windows.Forms.TabPage tabGCode;
         private System.Windows.Forms.Timer timer;

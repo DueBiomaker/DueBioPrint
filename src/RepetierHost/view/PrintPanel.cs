@@ -358,8 +358,6 @@ namespace RepetierHost.view
         public void UpdateConStatus(bool c)
         {
             Main.main.toolRunJob.Enabled = c;
-            Main.main.menuSDCardManager.Enabled = c;
-            // switchConnect.On = c;
             textGCode.Enabled = c;
             switchBedHeat.Enabled = c;
             switchFanOn.Enabled = c;
@@ -385,7 +383,6 @@ namespace RepetierHost.view
             switchErrors.Enabled = c;
             buttonGoDisposeArea.Enabled = c;
             buttonSimulateOK.Enabled = c;
-            //buttonJobStatus.Enabled = c;
             arrowButtonXMinus.Enabled = c;
             arrowButtonXPlus.Enabled = c;
             arrowButtonYMinus.Enabled = c;

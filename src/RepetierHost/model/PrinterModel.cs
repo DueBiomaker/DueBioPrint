@@ -28,7 +28,6 @@ namespace RepetierHost.model
         private string slic3rPrinter;
         private string slic3rFilament1;
         private string slic3rFilament2;
-        private string slic3rFilament3;
         private Slicer.SlicerID activeSlicer = Slicer.SlicerID.Slic3r;
 
         public PrinterModel()
@@ -41,7 +40,6 @@ namespace RepetierHost.model
             slic3rPrinter = b.Slic3rPrinterSettings;
             slic3rFilament1 = b.Slic3rFilamentSettings;
             slic3rFilament2 = b.Slic3rFilament2Settings;
-            slic3rFilament3 = b.Slic3rFilament3Settings;
             activeSlicer = (Slicer.SlicerID)(int)Main.main.repetierKey.GetValue("ActiveSlicer", (int)activeSlicer);
             readPrinterSettings();
         }
@@ -106,18 +104,6 @@ namespace RepetierHost.model
             }
         }
 
-        public string Slic3rFilament3
-        {
-            get { return slic3rFilament3; }
-            set
-            {
-                if (!updating && slic3rFilament3 == value) return;
-                slic3rFilament3 = value;
-                key.SetValue("slic3rFilament3", slic3rFilament3);
-                OnPropertyChanged(new PropertyChangedEventArgs("Slic3rFilament3"));
-            }
-        }
-
         private void readPrinterSettings()
         {
             updating = true;
@@ -125,7 +111,6 @@ namespace RepetierHost.model
             Slic3rPrinter = (string)key.GetValue("slic3rPrinter", slic3rPrinter);
             Slic3rFilament1 = (string)key.GetValue("slic3rFilament1", slic3rFilament1);
             Slic3rFilament2 = (string)key.GetValue("slic3rFilament2", slic3rFilament2);
-            Slic3rFilament3 = (string)key.GetValue("slic3rFilament3", slic3rFilament3);
             ActiveSlicer = (Slicer.SlicerID)key.GetValue("activeSlicer", activeSlicer);
             updating = false;
         }

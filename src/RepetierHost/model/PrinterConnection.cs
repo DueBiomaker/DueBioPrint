@@ -99,7 +99,6 @@ namespace RepetierHost.model
         public bool afterJobDisableExtruder = true;
         public bool afterJobDisablePrintbed = true;
         public bool afterJobDisableMotors = false;
-        public bool sdcardMounted = true;
 
         // string read = "";
         public LinkedList<LogLine> logList = new LinkedList<LogLine>();

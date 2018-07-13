@@ -84,12 +84,6 @@ namespace RepetierHost.model
             set { slic3rFilament2Settings = value; RegMemory.SetString("slic3rFilament2Settings", slic3rFilament2Settings); }
         }
 
-        public string Slic3rFilament3Settings
-        {
-            get { return slic3rFilament3Settings; }
-            set { slic3rFilament3Settings = value; RegMemory.SetString("slic3rFilament3Settings", slic3rFilament3Settings); }
-        }
-
         public int Slic3rVersionGroup
         {
             get { return slic3rVersionGroup; }

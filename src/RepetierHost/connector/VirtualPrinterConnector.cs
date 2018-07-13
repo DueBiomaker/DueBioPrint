@@ -573,7 +573,6 @@ namespace RepetierHost.connector
             {
                 lastline = 0;
                 job.KillJob(); // continuing the old job makes no sense, better save the plastic
-                con.sdcardMounted = true;
                 history.Clear();
                 con.analyzer.start(true);
                 readyForNextSend = true;

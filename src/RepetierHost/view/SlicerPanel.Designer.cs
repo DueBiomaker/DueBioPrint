@@ -35,10 +35,8 @@
             this.buttonSlic3rConfigure = new System.Windows.Forms.Button();
             this.comboSlic3rPrinterSettings = new System.Windows.Forms.ComboBox();
             this.mainBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboSlic3rFilamentSettings3 = new System.Windows.Forms.ComboBox();
             this.comboSlic3rFilamentSettings2 = new System.Windows.Forms.ComboBox();
             this.comboSlic3rFilamentSettings = new System.Windows.Forms.ComboBox();
-            this.labelSlic3rExtruder3 = new System.Windows.Forms.Label();
             this.comboSlic3rPrintSettings = new System.Windows.Forms.ComboBox();
             this.labelSlic3rExtruder2 = new System.Windows.Forms.Label();
             this.switchSlic3rActive = new RepetierHost.view.SwitchButton();
@@ -63,10 +61,8 @@
             this.groupBox2.Controls.Add(this.buttonSetupSlic3r);
             this.groupBox2.Controls.Add(this.buttonSlic3rConfigure);
             this.groupBox2.Controls.Add(this.comboSlic3rPrinterSettings);
-            this.groupBox2.Controls.Add(this.comboSlic3rFilamentSettings3);
             this.groupBox2.Controls.Add(this.comboSlic3rFilamentSettings2);
             this.groupBox2.Controls.Add(this.comboSlic3rFilamentSettings);
-            this.groupBox2.Controls.Add(this.labelSlic3rExtruder3);
             this.groupBox2.Controls.Add(this.comboSlic3rPrintSettings);
             this.groupBox2.Controls.Add(this.labelSlic3rExtruder2);
             this.groupBox2.Controls.Add(this.switchSlic3rActive);
@@ -76,7 +72,7 @@
             this.groupBox2.Controls.Add(this.labelPrintSettings);
             this.groupBox2.Location = new System.Drawing.Point(3, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(604, 211);
+            this.groupBox2.Size = new System.Drawing.Size(604, 178);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Slic3r";
@@ -85,7 +81,7 @@
             // 
             this.buttonSetupSlic3r.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSetupSlic3r.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetupSlic3r.Image")));
-            this.buttonSetupSlic3r.Location = new System.Drawing.Point(481, 179);
+            this.buttonSetupSlic3r.Location = new System.Drawing.Point(481, 150);
             this.buttonSetupSlic3r.Name = "buttonSetupSlic3r";
             this.buttonSetupSlic3r.Size = new System.Drawing.Size(111, 23);
             this.buttonSetupSlic3r.TabIndex = 3;
@@ -123,18 +119,6 @@
             // 
             this.mainBindingSource.DataSource = typeof(RepetierHost.model.PrinterModel);
             // 
-            // comboSlic3rFilamentSettings3
-            // 
-            this.comboSlic3rFilamentSettings3.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.mainBindingSource, "Slic3rFilament3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboSlic3rFilamentSettings3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainBindingSource, "Slic3rFilament3", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboSlic3rFilamentSettings3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboSlic3rFilamentSettings3.FormattingEnabled = true;
-            this.comboSlic3rFilamentSettings3.Location = new System.Drawing.Point(126, 179);
-            this.comboSlic3rFilamentSettings3.Name = "comboSlic3rFilamentSettings3";
-            this.comboSlic3rFilamentSettings3.Size = new System.Drawing.Size(163, 21);
-            this.comboSlic3rFilamentSettings3.TabIndex = 1;
-            this.comboSlic3rFilamentSettings3.SelectedIndexChanged += new System.EventHandler(this.comboSlic3rFilamentSettings3_SelectedIndexChanged);
-            // 
             // comboSlic3rFilamentSettings2
             // 
             this.comboSlic3rFilamentSettings2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.mainBindingSource, "Slic3rFilament2", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -158,15 +142,6 @@
             this.comboSlic3rFilamentSettings.Size = new System.Drawing.Size(163, 21);
             this.comboSlic3rFilamentSettings.TabIndex = 1;
             this.comboSlic3rFilamentSettings.SelectedIndexChanged += new System.EventHandler(this.comboSlic3rFilamentSettings_SelectedIndexChanged);
-            // 
-            // labelSlic3rExtruder3
-            // 
-            this.labelSlic3rExtruder3.AutoSize = true;
-            this.labelSlic3rExtruder3.Location = new System.Drawing.Point(10, 182);
-            this.labelSlic3rExtruder3.Name = "labelSlic3rExtruder3";
-            this.labelSlic3rExtruder3.Size = new System.Drawing.Size(58, 13);
-            this.labelSlic3rExtruder3.TabIndex = 0;
-            this.labelSlic3rExtruder3.Text = "Extruder 3:";
             // 
             // comboSlic3rPrintSettings
             // 
@@ -287,7 +262,7 @@
             this.panelSlic3rPos.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelSlic3rPos.Location = new System.Drawing.Point(0, 81);
             this.panelSlic3rPos.Name = "panelSlic3rPos";
-            this.panelSlic3rPos.Size = new System.Drawing.Size(610, 219);
+            this.panelSlic3rPos.Size = new System.Drawing.Size(610, 185);
             this.panelSlic3rPos.TabIndex = 5;
             // 
             // SlicerPanel
@@ -298,7 +273,7 @@
             this.Controls.Add(this.panelSlic3rPos);
             this.Controls.Add(this.panelTop);
             this.Name = "SlicerPanel";
-            this.Size = new System.Drawing.Size(610, 300);
+            this.Size = new System.Drawing.Size(610, 267);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
@@ -322,9 +297,7 @@
         private System.Windows.Forms.Button buttonSlic3rConfigure;
         private System.Windows.Forms.Button buttonSetupSlic3r;
         private System.Windows.Forms.Button buttonKillSlicing;
-        private System.Windows.Forms.ComboBox comboSlic3rFilamentSettings3;
         private System.Windows.Forms.ComboBox comboSlic3rFilamentSettings2;
-        private System.Windows.Forms.Label labelSlic3rExtruder3;
         private System.Windows.Forms.Label labelSlic3rExtruder2;
         private System.Windows.Forms.Label labelSlic3rExtruder1;
         private System.Windows.Forms.Panel panelTop;
