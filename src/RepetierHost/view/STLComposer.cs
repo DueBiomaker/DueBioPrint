@@ -82,7 +82,6 @@ namespace RepetierHost.view
         public void translate()
         {
             labelTranslation.Text = Trans.T("L_TRANSLATION:");
-            labelScale.Text = Trans.T("L_SCALE:");
             labelRotate.Text = Trans.T("L_ROTATE:");
             toolSavePlate.ToolTipText = Trans.T("B_SAVE_AS_STL");
             toolRemoveObjects.ToolTipText = Trans.T("B_REMOVE_STL_OBJECT");
@@ -265,10 +264,6 @@ namespace RepetierHost.view
                 textRotX.Enabled = false;
                 textRotY.Enabled = false;
                 textRotZ.Enabled = false;
-                textScaleX.Enabled = false;
-                textScaleY.Enabled = false;
-                textScaleZ.Enabled = false;
-                buttonLockAspect.Enabled = false;
                 textTransX.Enabled = false;
                 textTransY.Enabled = false;
                 textTransZ.Enabled = false;
@@ -290,10 +285,6 @@ namespace RepetierHost.view
                 textRotX.Enabled = true;
                 textRotY.Enabled = true;
                 textRotZ.Enabled = true;
-                textScaleX.Enabled = true;
-                textScaleY.Enabled = !LockAspectRatio;
-                textScaleZ.Enabled = !LockAspectRatio;
-                buttonLockAspect.Enabled = true;
                 textTransX.Enabled = true;
                 textTransY.Enabled = true;
                 textTransZ.Enabled = true;
@@ -431,29 +422,11 @@ namespace RepetierHost.view
                 textRotX.Text = stl.Rotation.x.ToString(GCode.format);
                 textRotY.Text = stl.Rotation.y.ToString(GCode.format);
                 textRotZ.Text = stl.Rotation.z.ToString(GCode.format);
-                LockAspectRatio = (stl.Scale.x == stl.Scale.y && stl.Scale.x == stl.Scale.z);
-                textScaleX.Text = stl.Scale.x.ToString(GCode.format);
-                textScaleY.Text = stl.Scale.y.ToString(GCode.format);
-                textScaleZ.Text = stl.Scale.z.ToString(GCode.format);
                 textTransX.Text = stl.Position.x.ToString(GCode.format);
                 textTransY.Text = stl.Position.y.ToString(GCode.format);
                 textTransZ.Text = stl.Position.z.ToString(GCode.format);
             }
             Main.main.threedview.UpdateChanges();
-        }
-
-        public bool LockAspectRatio
-        {
-            get
-            {
-                return buttonLockAspect.ImageIndex == 1;
-            }
-            set
-            {
-                buttonLockAspect.ImageIndex = value ? 1 : 0;
-                textScaleY.Enabled = !value;
-                textScaleZ.Enabled = !value;
-            }
         }
 
         private void textTransX_TextChanged(object sender, EventArgs e)
@@ -535,39 +508,6 @@ namespace RepetierHost.view
                 //listObjects.SelectedItems.Clear();
                 SetObjectSelected((PrintModel)sel, true);
             }
-        }
-
-        private void textScaleX_TextChanged(object sender, EventArgs e)
-        {
-            PrintModel model = SingleSelectedModel;
-            if (model == null) return;
-            float.TryParse(textScaleX.Text, NumberStyles.Float, GCode.format, out model.Scale.x);
-            if (LockAspectRatio)
-            {
-                model.Scale.y = model.Scale.z = model.Scale.x;
-                textScaleY.Text = model.Scale.y.ToString(GCode.format);
-                textScaleZ.Text = model.Scale.z.ToString(GCode.format);
-            }
-            updateSTLState(model);
-            Main.main.threedview.UpdateChanges();
-        }
-
-        private void textScaleY_TextChanged(object sender, EventArgs e)
-        {
-            PrintModel stl = SingleSelectedModel;
-            if (stl == null) return;
-            float.TryParse(textScaleY.Text, NumberStyles.Float, GCode.format, out stl.Scale.y);
-            updateSTLState(stl);
-            Main.main.threedview.UpdateChanges();
-        }
-
-        private void textScaleZ_TextChanged(object sender, EventArgs e)
-        {
-            PrintModel stl = SingleSelectedModel;
-            if (stl == null) return;
-            float.TryParse(textScaleZ.Text, NumberStyles.Float, GCode.format, out stl.Scale.z);
-            updateSTLState(stl);
-            Main.main.threedview.UpdateChanges();
         }
 
         private void textRotX_TextChanged(object sender, EventArgs e)
@@ -921,13 +861,6 @@ namespace RepetierHost.view
         private void listObjects_DrawColumnHeader(object sender, DrawListViewColumnHeaderEventArgs e)
         {
             e.DrawDefault = true;
-        }
-
-        private void buttonLockAspect_Click(object sender, EventArgs e)
-        {
-            LockAspectRatio = !LockAspectRatio;
-            if (LockAspectRatio)
-                textScaleX_TextChanged(null, null);
         }
 
         private void listObjects_ClientSizeChanged(object sender, EventArgs e)
