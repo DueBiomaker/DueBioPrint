@@ -35,21 +35,6 @@ namespace RepetierHost.view
             {
                 Main.main.languageChanged += translate;
                 translate();
-                if (Custom.GetBool("reverseSlicerOrder", false))
-                {
-                    Controls.Remove(panelSlic3rPos);
-                    Controls.Remove(panelTop);
-                    Controls.Remove(panelSkeinforgePos);
-                    Controls.Add(panelSlic3rPos);
-                    Controls.Add(panelSkeinforgePos);
-                    Controls.Add(panelTop);
-                }
-                if (Custom.GetBool("removeSkeinforge", false))
-                {
-                    groupSkeinforge.Visible = false;
-                    switchSlic3rActive.On = true;
-                    switchSlic3rActive.Visible = false;
-                }
                 mainBindingSource.DataSource = Main.printerModel;
             }
         }
@@ -57,16 +42,12 @@ namespace RepetierHost.view
         private void translate()
         {
             buttonKillSlicing.Text = Trans.T("B_KILL_SLICING_PROCESS");
-            buttonSetupSkeinforge.Text = Trans.T("B_SETUP_SKEINFORGE");
             buttonSetupSlic3r.Text = Trans.T("B_SETUP_SLIC3R");
-            buttonSkeinConfigure.Text = Trans.T("B_CONFIGURE_SKEINFORGE");
             buttonSlic3rConfigure.Text = Trans.T("B_CONFIGURE_SLIC3R");
-            switchSkeinforge.TextOn = switchSkeinforge.TextOff = Trans.T("B_ACTIVE");
             switchSlic3rActive.TextOn = switchSlic3rActive.TextOff = Trans.T("B_ACTIVE");
             labelFilamentSettings.Text = Trans.T("L_FILAMENT_SETTINGS");
             labelPrinterSettings.Text = Trans.T("L_PRINTER_SETTINGS");
             labelPrintSettings.Text = Trans.T("L_PRINT_SETTINGS");
-            labelProfile.Text = Trans.T("L_PROFILE");
             labelSlic3rExtruder1.Text = Trans.T1("L_EXTRUDER_X:", "1");
             labelSlic3rExtruder2.Text = Trans.T1("L_EXTRUDER_X:", "2");
             labelSlic3rExtruder3.Text = Trans.T1("L_EXTRUDER_X:", "3");
@@ -218,53 +199,8 @@ namespace RepetierHost.view
             {
                 comboSlic3rFilamentSettings.Enabled = false;
             }
-            // Skeinforge selection
-            string skeinProfFolder = Main.main.skeinforge.findSkeinforgeProfiles();
-            if (skeinProfFolder != null)
-            {
-                skeinProfFolder = Path.Combine(skeinProfFolder, "extrusion");
-                di = new DirectoryInfo(skeinProfFolder);
-                if (di.Exists)
-                {
-                    old = Main.printerModel.SkeinforgeProfile;
-                    DirectoryInfo[] rgFiles = di.GetDirectories();
-                    comboSkeinProfile.Items.Clear();
-                    foreach (DirectoryInfo fi in rgFiles)
-                    {
-                        comboSkeinProfile.Items.Add(fi.Name);
-                    }
-                    comboSkeinProfile.Enabled = true;
-                    if (b.SkeinforgeProfile.Length > 0)
-                        comboSkeinProfile.SelectedItem = old;
-                    if (comboSkeinProfile.SelectedIndex < 0 && rgFiles.Count() > 0)
-                    {
-                        b.SkeinforgeProfile = rgFiles[0].Name;
-                        comboSkeinProfile.SelectedIndex = 0;
-                    }
-                }
-                else
-                {
-                    comboSkeinProfile.Enabled = false;
-                }
-            }
-            else comboSkeinProfile.Enabled = false;
 
-            if (Main.slicer.ActiveSlicer == Slicer.SlicerID.Slic3r)
-            {
-                switchSkeinforge.On = false;
-                switchSlic3rActive.On = true;
-                //buttonStartSlicing.Text = "Slice with Slic3r\r\n\r\nPrinter = " + b.Slic3rPrinterSettings + "\r\nFilament = " + b.Slic3rFilamentSettings + "\r\nPrint = " + b.Slic3rPrintSettings;
-            }
-            else if (Main.slicer.ActiveSlicer == Slicer.SlicerID.Skeinforge)
-            {
-                switchSlic3rActive.On = false;
-                switchSkeinforge.On = true;
-                //buttonStartSlicing.Text = "Slice with Skeinforge\r\n\r\nProfile = " + b.SkeinforgeProfile;
-            }
             buttonStartSlicing.Text = Trans.T1("L_SLICE_WITH", Main.slicer.SlicerName);
-            if (BasicConfiguration.basicConf.SkeinforgeProfileDir.ToLower().IndexOf("sfact") >= 0)
-                groupSkeinforge.Text = "SFACT";
-            else groupSkeinforge.Text = "Skeinforge";
             updating = false;
         }
 
@@ -300,21 +236,10 @@ namespace RepetierHost.view
             Main.slic3r.RunConfig();
         }
 
-        private void buttonSkeinConfigure_Click(object sender, EventArgs e)
-        {
-            Main.main.skeinforge.RunSkeinforge();
-        }
-
         private void switchSlic3rActive_OnChange(SwitchButton button)
         {
             if (updating || Main.slicer == null) return;
             Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
-        }
-
-        private void switchSkeinforge_OnChange(SwitchButton button)
-        {
-            if (updating) return;
-            Main.slicer.ActiveSlicer = Slicer.SlicerID.Skeinforge;
         }
 
         private void buttonStartSlicing_Click(object sender, EventArgs e)
@@ -322,27 +247,13 @@ namespace RepetierHost.view
             Main.main.objectPlacement.buttonSlice_Click(null, null);
         }
 
-        private void comboSkeinProfile_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (updating) return;
-            if (Main.IsMono && comboSkeinProfile.SelectedItem != null)
-                Main.printerModel.SkeinforgeProfile = (string)comboSkeinProfile.SelectedItem;
-        }
-
         private void buttonSetupSlic3r_Click(object sender, EventArgs e)
         {
             Slic3rSetup.Execute();
         }
 
-        private void buttonSetupSkeinforge_Click(object sender, EventArgs e)
-        {
-            Main.main.skeinforge.Show();
-            Main.main.skeinforge.BringToFront();
-        }
-
         private void buttonKillSlicing_Click(object sender, EventArgs e)
         {
-            Main.main.skeinforge.KillSlice();
             Main.slic3r.KillSlice();
             SlicingInfo.Stop();
         }

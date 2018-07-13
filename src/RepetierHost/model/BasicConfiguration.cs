@@ -30,8 +30,6 @@ namespace RepetierHost.model
         private string slic3rFilament3Settings = "";
         private string slic3rExecutable = "";
         private int slic3rVersionGroup = 1;
-        private string skeinforgeProfile = "";
-        private string skeinforgeProfileDir = "";
         private bool internalSlic3rUseBundledVersion = true;
         public static BasicConfiguration basicConf = new BasicConfiguration();
 
@@ -45,8 +43,6 @@ namespace RepetierHost.model
             slic3rFilament2Settings = RegMemory.GetString("slic3rFilament2Settings", slic3rFilament2Settings);
             slic3rFilament3Settings = RegMemory.GetString("slic3rFilament3Settings", slic3rFilament3Settings);
             slic3rVersionGroup = RegMemory.GetInt("slic3rVersionGroup", slic3rVersionGroup);
-            skeinforgeProfile = RegMemory.GetString("skeinforgeProfile", skeinforgeProfile);
-            skeinforgeProfileDir = RegMemory.GetString("skeinforgeProfileDir", skeinforgeProfileDir);
             externalSlic3rPath = RegMemory.GetString("externalSlic3rPath", externalSlic3rPath);
             externalSlic3rIniFile = RegMemory.GetString("externalSlic3rIniFile", externalSlic3rIniFile);
             internalSlic3rUseBundledVersion = RegMemory.GetBool("internalSlic3rUseBundledVersion", internalSlic3rUseBundledVersion);
@@ -98,18 +94,6 @@ namespace RepetierHost.model
         {
             get { return slic3rVersionGroup; }
             set { slic3rVersionGroup = value; RegMemory.SetInt("slic3rVersionGroup", slic3rVersionGroup); }
-        }
-
-        public string SkeinforgeProfile
-        {
-            get { return skeinforgeProfile; }
-            set { skeinforgeProfile = value; RegMemory.SetString("skeinforgeProfile", skeinforgeProfile); }
-        }
-
-        public string SkeinforgeProfileDir
-        {
-            get { return skeinforgeProfileDir; }
-            set { skeinforgeProfileDir = value; RegMemory.SetString("skeinforgeProfileDir", skeinforgeProfileDir); }
         }
 
         public string ExternalSlic3rPath

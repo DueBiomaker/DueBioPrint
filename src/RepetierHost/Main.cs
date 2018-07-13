@@ -54,7 +54,6 @@ namespace RepetierHost
         public static Slic3r slic3r = null;
         public static bool IsMac = false;
 
-        public Skeinforge skeinforge = null;
         public EEPROMRepetier eepromSettings = null;
         public EEPROMMarlin eepromSettingsm = null;
         public LogView logView = null;
@@ -257,7 +256,6 @@ namespace RepetierHost
             logView = new LogView();
             logView.Dock = DockStyle.Fill;
             splitLog.Panel2.Controls.Add(logView);
-            skeinforge = new Skeinforge();
             PrinterChanged(printerSettings.currentPrinterKey, true);
             printerSettings.eventPrinterChanged += PrinterChanged;
             // GCode print preview
@@ -331,11 +329,8 @@ namespace RepetierHost
             }
             languageChanged += translate;
             translate();
-            if (Custom.GetBool("removeSkeinforge", false))
-            {
-                Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
-            }
-            
+            Main.slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
+
             toolAction.Text = Trans.T("L_IDLE");
             toolConnection.Text = Trans.T("L_DISCONNECTED");
             updateTravelMoves();
@@ -913,17 +908,6 @@ namespace RepetierHost
             FormToFront(printerSettings);
         }
 
-        private void skeinforgeSettingsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            skeinforge.Show();
-            skeinforge.BringToFront();
-        }
-
-        private void skeinforgeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            skeinforge.RunSkeinforge();
-        }
-
         private void threeDSettingsMenu_Click(object sender, EventArgs e)
         {
             threeDSettings.Show();
@@ -1190,7 +1174,6 @@ namespace RepetierHost
             {
                 splitLog.Panel2Collapsed = true;
             }
-            //toolShowLog.Checked = !toolShowLog.Checked;
         }
 
         private void toolShowLog_CheckedChanged(object sender, EventArgs e)
@@ -1208,13 +1191,6 @@ namespace RepetierHost
         private void slic3rToolStripMenuItem_Click(object sender, EventArgs e)
         {
             slicer.ActiveSlicer = Slicer.SlicerID.Slic3r;
-            //stlComposer1.buttonSlice.Text = Trans.T1("L_SLICE_WITH", slicer.SlicerName);
-        }
-
-        private void skeinforgeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            slicer.ActiveSlicer = Slicer.SlicerID.Skeinforge;
-            //stlComposer1.buttonSlice.Text = Trans.T1("L_SLICE_WITH", slicer.SlicerName);
         }
 
         private void slic3rConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1246,7 +1222,6 @@ namespace RepetierHost
         private void tab_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Console.WriteLine("index changed " + Environment.OSVersion.Platform + " Mac=" + PlatformID.MacOSX);
-            //if (Environment.OSVersion.Platform == PlatformID.MacOSX )
             if (IsMac)
             {
                 // In MacOSX the OpenGL windows shine through the
@@ -1393,7 +1368,6 @@ namespace RepetierHost
 
         private void killSlicingProcessToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            skeinforge.KillSlice();
             slic3r.KillSlice();
             SlicingInfo.Stop();
         }

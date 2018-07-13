@@ -29,7 +29,6 @@ namespace RepetierHost.model
         private string slic3rFilament1;
         private string slic3rFilament2;
         private string slic3rFilament3;
-        private string skeinforgeProfile;
         private Slicer.SlicerID activeSlicer = Slicer.SlicerID.Slic3r;
 
         public PrinterModel()
@@ -43,7 +42,6 @@ namespace RepetierHost.model
             slic3rFilament1 = b.Slic3rFilamentSettings;
             slic3rFilament2 = b.Slic3rFilament2Settings;
             slic3rFilament3 = b.Slic3rFilament3Settings;
-            skeinforgeProfile = b.SkeinforgeProfile;
             activeSlicer = (Slicer.SlicerID)(int)Main.main.repetierKey.GetValue("ActiveSlicer", (int)activeSlicer);
             readPrinterSettings();
         }
@@ -120,18 +118,6 @@ namespace RepetierHost.model
             }
         }
 
-        public string SkeinforgeProfile
-        {
-            get { return skeinforgeProfile; }
-            set
-            {
-                if (!updating && skeinforgeProfile == value) return;
-                skeinforgeProfile = value;
-                key.SetValue("skeinforgeProfile", skeinforgeProfile);
-                OnPropertyChanged(new PropertyChangedEventArgs("SkeinforgeProfile"));
-            }
-        }
-
         private void readPrinterSettings()
         {
             updating = true;
@@ -140,7 +126,6 @@ namespace RepetierHost.model
             Slic3rFilament1 = (string)key.GetValue("slic3rFilament1", slic3rFilament1);
             Slic3rFilament2 = (string)key.GetValue("slic3rFilament2", slic3rFilament2);
             Slic3rFilament3 = (string)key.GetValue("slic3rFilament3", slic3rFilament3);
-            SkeinforgeProfile = (string)key.GetValue("skeinforgeProfile", skeinforgeProfile);
             ActiveSlicer = (Slicer.SlicerID)key.GetValue("activeSlicer", activeSlicer);
             updating = false;
         }

@@ -10,18 +10,15 @@ namespace RepetierHost.view.utils
 {
     public class Slicer : IDisposable
     {
-        public enum SlicerID { Slic3r, Skeinforge, Slic3rExternal };
+        public enum SlicerID { Slic3r, Slic3rExternal };
 
         private SlicerID _ActiveSlicer = SlicerID.Slic3r;
         private bool _hasSlic3r = false;
-        private bool _hasSkeinforge = false;
         private bool _hasSlic3rExternal = false;
         public static RHBoundingBox lastBox = new RHBoundingBox();
-        private Skeinforge skein = null;
 
         public Slicer()
         {
-            skein = Main.main.skeinforge;
             Main.slicer = this;
             ActiveSlicer = Main.printerModel.ActiveSlicer; // (Slicer.SlicerID)(int)Main.main.repetierKey.GetValue("ActiveSlicer", (int)ActiveSlicer);
             Main.printerModel.PropertyChanged += printerPropertyChanged;
@@ -57,14 +54,6 @@ namespace RepetierHost.view.utils
             get
             {
                 return _hasSlic3rExternal;
-            }
-        }
-
-        public bool hasSkeinforge
-        {
-            get
-            {
-                return _hasSkeinforge;
             }
         }
 
@@ -172,7 +161,6 @@ namespace RepetierHost.view.utils
                     //Main.main.repetierKey.SetValue("ActiveSlicer", (int)_ActiveSlicer);
                 }
                 Main.main.slic3rToolStripMenuItem.Checked = _ActiveSlicer == SlicerID.Slic3r;
-                Main.main.skeinforgeToolStripMenuItem1.Checked = _ActiveSlicer == SlicerID.Skeinforge;
                 Main.main.externalSlic3rToolStripMenuItem.Checked = _ActiveSlicer == SlicerID.Slic3rExternal;
                 //Main.main.stlComposer1.buttonSlice.Text = Trans.T1("L_SLICE_WITH", SlicerName);
                 if (Main.main.slicerPanel != null)
@@ -195,27 +183,13 @@ namespace RepetierHost.view.utils
             _hasSlic3rExternal = File.Exists(BasicConfiguration.basicConf.ExternalSlic3rIniFile) &&
                 (_hasSlic3r || File.Exists(BasicConfiguration.basicConf.ExternalSlic3rPath));
             */
-            _hasSkeinforge = false;
-            if (skein.textPython.Text.Length > 0 && skein.textSkeinforge.Text.Length > 0 &&
-                skein.textSkeinforgeCraft.Text.Length > 0)
-            {
-                _hasSkeinforge = File.Exists(skein.textPython.Text) && File.Exists(skein.textSkeinforge.Text) &&
-                    File.Exists(skein.textSkeinforgeCraft.Text);
-            }
             Main.main.slic3rToolStripMenuItem.Enabled = _hasSlic3r;
-            Main.main.skeinforgeToolStripMenuItem1.Enabled = _hasSkeinforge;
-            Main.main.skeinforgeConfigurationToolStripMenuItem.Enabled = _hasSkeinforge;
             Main.main.externalSlic3rToolStripMenuItem.Enabled = _hasSlic3rExternal;
             Main.main.externalSlic3rConfigurationToolStripMenuItem.Enabled = _hasSlic3r || File.Exists(BasicConfiguration.basicConf.ExternalSlic3rPath);
             // Check if active slicer is possible
-            if (ActiveSlicer == SlicerID.Slic3r && !_hasSlic3r && _hasSkeinforge)
-            {
-                if (_hasSlic3rExternal)
-                    ActiveSlicer = SlicerID.Slic3rExternal;
-                else
-                    ActiveSlicer = SlicerID.Skeinforge;
-            }
-            else if (ActiveSlicer == SlicerID.Skeinforge && !_hasSkeinforge && _hasSlic3r)
+            if (ActiveSlicer == SlicerID.Slic3r && !_hasSlic3r && _hasSlic3rExternal)
+                ActiveSlicer = SlicerID.Slic3rExternal;
+            else if (_hasSlic3r)
                 ActiveSlicer = SlicerID.Slic3r;
             else if (ActiveSlicer == SlicerID.Slic3rExternal && !_hasSlic3rExternal)
                 ActiveSlicer = SlicerID.Slic3r;
@@ -233,12 +207,6 @@ namespace RepetierHost.view.utils
                 case SlicerID.Slic3r:
                     Main.slic3r.RunSliceNew(file, Main.printerSettings.PrintAreaWidth / 2, Main.printerSettings.PrintAreaDepth / 2);
                     break;
-                /*case SlicerID.Slic3rExternal:
-                    Main.slic3r.RunSliceExternal(file, Main.printerSettings.PrintAreaWidth / 2, Main.printerSettings.PrintAreaDepth / 2);
-                    break;*/
-                case SlicerID.Skeinforge:
-                    skein.RunSlice(file, Main.printerModel.SkeinforgeProfile);
-                    break;
             }
         }
 
@@ -253,13 +221,6 @@ namespace RepetierHost.view.utils
 
                     case SlicerID.Slic3rExternal:
                         return "external Slic3r";
-
-                    case SlicerID.Skeinforge:
-                        {
-                            if (BasicConfiguration.basicConf.SkeinforgeProfileDir.IndexOf("sfact") >= 0)
-                                return "SFACT";
-                            return "Skeinforge";
-                        }
                 }
                 return "Unknown";
             }

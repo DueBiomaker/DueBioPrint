@@ -46,23 +46,14 @@
             this.labelPrinterSettings = new System.Windows.Forms.Label();
             this.labelFilamentSettings = new System.Windows.Forms.Label();
             this.labelPrintSettings = new System.Windows.Forms.Label();
-            this.groupSkeinforge = new System.Windows.Forms.GroupBox();
-            this.buttonSetupSkeinforge = new System.Windows.Forms.Button();
-            this.buttonSkeinConfigure = new System.Windows.Forms.Button();
-            this.comboSkeinProfile = new System.Windows.Forms.ComboBox();
-            this.switchSkeinforge = new RepetierHost.view.SwitchButton();
-            this.labelProfile = new System.Windows.Forms.Label();
             this.buttonStartSlicing = new System.Windows.Forms.Button();
             this.buttonKillSlicing = new System.Windows.Forms.Button();
             this.panelTop = new System.Windows.Forms.Panel();
             this.panelSlic3rPos = new System.Windows.Forms.Panel();
-            this.panelSkeinforgePos = new System.Windows.Forms.Panel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).BeginInit();
-            this.groupSkeinforge.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelSlic3rPos.SuspendLayout();
-            this.panelSkeinforgePos.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -253,87 +244,6 @@
             this.labelPrintSettings.TabIndex = 0;
             this.labelPrintSettings.Text = "Print settings:";
             // 
-            // groupSkeinforge
-            // 
-            this.groupSkeinforge.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupSkeinforge.Controls.Add(this.buttonSetupSkeinforge);
-            this.groupSkeinforge.Controls.Add(this.buttonSkeinConfigure);
-            this.groupSkeinforge.Controls.Add(this.comboSkeinProfile);
-            this.groupSkeinforge.Controls.Add(this.switchSkeinforge);
-            this.groupSkeinforge.Controls.Add(this.labelProfile);
-            this.groupSkeinforge.Location = new System.Drawing.Point(3, 2);
-            this.groupSkeinforge.Name = "groupSkeinforge";
-            this.groupSkeinforge.Size = new System.Drawing.Size(604, 86);
-            this.groupSkeinforge.TabIndex = 2;
-            this.groupSkeinforge.TabStop = false;
-            this.groupSkeinforge.Text = "Skeinforge";
-            // 
-            // buttonSetupSkeinforge
-            // 
-            this.buttonSetupSkeinforge.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetupSkeinforge.Image = ((System.Drawing.Image)(resources.GetObject("buttonSetupSkeinforge.Image")));
-            this.buttonSetupSkeinforge.Location = new System.Drawing.Point(481, 48);
-            this.buttonSetupSkeinforge.Name = "buttonSetupSkeinforge";
-            this.buttonSetupSkeinforge.Size = new System.Drawing.Size(111, 23);
-            this.buttonSetupSkeinforge.TabIndex = 3;
-            this.buttonSetupSkeinforge.Text = "Setup";
-            this.buttonSetupSkeinforge.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSetupSkeinforge.UseVisualStyleBackColor = true;
-            this.buttonSetupSkeinforge.Click += new System.EventHandler(this.buttonSetupSkeinforge_Click);
-            // 
-            // buttonSkeinConfigure
-            // 
-            this.buttonSkeinConfigure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSkeinConfigure.Image = ((System.Drawing.Image)(resources.GetObject("buttonSkeinConfigure.Image")));
-            this.buttonSkeinConfigure.Location = new System.Drawing.Point(481, 19);
-            this.buttonSkeinConfigure.Name = "buttonSkeinConfigure";
-            this.buttonSkeinConfigure.Size = new System.Drawing.Size(111, 23);
-            this.buttonSkeinConfigure.TabIndex = 2;
-            this.buttonSkeinConfigure.Text = "Configure";
-            this.buttonSkeinConfigure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSkeinConfigure.UseVisualStyleBackColor = true;
-            this.buttonSkeinConfigure.Click += new System.EventHandler(this.buttonSkeinConfigure_Click);
-            // 
-            // comboSkeinProfile
-            // 
-            this.comboSkeinProfile.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.mainBindingSource, "SkeinforgeProfile", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboSkeinProfile.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mainBindingSource, "SkeinforgeProfile", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.comboSkeinProfile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboSkeinProfile.FormattingEnabled = true;
-            this.comboSkeinProfile.Location = new System.Drawing.Point(126, 50);
-            this.comboSkeinProfile.Name = "comboSkeinProfile";
-            this.comboSkeinProfile.Size = new System.Drawing.Size(163, 21);
-            this.comboSkeinProfile.TabIndex = 1;
-            this.comboSkeinProfile.SelectedIndexChanged += new System.EventHandler(this.comboSkeinProfile_SelectedIndexChanged);
-            // 
-            // switchSkeinforge
-            // 
-            this.switchSkeinforge.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.switchSkeinforge.ButtonFlatBorderColor = System.Drawing.Color.Empty;
-            this.switchSkeinforge.ButtonFlatBorderSize = 1;
-            this.switchSkeinforge.ButtonFlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.switchSkeinforge.ButtonTextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.switchSkeinforge.Location = new System.Drawing.Point(6, 19);
-            this.switchSkeinforge.MinimumSize = new System.Drawing.Size(90, 23);
-            this.switchSkeinforge.Name = "switchSkeinforge";
-            this.switchSkeinforge.On = false;
-            this.switchSkeinforge.Size = new System.Drawing.Size(100, 23);
-            this.switchSkeinforge.TabIndex = 0;
-            this.switchSkeinforge.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.switchSkeinforge.TextOff = "Active";
-            this.switchSkeinforge.TextOn = "Active";
-            this.switchSkeinforge.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchSkeinforge_OnChange);
-            // 
-            // labelProfile
-            // 
-            this.labelProfile.AutoSize = true;
-            this.labelProfile.Location = new System.Drawing.Point(10, 53);
-            this.labelProfile.Name = "labelProfile";
-            this.labelProfile.Size = new System.Drawing.Size(39, 13);
-            this.labelProfile.TabIndex = 0;
-            this.labelProfile.Text = "Profile:";
-            // 
             // buttonStartSlicing
             // 
             this.buttonStartSlicing.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -344,7 +254,7 @@
             this.buttonStartSlicing.Name = "buttonStartSlicing";
             this.buttonStartSlicing.Size = new System.Drawing.Size(476, 67);
             this.buttonStartSlicing.TabIndex = 1;
-            this.buttonStartSlicing.Text = "Slice with Skeinforge";
+            this.buttonStartSlicing.Text = "Slice with Slic3r";
             this.buttonStartSlicing.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonStartSlicing.UseVisualStyleBackColor = true;
             this.buttonStartSlicing.Click += new System.EventHandler(this.buttonStartSlicing_Click);
@@ -380,33 +290,20 @@
             this.panelSlic3rPos.Size = new System.Drawing.Size(610, 219);
             this.panelSlic3rPos.TabIndex = 5;
             // 
-            // panelSkeinforgePos
-            // 
-            this.panelSkeinforgePos.Controls.Add(this.groupSkeinforge);
-            this.panelSkeinforgePos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSkeinforgePos.Location = new System.Drawing.Point(0, 300);
-            this.panelSkeinforgePos.Name = "panelSkeinforgePos";
-            this.panelSkeinforgePos.Size = new System.Drawing.Size(610, 96);
-            this.panelSkeinforgePos.TabIndex = 6;
-            // 
             // SlicerPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Controls.Add(this.panelSkeinforgePos);
             this.Controls.Add(this.panelSlic3rPos);
             this.Controls.Add(this.panelTop);
             this.Name = "SlicerPanel";
-            this.Size = new System.Drawing.Size(610, 397);
+            this.Size = new System.Drawing.Size(610, 300);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainBindingSource)).EndInit();
-            this.groupSkeinforge.ResumeLayout(false);
-            this.groupSkeinforge.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelSlic3rPos.ResumeLayout(false);
-            this.panelSkeinforgePos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -414,7 +311,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupSkeinforge;
         private System.Windows.Forms.Button buttonStartSlicing;
         private SwitchButton switchSlic3rActive;
         private System.Windows.Forms.ComboBox comboSlic3rPrinterSettings;
@@ -424,12 +320,7 @@
         private System.Windows.Forms.Label labelFilamentSettings;
         private System.Windows.Forms.Label labelPrintSettings;
         private System.Windows.Forms.Button buttonSlic3rConfigure;
-        private System.Windows.Forms.Button buttonSkeinConfigure;
-        private SwitchButton switchSkeinforge;
-        private System.Windows.Forms.Label labelProfile;
-        public System.Windows.Forms.ComboBox comboSkeinProfile;
         private System.Windows.Forms.Button buttonSetupSlic3r;
-        private System.Windows.Forms.Button buttonSetupSkeinforge;
         private System.Windows.Forms.Button buttonKillSlicing;
         private System.Windows.Forms.ComboBox comboSlic3rFilamentSettings3;
         private System.Windows.Forms.ComboBox comboSlic3rFilamentSettings2;
@@ -438,7 +329,6 @@
         private System.Windows.Forms.Label labelSlic3rExtruder1;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelSlic3rPos;
-        private System.Windows.Forms.Panel panelSkeinforgePos;
         private System.Windows.Forms.BindingSource mainBindingSource;
     }
 }
