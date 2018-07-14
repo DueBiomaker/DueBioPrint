@@ -77,13 +77,9 @@ namespace RepetierHost.view
         private void translate()
         {
             //toolMove.ToolTipText = Trans.T("L_MOVE_CAMERA");
-            toolMoveObject.ToolTipText = Trans.T("L_MOVE_OBJECT");
-            toolMoveViewpoint.ToolTipText = Trans.T("L_MOVE_VIEWPOINT");
             toolResetView.ToolTipText = Trans.T("L_FRONT_VIEW");
             toolIsometric.ToolTipText = Trans.T("L_ISOMETRIC_VIEW");
-            toolRotate.ToolTipText = Trans.T("L_ROTATE");
             toolTopView.ToolTipText = Trans.T("L_TOP_VIEW");
-            toolZoom.ToolTipText = Trans.T("T_ZOOM_VIEW");
             toolStripClear.ToolTipText = Trans.T("T_CLEAR_OBJECTS");
             toolParallelProjection.ToolTipText = Trans.T("L_USE_PARALLEL_PROJECTION");
         }
@@ -94,10 +90,8 @@ namespace RepetierHost.view
             toolStripClear.Visible = view.autoupdateable;
             if (view.editor)
             {
-                toolMoveObject.Visible = true;
                 toolStripClear.Enabled = false;
             }
-            toolMoveObject.Enabled = view.objectsSelected;
             toolStripClear.Enabled = view.objectsSelected;
             UpdateChanges();
         }
@@ -125,7 +119,6 @@ namespace RepetierHost.view
 
         public void SetObjectSelected(bool sel)
         {
-            toolMoveObject.Enabled = sel;
             toolStripClear.Enabled = sel;
             view.objectsSelected = sel;
         }
@@ -1234,20 +1227,6 @@ namespace RepetierHost.view
             return (val < 0 ? -val : val) > 1e-4;
         }
 
-        public void SetMode(int _mode)
-        {
-            mode = _mode;
-            toolRotate.Checked = mode == 0;
-            toolMoveViewpoint.Checked = mode == 2;
-            toolZoom.Checked = mode == 3;
-            toolMoveObject.Checked = mode == 4;
-        }
-
-        private void toolRotate_Click(object sender, EventArgs e)
-        {
-            SetMode(0);
-        }
-
         private void SetCameraDefaults()
         {
             cam.viewCenter = new Vector3(0, 0, 0);
@@ -1323,21 +1302,6 @@ namespace RepetierHost.view
             SetCameraDefaults();
             cam.OrientFront();
             render = true;
-        }
-
-        private void toolMoveViewpoint_Click(object sender, EventArgs e)
-        {
-            SetMode(2);
-        }
-
-        private void toolZoom_Click(object sender, EventArgs e)
-        {
-            SetMode(3);
-        }
-
-        private void toolMoveObject_Click(object sender, EventArgs e)
-        {
-            SetMode(4);
         }
 
         private void ThreeDControl_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)

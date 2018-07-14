@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThreeDControl));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolRotate = new System.Windows.Forms.ToolStripButton();
-            this.toolMoveViewpoint = new System.Windows.Forms.ToolStripButton();
-            this.toolMoveObject = new System.Windows.Forms.ToolStripButton();
-            this.toolZoom = new System.Windows.Forms.ToolStripButton();
             this.toolIsometric = new System.Windows.Forms.ToolStripButton();
             this.toolResetView = new System.Windows.Forms.ToolStripButton();
             this.toolTopView = new System.Windows.Forms.ToolStripButton();
@@ -55,10 +51,6 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolRotate,
-            this.toolMoveViewpoint,
-            this.toolMoveObject,
-            this.toolZoom,
             this.toolIsometric,
             this.toolResetView,
             this.toolTopView,
@@ -75,48 +67,6 @@
             this.toolStrip1.Stretch = true;
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolRotate
-            // 
-            this.toolRotate.Checked = true;
-            this.toolRotate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolRotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolRotate.Image = ((System.Drawing.Image)(resources.GetObject("toolRotate.Image")));
-            this.toolRotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolRotate.Name = "toolRotate";
-            this.toolRotate.Size = new System.Drawing.Size(35, 36);
-            this.toolRotate.Text = "Rotate";
-            this.toolRotate.Click += new System.EventHandler(this.toolRotate_Click);
-            // 
-            // toolMoveViewpoint
-            // 
-            this.toolMoveViewpoint.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolMoveViewpoint.Image = ((System.Drawing.Image)(resources.GetObject("toolMoveViewpoint.Image")));
-            this.toolMoveViewpoint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMoveViewpoint.Name = "toolMoveViewpoint";
-            this.toolMoveViewpoint.Size = new System.Drawing.Size(34, 36);
-            this.toolMoveViewpoint.Text = "Move viewpoint";
-            this.toolMoveViewpoint.Click += new System.EventHandler(this.toolMoveViewpoint_Click);
-            // 
-            // toolMoveObject
-            // 
-            this.toolMoveObject.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolMoveObject.Image = ((System.Drawing.Image)(resources.GetObject("toolMoveObject.Image")));
-            this.toolMoveObject.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolMoveObject.Name = "toolMoveObject";
-            this.toolMoveObject.Size = new System.Drawing.Size(34, 36);
-            this.toolMoveObject.Text = "Move object";
-            this.toolMoveObject.Click += new System.EventHandler(this.toolMoveObject_Click);
-            // 
-            // toolZoom
-            // 
-            this.toolZoom.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolZoom.Image = ((System.Drawing.Image)(resources.GetObject("toolZoom.Image")));
-            this.toolZoom.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolZoom.Name = "toolZoom";
-            this.toolZoom.Size = new System.Drawing.Size(34, 36);
-            this.toolZoom.Text = "Zoom";
-            this.toolZoom.Click += new System.EventHandler(this.toolZoom_Click);
             // 
             // toolIsometric
             // 
@@ -217,12 +167,8 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolRotate;
         private System.Windows.Forms.ToolStripButton toolResetView;
-        private System.Windows.Forms.ToolStripButton toolMoveViewpoint;
-        private System.Windows.Forms.ToolStripButton toolZoom;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolMoveObject;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripButton toolStripClear;
         public RepetierHost.view.utils.RHOpenGL gl;
