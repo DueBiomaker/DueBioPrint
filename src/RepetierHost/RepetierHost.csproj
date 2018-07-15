@@ -163,6 +163,11 @@
     <Compile Include="model\PulseAnimation.cs" />
     <Compile Include="model\RectPacker.cs" />
     <Compile Include="model\PrintModel.cs" />
+    <Compile Include="model\slic3r\FilamentSettings.cs" />
+    <Compile Include="model\slic3r\PrinterExtruderSettings.cs" />
+    <Compile Include="model\slic3r\PrinterSettings.cs" />
+    <Compile Include="model\slic3r\PrintSettings.cs" />
+    <Compile Include="model\slic3r\Slic3rSettings.cs" />
     <Compile Include="model\TemperatureHistory.cs" />
     <Compile Include="model\ThreeDModel.cs" />
     <Compile Include="model\ThreeDView.cs" />
@@ -252,6 +257,9 @@
     <EmbeddedResource Include="view\Slic3r.resx">
       <DependentUpon>Slic3r.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Slic3rSettings.resx">
+      <DependentUpon>Slic3rSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Slic3rSetup.resx">
       <DependentUpon>Slic3rSetup.cs</DependentUpon>
@@ -447,6 +455,12 @@
     </Compile>
     <Compile Include="view\Slic3r.Designer.cs">
       <DependentUpon>Slic3r.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Slic3rSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Slic3rSettings.Designer.cs">
+      <DependentUpon>Slic3rSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Slic3rSetup.cs">
       <SubType>Form</SubType>
