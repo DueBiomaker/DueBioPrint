@@ -1,9 +1,15 @@
 ﻿namespace RepetierHost.extensions
 {
-    public class ExtensionManager
+    public static class ExtensionManager
     {
-        public static void Initalize()
+        public static string ToSlic3rSettings(this bool value)
         {
+            return value ? "1" : "0";
+        }
+
+        public static string ToSlic3rSettings(this string value)
+        {
+            return value;
         }
     }
 }

@@ -208,6 +208,10 @@
             // cboxSeamPosition
             // 
             this.cboxSeamPosition.FormattingEnabled = true;
+            this.cboxSeamPosition.Items.AddRange(new object[] {
+            "random",
+            "nearest",
+            "aligned"});
             this.cboxSeamPosition.Location = new System.Drawing.Point(10, 44);
             this.cboxSeamPosition.Name = "cboxSeamPosition";
             this.cboxSeamPosition.Size = new System.Drawing.Size(121, 21);

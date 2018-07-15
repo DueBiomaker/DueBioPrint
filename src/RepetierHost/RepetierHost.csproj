@@ -115,6 +115,7 @@
     <Compile Include="connector\VirtualPrinterPanel.Designer.cs">
       <DependentUpon>VirtualPrinterPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="controller\Slic3rSettingsController.cs" />
     <Compile Include="extensions\ExtensionManager.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

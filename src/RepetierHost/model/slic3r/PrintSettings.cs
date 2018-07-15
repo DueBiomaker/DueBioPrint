@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using RepetierHost.extensions;
+using System.ComponentModel;
 using System.Text;
 
 namespace RepetierHost.model.slic3r
@@ -6,6 +7,7 @@ namespace RepetierHost.model.slic3r
     public class PrintSettings : INotifyPropertyChanged
     {
         private const string DEFAULT_VALUE = "0";
+        private const string TRUE_INT = "1";
 
         // Layers and perimeters
         private string _LayerHeight;
@@ -1298,95 +1300,357 @@ namespace RepetierHost.model.slic3r
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        public void FillValue(string key, string input)
+        {
+            switch (key)
+            {
+                case "avoid_crossing_perimeters":
+                    AvoidCrossingPerimeters = input.Equals(TRUE_INT);
+                    break;
+                case "bottom_solid_layers":
+                    BottomSolidLayers = input;
+                    break;
+                case "bridge_acceleration":
+                    BridgeAcceleration = input;
+                    break;
+                case "bridge_flow_ratio":
+                    BridgeFlowRatio = input;
+                    break;
+                case "bridge_speed":
+                    BridgeSpeed = input;
+                    break;
+                case "brim_width":
+                    BrimWidth = input;
+                    break;
+                case "complete_objects":
+                    CompleteObjects = input.Equals(TRUE_INT);
+                    break;
+                case "default_acceleration":
+                    DefaultAcceleration = input;
+                    break;
+                case "dont_support_bridges":
+                    DontSupportBridges = input.Equals(TRUE_INT);
+                    break;
+                case "external_fill_pattern":
+                    ExternalFillPattern = input;
+                    break;
+                case "external_perimeter_extrusion_width":
+                    ExternalPerimeterExtrusionWidth = input;
+                    break;
+                case "external_perimeter_speed":
+                    ExternalPerimeterSpeed = input;
+                    break;
+                case "external_perimeters_first":
+                    ExternalPerimetersFirst = input.Equals(TRUE_INT);
+                    break;
+                case "extra_perimeters":
+                    ExtraPerimeters = input.Equals(TRUE_INT);
+                    break;
+                case "extruder_clearance_height":
+                    ExtruderClearanceHeight = input;
+                    break;
+                case "extruder_clearance_radius":
+                    ExtruderClearanceRadius = input;
+                    break;
+                case "extrusion_width":
+                    ExtrusionWidth = input;
+                    break;
+                case "fill_angle":
+                    FillAngle = input;
+                    break;
+                case "fill_density":
+                    FillDensity = input;
+                    break;
+                case "fill_pattern":
+                    FillPattern = input;
+                    break;
+                case "first_layer_acceleration":
+                    FirstLayerAcceleration = input;
+                    break;
+                case "first_layer_extrusion_width":
+                    FirstLayerExtrusionWidth = input;
+                    break;
+                case "first_layer_height":
+                    FirstLayerHeight = input;
+                    break;
+                case "first_layer_speed":
+                    FirstLayerSpeed = input;
+                    break;
+                case "gap_fill_speed":
+                    GapFillSpeed = input;
+                    break;
+                case "gcode_comments":
+                    GcodeComments = input.Equals(TRUE_INT);
+                    break;
+                case "infill_acceleration":
+                    InfillAcceleration = input;
+                    break;
+                case "infill_every_layers":
+                    InfillEveryLayers = input;
+                    break;
+                case "infill_extruder":
+                    InfillExtruder = input;
+                    break;
+                case "infill_extrusion_width":
+                    InfillExtrusionWidth = input;
+                    break;
+                case "infill_first":
+                    InfillFirst = input.Equals(TRUE_INT);
+                    break;
+                case "infill_only_where_needed":
+                    InfillOnlyWhereNeeded = input.Equals(TRUE_INT);
+                    break;
+                case "infill_overlap":
+                    InfillOverlap = input;
+                    break;
+                case "infill_speed":
+                    InfillSpeed = input;
+                    break;
+                case "interface_shells":
+                    InterfaceShells = input.Equals(TRUE_INT);
+                    break;
+                case "layer_height":
+                    LayerHeight = input;
+                    break;
+                case "max_print_speed":
+                    MaxPrintSpeed = input;
+                    break;
+                case "max_volumetric_speed":
+                    MaxVolumetricSpeed = input;
+                    break;
+                case "min_skirt_length":
+                    MinSkirtLength = input;
+                    break;
+                case "notes":
+                    Notes = input;
+                    break;
+                case "only_retract_when_crossing_perimeters":
+                    OnlyRetractWhenCrossingPerimeters = input.Equals(TRUE_INT);
+                    break;
+                case "ooze_prevention":
+                    OozePrevention = input.Equals(TRUE_INT);
+                    break;
+                case "output_filename_format":
+                    OutputFilenameFormat = input;
+                    break;
+                case "overhangs":
+                    Overhangs = input.Equals(TRUE_INT);
+                    break;
+                case "perimeter_acceleration":
+                    PerimeterAcceleration = input;
+                    break;
+                case "perimeter_extruder":
+                    PerimeterExtruder = input;
+                    break;
+                case "perimeter_extrusion_width":
+                    PerimeterExtrusionWidth = input;
+                    break;
+                case "perimeter_speed":
+                    PerimeterSpeed = input;
+                    break;
+                case "perimeters":
+                    Perimeters = input;
+                    break;
+                case "post_process":
+                    PostProcess = input;
+                    break;
+                case "raft_layers":
+                    RaftLayers = input;
+                    break;
+                case "resolution":
+                    Resolution = input;
+                    break;
+                case "seam_position":
+                    SeamPosition =  input;
+                    break;
+                case "skirt_distance":
+                    SkirtDistance = input;
+                    break;
+                case "skirt_height":
+                    SkirtHeight = input;
+                    break;
+                case "skirts":
+                    Skirts = input;
+                    break;
+                case "small_perimeter_speed":
+                    SmallPerimeterSpeed = input;
+                    break;
+                case "solid_infill_below_area":
+                    SolidInfillBelowArea = input;
+                    break;
+                case "solid_infill_every_layers":
+                    SolidInfillEveryLayers = input;
+                    break;
+                case "solid_infill_extruder":
+                    SolidInfillExtruder = input;
+                    break;
+                case "solid_infill_extrusion_width":
+                    SolidInfillExtrusionWidth = input;
+                    break;
+                case "solid_infill_speed":
+                    SolidInfillSpeed = input;
+                    break;
+                case "spiral_vase":
+                    SpiralVase = input.Equals(TRUE_INT);
+                    break;
+                case "standby_temperature_delta":
+                    StandbyTemperatureDelta = input;
+                    break;
+                case "support_material":
+                    SupportMaterial = input;
+                    break;
+                case "support_material_angle":
+                    SupportMaterialAngle = input;
+                    break;
+                case "support_material_contact_distance":
+                    SupportMaterialContactDistance = input;
+                    break;
+                case "support_material_enforce_layers":
+                    SupportMaterialEnforceLayers = input;
+                    break;
+                case "support_material_extruder":
+                    SupportMaterialExtruder = input;
+                    break;
+                case "support_material_extrusion_width":
+                    SupportMaterialExtrusionWidth = input;
+                    break;
+                case "support_material_interface_extruder":
+                    SupportMaterialInterfaceExtruder = input;
+                    break;
+                case "support_material_interface_layers":
+                    SupportMaterialInterfaceLayers = input;
+                    break;
+                case "support_material_interface_spacing":
+                    SupportMaterialInterfaceSpacing = input;
+                    break;
+                case "support_material_interface_speed":
+                    SupportMaterialInterfaceSpeed = input;
+                    break;
+                case "support_material_pattern":
+                    SupportMaterialPattern = input;
+                    break;
+                case "support_material_spacing":
+                    SupportMaterialSpacing = input;
+                    break;
+                case "support_material_speed":
+                    SupportMaterialSpeed = input;
+                    break;
+                case "support_material_threshold":
+                    SupportMaterialThreshold = input;
+                    break;
+                case "thin_walls":
+                    ThinWalls = input.Equals(TRUE_INT);
+                    break;
+                case "threads":
+                    Threads = input;
+                    break;
+                case "top_infill_extrusion_width":
+                    TopInfillExtrusionWidth = input;
+                    break;
+                case "top_solid_infill_speed":
+                    TopSolidInfillSpeed = input;
+                    break;
+                case "top_solid_layers":
+                    TopSolidLayers = input;
+                    break;
+                case "travel_speed":
+                    TravelSpeed = input;
+                    break;
+                case "xy_size_compensation":
+                    XySizeCompensation = input;
+                    break;
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
 
-            builder.AppendFormat("{0} = {1}\n", "avoid_crossing_perimeters", AvoidCrossingPerimeters);
-            builder.AppendFormat("{0} = {1}\n", "bottom_solid_layers", BottomSolidLayers);
-            builder.AppendFormat("{0} = {1}\n", "bridge_acceleration", BridgeAcceleration);
-            builder.AppendFormat("{0} = {1}\n", "bridge_flow_ratio", BridgeFlowRatio);
-            builder.AppendFormat("{0} = {1}\n", "bridge_speed", BridgeSpeed);
-            builder.AppendFormat("{0} = {1}\n", "brim_width", BrimWidth);
-            builder.AppendFormat("{0} = {1}\n", "complete_objects", CompleteObjects);
-            builder.AppendFormat("{0} = {1}\n", "default_acceleration", DefaultAcceleration);
-            builder.AppendFormat("{0} = {1}\n", "dont_support_bridges", DontSupportBridges);
-            builder.AppendFormat("{0} = {1}\n", "external_fill_pattern", ExternalFillPattern);
-            builder.AppendFormat("{0} = {1}\n", "external_perimeter_extrusion_width", ExternalPerimeterExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "external_perimeter_speed", ExternalPerimeterSpeed);
-            builder.AppendFormat("{0} = {1}\n", "external_perimeters_first", ExternalPerimetersFirst);
-            builder.AppendFormat("{0} = {1}\n", "extra_perimeters", ExtraPerimeters);
-            builder.AppendFormat("{0} = {1}\n", "extruder_clearance_height", ExtruderClearanceHeight);
-            builder.AppendFormat("{0} = {1}\n", "extruder_clearance_radius", ExtruderClearanceRadius);
-            builder.AppendFormat("{0} = {1}\n", "extrusion_width", ExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "fill_angle", FillAngle);
-            builder.AppendFormat("{0} = {1}\n", "fill_density", FillDensity);
-            builder.AppendFormat("{0} = {1}\n", "fill_pattern", FillPattern);
-            builder.AppendFormat("{0} = {1}\n", "first_layer_acceleration", FirstLayerAcceleration);
-            builder.AppendFormat("{0} = {1}\n", "first_layer_extrusion_width", FirstLayerExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "first_layer_height", FirstLayerHeight);
-            builder.AppendFormat("{0} = {1}\n", "first_layer_speed", FirstLayerSpeed);
-            builder.AppendFormat("{0} = {1}\n", "gap_fill_speed", GapFillSpeed);
-            builder.AppendFormat("{0} = {1}\n", "gcode_comments", GcodeComments);
-            builder.AppendFormat("{0} = {1}\n", "infill_acceleration", InfillAcceleration);
-            builder.AppendFormat("{0} = {1}\n", "infill_every_layers", InfillEveryLayers);
-            builder.AppendFormat("{0} = {1}\n", "infill_extruder", InfillExtruder);
-            builder.AppendFormat("{0} = {1}\n", "infill_extrusion_width", InfillExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "infill_first", InfillFirst);
-            builder.AppendFormat("{0} = {1}\n", "infill_only_where_needed", InfillOnlyWhereNeeded);
-            builder.AppendFormat("{0} = {1}\n", "infill_overlap", InfillOverlap);
-            builder.AppendFormat("{0} = {1}\n", "infill_speed", InfillSpeed);
-            builder.AppendFormat("{0} = {1}\n", "interface_shells", InterfaceShells);
-            builder.AppendFormat("{0} = {1}\n", "layer_height", LayerHeight);
-            builder.AppendFormat("{0} = {1}\n", "max_print_speed", MaxPrintSpeed);
-            builder.AppendFormat("{0} = {1}\n", "max_volumetric_speed", MaxVolumetricSpeed);
-            builder.AppendFormat("{0} = {1}\n", "min_skirt_length", MinSkirtLength);
-            builder.AppendFormat("{0} = {1}\n", "notes", Notes);
-            builder.AppendFormat("{0} = {1}\n", "only_retract_when_crossing_perimeters", OnlyRetractWhenCrossingPerimeters);
-            builder.AppendFormat("{0} = {1}\n", "ooze_prevention", OozePrevention);
-            builder.AppendFormat("{0} = {1}\n", "output_filename_format", OutputFilenameFormat);
-            builder.AppendFormat("{0} = {1}\n", "overhangs", Overhangs);
-            builder.AppendFormat("{0} = {1}\n", "perimeter_acceleration", PerimeterAcceleration);
-            builder.AppendFormat("{0} = {1}\n", "perimeter_extruder", PerimeterExtruder);
-            builder.AppendFormat("{0} = {1}\n", "perimeter_extrusion_width", PerimeterExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "perimeter_speed", PerimeterSpeed);
-            builder.AppendFormat("{0} = {1}\n", "perimeters", Perimeters);
-            builder.AppendFormat("{0} = {1}\n", "post_process", PostProcess);
-            builder.AppendFormat("{0} = {1}\n", "raft_layers", RaftLayers);
-            builder.AppendFormat("{0} = {1}\n", "resolution", Resolution);
-            builder.AppendFormat("{0} = {1}\n", "seam_position", SeamPosition);
-            builder.AppendFormat("{0} = {1}\n", "skirt_distance", SkirtDistance);
-            builder.AppendFormat("{0} = {1}\n", "skirt_height", SkirtHeight);
-            builder.AppendFormat("{0} = {1}\n", "skirts", Skirts);
-            builder.AppendFormat("{0} = {1}\n", "small_perimeter_speed", SmallPerimeterSpeed);
-            builder.AppendFormat("{0} = {1}\n", "solid_infill_below_area", SolidInfillBelowArea);
-            builder.AppendFormat("{0} = {1}\n", "solid_infill_every_layers", SolidInfillEveryLayers);
-            builder.AppendFormat("{0} = {1}\n", "solid_infill_extruder", SolidInfillExtruder);
-            builder.AppendFormat("{0} = {1}\n", "solid_infill_extrusion_width", SolidInfillExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "solid_infill_speed", SolidInfillSpeed);
-            builder.AppendFormat("{0} = {1}\n", "spiral_vase", SpiralVase);
-            builder.AppendFormat("{0} = {1}\n", "standby_temperature_delta", StandbyTemperatureDelta);
-            builder.AppendFormat("{0} = {1}\n", "support_material", SupportMaterial);
-            builder.AppendFormat("{0} = {1}\n", "support_material_angle", SupportMaterialAngle);
-            builder.AppendFormat("{0} = {1}\n", "support_material_contact_distance", SupportMaterialContactDistance);
-            builder.AppendFormat("{0} = {1}\n", "support_material_enforce_layers", SupportMaterialEnforceLayers);
-            builder.AppendFormat("{0} = {1}\n", "support_material_extruder", SupportMaterialExtruder);
-            builder.AppendFormat("{0} = {1}\n", "support_material_extrusion_width", SupportMaterialExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "support_material_interface_extruder", SupportMaterialInterfaceExtruder);
-            builder.AppendFormat("{0} = {1}\n", "support_material_interface_layers", SupportMaterialInterfaceLayers);
-            builder.AppendFormat("{0} = {1}\n", "support_material_interface_spacing", SupportMaterialInterfaceSpacing);
-            builder.AppendFormat("{0} = {1}\n", "support_material_interface_speed", SupportMaterialInterfaceSpeed);
-            builder.AppendFormat("{0} = {1}\n", "support_material_pattern", SupportMaterialPattern);
-            builder.AppendFormat("{0} = {1}\n", "support_material_spacing", SupportMaterialSpacing);
-            builder.AppendFormat("{0} = {1}\n", "support_material_speed", SupportMaterialSpeed);
-            builder.AppendFormat("{0} = {1}\n", "support_material_threshold", SupportMaterialThreshold);
-            builder.AppendFormat("{0} = {1}\n", "thin_walls", ThinWalls);
-            builder.AppendFormat("{0} = {1}\n", "threads", Threads);
-            builder.AppendFormat("{0} = {1}\n", "top_infill_extrusion_width", TopInfillExtrusionWidth);
-            builder.AppendFormat("{0} = {1}\n", "top_solid_infill_speed", TopSolidInfillSpeed);
-            builder.AppendFormat("{0} = {1}\n", "top_solid_layers", TopSolidLayers);
-            builder.AppendFormat("{0} = {1}\n", "travel_speed", TravelSpeed);
-            builder.AppendFormat("{0} = {1}\n", "xy_size_compensation", XySizeCompensation);
+            builder.AppendFormat("{0} = {1}\n", "avoid_crossing_perimeters", AvoidCrossingPerimeters.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "bottom_solid_layers", BottomSolidLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "bridge_acceleration", BridgeAcceleration.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "bridge_flow_ratio", BridgeFlowRatio.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "bridge_speed", BridgeSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "brim_width", BrimWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "complete_objects", CompleteObjects.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "default_acceleration", DefaultAcceleration.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "dont_support_bridges", DontSupportBridges.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "external_fill_pattern", ExternalFillPattern.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "external_perimeter_extrusion_width", ExternalPerimeterExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "external_perimeter_speed", ExternalPerimeterSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "external_perimeters_first", ExternalPerimetersFirst.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "extra_perimeters", ExtraPerimeters.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "extruder_clearance_height", ExtruderClearanceHeight.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "extruder_clearance_radius", ExtruderClearanceRadius.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "extrusion_width", ExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "fill_angle", FillAngle.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "fill_density", FillDensity.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "fill_pattern", FillPattern.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_acceleration", FirstLayerAcceleration.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_extrusion_width", FirstLayerExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_height", FirstLayerHeight.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_speed", FirstLayerSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "gap_fill_speed", GapFillSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "gcode_comments", GcodeComments.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_acceleration", InfillAcceleration.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_every_layers", InfillEveryLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_extruder", InfillExtruder.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_extrusion_width", InfillExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_first", InfillFirst.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_only_where_needed", InfillOnlyWhereNeeded.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_overlap", InfillOverlap.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "infill_speed", InfillSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "interface_shells", InterfaceShells.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "layer_height", LayerHeight.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "max_print_speed", MaxPrintSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "max_volumetric_speed", MaxVolumetricSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "min_skirt_length", MinSkirtLength.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "notes", Notes.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "only_retract_when_crossing_perimeters", OnlyRetractWhenCrossingPerimeters.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "ooze_prevention", OozePrevention.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "output_filename_format", OutputFilenameFormat.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "overhangs", Overhangs.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "perimeter_acceleration", PerimeterAcceleration.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "perimeter_extruder", PerimeterExtruder.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "perimeter_extrusion_width", PerimeterExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "perimeter_speed", PerimeterSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "perimeters", Perimeters.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "post_process", PostProcess.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "raft_layers", RaftLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "resolution", Resolution.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "seam_position", SeamPosition.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "skirt_distance", SkirtDistance.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "skirt_height", SkirtHeight.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "skirts", Skirts.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "small_perimeter_speed", SmallPerimeterSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "solid_infill_below_area", SolidInfillBelowArea.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "solid_infill_every_layers", SolidInfillEveryLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "solid_infill_extruder", SolidInfillExtruder.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "solid_infill_extrusion_width", SolidInfillExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "solid_infill_speed", SolidInfillSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "spiral_vase", SpiralVase.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "standby_temperature_delta", StandbyTemperatureDelta.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material", SupportMaterial.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_angle", SupportMaterialAngle.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_contact_distance", SupportMaterialContactDistance.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_enforce_layers", SupportMaterialEnforceLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_extruder", SupportMaterialExtruder.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_extrusion_width", SupportMaterialExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_interface_extruder", SupportMaterialInterfaceExtruder.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_interface_layers", SupportMaterialInterfaceLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_interface_spacing", SupportMaterialInterfaceSpacing.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_interface_speed", SupportMaterialInterfaceSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_pattern", SupportMaterialPattern.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_spacing", SupportMaterialSpacing.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_speed", SupportMaterialSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "support_material_threshold", SupportMaterialThreshold.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "thin_walls", ThinWalls.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "threads", Threads.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "top_infill_extrusion_width", TopInfillExtrusionWidth.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "top_solid_infill_speed", TopSolidInfillSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "top_solid_layers", TopSolidLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "travel_speed", TravelSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "xy_size_compensation", XySizeCompensation.ToSlic3rSettings());
 
             return builder.ToString();
         }

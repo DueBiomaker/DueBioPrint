@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepetierHost.extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,22 +32,22 @@ namespace RepetierHost.model.slic3r
         {
             StringBuilder builder = new StringBuilder();
 
-            builder.AppendFormat("{0} = {1}", "bed_temperature", BedTemperature);
-            builder.AppendFormat("{0} = {1}", "bridge_fan_speed", BridgeFanSpeed);
-            builder.AppendFormat("{0} = {1}", "cooling", Cooling);
-            builder.AppendFormat("{0} = {1}", "disable_fan_first_layers", DisableFanFirstLayers);
-            builder.AppendFormat("{0} = {1}", "extrusion_multiplier", ExtrusionMultiplier);
-            builder.AppendFormat("{0} = {1}", "fan_always_on", FanAlwaysOn);
-            builder.AppendFormat("{0} = {1}", "fan_below_layer_time", FanBelowLayerTime);
-            builder.AppendFormat("{0} = {1}", "filament_colour", FilamentColour);
-            builder.AppendFormat("{0} = {1}", "filament_diameter", FilamentDiameter);
-            builder.AppendFormat("{0} = {1}", "first_layer_bed_temperature", FirstLayerBedTemperature);
-            builder.AppendFormat("{0} = {1}", "first_layer_temperature", FirstLayerTemperature);
-            builder.AppendFormat("{0} = {1}", "max_fan_speed", MaxFanSpeed);
-            builder.AppendFormat("{0} = {1}", "min_fan_speed", MinFanSpeed);
-            builder.AppendFormat("{0} = {1}", "min_print_speed", MinPrintSpeed);
-            builder.AppendFormat("{0} = {1}", "slowdown_below_layer_time", SlowdownBelowLayerTime);
-            builder.AppendFormat("{0} = {1}", "temperature", Temperature);
+            builder.AppendFormat("{0} = {1}\n", "bed_temperature", BedTemperature.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "bridge_fan_speed", BridgeFanSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "cooling", Cooling.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "disable_fan_first_layers", DisableFanFirstLayers.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "extrusion_multiplier", ExtrusionMultiplier.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "fan_always_on", FanAlwaysOn.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "fan_below_layer_time", FanBelowLayerTime.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "filament_colour", FilamentColour.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "filament_diameter", FilamentDiameter.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_bed_temperature", FirstLayerBedTemperature.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "first_layer_temperature", FirstLayerTemperature.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "max_fan_speed", MaxFanSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "min_fan_speed", MinFanSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "min_print_speed", MinPrintSpeed.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "slowdown_below_layer_time", SlowdownBelowLayerTime.ToSlic3rSettings());
+            builder.AppendFormat("{0} = {1}\n", "temperature", Temperature.ToSlic3rSettings());
 
             return builder.ToString();
         }

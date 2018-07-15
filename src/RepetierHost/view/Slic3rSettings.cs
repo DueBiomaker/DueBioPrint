@@ -1,9 +1,11 @@
-﻿using RepetierHost.model.slic3r;
+﻿using RepetierHost.controller;
+using RepetierHost.model.slic3r;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -17,10 +19,16 @@ namespace RepetierHost.view
         public Slic3rSettings()
         {
             InitializeComponent();
-            PrintSettings = new PrintSettings();
-            PrintSettings.LayerHeight = "test a";
-            PrintSettings.FirstLayerHeight = "test b";
+            PrintSettings = Slic3rSettingsController.LoadPrintSettings();
             PrepareBindings();
+
+            Customization();
+        }
+
+        public void Customization()
+        {
+            cboxSeamPosition.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxSeamPosition.SelectedIndex = 0;
         }
 
         public void PrepareBindings()
@@ -35,7 +43,7 @@ namespace RepetierHost.view
             cbAvoidCrossingPerimeters.DataBindings.Add("Checked", PrintSettings, "AvoidCrossingPerimeters", false, DataSourceUpdateMode.OnPropertyChanged);
             cbThinWalls.DataBindings.Add("Checked", PrintSettings, "ThinWalls", false, DataSourceUpdateMode.OnPropertyChanged);
             cbOverhangs.DataBindings.Add("Checked", PrintSettings, "Overhangs", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxSeamPosition.DataBindings.Add("SelectedValue", PrintSettings, "SeamPosition", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxSeamPosition.DataBindings.Add("SelectedItem", PrintSettings, "SeamPosition", false, DataSourceUpdateMode.OnPropertyChanged);
             cbExternalPerimetersFirst.DataBindings.Add("Checked", PrintSettings, "ExternalPerimetersFirst", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
