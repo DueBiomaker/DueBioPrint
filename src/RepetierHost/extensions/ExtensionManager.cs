@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepetierHost.model.slic3r;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -15,6 +16,14 @@ namespace RepetierHost.extensions
         public static string ToSlic3rSettings(this string value)
         {
             return value;
+        }
+
+        public static string ToSlic3rSettings(this Enum value)
+        {
+            string result = value.ToString();
+            if (value is FillPattern)
+                result = result.Replace("three", "3");
+            return result;
         }
 
         public static string GetDescription<T>(this T e) where T : IConvertible

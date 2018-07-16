@@ -31,9 +31,35 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pagePrint = new System.Windows.Forms.TabPage();
             this.tlpPrint = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpCategories = new System.Windows.Forms.TableLayoutPanel();
             this.lbPrintSettingsCategories = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.tlpSettings = new System.Windows.Forms.TableLayoutPanel();
+            this.tlpInfill = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbInfillFirst = new System.Windows.Forms.CheckBox();
+            this.cbOnlyRetractWhenCrossingPerimeters = new System.Windows.Forms.CheckBox();
+            this.tbSolidInfillBellowArea = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblSolidInfillThreshouldArea = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.nbFillAngle = new System.Windows.Forms.NumericUpDown();
+            this.lblFillAngle = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nbSolidInfillEveryLayers = new System.Windows.Forms.NumericUpDown();
+            this.lblSolidInfillLayers = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbInfillOnlyWhereNeeded = new System.Windows.Forms.CheckBox();
+            this.nbInfillEveryLayers = new System.Windows.Forms.NumericUpDown();
+            this.lblCombineInfillEvery = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cboxExternalFillPattern = new System.Windows.Forms.ComboBox();
+            this.lblTopBottomFillPattern = new System.Windows.Forms.Label();
+            this.cboxFillPattern = new System.Windows.Forms.ComboBox();
+            this.cboxFillDensity = new System.Windows.Forms.ComboBox();
+            this.lblFillPattern = new System.Windows.Forms.Label();
+            this.lblFillDensity = new System.Windows.Forms.Label();
             this.tlpLayers = new System.Windows.Forms.TableLayoutPanel();
             this.gbAdvanced = new System.Windows.Forms.GroupBox();
             this.cbExternalPerimetersFirst = new System.Windows.Forms.CheckBox();
@@ -66,7 +92,15 @@
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrint.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tlpCategories.SuspendLayout();
+            this.tlpSettings.SuspendLayout();
+            this.tlpInfill.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFillAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSolidInfillEveryLayers)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.tlpLayers.SuspendLayout();
             this.gbAdvanced.SuspendLayout();
             this.gbQuality.SuspendLayout();
@@ -106,30 +140,32 @@
             this.tlpPrint.ColumnCount = 2;
             this.tlpPrint.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.tlpPrint.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrint.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tlpPrint.Controls.Add(this.tlpLayers, 1, 0);
+            this.tlpPrint.Controls.Add(this.tlpCategories, 0, 0);
+            this.tlpPrint.Controls.Add(this.tlpSettings, 1, 0);
             this.tlpPrint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPrint.Location = new System.Drawing.Point(3, 3);
             this.tlpPrint.Name = "tlpPrint";
             this.tlpPrint.RowCount = 1;
             this.tlpPrint.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpPrint.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 624F));
+            this.tlpPrint.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 624F));
             this.tlpPrint.Size = new System.Drawing.Size(786, 624);
             this.tlpPrint.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // tlpCategories
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.lbPrintSettingsCategories, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(244, 618);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tlpCategories.ColumnCount = 1;
+            this.tlpCategories.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCategories.Controls.Add(this.lbPrintSettingsCategories, 0, 1);
+            this.tlpCategories.Controls.Add(this.button1, 0, 0);
+            this.tlpCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCategories.Location = new System.Drawing.Point(3, 3);
+            this.tlpCategories.Name = "tlpCategories";
+            this.tlpCategories.RowCount = 2;
+            this.tlpCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tlpCategories.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCategories.Size = new System.Drawing.Size(244, 618);
+            this.tlpCategories.TabIndex = 0;
             // 
             // lbPrintSettingsCategories
             // 
@@ -139,6 +175,7 @@
             this.lbPrintSettingsCategories.Name = "lbPrintSettingsCategories";
             this.lbPrintSettingsCategories.Size = new System.Drawing.Size(238, 572);
             this.lbPrintSettingsCategories.TabIndex = 0;
+            this.lbPrintSettingsCategories.SelectedIndexChanged += new System.EventHandler(this.lbPrintSettingsCategories_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -150,6 +187,294 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // tlpSettings
+            // 
+            this.tlpSettings.ColumnCount = 1;
+            this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpSettings.Controls.Add(this.tlpInfill, 0, 1);
+            this.tlpSettings.Controls.Add(this.tlpLayers, 0, 6);
+            this.tlpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSettings.Location = new System.Drawing.Point(253, 3);
+            this.tlpSettings.Name = "tlpSettings";
+            this.tlpSettings.RowCount = 7;
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.Size = new System.Drawing.Size(530, 618);
+            this.tlpSettings.TabIndex = 3;
+            // 
+            // tlpInfill
+            // 
+            this.tlpInfill.ColumnCount = 1;
+            this.tlpInfill.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpInfill.Controls.Add(this.groupBox3, 0, 2);
+            this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
+            this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
+            this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpInfill.Location = new System.Drawing.Point(3, 3);
+            this.tlpInfill.Name = "tlpInfill";
+            this.tlpInfill.RowCount = 6;
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.Size = new System.Drawing.Size(524, 618);
+            this.tlpInfill.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbInfillFirst);
+            this.groupBox3.Controls.Add(this.cbOnlyRetractWhenCrossingPerimeters);
+            this.groupBox3.Controls.Add(this.tbSolidInfillBellowArea);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.lblSolidInfillThreshouldArea);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.nbFillAngle);
+            this.groupBox3.Controls.Add(this.lblFillAngle);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.nbSolidInfillEveryLayers);
+            this.groupBox3.Controls.Add(this.lblSolidInfillLayers);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 185);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(518, 140);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Horizontal shells";
+            // 
+            // cbInfillFirst
+            // 
+            this.cbInfillFirst.AutoSize = true;
+            this.cbInfillFirst.Location = new System.Drawing.Point(10, 106);
+            this.cbInfillFirst.Name = "cbInfillFirst";
+            this.cbInfillFirst.Size = new System.Drawing.Size(128, 17);
+            this.cbInfillFirst.TabIndex = 17;
+            this.cbInfillFirst.Text = "Infill before perimeters";
+            this.cbInfillFirst.UseVisualStyleBackColor = true;
+            // 
+            // cbOnlyRetractWhenCrossingPerimeters
+            // 
+            this.cbOnlyRetractWhenCrossingPerimeters.AutoSize = true;
+            this.cbOnlyRetractWhenCrossingPerimeters.Location = new System.Drawing.Point(10, 83);
+            this.cbOnlyRetractWhenCrossingPerimeters.Name = "cbOnlyRetractWhenCrossingPerimeters";
+            this.cbOnlyRetractWhenCrossingPerimeters.Size = new System.Drawing.Size(202, 17);
+            this.cbOnlyRetractWhenCrossingPerimeters.TabIndex = 10;
+            this.cbOnlyRetractWhenCrossingPerimeters.Text = "Only retract when crossing perimeters";
+            this.cbOnlyRetractWhenCrossingPerimeters.UseVisualStyleBackColor = true;
+            // 
+            // tbSolidInfillBellowArea
+            // 
+            this.tbSolidInfillBellowArea.Location = new System.Drawing.Point(372, 44);
+            this.tbSolidInfillBellowArea.Name = "tbSolidInfillBellowArea";
+            this.tbSolidInfillBellowArea.Size = new System.Drawing.Size(100, 20);
+            this.tbSolidInfillBellowArea.TabIndex = 16;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(478, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "mm²";
+            // 
+            // lblSolidInfillThreshouldArea
+            // 
+            this.lblSolidInfillThreshouldArea.AutoSize = true;
+            this.lblSolidInfillThreshouldArea.Location = new System.Drawing.Point(369, 28);
+            this.lblSolidInfillThreshouldArea.Name = "lblSolidInfillThreshouldArea";
+            this.lblSolidInfillThreshouldArea.Size = new System.Drawing.Size(120, 13);
+            this.lblSolidInfillThreshouldArea.TabIndex = 13;
+            this.lblSolidInfillThreshouldArea.Text = "Solid infill threshold area";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(297, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "°";
+            // 
+            // nbFillAngle
+            // 
+            this.nbFillAngle.Location = new System.Drawing.Point(191, 44);
+            this.nbFillAngle.Name = "nbFillAngle";
+            this.nbFillAngle.Size = new System.Drawing.Size(100, 20);
+            this.nbFillAngle.TabIndex = 11;
+            // 
+            // lblFillAngle
+            // 
+            this.lblFillAngle.AutoSize = true;
+            this.lblFillAngle.Location = new System.Drawing.Point(188, 28);
+            this.lblFillAngle.Name = "lblFillAngle";
+            this.lblFillAngle.Size = new System.Drawing.Size(48, 13);
+            this.lblFillAngle.TabIndex = 10;
+            this.lblFillAngle.Text = "Fill angle";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "layers";
+            // 
+            // nbSolidInfillEveryLayers
+            // 
+            this.nbSolidInfillEveryLayers.Location = new System.Drawing.Point(10, 44);
+            this.nbSolidInfillEveryLayers.Name = "nbSolidInfillEveryLayers";
+            this.nbSolidInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
+            this.nbSolidInfillEveryLayers.TabIndex = 7;
+            // 
+            // lblSolidInfillLayers
+            // 
+            this.lblSolidInfillLayers.AutoSize = true;
+            this.lblSolidInfillLayers.Location = new System.Drawing.Point(7, 28);
+            this.lblSolidInfillLayers.Name = "lblSolidInfillLayers";
+            this.lblSolidInfillLayers.Size = new System.Drawing.Size(80, 13);
+            this.lblSolidInfillLayers.TabIndex = 0;
+            this.lblSolidInfillLayers.Text = "Solid infill layers";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.cbInfillOnlyWhereNeeded);
+            this.groupBox4.Controls.Add(this.nbInfillEveryLayers);
+            this.groupBox4.Controls.Add(this.lblCombineInfillEvery);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 99);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(518, 80);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Reducing printing time";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(112, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "layers";
+            // 
+            // cbInfillOnlyWhereNeeded
+            // 
+            this.cbInfillOnlyWhereNeeded.AutoSize = true;
+            this.cbInfillOnlyWhereNeeded.Location = new System.Drawing.Point(191, 37);
+            this.cbInfillOnlyWhereNeeded.Name = "cbInfillOnlyWhereNeeded";
+            this.cbInfillOnlyWhereNeeded.Size = new System.Drawing.Size(138, 17);
+            this.cbInfillOnlyWhereNeeded.TabIndex = 7;
+            this.cbInfillOnlyWhereNeeded.Text = "Only infill where needed";
+            this.cbInfillOnlyWhereNeeded.UseVisualStyleBackColor = true;
+            // 
+            // nbInfillEveryLayers
+            // 
+            this.nbInfillEveryLayers.Location = new System.Drawing.Point(10, 36);
+            this.nbInfillEveryLayers.Name = "nbInfillEveryLayers";
+            this.nbInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
+            this.nbInfillEveryLayers.TabIndex = 6;
+            // 
+            // lblCombineInfillEvery
+            // 
+            this.lblCombineInfillEvery.AutoSize = true;
+            this.lblCombineInfillEvery.Location = new System.Drawing.Point(7, 20);
+            this.lblCombineInfillEvery.Name = "lblCombineInfillEvery";
+            this.lblCombineInfillEvery.Size = new System.Drawing.Size(97, 13);
+            this.lblCombineInfillEvery.TabIndex = 0;
+            this.lblCombineInfillEvery.Text = "Combine infill every";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cboxExternalFillPattern);
+            this.groupBox5.Controls.Add(this.lblTopBottomFillPattern);
+            this.groupBox5.Controls.Add(this.cboxFillPattern);
+            this.groupBox5.Controls.Add(this.cboxFillDensity);
+            this.groupBox5.Controls.Add(this.lblFillPattern);
+            this.groupBox5.Controls.Add(this.lblFillDensity);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(518, 90);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Infill";
+            // 
+            // cboxExternalFillPattern
+            // 
+            this.cboxExternalFillPattern.FormattingEnabled = true;
+            this.cboxExternalFillPattern.Location = new System.Drawing.Point(372, 43);
+            this.cboxExternalFillPattern.Name = "cboxExternalFillPattern";
+            this.cboxExternalFillPattern.Size = new System.Drawing.Size(121, 21);
+            this.cboxExternalFillPattern.TabIndex = 9;
+            // 
+            // lblTopBottomFillPattern
+            // 
+            this.lblTopBottomFillPattern.AutoSize = true;
+            this.lblTopBottomFillPattern.Location = new System.Drawing.Point(369, 28);
+            this.lblTopBottomFillPattern.Name = "lblTopBottomFillPattern";
+            this.lblTopBottomFillPattern.Size = new System.Drawing.Size(111, 13);
+            this.lblTopBottomFillPattern.TabIndex = 8;
+            this.lblTopBottomFillPattern.Text = "Top/bottom fill pattern";
+            // 
+            // cboxFillPattern
+            // 
+            this.cboxFillPattern.FormattingEnabled = true;
+            this.cboxFillPattern.Location = new System.Drawing.Point(191, 43);
+            this.cboxFillPattern.Name = "cboxFillPattern";
+            this.cboxFillPattern.Size = new System.Drawing.Size(121, 21);
+            this.cboxFillPattern.TabIndex = 7;
+            // 
+            // cboxFillDensity
+            // 
+            this.cboxFillDensity.FormattingEnabled = true;
+            this.cboxFillDensity.Items.AddRange(new object[] {
+            "0%",
+            "5%",
+            "10%",
+            "15%",
+            "20%",
+            "25%",
+            "30%",
+            "40%",
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%"});
+            this.cboxFillDensity.Location = new System.Drawing.Point(10, 43);
+            this.cboxFillDensity.Name = "cboxFillDensity";
+            this.cboxFillDensity.Size = new System.Drawing.Size(121, 21);
+            this.cboxFillDensity.TabIndex = 6;
+            this.cboxFillDensity.Leave += new System.EventHandler(this.cboxFillDensity_Leave);
+            // 
+            // lblFillPattern
+            // 
+            this.lblFillPattern.AutoSize = true;
+            this.lblFillPattern.Location = new System.Drawing.Point(188, 28);
+            this.lblFillPattern.Name = "lblFillPattern";
+            this.lblFillPattern.Size = new System.Drawing.Size(55, 13);
+            this.lblFillPattern.TabIndex = 3;
+            this.lblFillPattern.Text = "Fill pattern";
+            // 
+            // lblFillDensity
+            // 
+            this.lblFillDensity.AutoSize = true;
+            this.lblFillDensity.Location = new System.Drawing.Point(8, 28);
+            this.lblFillDensity.Name = "lblFillDensity";
+            this.lblFillDensity.Size = new System.Drawing.Size(55, 13);
+            this.lblFillDensity.TabIndex = 0;
+            this.lblFillDensity.Text = "Fill density";
+            // 
             // tlpLayers
             // 
             this.tlpLayers.ColumnCount = 1;
@@ -160,7 +485,7 @@
             this.tlpLayers.Controls.Add(this.gbVerticalShells, 0, 1);
             this.tlpLayers.Controls.Add(this.gbLayerHeight, 0, 0);
             this.tlpLayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLayers.Location = new System.Drawing.Point(253, 3);
+            this.tlpLayers.Location = new System.Drawing.Point(3, 627);
             this.tlpLayers.Name = "tlpLayers";
             this.tlpLayers.RowCount = 6;
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -169,7 +494,7 @@
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpLayers.Size = new System.Drawing.Size(530, 618);
+            this.tlpLayers.Size = new System.Drawing.Size(524, 618);
             this.tlpLayers.TabIndex = 1;
             // 
             // gbAdvanced
@@ -180,7 +505,7 @@
             this.gbAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbAdvanced.Location = new System.Drawing.Point(3, 347);
             this.gbAdvanced.Name = "gbAdvanced";
-            this.gbAdvanced.Size = new System.Drawing.Size(524, 80);
+            this.gbAdvanced.Size = new System.Drawing.Size(518, 80);
             this.gbAdvanced.TabIndex = 4;
             this.gbAdvanced.TabStop = false;
             this.gbAdvanced.Text = "Advanced";
@@ -198,10 +523,6 @@
             // cboxSeamPosition
             // 
             this.cboxSeamPosition.FormattingEnabled = true;
-            this.cboxSeamPosition.Items.AddRange(new object[] {
-            "random",
-            "nearest",
-            "aligned"});
             this.cboxSeamPosition.Location = new System.Drawing.Point(10, 44);
             this.cboxSeamPosition.Name = "cboxSeamPosition";
             this.cboxSeamPosition.Size = new System.Drawing.Size(121, 21);
@@ -225,7 +546,7 @@
             this.gbQuality.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbQuality.Location = new System.Drawing.Point(3, 261);
             this.gbQuality.Name = "gbQuality";
-            this.gbQuality.Size = new System.Drawing.Size(524, 80);
+            this.gbQuality.Size = new System.Drawing.Size(518, 80);
             this.gbQuality.TabIndex = 3;
             this.gbQuality.TabStop = false;
             this.gbQuality.Text = "Quality (slower slicing)";
@@ -280,7 +601,7 @@
             this.gbHorizontalShells.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbHorizontalShells.Location = new System.Drawing.Point(3, 175);
             this.gbHorizontalShells.Name = "gbHorizontalShells";
-            this.gbHorizontalShells.Size = new System.Drawing.Size(524, 80);
+            this.gbHorizontalShells.Size = new System.Drawing.Size(518, 80);
             this.gbHorizontalShells.TabIndex = 2;
             this.gbHorizontalShells.TabStop = false;
             this.gbHorizontalShells.Text = "Horizontal shells";
@@ -334,7 +655,7 @@
             this.gbVerticalShells.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbVerticalShells.Location = new System.Drawing.Point(3, 89);
             this.gbVerticalShells.Name = "gbVerticalShells";
-            this.gbVerticalShells.Size = new System.Drawing.Size(524, 80);
+            this.gbVerticalShells.Size = new System.Drawing.Size(518, 80);
             this.gbVerticalShells.TabIndex = 1;
             this.gbVerticalShells.TabStop = false;
             this.gbVerticalShells.Text = "Vertical shells";
@@ -376,7 +697,7 @@
             this.gbLayerHeight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbLayerHeight.Location = new System.Drawing.Point(3, 3);
             this.gbLayerHeight.Name = "gbLayerHeight";
-            this.gbLayerHeight.Size = new System.Drawing.Size(524, 80);
+            this.gbLayerHeight.Size = new System.Drawing.Size(518, 80);
             this.gbLayerHeight.TabIndex = 0;
             this.gbLayerHeight.TabStop = false;
             this.gbLayerHeight.Text = "Layer height";
@@ -465,7 +786,18 @@
             this.tabControl.ResumeLayout(false);
             this.pagePrint.ResumeLayout(false);
             this.tlpPrint.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tlpCategories.ResumeLayout(false);
+            this.tlpSettings.ResumeLayout(false);
+            this.tlpInfill.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFillAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSolidInfillEveryLayers)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tlpLayers.ResumeLayout(false);
             this.gbAdvanced.ResumeLayout(false);
             this.gbAdvanced.PerformLayout();
@@ -491,7 +823,7 @@
         private System.Windows.Forms.TabPage pageFilament;
         private System.Windows.Forms.TabPage pagePrinter;
         private System.Windows.Forms.TableLayoutPanel tlpPrint;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tlpCategories;
         private System.Windows.Forms.ListBox lbPrintSettingsCategories;
         private System.Windows.Forms.TableLayoutPanel tlpLayers;
         private System.Windows.Forms.GroupBox gbAdvanced;
@@ -521,5 +853,31 @@
         private System.Windows.Forms.CheckBox cbSpiralVase;
         private System.Windows.Forms.NumericUpDown nbPerimeters;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tlpSettings;
+        private System.Windows.Forms.TableLayoutPanel tlpInfill;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox cbInfillFirst;
+        private System.Windows.Forms.CheckBox cbOnlyRetractWhenCrossingPerimeters;
+        private System.Windows.Forms.TextBox tbSolidInfillBellowArea;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblSolidInfillThreshouldArea;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown nbFillAngle;
+        private System.Windows.Forms.Label lblFillAngle;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown nbSolidInfillEveryLayers;
+        private System.Windows.Forms.Label lblSolidInfillLayers;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox cbInfillOnlyWhereNeeded;
+        private System.Windows.Forms.NumericUpDown nbInfillEveryLayers;
+        private System.Windows.Forms.Label lblCombineInfillEvery;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cboxExternalFillPattern;
+        private System.Windows.Forms.Label lblTopBottomFillPattern;
+        private System.Windows.Forms.ComboBox cboxFillPattern;
+        private System.Windows.Forms.ComboBox cboxFillDensity;
+        private System.Windows.Forms.Label lblFillPattern;
+        private System.Windows.Forms.Label lblFillDensity;
     }
 }

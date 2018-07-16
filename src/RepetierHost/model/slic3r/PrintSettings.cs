@@ -1,4 +1,5 @@
 ﻿using RepetierHost.extensions;
+using System;
 using System.ComponentModel;
 using System.Text;
 
@@ -160,13 +161,13 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _SeamPosition;
+        private SeamPosition _SeamPosition;
 
-        public string SeamPosition
+        public SeamPosition SeamPosition
         {
             get
             {
-                return _SeamPosition ?? DEFAULT_VALUE;
+                return _SeamPosition;
             }
             set
             {
@@ -206,13 +207,13 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _FillPattern;
+        private FillPattern _FillPattern;
 
-        public string FillPattern
+        public FillPattern FillPattern
         {
             get
             {
-                return _FillPattern ?? DEFAULT_VALUE;
+                return _FillPattern;
             }
             set
             {
@@ -221,13 +222,13 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _ExternalFillPattern;
+        private ExternalFillPattern _ExternalFillPattern;
 
-        public string ExternalFillPattern
+        public ExternalFillPattern ExternalFillPattern
         {
             get
             {
-                return _ExternalFillPattern ?? DEFAULT_VALUE;
+                return _ExternalFillPattern;
             }
             set
             {
@@ -1332,7 +1333,7 @@ namespace RepetierHost.model.slic3r
                     DontSupportBridges = input.Equals(TRUE_INT);
                     break;
                 case "external_fill_pattern":
-                    ExternalFillPattern = input;
+                    ExternalFillPattern = (ExternalFillPattern) Enum.Parse(typeof(ExternalFillPattern), input);
                     break;
                 case "external_perimeter_extrusion_width":
                     ExternalPerimeterExtrusionWidth = input;
@@ -1362,7 +1363,8 @@ namespace RepetierHost.model.slic3r
                     FillDensity = input;
                     break;
                 case "fill_pattern":
-                    FillPattern = input;
+                    input = input.Replace("3", "three");
+                    FillPattern = (FillPattern)Enum.Parse(typeof(FillPattern), input);
                     break;
                 case "first_layer_acceleration":
                     FirstLayerAcceleration = input;
@@ -1461,7 +1463,7 @@ namespace RepetierHost.model.slic3r
                     Resolution = input;
                     break;
                 case "seam_position":
-                    SeamPosition =  input;
+                    SeamPosition = (SeamPosition) Enum.Parse(typeof(SeamPosition), input);
                     break;
                 case "skirt_distance":
                     SkirtDistance = input;

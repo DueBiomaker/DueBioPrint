@@ -165,10 +165,13 @@
     <Compile Include="model\RectPacker.cs" />
     <Compile Include="model\PrintModel.cs" />
     <Compile Include="model\slic3r\FilamentSettings.cs" />
+    <Compile Include="model\slic3r\ExternalFillPattern.cs" />
     <Compile Include="model\slic3r\PrinterExtruderSettings.cs" />
     <Compile Include="model\slic3r\PrinterSettings.cs" />
     <Compile Include="model\slic3r\PrintSettings.cs" />
     <Compile Include="model\slic3r\PrintSettingsCategory.cs" />
+    <Compile Include="model\slic3r\FillPattern.cs" />
+    <Compile Include="model\slic3r\SeamPosition.cs" />
     <Compile Include="model\slic3r\Slic3rSettings.cs" />
     <Compile Include="model\TemperatureHistory.cs" />
     <Compile Include="model\ThreeDModel.cs" />
