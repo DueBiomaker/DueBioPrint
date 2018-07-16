@@ -135,16 +135,6 @@
             // 
             this.lbPrintSettingsCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbPrintSettingsCategories.FormattingEnabled = true;
-            this.lbPrintSettingsCategories.Items.AddRange(new object[] {
-            "Layers and perimeters",
-            "Infill",
-            "Skirt and brim",
-            "Support Material",
-            "Speed",
-            "Multiple Extruders",
-            "Advanced",
-            "Output options",
-            "Notes"});
             this.lbPrintSettingsCategories.Location = new System.Drawing.Point(3, 43);
             this.lbPrintSettingsCategories.Name = "lbPrintSettingsCategories";
             this.lbPrintSettingsCategories.Size = new System.Drawing.Size(238, 572);

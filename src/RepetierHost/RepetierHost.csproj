@@ -168,12 +168,14 @@
     <Compile Include="model\slic3r\PrinterExtruderSettings.cs" />
     <Compile Include="model\slic3r\PrinterSettings.cs" />
     <Compile Include="model\slic3r\PrintSettings.cs" />
+    <Compile Include="model\slic3r\PrintSettingsCategory.cs" />
     <Compile Include="model\slic3r\Slic3rSettings.cs" />
     <Compile Include="model\TemperatureHistory.cs" />
     <Compile Include="model\ThreeDModel.cs" />
     <Compile Include="model\ThreeDView.cs" />
     <Compile Include="model\Translation.cs" />
     <Compile Include="model\VirtualPrinter.cs" />
+    <Compile Include="util\EnumUtils.cs" />
     <Compile Include="view\PendingPrintJobsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
