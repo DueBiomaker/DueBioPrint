@@ -89,6 +89,23 @@
             this.lblLayerHeight = new System.Windows.Forms.Label();
             this.pageFilament = new System.Windows.Forms.TabPage();
             this.pagePrinter = new System.Windows.Forms.TabPage();
+            this.tlpSkirt = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblSkirtDistance = new System.Windows.Forms.Label();
+            this.lblSkirtHeight = new System.Windows.Forms.Label();
+            this.lblSkirts = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nbSkirts = new System.Windows.Forms.NumericUpDown();
+            this.nbSkirtHeight = new System.Windows.Forms.NumericUpDown();
+            this.tbSkirtDistance = new System.Windows.Forms.TextBox();
+            this.tbBrimWidth = new System.Windows.Forms.TextBox();
+            this.lblBrimWidth = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblMinSkirtLength = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbMinSkirtLength = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrint.SuspendLayout();
@@ -110,6 +127,11 @@
             this.gbVerticalShells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).BeginInit();
             this.gbLayerHeight.SuspendLayout();
+            this.tlpSkirt.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSkirts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSkirtHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -191,6 +213,7 @@
             // 
             this.tlpSettings.ColumnCount = 1;
             this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpSettings.Controls.Add(this.tlpSkirt, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpInfill, 0, 1);
             this.tlpSettings.Controls.Add(this.tlpLayers, 0, 6);
             this.tlpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -204,6 +227,7 @@
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpSettings.Size = new System.Drawing.Size(530, 618);
             this.tlpSettings.TabIndex = 3;
             // 
@@ -215,7 +239,7 @@
             this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
             this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
             this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInfill.Location = new System.Drawing.Point(3, 3);
+            this.tlpInfill.Location = new System.Drawing.Point(3, 627);
             this.tlpInfill.Name = "tlpInfill";
             this.tlpInfill.RowCount = 6;
             this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -485,7 +509,7 @@
             this.tlpLayers.Controls.Add(this.gbVerticalShells, 0, 1);
             this.tlpLayers.Controls.Add(this.gbLayerHeight, 0, 0);
             this.tlpLayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLayers.Location = new System.Drawing.Point(3, 627);
+            this.tlpLayers.Location = new System.Drawing.Point(3, 1251);
             this.tlpLayers.Name = "tlpLayers";
             this.tlpLayers.RowCount = 6;
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -772,6 +796,175 @@
             this.pagePrinter.Text = "Printer Settings";
             this.pagePrinter.UseVisualStyleBackColor = true;
             // 
+            // tlpSkirt
+            // 
+            this.tlpSkirt.ColumnCount = 1;
+            this.tlpSkirt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpSkirt.Controls.Add(this.groupBox2, 0, 1);
+            this.tlpSkirt.Controls.Add(this.groupBox6, 0, 0);
+            this.tlpSkirt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSkirt.Location = new System.Drawing.Point(3, 3);
+            this.tlpSkirt.Name = "tlpSkirt";
+            this.tlpSkirt.RowCount = 6;
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.Size = new System.Drawing.Size(524, 618);
+            this.tlpSkirt.TabIndex = 3;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lblMinSkirtLength);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.tbMinSkirtLength);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.tbSkirtDistance);
+            this.groupBox6.Controls.Add(this.nbSkirtHeight);
+            this.groupBox6.Controls.Add(this.nbSkirts);
+            this.groupBox6.Controls.Add(this.lblSkirtDistance);
+            this.groupBox6.Controls.Add(this.lblSkirtHeight);
+            this.groupBox6.Controls.Add(this.lblSkirts);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(518, 130);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Skirt";
+            // 
+            // lblSkirtDistance
+            // 
+            this.lblSkirtDistance.AutoSize = true;
+            this.lblSkirtDistance.Location = new System.Drawing.Point(188, 27);
+            this.lblSkirtDistance.Name = "lblSkirtDistance";
+            this.lblSkirtDistance.Size = new System.Drawing.Size(104, 13);
+            this.lblSkirtDistance.TabIndex = 8;
+            this.lblSkirtDistance.Text = "Distance from object";
+            // 
+            // lblSkirtHeight
+            // 
+            this.lblSkirtHeight.AutoSize = true;
+            this.lblSkirtHeight.Location = new System.Drawing.Point(8, 77);
+            this.lblSkirtHeight.Name = "lblSkirtHeight";
+            this.lblSkirtHeight.Size = new System.Drawing.Size(60, 13);
+            this.lblSkirtHeight.TabIndex = 3;
+            this.lblSkirtHeight.Text = "Skirt height";
+            // 
+            // lblSkirts
+            // 
+            this.lblSkirts.AutoSize = true;
+            this.lblSkirts.Location = new System.Drawing.Point(8, 28);
+            this.lblSkirts.Name = "lblSkirts";
+            this.lblSkirts.Size = new System.Drawing.Size(85, 13);
+            this.lblSkirts.TabIndex = 0;
+            this.lblSkirts.Text = "Loops (minimum)";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblBrimWidth);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.tbBrimWidth);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 139);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(518, 80);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Brim";
+            // 
+            // nbSkirts
+            // 
+            this.nbSkirts.Location = new System.Drawing.Point(11, 43);
+            this.nbSkirts.Name = "nbSkirts";
+            this.nbSkirts.Size = new System.Drawing.Size(100, 20);
+            this.nbSkirts.TabIndex = 10;
+            // 
+            // nbSkirtHeight
+            // 
+            this.nbSkirtHeight.Location = new System.Drawing.Point(11, 93);
+            this.nbSkirtHeight.Name = "nbSkirtHeight";
+            this.nbSkirtHeight.Size = new System.Drawing.Size(100, 20);
+            this.nbSkirtHeight.TabIndex = 11;
+            // 
+            // tbSkirtDistance
+            // 
+            this.tbSkirtDistance.Location = new System.Drawing.Point(191, 43);
+            this.tbSkirtDistance.Name = "tbSkirtDistance";
+            this.tbSkirtDistance.Size = new System.Drawing.Size(100, 20);
+            this.tbSkirtDistance.TabIndex = 12;
+            // 
+            // tbBrimWidth
+            // 
+            this.tbBrimWidth.Location = new System.Drawing.Point(11, 43);
+            this.tbBrimWidth.Name = "tbBrimWidth";
+            this.tbBrimWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbBrimWidth.TabIndex = 14;
+            // 
+            // lblBrimWidth
+            // 
+            this.lblBrimWidth.AutoSize = true;
+            this.lblBrimWidth.Location = new System.Drawing.Point(8, 27);
+            this.lblBrimWidth.Name = "lblBrimWidth";
+            this.lblBrimWidth.Size = new System.Drawing.Size(55, 13);
+            this.lblBrimWidth.TabIndex = 13;
+            this.lblBrimWidth.Text = "Brim width";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(297, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(23, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "mm";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(117, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "mm";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(116, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "layers";
+            // 
+            // lblMinSkirtLength
+            // 
+            this.lblMinSkirtLength.AutoSize = true;
+            this.lblMinSkirtLength.Location = new System.Drawing.Point(188, 77);
+            this.lblMinSkirtLength.Name = "lblMinSkirtLength";
+            this.lblMinSkirtLength.Size = new System.Drawing.Size(125, 13);
+            this.lblMinSkirtLength.TabIndex = 18;
+            this.lblMinSkirtLength.Text = "Minimum extrusion lenght";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(297, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(23, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "mm";
+            // 
+            // tbMinSkirtLength
+            // 
+            this.tbMinSkirtLength.Location = new System.Drawing.Point(191, 93);
+            this.tbMinSkirtLength.Name = "tbMinSkirtLength";
+            this.tbMinSkirtLength.Size = new System.Drawing.Size(100, 20);
+            this.tbMinSkirtLength.TabIndex = 19;
+            // 
             // Slic3rSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -812,6 +1005,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).EndInit();
             this.gbLayerHeight.ResumeLayout(false);
             this.gbLayerHeight.PerformLayout();
+            this.tlpSkirt.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSkirts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSkirtHeight)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -879,5 +1079,22 @@
         private System.Windows.Forms.ComboBox cboxFillDensity;
         private System.Windows.Forms.Label lblFillPattern;
         private System.Windows.Forms.Label lblFillDensity;
+        private System.Windows.Forms.TableLayoutPanel tlpSkirt;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblBrimWidth;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbBrimWidth;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbSkirtDistance;
+        private System.Windows.Forms.NumericUpDown nbSkirtHeight;
+        private System.Windows.Forms.NumericUpDown nbSkirts;
+        private System.Windows.Forms.Label lblSkirtDistance;
+        private System.Windows.Forms.Label lblSkirtHeight;
+        private System.Windows.Forms.Label lblSkirts;
+        private System.Windows.Forms.Label lblMinSkirtLength;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox tbMinSkirtLength;
     }
 }

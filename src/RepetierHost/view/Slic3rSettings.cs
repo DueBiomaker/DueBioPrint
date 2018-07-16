@@ -74,6 +74,12 @@ namespace RepetierHost.view
             cbOnlyRetractWhenCrossingPerimeters.DataBindings.Add("Checked", PrintSettings, "OnlyRetractWhenCrossingPerimeters", false, DataSourceUpdateMode.OnPropertyChanged);
             cbInfillFirst.DataBindings.Add("Checked", PrintSettings, "InfillFirst", false, DataSourceUpdateMode.OnPropertyChanged);
 
+            nbSkirts.DataBindings.Add("Value", PrintSettings, "Skirts", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSkirtDistance.DataBindings.Add("Text", PrintSettings, "SkirtDistance", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSkirtHeight.DataBindings.Add("Value", PrintSettings, "SkirtHeight", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbMinSkirtLength.DataBindings.Add("Text", PrintSettings, "MinSkirtLength", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBrimWidth.DataBindings.Add("Text", PrintSettings, "BrimWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -83,7 +89,7 @@ namespace RepetierHost.view
 
         private void lbPrintSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tlpLayers.Visible = tlpInfill.Visible = false;
+            tlpLayers.Visible = tlpInfill.Visible = tlpSkirt.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
@@ -93,6 +99,10 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.Infill:
                     tlpInfill.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.SkirtAndBrim:
+                    tlpSkirt.Visible = true;
                     break;
             }
         }
