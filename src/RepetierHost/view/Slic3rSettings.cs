@@ -34,10 +34,16 @@ namespace RepetierHost.view
             cboxFillPattern.SelectedIndex = 0;
             cboxExternalFillPattern.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxExternalFillPattern.SelectedIndex = 0;
+            cboxSupportMaterialPattern.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxExternalFillPattern.SelectedIndex = 0;
         }
 
         public void PrepareBindings()
         {
+            gbSupportMaterial.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+            gbRaft.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+            gbSupportMaterialOptions.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+
             lbPrintSettingsCategories.Items?.Clear();
             lbPrintSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<PrintSettingsCategory>());
             lbPrintSettingsCategories.SelectedIndex = 0;
@@ -55,7 +61,7 @@ namespace RepetierHost.view
             cbAvoidCrossingPerimeters.DataBindings.Add("Checked", PrintSettings, "AvoidCrossingPerimeters", false, DataSourceUpdateMode.OnPropertyChanged);
             cbThinWalls.DataBindings.Add("Checked", PrintSettings, "ThinWalls", false, DataSourceUpdateMode.OnPropertyChanged);
             cbOverhangs.DataBindings.Add("Checked", PrintSettings, "Overhangs", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxSeamPosition.DataBindings.Add("SelectedIndex", PrintSettings, "SeamPosition", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxSeamPosition.DataBindings.Add("SelectedIndex", PrintSettings, "SeamPositionInt", false, DataSourceUpdateMode.OnPropertyChanged);
             cbExternalPerimetersFirst.DataBindings.Add("Checked", PrintSettings, "ExternalPerimetersFirst", false, DataSourceUpdateMode.OnPropertyChanged);
 
             cboxFillPattern.Items.Clear();
@@ -64,8 +70,8 @@ namespace RepetierHost.view
             cboxExternalFillPattern.Items.AddRange(EnumUtils.GetDescriptions<ExternalFillPattern>());
 
             cboxFillDensity.DataBindings.Add("Text", PrintSettings, "FillDensity", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxFillPattern.DataBindings.Add("SelectedIndex", PrintSettings, "FillPattern", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxExternalFillPattern.DataBindings.Add("SelectedIndex", PrintSettings, "ExternalFillPattern", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxFillPattern.DataBindings.Add("SelectedIndex", PrintSettings, "FillPatternInt", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxExternalFillPattern.DataBindings.Add("SelectedIndex", PrintSettings, "ExternalFillPatternInt", false, DataSourceUpdateMode.OnPropertyChanged);
             nbInfillEveryLayers.DataBindings.Add("Value", PrintSettings, "InfillEveryLayers", false, DataSourceUpdateMode.OnPropertyChanged);
             cbInfillOnlyWhereNeeded.DataBindings.Add("Checked", PrintSettings, "InfillOnlyWhereNeeded", false, DataSourceUpdateMode.OnPropertyChanged);
             nbSolidInfillEveryLayers.DataBindings.Add("Value", PrintSettings, "SolidInfillEveryLayers", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -80,6 +86,20 @@ namespace RepetierHost.view
             tbMinSkirtLength.DataBindings.Add("Text", PrintSettings, "MinSkirtLength", false, DataSourceUpdateMode.OnPropertyChanged);
             tbBrimWidth.DataBindings.Add("Text", PrintSettings, "BrimWidth", false, DataSourceUpdateMode.OnPropertyChanged);
 
+            cboxSupportMaterialPattern.Items.Clear();
+            cboxSupportMaterialPattern.Items.AddRange(EnumUtils.GetDescriptions<SupportMaterialPattern>());
+
+            cbSupportMaterial.DataBindings.Add("Checked", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialThreshold.DataBindings.Add("Text", PrintSettings, "SupportMaterialThreshold", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialEnforceLayers.DataBindings.Add("Text", PrintSettings, "SupportMaterialEnforceLayers", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbRaftLayers.DataBindings.Add("Text", PrintSettings, "RaftLayers", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialContactDistance.DataBindings.Add("Text", PrintSettings, "SupportMaterialContactDistance", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxSupportMaterialPattern.DataBindings.Add("SelectedIndex", PrintSettings, "SupportMaterialPatternInt", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSupportMaterialSpacing.DataBindings.Add("Text", PrintSettings, "SupportMaterialSpacing", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialAngle.DataBindings.Add("Text", PrintSettings, "SupportMaterialAngle", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialInterfaceLayers.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceLayers", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSupportMaterialInterfaceSpacing.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceSpacing", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbDontSupportBridges.DataBindings.Add("Checked", PrintSettings, "DontSupportBridges", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,7 +109,10 @@ namespace RepetierHost.view
 
         private void lbPrintSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-            tlpLayers.Visible = tlpInfill.Visible = tlpSkirt.Visible = false;
+            tlpLayers.Visible = false;
+            tlpInfill.Visible = false;
+            tlpSkirt.Visible = false;
+            tlpSupportMaterial.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
@@ -103,6 +126,10 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.SkirtAndBrim:
                     tlpSkirt.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.SupportMaterial:
+                    tlpSupportMaterial.Visible = true;
                     break;
             }
         }

@@ -23,6 +23,8 @@ namespace RepetierHost.extensions
             string result = value.ToString();
             if (value is FillPattern)
                 result = result.Replace("three", "3");
+            if (value is SupportMaterialPattern)
+                result = result.Replace("_", "-");
             return result;
         }
 

@@ -176,6 +176,20 @@ namespace RepetierHost.model.slic3r
             }
         }
 
+        public int SeamPositionInt
+        {
+            get
+            {
+                return (int)_SeamPosition;
+            }
+            set
+            {
+                _SeamPosition = (SeamPosition)value;
+                OnPropertyChanged("SeamPositionInt");
+                OnPropertyChanged("SeamPosition");
+            }
+        }
+
         private bool _ExternalPerimetersFirst;
 
         public bool ExternalPerimetersFirst
@@ -222,6 +236,20 @@ namespace RepetierHost.model.slic3r
             }
         }
 
+        public int FillPatternInt
+        {
+            get
+            {
+                return (int)_FillPattern;
+            }
+            set
+            {
+                _FillPattern = (FillPattern)value;
+                OnPropertyChanged("FillPatternInt");
+                OnPropertyChanged("FillPattern");
+            }
+        }
+
         private ExternalFillPattern _ExternalFillPattern;
 
         public ExternalFillPattern ExternalFillPattern
@@ -233,6 +261,20 @@ namespace RepetierHost.model.slic3r
             set
             {
                 _ExternalFillPattern = value;
+                OnPropertyChanged("ExternalFillPattern");
+            }
+        }
+
+        public int ExternalFillPatternInt
+        {
+            get
+            {
+                return (int)_ExternalFillPattern;
+            }
+            set
+            {
+                _ExternalFillPattern = (ExternalFillPattern)value;
+                OnPropertyChanged("ExternalFillPatternInt");
                 OnPropertyChanged("ExternalFillPattern");
             }
         }
@@ -419,13 +461,13 @@ namespace RepetierHost.model.slic3r
         }
 
         // Support Material
-        private string _SupportMaterial;
+        private bool _SupportMaterial;
 
-        public string SupportMaterial
+        public bool SupportMaterial
         {
             get
             {
-                return _SupportMaterial ?? DEFAULT_VALUE;
+                return _SupportMaterial;
             }
             set
             {
@@ -494,17 +536,31 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _SupportMaterialPattern;
+        private SupportMaterialPattern _SupportMaterialPattern;
 
-        public string SupportMaterialPattern
+        public SupportMaterialPattern SupportMaterialPattern
         {
             get
             {
-                return _SupportMaterialPattern ?? DEFAULT_VALUE;
+                return _SupportMaterialPattern;
             }
             set
             {
                 _SupportMaterialPattern = value;
+                OnPropertyChanged("SupportMaterialPattern");
+            }
+        }
+
+        public int SupportMaterialPatternInt
+        {
+            get
+            {
+                return (int)_SupportMaterialPattern;
+            }
+            set
+            {
+                _SupportMaterialPattern = (SupportMaterialPattern) value;
+                OnPropertyChanged("SupportMaterialPatternInt");
                 OnPropertyChanged("SupportMaterialPattern");
             }
         }
@@ -1333,7 +1389,7 @@ namespace RepetierHost.model.slic3r
                     DontSupportBridges = input.Equals(TRUE_INT);
                     break;
                 case "external_fill_pattern":
-                    ExternalFillPattern = (ExternalFillPattern) Enum.Parse(typeof(ExternalFillPattern), input);
+                    ExternalFillPattern = (ExternalFillPattern)Enum.Parse(typeof(ExternalFillPattern), input);
                     break;
                 case "external_perimeter_extrusion_width":
                     ExternalPerimeterExtrusionWidth = input;
@@ -1463,7 +1519,7 @@ namespace RepetierHost.model.slic3r
                     Resolution = input;
                     break;
                 case "seam_position":
-                    SeamPosition = (SeamPosition) Enum.Parse(typeof(SeamPosition), input);
+                    SeamPosition = (SeamPosition)Enum.Parse(typeof(SeamPosition), input);
                     break;
                 case "skirt_distance":
                     SkirtDistance = input;
@@ -1499,7 +1555,7 @@ namespace RepetierHost.model.slic3r
                     StandbyTemperatureDelta = input;
                     break;
                 case "support_material":
-                    SupportMaterial = input;
+                    SupportMaterial = input.Equals(TRUE_INT);
                     break;
                 case "support_material_angle":
                     SupportMaterialAngle = input;
@@ -1529,7 +1585,8 @@ namespace RepetierHost.model.slic3r
                     SupportMaterialInterfaceSpeed = input;
                     break;
                 case "support_material_pattern":
-                    SupportMaterialPattern = input;
+                    input = input.Replace("-", "_");
+                    SupportMaterialPattern = (SupportMaterialPattern)Enum.Parse(typeof(SupportMaterialPattern), input);
                     break;
                 case "support_material_spacing":
                     SupportMaterialSpacing = input;
