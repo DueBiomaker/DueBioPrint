@@ -8,6 +8,11 @@ namespace RepetierHost.extensions
 {
     public static class ExtensionManager
     {
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return value == null || value.Length == 0;
+        }
+
         public static string ToSlic3rSettings(this bool value)
         {
             return value ? "1" : "0";

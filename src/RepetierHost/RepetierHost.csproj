@@ -115,6 +115,7 @@
     <Compile Include="connector\VirtualPrinterPanel.Designer.cs">
       <DependentUpon>VirtualPrinterPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="controller\Slic3rSettingsCategory.cs" />
     <Compile Include="controller\Slic3rSettingsController.cs" />
     <Compile Include="extensions\ExtensionManager.cs" />
     <Compile Include="Main.cs">
@@ -180,6 +181,8 @@
     <Compile Include="model\Translation.cs" />
     <Compile Include="model\VirtualPrinter.cs" />
     <Compile Include="util\EnumUtils.cs" />
+    <Compile Include="util\FileUtils.cs" />
+    <Compile Include="util\SettingsUtils.cs" />
     <Compile Include="view\PendingPrintJobsDialog.cs">
       <SubType>Form</SubType>
     </Compile>

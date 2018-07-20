@@ -10,6 +10,9 @@ namespace RepetierHost.model.slic3r
         private const string DEFAULT_VALUE = "0";
         private const string TRUE_INT = "1";
 
+        public string ProfileName { get; set; }
+        public string FilePath { get; set; }
+
         // Layers and perimeters
         private string _LayerHeight;
 

@@ -17,13 +17,21 @@ namespace RepetierHost.view
     public partial class Slic3rSettings : Form
     {
         private PrintSettings PrintSettings { get; set; }
+        private Slic3rSettingsController SettingsController { get; set; }
 
         public Slic3rSettings()
         {
             InitializeComponent();
-            PrintSettings = Slic3rSettingsController.LoadPrintSettings();
-            PrepareBindings();
+            SettingsController = new Slic3rSettingsController(SettingsUtils.GetSlic3rDirectory());
+            PrintSettings = new PrintSettings();
+            PreparePrintBindings();
             Customization();
+        }
+
+        private void Slic3rSettings_Load(object sender, EventArgs e)
+        {
+            LoadAndFillProfileList();
+            LoadProfiles();
         }
 
         public void Customization()
@@ -38,7 +46,20 @@ namespace RepetierHost.view
             cboxExternalFillPattern.SelectedIndex = 0;
         }
 
-        public void PrepareBindings()
+        public void LoadAndFillProfileList()
+        {
+            cboxPrintProfiles.Items.Clear();
+            cboxPrintProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Print).ToArray());
+            cboxPrintProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxPrintProfiles.SelectedIndex = 0;
+        }
+
+        public void LoadProfiles()
+        {
+            PrintSettings = SettingsController.LoadPrintProfile(cboxPrintProfiles.Text, PrintSettings);
+        }
+
+        public void PreparePrintBindings()
         {
             gbSupportMaterial.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
             gbRaft.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -143,6 +164,16 @@ namespace RepetierHost.view
                 value = 5;
 
             cboxFillDensity.Text = string.Format("{0}%", value);
+        }
+
+        private void cboxPrintProfiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadProfiles();
+        }
+
+        private void btnSavePrintSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.SaveProfile(PrintSettings);
         }
     }
 }
