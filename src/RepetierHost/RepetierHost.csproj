@@ -16,7 +16,7 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <ApplicationIcon>repetier-logo-trans32.ico</ApplicationIcon>
+    <ApplicationIcon>due-logo.ico</ApplicationIcon>
     <StartupObject>RepetierHost.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -34,7 +34,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ProductName>Repetier-Host</ProductName>
+    <ProductName>DUE Print</ProductName>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -583,10 +583,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="due-logo.ico" />
+    <Content Include="due.ico" />
     <Content Include="images\switch_on.bmp" />
     <Content Include="images\switch_off.bmp" />
-    <Content Include="repetier-logo-trans32.ico" />
-    <Content Include="repetier-logo32.ico" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\printer_settings.png" />
+    <None Include="Resources\load.png" />
+    <None Include="Resources\emergency_stop.png" />
     <None Include="Properties\DataSources\Main.datasource" />
     <None Include="Properties\DataSources\RepetierHost.model.PrinterModel.datasource" />
     <None Include="Resources\home.png" />
