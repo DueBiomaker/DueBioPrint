@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">發送腳本3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">發送腳本4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">發送腳本5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host 軟件主頁</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host 軟件下載</t>
-<t id="M_MANUAL" ver="1">Repetier-Host 軟件手冊</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print 軟件主頁</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print 軟件下載</t>
+<t id="M_MANUAL" ver="1">DUE Print 軟件手冊</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r 軟件主頁</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge 軟件主頁</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap 主頁</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap 論壇</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse 最新設計</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse 最熱設計</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">關於Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">關於DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">檢查更新</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">斷開打印機</t>
 <t id="L_CONNECT_PRINTER" ver="1">連接打印機</t>
@@ -249,7 +249,7 @@
 <t id="W_PRINT_PAUSED" ver="1">打印暫停</t>
 <t id="L_PAUSE_HINT" ver="1">提示: 你可以手動控制移動擠出頭以變清理多餘材料或者更換材料，結束暫停時，打印機會重設打印頭的位置，自動移動到暫停前的位置.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">繼續打印</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host 檢查更新</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print 檢查更新</t>
 <t id="B_DOWNLOAD" ver="1">下載</t>
 <t id="B_REMIND_ME_LATER" ver="1">以後提醒我</t>
 <t id="B_SKIP_VERSION" ver="1">跳過當前版本</t>
@@ -263,7 +263,7 @@
 <t id="L_DURATION:" ver="1">持續時間:</t>
 <t id="L_SLICER:" ver="1">生成器:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">生成代碼後開始打印</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">關於Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">關於DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">授權和庫</t>
 <t id="L_REPETIER_INFO" ver="1">本軟件用於控制RepRap 類三維打印機. 最好配合Repetier-firmware專用固件使用. 其他打印機固件例如Marlin, Teacup, Sprinter 和5D GCode interpreter 通過適當設置也可使用.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">複製已標記物體</t>

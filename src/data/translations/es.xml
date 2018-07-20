@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Mandar Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Mandar Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Mandar Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Web Repetier-Host</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Descargas Repetier-Host</t>
-<t id="M_MANUAL" ver="1">Manual Repetier-Host</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Web DUE Print</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Descargas DUE Print</t>
+<t id="M_MANUAL" ver="1">Manual DUE Print</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Web de Slic3r</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Web de Skeinforge</t>
 <t id="M_REPRAP_WEBSITE" ver="1">Web de RepRap</t>
 <t id="M_REPRAP_FORUM" ver="1">Foro RepRap</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse Newest Things</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse Popular Things</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Sobre Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">Sobre DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Comprobar Actualizaciones</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Desconectar Impresora</t>
 <t id="L_CONNECT_PRINTER" ver="1">Conectar Impresora</t>
@@ -251,7 +251,7 @@ Usa #in y #out para insertar los archivos input y output como parámetro.</t>
 <t id="W_PRINT_PAUSED" ver="1">Impresión Pausada</t>
 <t id="L_PAUSE_HINT" ver="1">Consejo: Puedes mover el extrusor y extruir filamento para cambiar el filamento o rellenar la boquilla si ha rezumado. El programa restaurará la posición donde estaba el extruder cuando se pausó la impresión.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Continuar Impresión</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Comprobar actualización de Repetier-Host </t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Comprobar actualización de DUE Print </t>
 <t id="B_DOWNLOAD" ver="1">Descargar</t>
 <t id="B_REMIND_ME_LATER" ver="1">Recordarmelo luego</t>
 <t id="B_SKIP_VERSION" ver="1">Omitir esta Version</t>
@@ -266,7 +266,7 @@ Estas usando la última versión.</t>
 <t id="L_DURATION:" ver="1">Duración:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Empezar Impresión despues de Slicing</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Sobre Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">Sobre DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licencia y Librerias</t>
 <t id="L_REPETIER_INFO" ver="1">Este software ha sido desarrollado para trabajar con impresoras 3D basadas en RepRap. Está optimizado para el firmware Repetier, el cual soporta todas las características. Otros firmwares como Marlin, Teacup, Sprinter o 5D GCode funcionan con los ajustes adecuados.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copiar Objetos Marcados </t>

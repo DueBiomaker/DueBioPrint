@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Odeslat Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Odeslat Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Odeslat Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Domovská stránka Repetier-Host</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Stáhnout Repetier-Host</t>
-<t id="M_MANUAL" ver="1">Manuál Repetier-Host Manual</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Domovská stránka DUE Print</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Stáhnout DUE Print</t>
+<t id="M_MANUAL" ver="1">Manuál DUE Print Manual</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Domovská stránka Slic3r</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Domovská stránka Skeinforge</t>
 <t id="M_REPRAP_WEBSITE" ver="1">Domovská stránka RepRap</t>
 <t id="M_REPRAP_FORUM" ver="1">Fórum RepRap</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Nejnovější objekty na Thingiverse</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Populární objetky na Thingiverse</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">O Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">O DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Zkontrolovat aktualizace</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Odpojit tiskárnu</t>
 <t id="L_CONNECT_PRINTER" ver="1">Připojit tiskárnu</t>
@@ -246,7 +246,7 @@
 <t id="W_PRINT_PAUSED" ver="1">Tisk pozastaven</t>
 <t id="L_PAUSE_HINT" ver="1">Nápověda: Během pauzy můžete s extruderem pohybovat. Předchozí pozice bude automaticky obnovena.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Pokračovat v tisku</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host zjištění aktualizací</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print zjištění aktualizací</t>
 <t id="B_DOWNLOAD" ver="1">Stáhnout</t>
 <t id="B_REMIND_ME_LATER" ver="1">Připomenout později</t>
 <t id="B_SKIP_VERSION" ver="1">Přeskočit tuto verzi</t>
@@ -260,7 +260,7 @@
 <t id="L_DURATION:" ver="1">Trvání:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Tisknout po zpracování</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">O programu Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">O programu DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licence a knihovny</t>
 <t id="L_REPETIER_INFO" ver="1">Tento software byl vyvinut pro ovládání RepRap a podobných 3D tiskáren. Nejlépe používat s Repetier-Firmwarem, který podporuje všechny funkce. Ostatní firmwary by měli se správným nastavením také fungovat.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Zkopírovat označené objekty</t>

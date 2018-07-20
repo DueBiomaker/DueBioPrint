@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Invia Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Invia Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Invia Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host Homepage</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host Download</t>
-<t id="M_MANUAL" ver="1">Manuale Repetier-Host</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print Homepage</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print Download</t>
+<t id="M_MANUAL" ver="1">Manuale DUE Print</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r Homepage</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge Homepage</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap Homepage</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap Forum</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Nuovi oggetti su Thingiverse</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Oggetti popolari su Thingiverse</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">About Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">About DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Controlla aggiornamenti</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Disconnetti stampante</t>
 <t id="L_CONNECT_PRINTER" ver="1">Connetti stampante</t>
@@ -249,7 +249,7 @@ prodotto dallo slicer. Utilizzare #in e #out per inserire i nomi dei file di inp
 <t id="W_PRINT_PAUSED" ver="1">Stampa in pausa</t>
 <t id="L_PAUSE_HINT" ver="1">Suggerimento: E' consentito spostare l'estrusore intorno ed estrudere filamento per cambiare il filamento o riempire l'ugello se si e verificata una perdita. L'host ripristina la situazione iniziale prima della pausa.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Continua stampa</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host controllo aggiornamenti</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print controllo aggiornamenti</t>
 <t id="B_DOWNLOAD" ver="1">Scarica</t>
 <t id="B_REMIND_ME_LATER" ver="1">Ricordamelo dopo</t>
 <t id="B_SKIP_VERSION" ver="1">Salta questa versione</t>
@@ -264,7 +264,7 @@ Al momento stai utilizzando l'ultima versione =)</t>
 <t id="L_DURATION:" ver="1">Durata:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Inizia la stampa dopo lo slicing</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">About Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">About DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licenza e librerie</t>
 <t id="L_REPETIER_INFO" ver="1">Questo software e' stato sviluppato per il controllo di RepRap come stampante 3D.E' consigliato utilizzarlo con Repetier-firmware, che supporta tutte le caratteristiche. Altri firmware come Marlin, Teacup, Sprinter o 5D GCode dovrebbero funzionare con le impostazioni corrette.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copia oggetto selezionato</t>

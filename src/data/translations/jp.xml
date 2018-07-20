@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">スクリプト3を送信</t>
 <t id="M_SEND_SCRIPT_4" ver="1">スクリプト4を送信</t>
 <t id="M_SEND_SCRIPT_5" ver="1">スクリプト5を送信</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host ホームページ</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host ダウンロード</t>
-<t id="M_MANUAL" ver="1">Repetier-Host マニュアル</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print ホームページ</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print ダウンロード</t>
+<t id="M_MANUAL" ver="1">DUE Print マニュアル</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r ホームページ</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge ホームページ</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap ホームページ</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRapフォーラム</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse Newest Thingsへ</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse Popular Thingsへ</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Repetier-Hostについて</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">DUE Printについて</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">アップデートをチェック</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">プリンタ切断</t>
 <t id="L_CONNECT_PRINTER" ver="1">プリンタ接続</t>
@@ -251,7 +251,7 @@
 <t id="L_PAUSE_HINT" ver="1">ヒント：フィラメントの交換や補充のためエクストルーダーを動かすことが可能です。
 継続時、プログラムは一時停止を開始した位置までノズルを復元します。</t>
 <t id="B_CONTINUE_PRINTING" ver="1">プリント継続</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host アップデートのチェック</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print アップデートのチェック</t>
 <t id="B_DOWNLOAD" ver="1">ダウンロード</t>
 <t id="B_REMIND_ME_LATER" ver="1">後で確認</t>
 <t id="B_SKIP_VERSION" ver="1">インストールしない</t>
@@ -265,7 +265,7 @@
 <t id="L_DURATION:" ver="1">経過時間:</t>
 <t id="L_SLICER:" ver="1">スライサ:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">スライス後にプリントジョブを行う</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Repetier-Hostについて</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">DUE Printについて</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">ライセンスとライブラリ</t>
 <t id="L_REPETIER_INFO" ver="1">このソフトウェアはRepRapを始めとする3Dプリンタのコントロール用に開発されました。 ファームウェアはRepetier-Firmwareであれば全機能が使えますが、 Marlin, Teacup, Sprinter, 5Dなども使用可能です。</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">選択オブジェクトのコピー</t>

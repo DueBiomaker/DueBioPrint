@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Send Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Send Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Send Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host Homepage</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host Download</t>
-<t id="M_MANUAL" ver="1">Repetier-Host Manual</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print Homepage</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print Download</t>
+<t id="M_MANUAL" ver="1">DUE Print Manual</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r Homepage</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge Homepage</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap Homepage</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap Forum</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse Newest Things</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse Popular Things</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">About Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">About DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Check for Updates</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Disconnect Printer</t>
 <t id="L_CONNECT_PRINTER" ver="1">Connect Printer</t>
@@ -252,7 +252,7 @@ produced by the slicer. Use #in and #out to insert the input and output filename
 <t id="W_PRINT_PAUSED" ver="1">Print Paused</t>
 <t id="L_PAUSE_HINT" ver="1">Hint: You are allowed to move the extruder around and to extrude filament in order to change the filament or refill the nozzle if oozing occured. The host will restore the position at the start of the pause for you.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Continue Printing</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host Update Check</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print Update Check</t>
 <t id="B_DOWNLOAD" ver="1">Download</t>
 <t id="B_REMIND_ME_LATER" ver="1">Remind me Later</t>
 <t id="B_SKIP_VERSION" ver="1">Skip this Version</t>
@@ -267,7 +267,7 @@ You are using the latest version.</t>
 <t id="L_DURATION:" ver="1">Duration:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Start Job after Slicing</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">About Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">About DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licence and Libraries</t>
 <t id="L_REPETIER_INFO" ver="1">This software was developed for controlling RepRap like 3D-printer. It is best used with Repetier-Firmware, which supports all features. Other printer firmware like Marlin, Teacup, Sprinter or 5D GCode interpreter should work with proper settings.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copy Marked Objects</t>

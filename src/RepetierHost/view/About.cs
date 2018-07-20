@@ -49,7 +49,7 @@ namespace RepetierHost.view
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Main.main.openLink("https://github.com/repetier/Repetier-Host");
+            Main.main.openLink("https://github.com/repetier/DUE Print");
         }
 
         protected override void OnClosing(CancelEventArgs e)

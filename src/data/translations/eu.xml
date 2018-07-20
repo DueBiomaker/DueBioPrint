@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">3garren Scripta bidali</t>
 <t id="M_SEND_SCRIPT_4" ver="1">4garren Scripta bidali</t>
 <t id="M_SEND_SCRIPT_5" ver="1">5garren Scripta bidali</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Hosten web orria</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Hostetik deskargak</t>
-<t id="M_MANUAL" ver="1">Repetier-Hosten gidaliburua</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Printen web orria</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Printetik deskargak</t>
+<t id="M_MANUAL" ver="1">DUE Printen gidaliburua</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r proiektuaren web orria</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge proiektuaren web orria</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap proiektuaren web orria</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap proiektuaren foroa </t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverseko produktu berriak</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverseko produktu ospetsuenak</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Repetier-Hostari buruz</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">DUE Printari buruz</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Eguneraketak bilatu</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Inprimagailua deskonektatu</t>
 <t id="L_CONNECT_PRINTER" ver="1">Inprimagailua konektatu</t>
@@ -248,7 +248,7 @@
 <t id="W_PRINT_PAUSED" ver="1">Inpresioa geldituta</t>
 <t id="L_PAUSE_HINT" ver="1">Aholkua: Estrusorea mugitu eta filamentua estruitu dezakezu filamentua aldatzeko edo ahokoa betetzeko, izerditu egin badu. Programak berrezarriko du extruderra inprimaketa eten den posizioan.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Jarraitu inprimatzen</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Hosten eguneraketak bilatu </t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Printen eguneraketak bilatu </t>
 <t id="B_DOWNLOAD" ver="1">Deskargatu</t>
 <t id="B_REMIND_ME_LATER" ver="1">Gero gogorarazi</t>
 <t id="B_SKIP_VERSION" ver="1">Bertsio hau alde batera utzi</t>
@@ -262,7 +262,7 @@
 <t id="L_DURATION:" ver="1">Iraupena:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Slicing-a egin ondoren inprimitzen hasi</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Repetier-Host-i buruz</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">DUE Print-i buruz</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Lizentziak eta Libreriak</t>
 <t id="L_REPETIER_INFO" ver="1">Software hau, RepRap-en oinarritutako 3D imprimagailuekin lan egiteko garatuta dago. Repetier firmware-arentzat optimizatuta dago, ezaugarri guztiak jasaten dituelako. Beste firmwares-ak, Marlin, Teacup, Sprinter edo 5D GKode ajuste egokiekin funtzionatzen dute.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Autatutako objektuak kopiatu </t>

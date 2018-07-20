@@ -870,7 +870,7 @@
             // 
             this.aboutRepetierHostToolStripMenuItem.Name = "aboutRepetierHostToolStripMenuItem";
             this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.aboutRepetierHostToolStripMenuItem.Text = "&About Repetier-Host";
+            this.aboutRepetierHostToolStripMenuItem.Text = "&About DUE Print";
             this.aboutRepetierHostToolStripMenuItem.Click += new System.EventHandler(this.aboutRepetierHostToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem

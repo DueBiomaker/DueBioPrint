@@ -12,7 +12,7 @@
 <t id="M_PRINTER_SETTINGS" ver="1">Printera uzstādījumi</t>
 <t id="M_EEPROM_SETTINGS" ver="1">Firmware EEPROM uzstādījumi</t>
 <t id="M_3D_VIEWER_CONFIGURATION" ver="1">3D skata uzstādījumi</t>
-<t id="M_REPETIER_SETTINGS" ver="1">Repetier-Host galvenie uzstādījumi</t>
+<t id="M_REPETIER_SETTINGS" ver="1">DUE Print galvenie uzstādījumi</t>
 <t id="M_TESTCASE_SETTINGS" ver="1">Testa lauks griešanas parametriem</t>
 <t id="M_SOUND_CONFIGURATION" ver="1">Skaņas konfigurācija</t>
 <t id="M_SHOW_EXTRUDER_TEMPERATURES" ver="1">Rādīt printera galvas temperatūru</t>
@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Sūtīt instrukciju 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Sūtīt instrukciju 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Sūtīt instrukciju 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host mājas lapa</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host lejupielāde</t>
-<t id="M_MANUAL" ver="1">Repetier-Host pamācība</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print mājas lapa</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print lejupielāde</t>
+<t id="M_MANUAL" ver="1">DUE Print pamācība</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r mājas lapa</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge mājas lapa</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap mājas lapa</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap forums</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse jaunākās lietas</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse populārākās lietas</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Par Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">Par DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Pārbaudīt pēdējo atjauninājumu</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Atvienot printeri</t>
 <t id="L_CONNECT_PRINTER" ver="1">Pieslēgt printeri</t>
@@ -252,7 +252,7 @@ Jūs varat pievienot pauzes savam G-Kodam ar tekstu @pause</t>
 <t id="W_PRINT_PAUSED" ver="1">Printēšana iepauzēta</t>
 <t id="L_PAUSE_HINT" ver="1">Piezīme: Jums ir atļauts pārvietot galvu jebkurā virzienā, mainīt auklu, izspiest auklu vai iztīrīt sprauslu, ja radusies aizsprostošanās. Programmatūra atjaunos galvas novietojumu iepriekš iepauzētajā vietā.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Turpināt printēšanu</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host atjauninājumu pārbaude</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print atjauninājumu pārbaude</t>
 <t id="B_DOWNLOAD" ver="1">Lejuplādē</t>
 <t id="B_REMIND_ME_LATER" ver="1">Atgādiniet man vēlāk</t>
 <t id="B_SKIP_VERSION" ver="1">Izlaist šo versiju</t>
@@ -267,7 +267,7 @@ Jūs varat pievienot pauzes savam G-Kodam ar tekstu @pause</t>
 <t id="L_DURATION:" ver="1">Laiks:</t>
 <t id="L_SLICER:" ver="1">Griezējs:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Sākt darbu pēc griešanas</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Par Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">Par DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licences un bibliotēkas</t>
 <t id="L_REPETIER_INFO" ver="1">Šī programmatūra ir izstrādāta, lai kontrolētu RepRap un līdzīgus 3D printerus. Vislabāk lietot Repetier-Firmware, kurš atbalsta visas programmatūras iespējas. Citu printeru Firmware, piemēram, Marlin, Teacup, Sprinter vai 5D GCode jāpapildina ar pareiziem iestatījumiem.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Kopēt iezīmētos objektus</t>
@@ -293,7 +293,7 @@ Iespējamie risinājumi:
 - griezējs saglabāja datni ar nepareizu nosaukumu.</t>
 
 <t id="B_CLOSE" ver="1">Aizvērt</t>
-<t id="W_REPETIER_SETTINGS" ver="1">Repetier-Host uzstādījumi</t>
+<t id="W_REPETIER_SETTINGS" ver="1">DUE Print uzstādījumi</t>
 <t id="L_BEHAVIOUR" ver="1">Uzvedība</t>
 <t id="L_FILES_AND_DIRECTORIES" ver="1">Datnes un katalogi</t>
 <t id="L_GUI" ver="1">GUI</t>

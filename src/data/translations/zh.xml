@@ -47,16 +47,16 @@
     <t id="M_SEND_SCRIPT_3" ver="1">发送脚本 3</t>
     <t id="M_SEND_SCRIPT_4" ver="1">发送脚本 4</t>
     <t id="M_SEND_SCRIPT_5" ver="1">发送脚本 5</t>
-    <t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host主页</t>
-    <t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host下载页</t>
-    <t id="M_MANUAL" ver="1">Repetier-Host使用手册</t>
+    <t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print主页</t>
+    <t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print下载页</t>
+    <t id="M_MANUAL" ver="1">DUE Print使用手册</t>
     <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r 主页</t>
     <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge 主页</t>
     <t id="M_REPRAP_WEBSITE" ver="1">RepRap 主页</t>
     <t id="M_REPRAP_FORUM" ver="1">RepRap 论坛</t>
     <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse 最新设计</t>
     <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiveres 最热设计</t>
-    <t id="M_ABOUT_REPETIER_HOST" ver="1">关于Repetier-Host</t>
+    <t id="M_ABOUT_REPETIER_HOST" ver="1">关于DUE Print</t>
     <t id="M_CHECK_FOR_UPDATES" ver="1">检查更新</t>
     <t id="L_DISCONNECT_PRINTER" ver="1">断开打印机连接</t>
     <t id="L_CONNECT_PRINTER" ver="1">连接打印机</t>

@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Enviar Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Enviar Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Enviar Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host Homepage</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host Download</t>
-<t id="M_MANUAL" ver="1">Repetier-Host Manual</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print Homepage</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print Download</t>
+<t id="M_MANUAL" ver="1">DUE Print Manual</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r Homepage</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge Homepage</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap Homepage</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap Forum</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Novidades Thingiverse</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">\Mais populares Thingiverse</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Sobre Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">Sobre DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Verificar atualizações</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Desconectar impressora</t>
 <t id="L_CONNECT_PRINTER" ver="1">Conectar impressora</t>
@@ -252,7 +252,7 @@ produzida pela segmentação de dados. Utilize # e # para inserir a entrada e sa
 <t id="W_PRINT_PAUSED" ver="1">Impressão pausada</t>
 <t id="L_PAUSE_HINT" ver="1">Dica: Você tem permissão para se mover a extrusora e fazer a extrusão de filamentos de modo a alterar o filamento ou encher o bico se "oozing" ocorreu. O host irá retornar a posição inicial a pausa para você.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Continuar impressão</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">verificador de atualização do Repetier-Host</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">verificador de atualização do DUE Print</t>
 <t id="B_DOWNLOAD" ver="1">Download</t>
 <t id="B_REMIND_ME_LATER" ver="1">Lembrar-me depois</t>
 <t id="B_SKIP_VERSION" ver="1">Pular esta versão</t>
@@ -267,7 +267,7 @@ Você esta usando a última versão.</t>
 <t id="L_DURATION:" ver="1">Duração:</t>
 <t id="L_SLICER:" ver="1">Fatiamento:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Iniciar trabalho após Fatiamento</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Sobre Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">Sobre DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licencas e Bibliotecas</t>
 <t id="L_REPETIER_INFO" ver="1">Este software foi desenvolvido para controlar impressoras como a RepRap. É melhor se usado com Repetier-Firmware, que suporta todas as funcionalidades. Firmware de outra impressora como Marlin, Teacup, Sprinter ou Gcode 5D intérprete deve trabalhar com as configurações adequadas.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copiar objetos marcados</t>

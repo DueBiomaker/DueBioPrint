@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Sende Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Sende Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Sende Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host Homepage</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host Download</t>
-<t id="M_MANUAL" ver="1">Repetier-Host Anleitung</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print Homepage</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print Download</t>
+<t id="M_MANUAL" ver="1">DUE Print Anleitung</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r Homepage</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge Homepage</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap Homepage</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap Forum</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse Neueste Things</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse Populäre Things</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">Über Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">Über DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Suche nach Updates</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Trenne Drucker</t>
 <t id="L_CONNECT_PRINTER" ver="1">Verbinde Drucker</t>
@@ -249,7 +249,7 @@ Du kannst Pausen in deinem Code einfügen mit:
 <t id="W_PRINT_PAUSED" ver="1">Druck pausiert</t>
 <t id="L_PAUSE_HINT" ver="1">Hinweis: Sie können den Extruder bewegen und Filament extrudieren, um es zu wechseln oder die Druckspitze mit Filament zu füllen, wenn sie nachläuft. Der Host wir die Ausgangssituation vom Anfang der Pause beim fortsetzen wieder herstellen.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Druck fortsetzen</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host Version prüfen</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print Version prüfen</t>
 <t id="B_DOWNLOAD" ver="1">Download</t>
 <t id="B_REMIND_ME_LATER" ver="1">Erinner mich später</t>
 <t id="B_SKIP_VERSION" ver="1">Version überspringen</t>
@@ -264,7 +264,7 @@ Sie verwenden die neueste Version.</t>
 <t id="L_DURATION:" ver="1">Dauer:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Job nach dem slicing starten</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Über Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">Über DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Lizenzen und Bibliotheken</t>
 <t id="L_REPETIER_INFO" ver="1">Diese Software wurde zur Steuerung von RepRap ähnlichen 3D-Druckern entwickelt. Sie Funktioniert am besten mit Repetier-Firmware, welche alle Features unterstützt. Andere Firmware wie Marlin, Teacup, Sprinter oder 5D GCode sollten mit den richtigen Einstellungen aber auch funktionieren.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Kopiere markierte Modelle</t>
