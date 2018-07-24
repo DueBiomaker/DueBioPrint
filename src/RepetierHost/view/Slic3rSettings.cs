@@ -61,14 +61,20 @@ namespace RepetierHost.view
 
         public void PreparePrintBindings()
         {
-            gbSupportMaterial.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
-            gbRaft.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
-            gbSupportMaterialOptions.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
 
             lbPrintSettingsCategories.Items?.Clear();
             lbPrintSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<PrintSettingsCategory>());
             lbPrintSettingsCategories.SelectedIndex = 0;
 
+            PrepareLayerAndPerimetersBinding();
+            PrepareInfillBinding();
+            PrepareSkirtAndBrimBinding();
+            PrepareSupportMaterialBinding();
+            PrepareSpeedBinding();
+        }
+
+        public void PrepareLayerAndPerimetersBinding()
+        {
             cboxSeamPosition.Items.Clear();
             cboxSeamPosition.Items.AddRange(EnumUtils.GetDescriptions<SeamPosition>());
 
@@ -85,6 +91,10 @@ namespace RepetierHost.view
             cboxSeamPosition.DataBindings.Add("SelectedIndex", PrintSettings, "SeamPositionInt", false, DataSourceUpdateMode.OnPropertyChanged);
             cbExternalPerimetersFirst.DataBindings.Add("Checked", PrintSettings, "ExternalPerimetersFirst", false, DataSourceUpdateMode.OnPropertyChanged);
 
+        }
+
+        public void PrepareInfillBinding()
+        {
             cboxFillPattern.Items.Clear();
             cboxFillPattern.Items.AddRange(EnumUtils.GetDescriptions<FillPattern>());
             cboxExternalFillPattern.Items.Clear();
@@ -101,11 +111,22 @@ namespace RepetierHost.view
             cbOnlyRetractWhenCrossingPerimeters.DataBindings.Add("Checked", PrintSettings, "OnlyRetractWhenCrossingPerimeters", false, DataSourceUpdateMode.OnPropertyChanged);
             cbInfillFirst.DataBindings.Add("Checked", PrintSettings, "InfillFirst", false, DataSourceUpdateMode.OnPropertyChanged);
 
+        }
+
+        public void PrepareSkirtAndBrimBinding()
+        {
             nbSkirts.DataBindings.Add("Value", PrintSettings, "Skirts", false, DataSourceUpdateMode.OnPropertyChanged);
             tbSkirtDistance.DataBindings.Add("Text", PrintSettings, "SkirtDistance", false, DataSourceUpdateMode.OnPropertyChanged);
             nbSkirtHeight.DataBindings.Add("Value", PrintSettings, "SkirtHeight", false, DataSourceUpdateMode.OnPropertyChanged);
             tbMinSkirtLength.DataBindings.Add("Text", PrintSettings, "MinSkirtLength", false, DataSourceUpdateMode.OnPropertyChanged);
             tbBrimWidth.DataBindings.Add("Text", PrintSettings, "BrimWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        public void PrepareSupportMaterialBinding()
+        {
+            gbSupportMaterial.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+            gbRaft.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
+            gbSupportMaterialOptions.DataBindings.Add("Enabled", PrintSettings, "SupportMaterial", false, DataSourceUpdateMode.OnPropertyChanged);
 
             cboxSupportMaterialPattern.Items.Clear();
             cboxSupportMaterialPattern.Items.AddRange(EnumUtils.GetDescriptions<SupportMaterialPattern>());
@@ -121,6 +142,32 @@ namespace RepetierHost.view
             nbSupportMaterialInterfaceLayers.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceLayers", false, DataSourceUpdateMode.OnPropertyChanged);
             tbSupportMaterialInterfaceSpacing.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceSpacing", false, DataSourceUpdateMode.OnPropertyChanged);
             cbDontSupportBridges.DataBindings.Add("Checked", PrintSettings, "DontSupportBridges", false, DataSourceUpdateMode.OnPropertyChanged);
+
+        }
+
+        public void PrepareSpeedBinding()
+        {
+
+
+            tbPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "PerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSmallPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "SmallPerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbExternalPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "ExternalPerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbInfillSpeed.DataBindings.Add("Text", PrintSettings, "InfillSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSolidInfillSpeed.DataBindings.Add("Text", PrintSettings, "SolidInfillSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbTopSolidInfillSpeed.DataBindings.Add("Text", PrintSettings, "TopSolidInfillSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSupportMaterialSpeed.DataBindings.Add("Text", PrintSettings, "SupportMaterialSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSupportMaterialInterfaceSpeed.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBridgeSpeed.DataBindings.Add("Text", PrintSettings, "BridgeSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbGapFillSpeed.DataBindings.Add("Text", PrintSettings, "GapFillSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbTravelSpeed.DataBindings.Add("Text", PrintSettings, "TravelSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbFirstLayerSpeed.DataBindings.Add("Text", PrintSettings, "FirstLayerSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPerimeterAcceleration.DataBindings.Add("Text", PrintSettings, "PerimeterAcceleration", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbInfillAcceleration.DataBindings.Add("Text", PrintSettings, "InfillAcceleration", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBridgeAcceleration.DataBindings.Add("Text", PrintSettings, "BridgeAcceleration", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbFirstLayerAcceleration.DataBindings.Add("Text", PrintSettings, "FirstLayerAcceleration", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbDefaultAcceleration.DataBindings.Add("Text", PrintSettings, "DefaultAcceleration", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbMaxPrintSpeed.DataBindings.Add("Text", PrintSettings, "MaxPrintSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbMaxVolumetricSpeed.DataBindings.Add("Text", PrintSettings, "MaxVolumetricSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,6 +181,7 @@ namespace RepetierHost.view
             tlpInfill.Visible = false;
             tlpSkirt.Visible = false;
             tlpSupportMaterial.Visible = false;
+            tlpSpeed.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
@@ -151,6 +199,10 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.SupportMaterial:
                     tlpSupportMaterial.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.Speed:
+                    tlpSpeed.Visible = true;
                     break;
             }
         }
