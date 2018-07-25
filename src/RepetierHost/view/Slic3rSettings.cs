@@ -1,16 +1,8 @@
 ﻿using RepetierHost.controller;
 using RepetierHost.model.slic3r;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using RepetierHost.extensions;
 using RepetierHost.util;
+using System;
+using System.Windows.Forms;
 
 namespace RepetierHost.view
 {
@@ -61,7 +53,6 @@ namespace RepetierHost.view
 
         public void PreparePrintBindings()
         {
-
             lbPrintSettingsCategories.Items?.Clear();
             lbPrintSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<PrintSettingsCategory>());
             lbPrintSettingsCategories.SelectedIndex = 0;
@@ -71,6 +62,7 @@ namespace RepetierHost.view
             PrepareSkirtAndBrimBinding();
             PrepareSupportMaterialBinding();
             PrepareSpeedBinding();
+            PrepareMultipleExtrudersBinding();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -90,7 +82,6 @@ namespace RepetierHost.view
             cbOverhangs.DataBindings.Add("Checked", PrintSettings, "Overhangs", false, DataSourceUpdateMode.OnPropertyChanged);
             cboxSeamPosition.DataBindings.Add("SelectedIndex", PrintSettings, "SeamPositionInt", false, DataSourceUpdateMode.OnPropertyChanged);
             cbExternalPerimetersFirst.DataBindings.Add("Checked", PrintSettings, "ExternalPerimetersFirst", false, DataSourceUpdateMode.OnPropertyChanged);
-
         }
 
         public void PrepareInfillBinding()
@@ -110,7 +101,6 @@ namespace RepetierHost.view
             tbSolidInfillBellowArea.DataBindings.Add("Text", PrintSettings, "SolidInfillBelowArea", false, DataSourceUpdateMode.OnPropertyChanged);
             cbOnlyRetractWhenCrossingPerimeters.DataBindings.Add("Checked", PrintSettings, "OnlyRetractWhenCrossingPerimeters", false, DataSourceUpdateMode.OnPropertyChanged);
             cbInfillFirst.DataBindings.Add("Checked", PrintSettings, "InfillFirst", false, DataSourceUpdateMode.OnPropertyChanged);
-
         }
 
         public void PrepareSkirtAndBrimBinding()
@@ -142,13 +132,10 @@ namespace RepetierHost.view
             nbSupportMaterialInterfaceLayers.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceLayers", false, DataSourceUpdateMode.OnPropertyChanged);
             tbSupportMaterialInterfaceSpacing.DataBindings.Add("Text", PrintSettings, "SupportMaterialInterfaceSpacing", false, DataSourceUpdateMode.OnPropertyChanged);
             cbDontSupportBridges.DataBindings.Add("Checked", PrintSettings, "DontSupportBridges", false, DataSourceUpdateMode.OnPropertyChanged);
-
         }
 
         public void PrepareSpeedBinding()
         {
-
-
             tbPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "PerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
             tbSmallPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "SmallPerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
             tbExternalPerimeterSpeed.DataBindings.Add("Text", PrintSettings, "ExternalPerimeterSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -170,6 +157,20 @@ namespace RepetierHost.view
             tbMaxVolumetricSpeed.DataBindings.Add("Text", PrintSettings, "MaxVolumetricSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
+        public void PrepareMultipleExtrudersBinding()
+        {
+            nbStandbyTemperatureDelta.DataBindings.Add("Enabled", PrintSettings, "OozePrevention", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbPerimeterExtruder.DataBindings.Add("Value", PrintSettings, "PerimeterExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbInfillExtruder.DataBindings.Add("Value", PrintSettings, "InfillExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSolidInfillExtruder.DataBindings.Add("Value", PrintSettings, "SolidInfillExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialExtruder.DataBindings.Add("Value", PrintSettings, "SupportMaterialExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSupportMaterialInterfaceExtruder.DataBindings.Add("Value", PrintSettings, "SupportMaterialInterfaceExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxOozePrevention.DataBindings.Add("Checked", PrintSettings, "OozePrevention", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbStandbyTemperatureDelta.DataBindings.Add("Value", PrintSettings, "StandbyTemperatureDelta", false, DataSourceUpdateMode.OnPropertyChanged);
+            cboxInterfaceShells.DataBindings.Add("Checked", PrintSettings, "InterfaceShells", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(PrintSettings.ToString());
@@ -182,10 +183,11 @@ namespace RepetierHost.view
             tlpSkirt.Visible = false;
             tlpSupportMaterial.Visible = false;
             tlpSpeed.Visible = false;
+            tlpMultipleExtruders.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
-                case (int) PrintSettingsCategory.LayersAndPerimeters:
+                case (int)PrintSettingsCategory.LayersAndPerimeters:
                     tlpLayers.Visible = true;
                     break;
 
@@ -203,6 +205,10 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.Speed:
                     tlpSpeed.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.MultipleExtruders:
+                    tlpMultipleExtruders.Visible = true;
                     break;
             }
         }

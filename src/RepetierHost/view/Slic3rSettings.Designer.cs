@@ -69,10 +69,33 @@
             this.lblSupportMaterialEnforceLayers = new System.Windows.Forms.Label();
             this.lblSupportMaterialThreshold = new System.Windows.Forms.Label();
             this.tlpSpeed = new System.Windows.Forms.TableLayoutPanel();
-            this.gbNonPrint = new System.Windows.Forms.GroupBox();
-            this.tbTravelSpeed = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.gbAcceleration = new System.Windows.Forms.GroupBox();
+            this.tbDefaultAcceleration = new System.Windows.Forms.TextBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.tbFirstLayerAcceleration = new System.Windows.Forms.TextBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label55 = new System.Windows.Forms.Label();
+            this.tbBridgeAcceleration = new System.Windows.Forms.TextBox();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.tbInfillAcceleration = new System.Windows.Forms.TextBox();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.tbPerimeterAcceleration = new System.Windows.Forms.TextBox();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.gbModifiers = new System.Windows.Forms.GroupBox();
+            this.tbFirstLayerSpeed = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.gbAutospeed = new System.Windows.Forms.GroupBox();
+            this.tbMaxVolumetricSpeed = new System.Windows.Forms.TextBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.tbMaxPrintSpeed = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
             this.gbPrint = new System.Windows.Forms.GroupBox();
             this.tbGapFillSpeed = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -104,6 +127,29 @@
             this.tbPerimeterSpeed = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.gbNonPrint = new System.Windows.Forms.GroupBox();
+            this.tbTravelSpeed = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.tlpMultipleExtruders = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.cboxInterfaceShells = new System.Windows.Forms.CheckBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cboxOozePrevention = new System.Windows.Forms.CheckBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.nbStandbyTemperatureDelta = new System.Windows.Forms.NumericUpDown();
+            this.label70 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nbSupportMaterialInterfaceExtruder = new System.Windows.Forms.NumericUpDown();
+            this.label49 = new System.Windows.Forms.Label();
+            this.nbSupportMaterialExtruder = new System.Windows.Forms.NumericUpDown();
+            this.label48 = new System.Windows.Forms.Label();
+            this.nbSolidInfillExtruder = new System.Windows.Forms.NumericUpDown();
+            this.label47 = new System.Windows.Forms.Label();
+            this.nbInfillExtruder = new System.Windows.Forms.NumericUpDown();
+            this.label46 = new System.Windows.Forms.Label();
+            this.nbPerimeterExtruder = new System.Windows.Forms.NumericUpDown();
+            this.label66 = new System.Windows.Forms.Label();
             this.tlpSkirt = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblBrimWidth = new System.Windows.Forms.Label();
@@ -175,33 +221,6 @@
             this.lblLayerHeight = new System.Windows.Forms.Label();
             this.pageFilament = new System.Windows.Forms.TabPage();
             this.pagePrinter = new System.Windows.Forms.TabPage();
-            this.gbAutospeed = new System.Windows.Forms.GroupBox();
-            this.tbMaxPrintSpeed = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.gbAcceleration = new System.Windows.Forms.GroupBox();
-            this.tbDefaultAcceleration = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.tbFirstLayerAcceleration = new System.Windows.Forms.TextBox();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.tbBridgeAcceleration = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.tbInfillAcceleration = new System.Windows.Forms.TextBox();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.tbPerimeterAcceleration = new System.Windows.Forms.TextBox();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.gbModifiers = new System.Windows.Forms.GroupBox();
-            this.tbFirstLayerSpeed = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.tbMaxVolumetricSpeed = new System.Windows.Forms.TextBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrint.SuspendLayout();
@@ -219,8 +238,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialEnforceLayers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialThreshold)).BeginInit();
             this.tlpSpeed.SuspendLayout();
-            this.gbNonPrint.SuspendLayout();
+            this.gbAcceleration.SuspendLayout();
+            this.gbModifiers.SuspendLayout();
+            this.gbAutospeed.SuspendLayout();
             this.gbPrint.SuspendLayout();
+            this.gbNonPrint.SuspendLayout();
+            this.tlpMultipleExtruders.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbStandbyTemperatureDelta)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialInterfaceExtruder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialExtruder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSolidInfillExtruder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbInfillExtruder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeterExtruder)).BeginInit();
             this.tlpSkirt.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -242,9 +274,6 @@
             this.gbVerticalShells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).BeginInit();
             this.gbLayerHeight.SuspendLayout();
-            this.gbAutospeed.SuspendLayout();
-            this.gbAcceleration.SuspendLayout();
-            this.gbModifiers.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -349,6 +378,7 @@
             this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSettings.Controls.Add(this.tlpSupportMaterial, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpSpeed, 0, 0);
+            this.tlpSettings.Controls.Add(this.tlpMultipleExtruders, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpSkirt, 0, 4);
             this.tlpSettings.Controls.Add(this.tlpInfill, 0, 1);
             this.tlpSettings.Controls.Add(this.tlpLayers, 0, 6);
@@ -376,7 +406,7 @@
             this.tlpSupportMaterial.Controls.Add(this.cbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Controls.Add(this.gbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 627);
+            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 1251);
             this.tlpSupportMaterial.Name = "tlpSupportMaterial";
             this.tlpSupportMaterial.RowCount = 6;
             this.tlpSupportMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -682,7 +712,7 @@
             this.tlpSpeed.Controls.Add(this.gbPrint, 0, 0);
             this.tlpSpeed.Controls.Add(this.gbNonPrint, 0, 1);
             this.tlpSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSpeed.Location = new System.Drawing.Point(3, 3);
+            this.tlpSpeed.Location = new System.Drawing.Point(3, 627);
             this.tlpSpeed.Name = "tlpSpeed";
             this.tlpSpeed.RowCount = 7;
             this.tlpSpeed.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -696,43 +726,259 @@
             this.tlpSpeed.Size = new System.Drawing.Size(524, 618);
             this.tlpSpeed.TabIndex = 5;
             // 
-            // gbNonPrint
+            // gbAcceleration
             // 
-            this.gbNonPrint.Controls.Add(this.tbTravelSpeed);
-            this.gbNonPrint.Controls.Add(this.label43);
-            this.gbNonPrint.Controls.Add(this.label33);
-            this.gbNonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbNonPrint.Location = new System.Drawing.Point(3, 229);
-            this.gbNonPrint.Name = "gbNonPrint";
-            this.gbNonPrint.Size = new System.Drawing.Size(518, 70);
-            this.gbNonPrint.TabIndex = 0;
-            this.gbNonPrint.TabStop = false;
-            this.gbNonPrint.Text = "Speed for non-print moves";
+            this.gbAcceleration.Controls.Add(this.tbDefaultAcceleration);
+            this.gbAcceleration.Controls.Add(this.label52);
+            this.gbAcceleration.Controls.Add(this.label53);
+            this.gbAcceleration.Controls.Add(this.tbFirstLayerAcceleration);
+            this.gbAcceleration.Controls.Add(this.label54);
+            this.gbAcceleration.Controls.Add(this.label55);
+            this.gbAcceleration.Controls.Add(this.tbBridgeAcceleration);
+            this.gbAcceleration.Controls.Add(this.label56);
+            this.gbAcceleration.Controls.Add(this.label57);
+            this.gbAcceleration.Controls.Add(this.tbInfillAcceleration);
+            this.gbAcceleration.Controls.Add(this.label58);
+            this.gbAcceleration.Controls.Add(this.label59);
+            this.gbAcceleration.Controls.Add(this.tbPerimeterAcceleration);
+            this.gbAcceleration.Controls.Add(this.label60);
+            this.gbAcceleration.Controls.Add(this.label61);
+            this.gbAcceleration.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbAcceleration.Location = new System.Drawing.Point(3, 381);
+            this.gbAcceleration.Name = "gbAcceleration";
+            this.gbAcceleration.Size = new System.Drawing.Size(518, 120);
+            this.gbAcceleration.TabIndex = 23;
+            this.gbAcceleration.TabStop = false;
+            this.gbAcceleration.Text = "Acceleration control (advanced)";
             // 
-            // tbTravelSpeed
+            // tbDefaultAcceleration
             // 
-            this.tbTravelSpeed.Location = new System.Drawing.Point(11, 42);
-            this.tbTravelSpeed.Name = "tbTravelSpeed";
-            this.tbTravelSpeed.Size = new System.Drawing.Size(100, 20);
-            this.tbTravelSpeed.TabIndex = 48;
+            this.tbDefaultAcceleration.Location = new System.Drawing.Point(184, 90);
+            this.tbDefaultAcceleration.Name = "tbDefaultAcceleration";
+            this.tbDefaultAcceleration.Size = new System.Drawing.Size(100, 20);
+            this.tbDefaultAcceleration.TabIndex = 31;
             // 
-            // label43
+            // label52
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(116, 45);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(33, 13);
-            this.label43.TabIndex = 47;
-            this.label43.Text = "mm/s";
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(289, 93);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(36, 13);
+            this.label52.TabIndex = 30;
+            this.label52.Text = "mm/s²";
             // 
-            // label33
+            // label53
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(8, 28);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(37, 13);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Travel";
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(181, 75);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(41, 13);
+            this.label53.TabIndex = 29;
+            this.label53.Text = "Default";
+            // 
+            // tbFirstLayerAcceleration
+            // 
+            this.tbFirstLayerAcceleration.Location = new System.Drawing.Point(11, 90);
+            this.tbFirstLayerAcceleration.Name = "tbFirstLayerAcceleration";
+            this.tbFirstLayerAcceleration.Size = new System.Drawing.Size(100, 20);
+            this.tbFirstLayerAcceleration.TabIndex = 28;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(116, 93);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(36, 13);
+            this.label54.TabIndex = 27;
+            this.label54.Text = "mm/s²";
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(8, 75);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(51, 13);
+            this.label55.TabIndex = 26;
+            this.label55.Text = "First layer";
+            // 
+            // tbBridgeAcceleration
+            // 
+            this.tbBridgeAcceleration.Location = new System.Drawing.Point(358, 40);
+            this.tbBridgeAcceleration.Name = "tbBridgeAcceleration";
+            this.tbBridgeAcceleration.Size = new System.Drawing.Size(100, 20);
+            this.tbBridgeAcceleration.TabIndex = 25;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(463, 43);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(36, 13);
+            this.label56.TabIndex = 24;
+            this.label56.Text = "mm/s²";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(355, 25);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(37, 13);
+            this.label57.TabIndex = 23;
+            this.label57.Text = "Bridge";
+            // 
+            // tbInfillAcceleration
+            // 
+            this.tbInfillAcceleration.Location = new System.Drawing.Point(184, 40);
+            this.tbInfillAcceleration.Name = "tbInfillAcceleration";
+            this.tbInfillAcceleration.Size = new System.Drawing.Size(100, 20);
+            this.tbInfillAcceleration.TabIndex = 22;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(289, 43);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(36, 13);
+            this.label58.TabIndex = 21;
+            this.label58.Text = "mm/s²";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(181, 25);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(25, 13);
+            this.label59.TabIndex = 20;
+            this.label59.Text = "Infill";
+            // 
+            // tbPerimeterAcceleration
+            // 
+            this.tbPerimeterAcceleration.Location = new System.Drawing.Point(11, 40);
+            this.tbPerimeterAcceleration.Name = "tbPerimeterAcceleration";
+            this.tbPerimeterAcceleration.Size = new System.Drawing.Size(100, 20);
+            this.tbPerimeterAcceleration.TabIndex = 19;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(116, 43);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(36, 13);
+            this.label60.TabIndex = 17;
+            this.label60.Text = "mm/s²";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(8, 25);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(56, 13);
+            this.label61.TabIndex = 3;
+            this.label61.Text = "Perimeters";
+            // 
+            // gbModifiers
+            // 
+            this.gbModifiers.Controls.Add(this.tbFirstLayerSpeed);
+            this.gbModifiers.Controls.Add(this.label31);
+            this.gbModifiers.Controls.Add(this.label32);
+            this.gbModifiers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbModifiers.Location = new System.Drawing.Point(3, 305);
+            this.gbModifiers.Name = "gbModifiers";
+            this.gbModifiers.Size = new System.Drawing.Size(518, 70);
+            this.gbModifiers.TabIndex = 24;
+            this.gbModifiers.TabStop = false;
+            this.gbModifiers.Text = "Modifiers";
+            // 
+            // tbFirstLayerSpeed
+            // 
+            this.tbFirstLayerSpeed.Location = new System.Drawing.Point(11, 42);
+            this.tbFirstLayerSpeed.Name = "tbFirstLayerSpeed";
+            this.tbFirstLayerSpeed.Size = new System.Drawing.Size(100, 20);
+            this.tbFirstLayerSpeed.TabIndex = 48;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(116, 45);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(56, 13);
+            this.label31.TabIndex = 47;
+            this.label31.Text = "mm/s or %";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(8, 28);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(83, 13);
+            this.label32.TabIndex = 0;
+            this.label32.Text = "First layer speed";
+            // 
+            // gbAutospeed
+            // 
+            this.gbAutospeed.Controls.Add(this.tbMaxVolumetricSpeed);
+            this.gbAutospeed.Controls.Add(this.label44);
+            this.gbAutospeed.Controls.Add(this.label45);
+            this.gbAutospeed.Controls.Add(this.tbMaxPrintSpeed);
+            this.gbAutospeed.Controls.Add(this.label29);
+            this.gbAutospeed.Controls.Add(this.label30);
+            this.gbAutospeed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbAutospeed.Location = new System.Drawing.Point(3, 507);
+            this.gbAutospeed.Name = "gbAutospeed";
+            this.gbAutospeed.Size = new System.Drawing.Size(518, 108);
+            this.gbAutospeed.TabIndex = 22;
+            this.gbAutospeed.TabStop = false;
+            this.gbAutospeed.Text = "Autospeed (advanced)";
+            // 
+            // tbMaxVolumetricSpeed
+            // 
+            this.tbMaxVolumetricSpeed.Location = new System.Drawing.Point(184, 38);
+            this.tbMaxVolumetricSpeed.Name = "tbMaxVolumetricSpeed";
+            this.tbMaxVolumetricSpeed.Size = new System.Drawing.Size(100, 20);
+            this.tbMaxVolumetricSpeed.TabIndex = 51;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(289, 41);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(36, 13);
+            this.label44.TabIndex = 50;
+            this.label44.Text = "mm³/s";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(181, 24);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(110, 13);
+            this.label45.TabIndex = 49;
+            this.label45.Text = "Max volumetric speed";
+            // 
+            // tbMaxPrintSpeed
+            // 
+            this.tbMaxPrintSpeed.Location = new System.Drawing.Point(11, 42);
+            this.tbMaxPrintSpeed.Name = "tbMaxPrintSpeed";
+            this.tbMaxPrintSpeed.Size = new System.Drawing.Size(100, 20);
+            this.tbMaxPrintSpeed.TabIndex = 48;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(116, 45);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(33, 13);
+            this.label29.TabIndex = 47;
+            this.label29.Text = "mm/s";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(8, 28);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(82, 13);
+            this.label30.TabIndex = 0;
+            this.label30.Text = "Max print speed";
             // 
             // gbPrint
             // 
@@ -799,10 +1045,10 @@
             this.label42.TabIndex = 44;
             this.label42.Text = "Gap fill";
             // 
-            // tbBridgesSpeed
+            // tbBridgeSpeed
             // 
             this.tbBridgeSpeed.Location = new System.Drawing.Point(358, 140);
-            this.tbBridgeSpeed.Name = "tbBridgesSpeed";
+            this.tbBridgeSpeed.Name = "tbBridgeSpeed";
             this.tbBridgeSpeed.Size = new System.Drawing.Size(100, 20);
             this.tbBridgeSpeed.TabIndex = 43;
             // 
@@ -824,10 +1070,10 @@
             this.label40.TabIndex = 41;
             this.label40.Text = "Bridges";
             // 
-            // tbSupporMaterialInterfaceSpeed
+            // tbSupportMaterialInterfaceSpeed
             // 
             this.tbSupportMaterialInterfaceSpeed.Location = new System.Drawing.Point(184, 140);
-            this.tbSupportMaterialInterfaceSpeed.Name = "tbSupporMaterialInterfaceSpeed";
+            this.tbSupportMaterialInterfaceSpeed.Name = "tbSupportMaterialInterfaceSpeed";
             this.tbSupportMaterialInterfaceSpeed.Size = new System.Drawing.Size(100, 20);
             this.tbSupportMaterialInterfaceSpeed.TabIndex = 40;
             // 
@@ -1024,6 +1270,244 @@
             this.label27.TabIndex = 3;
             this.label27.Text = "Perimeters";
             // 
+            // gbNonPrint
+            // 
+            this.gbNonPrint.Controls.Add(this.tbTravelSpeed);
+            this.gbNonPrint.Controls.Add(this.label43);
+            this.gbNonPrint.Controls.Add(this.label33);
+            this.gbNonPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbNonPrint.Location = new System.Drawing.Point(3, 229);
+            this.gbNonPrint.Name = "gbNonPrint";
+            this.gbNonPrint.Size = new System.Drawing.Size(518, 70);
+            this.gbNonPrint.TabIndex = 0;
+            this.gbNonPrint.TabStop = false;
+            this.gbNonPrint.Text = "Speed for non-print moves";
+            // 
+            // tbTravelSpeed
+            // 
+            this.tbTravelSpeed.Location = new System.Drawing.Point(11, 42);
+            this.tbTravelSpeed.Name = "tbTravelSpeed";
+            this.tbTravelSpeed.Size = new System.Drawing.Size(100, 20);
+            this.tbTravelSpeed.TabIndex = 48;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(116, 45);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(33, 13);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "mm/s";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(8, 28);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(37, 13);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Travel";
+            // 
+            // tlpMultipleExtruders
+            // 
+            this.tlpMultipleExtruders.ColumnCount = 1;
+            this.tlpMultipleExtruders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox7, 0, 1);
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox8, 0, 0);
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox1, 0, 0);
+            this.tlpMultipleExtruders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMultipleExtruders.Location = new System.Drawing.Point(3, 3);
+            this.tlpMultipleExtruders.Name = "tlpMultipleExtruders";
+            this.tlpMultipleExtruders.RowCount = 6;
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.Size = new System.Drawing.Size(524, 618);
+            this.tlpMultipleExtruders.TabIndex = 6;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cboxInterfaceShells);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(3, 215);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(518, 80);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Advanced";
+            // 
+            // cboxInterfaceShells
+            // 
+            this.cboxInterfaceShells.AutoSize = true;
+            this.cboxInterfaceShells.Location = new System.Drawing.Point(11, 39);
+            this.cboxInterfaceShells.Name = "cboxInterfaceShells";
+            this.cboxInterfaceShells.Size = new System.Drawing.Size(97, 17);
+            this.cboxInterfaceShells.TabIndex = 26;
+            this.cboxInterfaceShells.Text = "Interface shells";
+            this.cboxInterfaceShells.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.cboxOozePrevention);
+            this.groupBox8.Controls.Add(this.label69);
+            this.groupBox8.Controls.Add(this.nbStandbyTemperatureDelta);
+            this.groupBox8.Controls.Add(this.label70);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(3, 129);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(518, 80);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Ooze prevention";
+            // 
+            // cboxOozePrevention
+            // 
+            this.cboxOozePrevention.AutoSize = true;
+            this.cboxOozePrevention.Location = new System.Drawing.Point(11, 39);
+            this.cboxOozePrevention.Name = "cboxOozePrevention";
+            this.cboxOozePrevention.Size = new System.Drawing.Size(59, 17);
+            this.cboxOozePrevention.TabIndex = 25;
+            this.cboxOozePrevention.Text = "Enable";
+            this.cboxOozePrevention.UseVisualStyleBackColor = true;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(296, 43);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(25, 13);
+            this.label69.TabIndex = 24;
+            this.label69.Text = "Δ°C";
+            // 
+            // nbStandbyTemperatureDelta
+            // 
+            this.nbStandbyTemperatureDelta.Location = new System.Drawing.Point(191, 41);
+            this.nbStandbyTemperatureDelta.Maximum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.nbStandbyTemperatureDelta.Minimum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            -2147483648});
+            this.nbStandbyTemperatureDelta.Name = "nbStandbyTemperatureDelta";
+            this.nbStandbyTemperatureDelta.Size = new System.Drawing.Size(100, 20);
+            this.nbStandbyTemperatureDelta.TabIndex = 23;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(188, 25);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(110, 13);
+            this.label70.TabIndex = 8;
+            this.label70.Text = "Temperature variation";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nbSupportMaterialInterfaceExtruder);
+            this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.nbSupportMaterialExtruder);
+            this.groupBox1.Controls.Add(this.label48);
+            this.groupBox1.Controls.Add(this.nbSolidInfillExtruder);
+            this.groupBox1.Controls.Add(this.label47);
+            this.groupBox1.Controls.Add(this.nbInfillExtruder);
+            this.groupBox1.Controls.Add(this.label46);
+            this.groupBox1.Controls.Add(this.nbPerimeterExtruder);
+            this.groupBox1.Controls.Add(this.label66);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(518, 120);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Extruders";
+            // 
+            // nbSupportMaterialInterfaceExtruder
+            // 
+            this.nbSupportMaterialInterfaceExtruder.Location = new System.Drawing.Point(191, 90);
+            this.nbSupportMaterialInterfaceExtruder.Name = "nbSupportMaterialInterfaceExtruder";
+            this.nbSupportMaterialInterfaceExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSupportMaterialInterfaceExtruder.TabIndex = 18;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(188, 75);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(188, 13);
+            this.label49.TabIndex = 17;
+            this.label49.Text = "Support material/raft interface extruder";
+            // 
+            // nbSupportMaterialExtruder
+            // 
+            this.nbSupportMaterialExtruder.Location = new System.Drawing.Point(11, 90);
+            this.nbSupportMaterialExtruder.Name = "nbSupportMaterialExtruder";
+            this.nbSupportMaterialExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSupportMaterialExtruder.TabIndex = 16;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(8, 75);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(168, 13);
+            this.label48.TabIndex = 15;
+            this.label48.Text = "Support material/raft/skirt extruder";
+            // 
+            // nbSolidInfillExtruder
+            // 
+            this.nbSolidInfillExtruder.Location = new System.Drawing.Point(372, 40);
+            this.nbSolidInfillExtruder.Name = "nbSolidInfillExtruder";
+            this.nbSolidInfillExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSolidInfillExtruder.TabIndex = 14;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(369, 25);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(91, 13);
+            this.label47.TabIndex = 13;
+            this.label47.Text = "Solid infill extruder";
+            // 
+            // nbInfillExtruder
+            // 
+            this.nbInfillExtruder.Location = new System.Drawing.Point(191, 40);
+            this.nbInfillExtruder.Name = "nbInfillExtruder";
+            this.nbInfillExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbInfillExtruder.TabIndex = 12;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(188, 25);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(66, 13);
+            this.label46.TabIndex = 11;
+            this.label46.Text = "Infill extruder";
+            // 
+            // nbPerimeterExtruder
+            // 
+            this.nbPerimeterExtruder.Location = new System.Drawing.Point(11, 40);
+            this.nbPerimeterExtruder.Name = "nbPerimeterExtruder";
+            this.nbPerimeterExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbPerimeterExtruder.TabIndex = 10;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(8, 25);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(92, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "Perimeter extruder";
+            // 
             // tlpSkirt
             // 
             this.tlpSkirt.ColumnCount = 1;
@@ -1031,7 +1515,7 @@
             this.tlpSkirt.Controls.Add(this.groupBox2, 0, 1);
             this.tlpSkirt.Controls.Add(this.groupBox6, 0, 0);
             this.tlpSkirt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSkirt.Location = new System.Drawing.Point(3, 1875);
+            this.tlpSkirt.Location = new System.Drawing.Point(3, 2499);
             this.tlpSkirt.Name = "tlpSkirt";
             this.tlpSkirt.RowCount = 6;
             this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1201,7 +1685,7 @@
             this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
             this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
             this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInfill.Location = new System.Drawing.Point(3, 1251);
+            this.tlpInfill.Location = new System.Drawing.Point(3, 1875);
             this.tlpInfill.Name = "tlpInfill";
             this.tlpInfill.RowCount = 6;
             this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1471,7 +1955,7 @@
             this.tlpLayers.Controls.Add(this.gbVerticalShells, 0, 1);
             this.tlpLayers.Controls.Add(this.gbLayerHeight, 0, 0);
             this.tlpLayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLayers.Location = new System.Drawing.Point(3, 2499);
+            this.tlpLayers.Location = new System.Drawing.Point(3, 3123);
             this.tlpLayers.Name = "tlpLayers";
             this.tlpLayers.RowCount = 6;
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1758,260 +2242,6 @@
             this.pagePrinter.Text = "Printer Settings";
             this.pagePrinter.UseVisualStyleBackColor = true;
             // 
-            // gbAutospeed
-            // 
-            this.gbAutospeed.Controls.Add(this.tbMaxVolumetricSpeed);
-            this.gbAutospeed.Controls.Add(this.label44);
-            this.gbAutospeed.Controls.Add(this.label45);
-            this.gbAutospeed.Controls.Add(this.tbMaxPrintSpeed);
-            this.gbAutospeed.Controls.Add(this.label29);
-            this.gbAutospeed.Controls.Add(this.label30);
-            this.gbAutospeed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbAutospeed.Location = new System.Drawing.Point(3, 507);
-            this.gbAutospeed.Name = "gbAutospeed";
-            this.gbAutospeed.Size = new System.Drawing.Size(518, 108);
-            this.gbAutospeed.TabIndex = 22;
-            this.gbAutospeed.TabStop = false;
-            this.gbAutospeed.Text = "Autospeed (advanced)";
-            // 
-            // tbMaxPrintSpeed
-            // 
-            this.tbMaxPrintSpeed.Location = new System.Drawing.Point(11, 42);
-            this.tbMaxPrintSpeed.Name = "tbMaxPrintSpeed";
-            this.tbMaxPrintSpeed.Size = new System.Drawing.Size(100, 20);
-            this.tbMaxPrintSpeed.TabIndex = 48;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(116, 45);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(33, 13);
-            this.label29.TabIndex = 47;
-            this.label29.Text = "mm/s";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(8, 28);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(82, 13);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Max print speed";
-            // 
-            // gbAcceleration
-            // 
-            this.gbAcceleration.Controls.Add(this.tbDefaultAcceleration);
-            this.gbAcceleration.Controls.Add(this.label52);
-            this.gbAcceleration.Controls.Add(this.label53);
-            this.gbAcceleration.Controls.Add(this.tbFirstLayerAcceleration);
-            this.gbAcceleration.Controls.Add(this.label54);
-            this.gbAcceleration.Controls.Add(this.label55);
-            this.gbAcceleration.Controls.Add(this.tbBridgeAcceleration);
-            this.gbAcceleration.Controls.Add(this.label56);
-            this.gbAcceleration.Controls.Add(this.label57);
-            this.gbAcceleration.Controls.Add(this.tbInfillAcceleration);
-            this.gbAcceleration.Controls.Add(this.label58);
-            this.gbAcceleration.Controls.Add(this.label59);
-            this.gbAcceleration.Controls.Add(this.tbPerimeterAcceleration);
-            this.gbAcceleration.Controls.Add(this.label60);
-            this.gbAcceleration.Controls.Add(this.label61);
-            this.gbAcceleration.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbAcceleration.Location = new System.Drawing.Point(3, 381);
-            this.gbAcceleration.Name = "gbAcceleration";
-            this.gbAcceleration.Size = new System.Drawing.Size(518, 120);
-            this.gbAcceleration.TabIndex = 23;
-            this.gbAcceleration.TabStop = false;
-            this.gbAcceleration.Text = "Acceleration control (advanced)";
-            // 
-            // tbDefaultAcceleration
-            // 
-            this.tbDefaultAcceleration.Location = new System.Drawing.Point(184, 90);
-            this.tbDefaultAcceleration.Name = "tbDefaultAcceleration";
-            this.tbDefaultAcceleration.Size = new System.Drawing.Size(100, 20);
-            this.tbDefaultAcceleration.TabIndex = 31;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(289, 93);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(36, 13);
-            this.label52.TabIndex = 30;
-            this.label52.Text = "mm/s²";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(181, 75);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(41, 13);
-            this.label53.TabIndex = 29;
-            this.label53.Text = "Default";
-            // 
-            // tbFirstLayerAcceleration
-            // 
-            this.tbFirstLayerAcceleration.Location = new System.Drawing.Point(11, 90);
-            this.tbFirstLayerAcceleration.Name = "tbFirstLayerAcceleration";
-            this.tbFirstLayerAcceleration.Size = new System.Drawing.Size(100, 20);
-            this.tbFirstLayerAcceleration.TabIndex = 28;
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(116, 93);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(36, 13);
-            this.label54.TabIndex = 27;
-            this.label54.Text = "mm/s²";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(8, 75);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(51, 13);
-            this.label55.TabIndex = 26;
-            this.label55.Text = "First layer";
-            // 
-            // tbBridgeAcceleration
-            // 
-            this.tbBridgeAcceleration.Location = new System.Drawing.Point(358, 40);
-            this.tbBridgeAcceleration.Name = "tbBridgeAcceleration";
-            this.tbBridgeAcceleration.Size = new System.Drawing.Size(100, 20);
-            this.tbBridgeAcceleration.TabIndex = 25;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(463, 43);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(36, 13);
-            this.label56.TabIndex = 24;
-            this.label56.Text = "mm/s²";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(355, 25);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(37, 13);
-            this.label57.TabIndex = 23;
-            this.label57.Text = "Bridge";
-            // 
-            // tbInfillAcceleration
-            // 
-            this.tbInfillAcceleration.Location = new System.Drawing.Point(184, 40);
-            this.tbInfillAcceleration.Name = "tbInfillAcceleration";
-            this.tbInfillAcceleration.Size = new System.Drawing.Size(100, 20);
-            this.tbInfillAcceleration.TabIndex = 22;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(289, 43);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(36, 13);
-            this.label58.TabIndex = 21;
-            this.label58.Text = "mm/s²";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(181, 25);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(25, 13);
-            this.label59.TabIndex = 20;
-            this.label59.Text = "Infill";
-            // 
-            // tbPerimeterAcceleration
-            // 
-            this.tbPerimeterAcceleration.Location = new System.Drawing.Point(11, 40);
-            this.tbPerimeterAcceleration.Name = "tbPerimeterAcceleration";
-            this.tbPerimeterAcceleration.Size = new System.Drawing.Size(100, 20);
-            this.tbPerimeterAcceleration.TabIndex = 19;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(116, 43);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(36, 13);
-            this.label60.TabIndex = 17;
-            this.label60.Text = "mm/s²";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(8, 25);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(56, 13);
-            this.label61.TabIndex = 3;
-            this.label61.Text = "Perimeters";
-            // 
-            // gbModifiers
-            // 
-            this.gbModifiers.Controls.Add(this.tbFirstLayerSpeed);
-            this.gbModifiers.Controls.Add(this.label31);
-            this.gbModifiers.Controls.Add(this.label32);
-            this.gbModifiers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbModifiers.Location = new System.Drawing.Point(3, 305);
-            this.gbModifiers.Name = "gbModifiers";
-            this.gbModifiers.Size = new System.Drawing.Size(518, 70);
-            this.gbModifiers.TabIndex = 24;
-            this.gbModifiers.TabStop = false;
-            this.gbModifiers.Text = "Modifiers";
-            // 
-            // tbFirstLayerSpeed
-            // 
-            this.tbFirstLayerSpeed.Location = new System.Drawing.Point(11, 42);
-            this.tbFirstLayerSpeed.Name = "tbFirstLayerSpeed";
-            this.tbFirstLayerSpeed.Size = new System.Drawing.Size(100, 20);
-            this.tbFirstLayerSpeed.TabIndex = 48;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(116, 45);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(56, 13);
-            this.label31.TabIndex = 47;
-            this.label31.Text = "mm/s or %";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(8, 28);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(83, 13);
-            this.label32.TabIndex = 0;
-            this.label32.Text = "First layer speed";
-            // 
-            // tbMaxVolumetricSpeed
-            // 
-            this.tbMaxVolumetricSpeed.Location = new System.Drawing.Point(184, 38);
-            this.tbMaxVolumetricSpeed.Name = "tbMaxVolumetricSpeed";
-            this.tbMaxVolumetricSpeed.Size = new System.Drawing.Size(100, 20);
-            this.tbMaxVolumetricSpeed.TabIndex = 51;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(289, 41);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(36, 13);
-            this.label44.TabIndex = 50;
-            this.label44.Text = "mm³/s";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(181, 24);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(110, 13);
-            this.label45.TabIndex = 49;
-            this.label45.Text = "Max volumetric speed";
-            // 
             // Slic3rSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2046,10 +2276,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialEnforceLayers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialThreshold)).EndInit();
             this.tlpSpeed.ResumeLayout(false);
-            this.gbNonPrint.ResumeLayout(false);
-            this.gbNonPrint.PerformLayout();
+            this.gbAcceleration.ResumeLayout(false);
+            this.gbAcceleration.PerformLayout();
+            this.gbModifiers.ResumeLayout(false);
+            this.gbModifiers.PerformLayout();
+            this.gbAutospeed.ResumeLayout(false);
+            this.gbAutospeed.PerformLayout();
             this.gbPrint.ResumeLayout(false);
             this.gbPrint.PerformLayout();
+            this.gbNonPrint.ResumeLayout(false);
+            this.gbNonPrint.PerformLayout();
+            this.tlpMultipleExtruders.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbStandbyTemperatureDelta)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialInterfaceExtruder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSupportMaterialExtruder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSolidInfillExtruder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbInfillExtruder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeterExtruder)).EndInit();
             this.tlpSkirt.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -2081,12 +2330,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).EndInit();
             this.gbLayerHeight.ResumeLayout(false);
             this.gbLayerHeight.PerformLayout();
-            this.gbAutospeed.ResumeLayout(false);
-            this.gbAutospeed.PerformLayout();
-            this.gbAcceleration.ResumeLayout(false);
-            this.gbAcceleration.PerformLayout();
-            this.gbModifiers.ResumeLayout(false);
-            this.gbModifiers.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2267,5 +2510,24 @@
         private System.Windows.Forms.TextBox tbMaxVolumetricSpeed;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.TableLayoutPanel tlpMultipleExtruders;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox cboxInterfaceShells;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.CheckBox cboxOozePrevention;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.NumericUpDown nbStandbyTemperatureDelta;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown nbSupportMaterialInterfaceExtruder;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.NumericUpDown nbSupportMaterialExtruder;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.NumericUpDown nbSolidInfillExtruder;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.NumericUpDown nbInfillExtruder;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.NumericUpDown nbPerimeterExtruder;
+        private System.Windows.Forms.Label label66;
     }
 }
