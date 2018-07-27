@@ -131,11 +131,96 @@
             this.tbTravelSpeed = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
+            this.tlpAdvanced = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.nbThreads = new System.Windows.Forms.NumericUpDown();
+            this.tbResolution = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.tbXySizeCompensation = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.tbBridgeFlowRatio = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.tbSupportMaterialExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.tbTopInfillExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.tbSolidInfillExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label88 = new System.Windows.Forms.Label();
+            this.tbInfillExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.tbExternalPerimeterExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label92 = new System.Windows.Forms.Label();
+            this.tbPerimeterExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.tbFirstLayerExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.tbExtrusionWidth = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.tbInfillOverlap = new System.Windows.Forms.TextBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.tlpLayers = new System.Windows.Forms.TableLayoutPanel();
+            this.gbAdvanced = new System.Windows.Forms.GroupBox();
+            this.cbExternalPerimetersFirst = new System.Windows.Forms.CheckBox();
+            this.cboxSeamPosition = new System.Windows.Forms.ComboBox();
+            this.lblSeamPosition = new System.Windows.Forms.Label();
+            this.gbQuality = new System.Windows.Forms.GroupBox();
+            this.cbOverhangs = new System.Windows.Forms.CheckBox();
+            this.cbThinWalls = new System.Windows.Forms.CheckBox();
+            this.cbAvoidCrossingPerimeters = new System.Windows.Forms.CheckBox();
+            this.cbExtraPerimetersfNeeded = new System.Windows.Forms.CheckBox();
+            this.gbHorizontalShells = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nbBottomSolidLayers = new System.Windows.Forms.NumericUpDown();
+            this.nbTopSolidLayers = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSolidLayers = new System.Windows.Forms.Label();
+            this.gbVerticalShells = new System.Windows.Forms.GroupBox();
+            this.cbSpiralVase = new System.Windows.Forms.CheckBox();
+            this.nbPerimeters = new System.Windows.Forms.NumericUpDown();
+            this.lblPerimeters = new System.Windows.Forms.Label();
+            this.gbLayerHeight = new System.Windows.Forms.GroupBox();
+            this.lblFirstLayerHeightMmOrPercent = new System.Windows.Forms.Label();
+            this.lblLayerHeightMm = new System.Windows.Forms.Label();
+            this.lblFirstLayerHeight = new System.Windows.Forms.Label();
+            this.tbFirstLayerHeight = new System.Windows.Forms.TextBox();
+            this.tbLayerHeight = new System.Windows.Forms.TextBox();
+            this.lblLayerHeight = new System.Windows.Forms.Label();
+            this.tlpOutputOptions = new System.Windows.Forms.TableLayoutPanel();
+            this.cbCompleteObjects = new System.Windows.Forms.CheckBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.tbPostProcess = new System.Windows.Forms.TextBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.cbGcodeComments = new System.Windows.Forms.CheckBox();
+            this.tbOutputFilenameFormat = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.gbExtruderClearance = new System.Windows.Forms.GroupBox();
+            this.tbExtruderClearanceRadius = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.tbExtruderClearanceHeight = new System.Windows.Forms.TextBox();
+            this.label111 = new System.Windows.Forms.Label();
+            this.label112 = new System.Windows.Forms.Label();
             this.tlpMultipleExtruders = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.cboxInterfaceShells = new System.Windows.Forms.CheckBox();
+            this.cbInterfaceShells = new System.Windows.Forms.CheckBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.cboxOozePrevention = new System.Windows.Forms.CheckBox();
+            this.cbOozePrevention = new System.Windows.Forms.CheckBox();
             this.label69 = new System.Windows.Forms.Label();
             this.nbStandbyTemperatureDelta = new System.Windows.Forms.NumericUpDown();
             this.label70 = new System.Windows.Forms.Label();
@@ -192,33 +277,6 @@
             this.cboxFillDensity = new System.Windows.Forms.ComboBox();
             this.lblFillPattern = new System.Windows.Forms.Label();
             this.lblFillDensity = new System.Windows.Forms.Label();
-            this.tlpLayers = new System.Windows.Forms.TableLayoutPanel();
-            this.gbAdvanced = new System.Windows.Forms.GroupBox();
-            this.cbExternalPerimetersFirst = new System.Windows.Forms.CheckBox();
-            this.cboxSeamPosition = new System.Windows.Forms.ComboBox();
-            this.lblSeamPosition = new System.Windows.Forms.Label();
-            this.gbQuality = new System.Windows.Forms.GroupBox();
-            this.cbOverhangs = new System.Windows.Forms.CheckBox();
-            this.cbThinWalls = new System.Windows.Forms.CheckBox();
-            this.cbAvoidCrossingPerimeters = new System.Windows.Forms.CheckBox();
-            this.cbExtraPerimetersfNeeded = new System.Windows.Forms.CheckBox();
-            this.gbHorizontalShells = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nbBottomSolidLayers = new System.Windows.Forms.NumericUpDown();
-            this.nbTopSolidLayers = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSolidLayers = new System.Windows.Forms.Label();
-            this.gbVerticalShells = new System.Windows.Forms.GroupBox();
-            this.cbSpiralVase = new System.Windows.Forms.CheckBox();
-            this.nbPerimeters = new System.Windows.Forms.NumericUpDown();
-            this.lblPerimeters = new System.Windows.Forms.Label();
-            this.gbLayerHeight = new System.Windows.Forms.GroupBox();
-            this.lblFirstLayerHeightMmOrPercent = new System.Windows.Forms.Label();
-            this.lblLayerHeightMm = new System.Windows.Forms.Label();
-            this.lblFirstLayerHeight = new System.Windows.Forms.Label();
-            this.tbFirstLayerHeight = new System.Windows.Forms.TextBox();
-            this.tbLayerHeight = new System.Windows.Forms.TextBox();
-            this.lblLayerHeight = new System.Windows.Forms.Label();
             this.pageFilament = new System.Windows.Forms.TabPage();
             this.pagePrinter = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
@@ -243,6 +301,25 @@
             this.gbAutospeed.SuspendLayout();
             this.gbPrint.SuspendLayout();
             this.gbNonPrint.SuspendLayout();
+            this.tlpAdvanced.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbThreads)).BeginInit();
+            this.groupBox10.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.tlpLayers.SuspendLayout();
+            this.gbAdvanced.SuspendLayout();
+            this.gbQuality.SuspendLayout();
+            this.gbHorizontalShells.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBottomSolidLayers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbTopSolidLayers)).BeginInit();
+            this.gbVerticalShells.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).BeginInit();
+            this.gbLayerHeight.SuspendLayout();
+            this.tlpOutputOptions.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.gbExtruderClearance.SuspendLayout();
             this.tlpMultipleExtruders.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -265,15 +342,6 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.tlpLayers.SuspendLayout();
-            this.gbAdvanced.SuspendLayout();
-            this.gbQuality.SuspendLayout();
-            this.gbHorizontalShells.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbBottomSolidLayers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTopSolidLayers)).BeginInit();
-            this.gbVerticalShells.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).BeginInit();
-            this.gbLayerHeight.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -378,14 +446,16 @@
             this.tlpSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpSettings.Controls.Add(this.tlpSupportMaterial, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpSpeed, 0, 0);
+            this.tlpSettings.Controls.Add(this.tlpAdvanced, 0, 0);
+            this.tlpSettings.Controls.Add(this.tlpLayers, 0, 0);
+            this.tlpSettings.Controls.Add(this.tlpOutputOptions, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpMultipleExtruders, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpSkirt, 0, 4);
             this.tlpSettings.Controls.Add(this.tlpInfill, 0, 1);
-            this.tlpSettings.Controls.Add(this.tlpLayers, 0, 6);
             this.tlpSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSettings.Location = new System.Drawing.Point(253, 3);
             this.tlpSettings.Name = "tlpSettings";
-            this.tlpSettings.RowCount = 7;
+            this.tlpSettings.RowCount = 9;
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -393,7 +463,8 @@
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSettings.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpSettings.Size = new System.Drawing.Size(530, 618);
             this.tlpSettings.TabIndex = 3;
             // 
@@ -406,7 +477,7 @@
             this.tlpSupportMaterial.Controls.Add(this.cbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Controls.Add(this.gbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 1251);
+            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 1875);
             this.tlpSupportMaterial.Name = "tlpSupportMaterial";
             this.tlpSupportMaterial.RowCount = 6;
             this.tlpSupportMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -712,7 +783,7 @@
             this.tlpSpeed.Controls.Add(this.gbPrint, 0, 0);
             this.tlpSpeed.Controls.Add(this.gbNonPrint, 0, 1);
             this.tlpSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSpeed.Location = new System.Drawing.Point(3, 627);
+            this.tlpSpeed.Location = new System.Drawing.Point(3, 2499);
             this.tlpSpeed.Name = "tlpSpeed";
             this.tlpSpeed.RowCount = 7;
             this.tlpSpeed.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1308,642 +1379,422 @@
             this.label33.TabIndex = 0;
             this.label33.Text = "Travel";
             // 
-            // tlpMultipleExtruders
-            // 
-            this.tlpMultipleExtruders.ColumnCount = 1;
-            this.tlpMultipleExtruders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMultipleExtruders.Controls.Add(this.groupBox7, 0, 1);
-            this.tlpMultipleExtruders.Controls.Add(this.groupBox8, 0, 0);
-            this.tlpMultipleExtruders.Controls.Add(this.groupBox1, 0, 0);
-            this.tlpMultipleExtruders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMultipleExtruders.Location = new System.Drawing.Point(3, 3);
-            this.tlpMultipleExtruders.Name = "tlpMultipleExtruders";
-            this.tlpMultipleExtruders.RowCount = 6;
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMultipleExtruders.Size = new System.Drawing.Size(524, 618);
-            this.tlpMultipleExtruders.TabIndex = 6;
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.cboxInterfaceShells);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(3, 215);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(518, 80);
-            this.groupBox7.TabIndex = 1;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Advanced";
-            // 
-            // cboxInterfaceShells
-            // 
-            this.cboxInterfaceShells.AutoSize = true;
-            this.cboxInterfaceShells.Location = new System.Drawing.Point(11, 39);
-            this.cboxInterfaceShells.Name = "cboxInterfaceShells";
-            this.cboxInterfaceShells.Size = new System.Drawing.Size(97, 17);
-            this.cboxInterfaceShells.TabIndex = 26;
-            this.cboxInterfaceShells.Text = "Interface shells";
-            this.cboxInterfaceShells.UseVisualStyleBackColor = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.cboxOozePrevention);
-            this.groupBox8.Controls.Add(this.label69);
-            this.groupBox8.Controls.Add(this.nbStandbyTemperatureDelta);
-            this.groupBox8.Controls.Add(this.label70);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 129);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(518, 80);
-            this.groupBox8.TabIndex = 0;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Ooze prevention";
-            // 
-            // cboxOozePrevention
-            // 
-            this.cboxOozePrevention.AutoSize = true;
-            this.cboxOozePrevention.Location = new System.Drawing.Point(11, 39);
-            this.cboxOozePrevention.Name = "cboxOozePrevention";
-            this.cboxOozePrevention.Size = new System.Drawing.Size(59, 17);
-            this.cboxOozePrevention.TabIndex = 25;
-            this.cboxOozePrevention.Text = "Enable";
-            this.cboxOozePrevention.UseVisualStyleBackColor = true;
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(296, 43);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(25, 13);
-            this.label69.TabIndex = 24;
-            this.label69.Text = "Δ°C";
-            // 
-            // nbStandbyTemperatureDelta
-            // 
-            this.nbStandbyTemperatureDelta.Location = new System.Drawing.Point(191, 41);
-            this.nbStandbyTemperatureDelta.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.nbStandbyTemperatureDelta.Minimum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            -2147483648});
-            this.nbStandbyTemperatureDelta.Name = "nbStandbyTemperatureDelta";
-            this.nbStandbyTemperatureDelta.Size = new System.Drawing.Size(100, 20);
-            this.nbStandbyTemperatureDelta.TabIndex = 23;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(188, 25);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(110, 13);
-            this.label70.TabIndex = 8;
-            this.label70.Text = "Temperature variation";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.nbSupportMaterialInterfaceExtruder);
-            this.groupBox1.Controls.Add(this.label49);
-            this.groupBox1.Controls.Add(this.nbSupportMaterialExtruder);
-            this.groupBox1.Controls.Add(this.label48);
-            this.groupBox1.Controls.Add(this.nbSolidInfillExtruder);
-            this.groupBox1.Controls.Add(this.label47);
-            this.groupBox1.Controls.Add(this.nbInfillExtruder);
-            this.groupBox1.Controls.Add(this.label46);
-            this.groupBox1.Controls.Add(this.nbPerimeterExtruder);
-            this.groupBox1.Controls.Add(this.label66);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(518, 120);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Extruders";
-            // 
-            // nbSupportMaterialInterfaceExtruder
-            // 
-            this.nbSupportMaterialInterfaceExtruder.Location = new System.Drawing.Point(191, 90);
-            this.nbSupportMaterialInterfaceExtruder.Name = "nbSupportMaterialInterfaceExtruder";
-            this.nbSupportMaterialInterfaceExtruder.Size = new System.Drawing.Size(100, 20);
-            this.nbSupportMaterialInterfaceExtruder.TabIndex = 18;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(188, 75);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(188, 13);
-            this.label49.TabIndex = 17;
-            this.label49.Text = "Support material/raft interface extruder";
-            // 
-            // nbSupportMaterialExtruder
-            // 
-            this.nbSupportMaterialExtruder.Location = new System.Drawing.Point(11, 90);
-            this.nbSupportMaterialExtruder.Name = "nbSupportMaterialExtruder";
-            this.nbSupportMaterialExtruder.Size = new System.Drawing.Size(100, 20);
-            this.nbSupportMaterialExtruder.TabIndex = 16;
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(8, 75);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(168, 13);
-            this.label48.TabIndex = 15;
-            this.label48.Text = "Support material/raft/skirt extruder";
-            // 
-            // nbSolidInfillExtruder
-            // 
-            this.nbSolidInfillExtruder.Location = new System.Drawing.Point(372, 40);
-            this.nbSolidInfillExtruder.Name = "nbSolidInfillExtruder";
-            this.nbSolidInfillExtruder.Size = new System.Drawing.Size(100, 20);
-            this.nbSolidInfillExtruder.TabIndex = 14;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(369, 25);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(91, 13);
-            this.label47.TabIndex = 13;
-            this.label47.Text = "Solid infill extruder";
-            // 
-            // nbInfillExtruder
-            // 
-            this.nbInfillExtruder.Location = new System.Drawing.Point(191, 40);
-            this.nbInfillExtruder.Name = "nbInfillExtruder";
-            this.nbInfillExtruder.Size = new System.Drawing.Size(100, 20);
-            this.nbInfillExtruder.TabIndex = 12;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(188, 25);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(66, 13);
-            this.label46.TabIndex = 11;
-            this.label46.Text = "Infill extruder";
-            // 
-            // nbPerimeterExtruder
-            // 
-            this.nbPerimeterExtruder.Location = new System.Drawing.Point(11, 40);
-            this.nbPerimeterExtruder.Name = "nbPerimeterExtruder";
-            this.nbPerimeterExtruder.Size = new System.Drawing.Size(100, 20);
-            this.nbPerimeterExtruder.TabIndex = 10;
-            // 
-            // label66
-            // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(8, 25);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(92, 13);
-            this.label66.TabIndex = 0;
-            this.label66.Text = "Perimeter extruder";
-            // 
-            // tlpSkirt
-            // 
-            this.tlpSkirt.ColumnCount = 1;
-            this.tlpSkirt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpSkirt.Controls.Add(this.groupBox2, 0, 1);
-            this.tlpSkirt.Controls.Add(this.groupBox6, 0, 0);
-            this.tlpSkirt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSkirt.Location = new System.Drawing.Point(3, 2499);
-            this.tlpSkirt.Name = "tlpSkirt";
-            this.tlpSkirt.RowCount = 6;
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpSkirt.Size = new System.Drawing.Size(524, 618);
-            this.tlpSkirt.TabIndex = 3;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblBrimWidth);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.tbBrimWidth);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 139);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(518, 80);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Brim";
-            // 
-            // lblBrimWidth
-            // 
-            this.lblBrimWidth.AutoSize = true;
-            this.lblBrimWidth.Location = new System.Drawing.Point(8, 27);
-            this.lblBrimWidth.Name = "lblBrimWidth";
-            this.lblBrimWidth.Size = new System.Drawing.Size(55, 13);
-            this.lblBrimWidth.TabIndex = 13;
-            this.lblBrimWidth.Text = "Brim width";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(117, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(23, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "mm";
-            // 
-            // tbBrimWidth
-            // 
-            this.tbBrimWidth.Location = new System.Drawing.Point(11, 43);
-            this.tbBrimWidth.Name = "tbBrimWidth";
-            this.tbBrimWidth.Size = new System.Drawing.Size(100, 20);
-            this.tbBrimWidth.TabIndex = 14;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.lblMinSkirtLength);
-            this.groupBox6.Controls.Add(this.label11);
-            this.groupBox6.Controls.Add(this.tbMinSkirtLength);
-            this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.label4);
-            this.groupBox6.Controls.Add(this.tbSkirtDistance);
-            this.groupBox6.Controls.Add(this.nbSkirtHeight);
-            this.groupBox6.Controls.Add(this.nbSkirts);
-            this.groupBox6.Controls.Add(this.lblSkirtDistance);
-            this.groupBox6.Controls.Add(this.lblSkirtHeight);
-            this.groupBox6.Controls.Add(this.lblSkirts);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(3, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(518, 130);
-            this.groupBox6.TabIndex = 0;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Skirt";
-            // 
-            // lblMinSkirtLength
-            // 
-            this.lblMinSkirtLength.AutoSize = true;
-            this.lblMinSkirtLength.Location = new System.Drawing.Point(188, 77);
-            this.lblMinSkirtLength.Name = "lblMinSkirtLength";
-            this.lblMinSkirtLength.Size = new System.Drawing.Size(125, 13);
-            this.lblMinSkirtLength.TabIndex = 18;
-            this.lblMinSkirtLength.Text = "Minimum extrusion lenght";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(297, 95);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(23, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "mm";
-            // 
-            // tbMinSkirtLength
-            // 
-            this.tbMinSkirtLength.Location = new System.Drawing.Point(191, 93);
-            this.tbMinSkirtLength.Name = "tbMinSkirtLength";
-            this.tbMinSkirtLength.Size = new System.Drawing.Size(100, 20);
-            this.tbMinSkirtLength.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(116, 95);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(34, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "layers";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(297, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "mm";
-            // 
-            // tbSkirtDistance
-            // 
-            this.tbSkirtDistance.Location = new System.Drawing.Point(191, 43);
-            this.tbSkirtDistance.Name = "tbSkirtDistance";
-            this.tbSkirtDistance.Size = new System.Drawing.Size(100, 20);
-            this.tbSkirtDistance.TabIndex = 12;
-            // 
-            // nbSkirtHeight
-            // 
-            this.nbSkirtHeight.Location = new System.Drawing.Point(11, 93);
-            this.nbSkirtHeight.Name = "nbSkirtHeight";
-            this.nbSkirtHeight.Size = new System.Drawing.Size(100, 20);
-            this.nbSkirtHeight.TabIndex = 11;
-            // 
-            // nbSkirts
-            // 
-            this.nbSkirts.Location = new System.Drawing.Point(11, 43);
-            this.nbSkirts.Name = "nbSkirts";
-            this.nbSkirts.Size = new System.Drawing.Size(100, 20);
-            this.nbSkirts.TabIndex = 10;
-            // 
-            // lblSkirtDistance
-            // 
-            this.lblSkirtDistance.AutoSize = true;
-            this.lblSkirtDistance.Location = new System.Drawing.Point(188, 27);
-            this.lblSkirtDistance.Name = "lblSkirtDistance";
-            this.lblSkirtDistance.Size = new System.Drawing.Size(104, 13);
-            this.lblSkirtDistance.TabIndex = 8;
-            this.lblSkirtDistance.Text = "Distance from object";
-            // 
-            // lblSkirtHeight
-            // 
-            this.lblSkirtHeight.AutoSize = true;
-            this.lblSkirtHeight.Location = new System.Drawing.Point(8, 77);
-            this.lblSkirtHeight.Name = "lblSkirtHeight";
-            this.lblSkirtHeight.Size = new System.Drawing.Size(60, 13);
-            this.lblSkirtHeight.TabIndex = 3;
-            this.lblSkirtHeight.Text = "Skirt height";
-            // 
-            // lblSkirts
-            // 
-            this.lblSkirts.AutoSize = true;
-            this.lblSkirts.Location = new System.Drawing.Point(8, 28);
-            this.lblSkirts.Name = "lblSkirts";
-            this.lblSkirts.Size = new System.Drawing.Size(85, 13);
-            this.lblSkirts.TabIndex = 0;
-            this.lblSkirts.Text = "Loops (minimum)";
-            // 
-            // tlpInfill
-            // 
-            this.tlpInfill.ColumnCount = 1;
-            this.tlpInfill.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpInfill.Controls.Add(this.groupBox3, 0, 2);
-            this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
-            this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
-            this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInfill.Location = new System.Drawing.Point(3, 1875);
-            this.tlpInfill.Name = "tlpInfill";
-            this.tlpInfill.RowCount = 6;
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpInfill.Size = new System.Drawing.Size(524, 618);
-            this.tlpInfill.TabIndex = 2;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbInfillFirst);
-            this.groupBox3.Controls.Add(this.cbOnlyRetractWhenCrossingPerimeters);
-            this.groupBox3.Controls.Add(this.tbSolidInfillBellowArea);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.lblSolidInfillThreshouldArea);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.nbFillAngle);
-            this.groupBox3.Controls.Add(this.lblFillAngle);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.nbSolidInfillEveryLayers);
-            this.groupBox3.Controls.Add(this.lblSolidInfillLayers);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(3, 185);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(518, 140);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Horizontal shells";
-            // 
-            // cbInfillFirst
-            // 
-            this.cbInfillFirst.AutoSize = true;
-            this.cbInfillFirst.Location = new System.Drawing.Point(10, 106);
-            this.cbInfillFirst.Name = "cbInfillFirst";
-            this.cbInfillFirst.Size = new System.Drawing.Size(128, 17);
-            this.cbInfillFirst.TabIndex = 17;
-            this.cbInfillFirst.Text = "Infill before perimeters";
-            this.cbInfillFirst.UseVisualStyleBackColor = true;
-            // 
-            // cbOnlyRetractWhenCrossingPerimeters
-            // 
-            this.cbOnlyRetractWhenCrossingPerimeters.AutoSize = true;
-            this.cbOnlyRetractWhenCrossingPerimeters.Location = new System.Drawing.Point(10, 83);
-            this.cbOnlyRetractWhenCrossingPerimeters.Name = "cbOnlyRetractWhenCrossingPerimeters";
-            this.cbOnlyRetractWhenCrossingPerimeters.Size = new System.Drawing.Size(202, 17);
-            this.cbOnlyRetractWhenCrossingPerimeters.TabIndex = 10;
-            this.cbOnlyRetractWhenCrossingPerimeters.Text = "Only retract when crossing perimeters";
-            this.cbOnlyRetractWhenCrossingPerimeters.UseVisualStyleBackColor = true;
-            // 
-            // tbSolidInfillBellowArea
-            // 
-            this.tbSolidInfillBellowArea.Location = new System.Drawing.Point(372, 44);
-            this.tbSolidInfillBellowArea.Name = "tbSolidInfillBellowArea";
-            this.tbSolidInfillBellowArea.Size = new System.Drawing.Size(100, 20);
-            this.tbSolidInfillBellowArea.TabIndex = 16;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(478, 46);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 13);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "mm²";
-            // 
-            // lblSolidInfillThreshouldArea
-            // 
-            this.lblSolidInfillThreshouldArea.AutoSize = true;
-            this.lblSolidInfillThreshouldArea.Location = new System.Drawing.Point(369, 28);
-            this.lblSolidInfillThreshouldArea.Name = "lblSolidInfillThreshouldArea";
-            this.lblSolidInfillThreshouldArea.Size = new System.Drawing.Size(120, 13);
-            this.lblSolidInfillThreshouldArea.TabIndex = 13;
-            this.lblSolidInfillThreshouldArea.Text = "Solid infill threshold area";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(297, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(11, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "°";
-            // 
-            // nbFillAngle
-            // 
-            this.nbFillAngle.Location = new System.Drawing.Point(191, 44);
-            this.nbFillAngle.Name = "nbFillAngle";
-            this.nbFillAngle.Size = new System.Drawing.Size(100, 20);
-            this.nbFillAngle.TabIndex = 11;
-            // 
-            // lblFillAngle
-            // 
-            this.lblFillAngle.AutoSize = true;
-            this.lblFillAngle.Location = new System.Drawing.Point(188, 28);
-            this.lblFillAngle.Name = "lblFillAngle";
-            this.lblFillAngle.Size = new System.Drawing.Size(48, 13);
-            this.lblFillAngle.TabIndex = 10;
-            this.lblFillAngle.Text = "Fill angle";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "layers";
-            // 
-            // nbSolidInfillEveryLayers
-            // 
-            this.nbSolidInfillEveryLayers.Location = new System.Drawing.Point(10, 44);
-            this.nbSolidInfillEveryLayers.Name = "nbSolidInfillEveryLayers";
-            this.nbSolidInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
-            this.nbSolidInfillEveryLayers.TabIndex = 7;
-            // 
-            // lblSolidInfillLayers
-            // 
-            this.lblSolidInfillLayers.AutoSize = true;
-            this.lblSolidInfillLayers.Location = new System.Drawing.Point(7, 28);
-            this.lblSolidInfillLayers.Name = "lblSolidInfillLayers";
-            this.lblSolidInfillLayers.Size = new System.Drawing.Size(80, 13);
-            this.lblSolidInfillLayers.TabIndex = 0;
-            this.lblSolidInfillLayers.Text = "Solid infill layers";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.cbInfillOnlyWhereNeeded);
-            this.groupBox4.Controls.Add(this.nbInfillEveryLayers);
-            this.groupBox4.Controls.Add(this.lblCombineInfillEvery);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 99);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(518, 80);
-            this.groupBox4.TabIndex = 1;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Reducing printing time";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(112, 38);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(34, 13);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "layers";
-            // 
-            // cbInfillOnlyWhereNeeded
-            // 
-            this.cbInfillOnlyWhereNeeded.AutoSize = true;
-            this.cbInfillOnlyWhereNeeded.Location = new System.Drawing.Point(191, 37);
-            this.cbInfillOnlyWhereNeeded.Name = "cbInfillOnlyWhereNeeded";
-            this.cbInfillOnlyWhereNeeded.Size = new System.Drawing.Size(138, 17);
-            this.cbInfillOnlyWhereNeeded.TabIndex = 7;
-            this.cbInfillOnlyWhereNeeded.Text = "Only infill where needed";
-            this.cbInfillOnlyWhereNeeded.UseVisualStyleBackColor = true;
-            // 
-            // nbInfillEveryLayers
-            // 
-            this.nbInfillEveryLayers.Location = new System.Drawing.Point(10, 36);
-            this.nbInfillEveryLayers.Name = "nbInfillEveryLayers";
-            this.nbInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
-            this.nbInfillEveryLayers.TabIndex = 6;
-            // 
-            // lblCombineInfillEvery
-            // 
-            this.lblCombineInfillEvery.AutoSize = true;
-            this.lblCombineInfillEvery.Location = new System.Drawing.Point(7, 20);
-            this.lblCombineInfillEvery.Name = "lblCombineInfillEvery";
-            this.lblCombineInfillEvery.Size = new System.Drawing.Size(97, 13);
-            this.lblCombineInfillEvery.TabIndex = 0;
-            this.lblCombineInfillEvery.Text = "Combine infill every";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.cboxExternalFillPattern);
-            this.groupBox5.Controls.Add(this.lblTopBottomFillPattern);
-            this.groupBox5.Controls.Add(this.cboxFillPattern);
-            this.groupBox5.Controls.Add(this.cboxFillDensity);
-            this.groupBox5.Controls.Add(this.lblFillPattern);
-            this.groupBox5.Controls.Add(this.lblFillDensity);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(3, 3);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(518, 90);
-            this.groupBox5.TabIndex = 0;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Infill";
-            // 
-            // cboxExternalFillPattern
-            // 
-            this.cboxExternalFillPattern.FormattingEnabled = true;
-            this.cboxExternalFillPattern.Location = new System.Drawing.Point(372, 43);
-            this.cboxExternalFillPattern.Name = "cboxExternalFillPattern";
-            this.cboxExternalFillPattern.Size = new System.Drawing.Size(121, 21);
-            this.cboxExternalFillPattern.TabIndex = 9;
-            // 
-            // lblTopBottomFillPattern
-            // 
-            this.lblTopBottomFillPattern.AutoSize = true;
-            this.lblTopBottomFillPattern.Location = new System.Drawing.Point(369, 28);
-            this.lblTopBottomFillPattern.Name = "lblTopBottomFillPattern";
-            this.lblTopBottomFillPattern.Size = new System.Drawing.Size(111, 13);
-            this.lblTopBottomFillPattern.TabIndex = 8;
-            this.lblTopBottomFillPattern.Text = "Top/bottom fill pattern";
-            // 
-            // cboxFillPattern
-            // 
-            this.cboxFillPattern.FormattingEnabled = true;
-            this.cboxFillPattern.Location = new System.Drawing.Point(191, 43);
-            this.cboxFillPattern.Name = "cboxFillPattern";
-            this.cboxFillPattern.Size = new System.Drawing.Size(121, 21);
-            this.cboxFillPattern.TabIndex = 7;
-            // 
-            // cboxFillDensity
-            // 
-            this.cboxFillDensity.FormattingEnabled = true;
-            this.cboxFillDensity.Items.AddRange(new object[] {
-            "0%",
-            "5%",
-            "10%",
-            "15%",
-            "20%",
-            "25%",
-            "30%",
-            "40%",
-            "50%",
-            "60%",
-            "70%",
-            "80%",
-            "90%",
-            "100%"});
-            this.cboxFillDensity.Location = new System.Drawing.Point(10, 43);
-            this.cboxFillDensity.Name = "cboxFillDensity";
-            this.cboxFillDensity.Size = new System.Drawing.Size(121, 21);
-            this.cboxFillDensity.TabIndex = 6;
-            this.cboxFillDensity.Leave += new System.EventHandler(this.cboxFillDensity_Leave);
-            // 
-            // lblFillPattern
-            // 
-            this.lblFillPattern.AutoSize = true;
-            this.lblFillPattern.Location = new System.Drawing.Point(188, 28);
-            this.lblFillPattern.Name = "lblFillPattern";
-            this.lblFillPattern.Size = new System.Drawing.Size(55, 13);
-            this.lblFillPattern.TabIndex = 3;
-            this.lblFillPattern.Text = "Fill pattern";
-            // 
-            // lblFillDensity
-            // 
-            this.lblFillDensity.AutoSize = true;
-            this.lblFillDensity.Location = new System.Drawing.Point(8, 28);
-            this.lblFillDensity.Name = "lblFillDensity";
-            this.lblFillDensity.Size = new System.Drawing.Size(55, 13);
-            this.lblFillDensity.TabIndex = 0;
-            this.lblFillDensity.Text = "Fill density";
+            // tlpAdvanced
+            // 
+            this.tlpAdvanced.ColumnCount = 1;
+            this.tlpAdvanced.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpAdvanced.Controls.Add(this.groupBox9, 0, 5);
+            this.tlpAdvanced.Controls.Add(this.groupBox10, 0, 2);
+            this.tlpAdvanced.Controls.Add(this.groupBox12, 0, 0);
+            this.tlpAdvanced.Controls.Add(this.groupBox13, 0, 1);
+            this.tlpAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpAdvanced.Location = new System.Drawing.Point(3, 3123);
+            this.tlpAdvanced.Name = "tlpAdvanced";
+            this.tlpAdvanced.RowCount = 7;
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpAdvanced.Size = new System.Drawing.Size(524, 618);
+            this.tlpAdvanced.TabIndex = 7;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.nbThreads);
+            this.groupBox9.Controls.Add(this.tbResolution);
+            this.groupBox9.Controls.Add(this.label64);
+            this.groupBox9.Controls.Add(this.label65);
+            this.groupBox9.Controls.Add(this.label68);
+            this.groupBox9.Controls.Add(this.tbXySizeCompensation);
+            this.groupBox9.Controls.Add(this.label71);
+            this.groupBox9.Controls.Add(this.label72);
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox9.Location = new System.Drawing.Point(3, 361);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(518, 70);
+            this.groupBox9.TabIndex = 23;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Other";
+            // 
+            // nbThreads
+            // 
+            this.nbThreads.Location = new System.Drawing.Point(183, 40);
+            this.nbThreads.Name = "nbThreads";
+            this.nbThreads.Size = new System.Drawing.Size(100, 20);
+            this.nbThreads.TabIndex = 49;
+            // 
+            // tbResolution
+            // 
+            this.tbResolution.Location = new System.Drawing.Point(358, 40);
+            this.tbResolution.Name = "tbResolution";
+            this.tbResolution.Size = new System.Drawing.Size(100, 20);
+            this.tbResolution.TabIndex = 25;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(463, 43);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(23, 13);
+            this.label64.TabIndex = 24;
+            this.label64.Text = "mm";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(355, 25);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(57, 13);
+            this.label65.TabIndex = 23;
+            this.label65.Text = "Resolution";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(181, 25);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(46, 13);
+            this.label68.TabIndex = 20;
+            this.label68.Text = "Threads";
+            // 
+            // tbXySizeCompensation
+            // 
+            this.tbXySizeCompensation.Location = new System.Drawing.Point(11, 40);
+            this.tbXySizeCompensation.Name = "tbXySizeCompensation";
+            this.tbXySizeCompensation.Size = new System.Drawing.Size(100, 20);
+            this.tbXySizeCompensation.TabIndex = 19;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(116, 43);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(23, 13);
+            this.label71.TabIndex = 17;
+            this.label71.Text = "mm";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(8, 25);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(111, 13);
+            this.label72.TabIndex = 3;
+            this.label72.Text = "XY size compensation";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.tbBridgeFlowRatio);
+            this.groupBox10.Controls.Add(this.label74);
+            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox10.Location = new System.Drawing.Point(3, 285);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(518, 70);
+            this.groupBox10.TabIndex = 24;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Flow";
+            // 
+            // tbBridgeFlowRatio
+            // 
+            this.tbBridgeFlowRatio.Location = new System.Drawing.Point(11, 42);
+            this.tbBridgeFlowRatio.Name = "tbBridgeFlowRatio";
+            this.tbBridgeFlowRatio.Size = new System.Drawing.Size(100, 20);
+            this.tbBridgeFlowRatio.TabIndex = 48;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(8, 28);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(82, 13);
+            this.label74.TabIndex = 0;
+            this.label74.Text = "Bridge flow ratio";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.label79);
+            this.groupBox12.Controls.Add(this.tbSupportMaterialExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label83);
+            this.groupBox12.Controls.Add(this.label84);
+            this.groupBox12.Controls.Add(this.tbTopInfillExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label85);
+            this.groupBox12.Controls.Add(this.label86);
+            this.groupBox12.Controls.Add(this.tbSolidInfillExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label87);
+            this.groupBox12.Controls.Add(this.label88);
+            this.groupBox12.Controls.Add(this.tbInfillExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label89);
+            this.groupBox12.Controls.Add(this.label90);
+            this.groupBox12.Controls.Add(this.tbExternalPerimeterExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label91);
+            this.groupBox12.Controls.Add(this.label92);
+            this.groupBox12.Controls.Add(this.tbPerimeterExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label93);
+            this.groupBox12.Controls.Add(this.label94);
+            this.groupBox12.Controls.Add(this.tbFirstLayerExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label95);
+            this.groupBox12.Controls.Add(this.label96);
+            this.groupBox12.Controls.Add(this.tbExtrusionWidth);
+            this.groupBox12.Controls.Add(this.label97);
+            this.groupBox12.Controls.Add(this.label98);
+            this.groupBox12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox12.Location = new System.Drawing.Point(3, 3);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(518, 200);
+            this.groupBox12.TabIndex = 21;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Extrusion width";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(8, 178);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(135, 13);
+            this.label79.TabIndex = 45;
+            this.label79.Text = "* Leave 0 for auto / default";
+            // 
+            // tbSupportMaterialExtrusionWidth
+            // 
+            this.tbSupportMaterialExtrusionWidth.Location = new System.Drawing.Point(184, 140);
+            this.tbSupportMaterialExtrusionWidth.Name = "tbSupportMaterialExtrusionWidth";
+            this.tbSupportMaterialExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbSupportMaterialExtrusionWidth.TabIndex = 40;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(289, 143);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(46, 13);
+            this.label83.TabIndex = 39;
+            this.label83.Text = "mm or %";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(181, 125);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(83, 13);
+            this.label84.TabIndex = 38;
+            this.label84.Text = "Support material";
+            // 
+            // tbTopInfillExtrusionWidth
+            // 
+            this.tbTopInfillExtrusionWidth.Location = new System.Drawing.Point(11, 140);
+            this.tbTopInfillExtrusionWidth.Name = "tbTopInfillExtrusionWidth";
+            this.tbTopInfillExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbTopInfillExtrusionWidth.TabIndex = 37;
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(116, 143);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(46, 13);
+            this.label85.TabIndex = 36;
+            this.label85.Text = "mm or %";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(8, 125);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(70, 13);
+            this.label86.TabIndex = 35;
+            this.label86.Text = "Top solid infill";
+            // 
+            // tbSolidInfillExtrusionWidth
+            // 
+            this.tbSolidInfillExtrusionWidth.Location = new System.Drawing.Point(358, 90);
+            this.tbSolidInfillExtrusionWidth.Name = "tbSolidInfillExtrusionWidth";
+            this.tbSolidInfillExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbSolidInfillExtrusionWidth.TabIndex = 34;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(463, 93);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(46, 13);
+            this.label87.TabIndex = 33;
+            this.label87.Text = "mm or %";
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(355, 75);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(50, 13);
+            this.label88.TabIndex = 32;
+            this.label88.Text = "Solid infill";
+            // 
+            // tbInfillExtrusionWidth
+            // 
+            this.tbInfillExtrusionWidth.Location = new System.Drawing.Point(184, 90);
+            this.tbInfillExtrusionWidth.Name = "tbInfillExtrusionWidth";
+            this.tbInfillExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbInfillExtrusionWidth.TabIndex = 31;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(289, 93);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(46, 13);
+            this.label89.TabIndex = 30;
+            this.label89.Text = "mm or %";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(181, 75);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(25, 13);
+            this.label90.TabIndex = 29;
+            this.label90.Text = "Infill";
+            // 
+            // tbExternalPerimeterExtrusionWidth
+            // 
+            this.tbExternalPerimeterExtrusionWidth.Location = new System.Drawing.Point(11, 90);
+            this.tbExternalPerimeterExtrusionWidth.Name = "tbExternalPerimeterExtrusionWidth";
+            this.tbExternalPerimeterExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbExternalPerimeterExtrusionWidth.TabIndex = 28;
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(116, 93);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(46, 13);
+            this.label91.TabIndex = 27;
+            this.label91.Text = "mm or %";
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(8, 75);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(96, 13);
+            this.label92.TabIndex = 26;
+            this.label92.Text = "External perimeters";
+            // 
+            // tbPerimeterExtrusionWidth
+            // 
+            this.tbPerimeterExtrusionWidth.Location = new System.Drawing.Point(358, 40);
+            this.tbPerimeterExtrusionWidth.Name = "tbPerimeterExtrusionWidth";
+            this.tbPerimeterExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbPerimeterExtrusionWidth.TabIndex = 25;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(463, 43);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(46, 13);
+            this.label93.TabIndex = 24;
+            this.label93.Text = "mm or %";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(355, 25);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(56, 13);
+            this.label94.TabIndex = 23;
+            this.label94.Text = "Perimeters";
+            // 
+            // tbFirstLayerExtrusionWidth
+            // 
+            this.tbFirstLayerExtrusionWidth.Location = new System.Drawing.Point(184, 40);
+            this.tbFirstLayerExtrusionWidth.Name = "tbFirstLayerExtrusionWidth";
+            this.tbFirstLayerExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbFirstLayerExtrusionWidth.TabIndex = 22;
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(289, 43);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(46, 13);
+            this.label95.TabIndex = 21;
+            this.label95.Text = "mm or %";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(181, 25);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(51, 13);
+            this.label96.TabIndex = 20;
+            this.label96.Text = "First layer";
+            // 
+            // tbExtrusionWidth
+            // 
+            this.tbExtrusionWidth.Location = new System.Drawing.Point(11, 40);
+            this.tbExtrusionWidth.Name = "tbExtrusionWidth";
+            this.tbExtrusionWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbExtrusionWidth.TabIndex = 19;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(116, 43);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(46, 13);
+            this.label97.TabIndex = 17;
+            this.label97.Text = "mm or %";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(8, 25);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(114, 13);
+            this.label98.TabIndex = 3;
+            this.label98.Text = "Default extrusion width";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.tbInfillOverlap);
+            this.groupBox13.Controls.Add(this.label99);
+            this.groupBox13.Controls.Add(this.label100);
+            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox13.Location = new System.Drawing.Point(3, 209);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(518, 70);
+            this.groupBox13.TabIndex = 0;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Overlap";
+            // 
+            // tbInfillOverlap
+            // 
+            this.tbInfillOverlap.Location = new System.Drawing.Point(11, 42);
+            this.tbInfillOverlap.Name = "tbInfillOverlap";
+            this.tbInfillOverlap.Size = new System.Drawing.Size(100, 20);
+            this.tbInfillOverlap.TabIndex = 48;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(116, 45);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(46, 13);
+            this.label99.TabIndex = 47;
+            this.label99.Text = "mm or %";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(8, 28);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(116, 13);
+            this.label100.TabIndex = 0;
+            this.label100.Text = "Infill/perimeters overlap";
             // 
             // tlpLayers
             // 
@@ -1955,7 +1806,7 @@
             this.tlpLayers.Controls.Add(this.gbVerticalShells, 0, 1);
             this.tlpLayers.Controls.Add(this.gbLayerHeight, 0, 0);
             this.tlpLayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLayers.Location = new System.Drawing.Point(3, 3123);
+            this.tlpLayers.Location = new System.Drawing.Point(3, 3);
             this.tlpLayers.Name = "tlpLayers";
             this.tlpLayers.RowCount = 6;
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2222,6 +2073,780 @@
             this.lblLayerHeight.TabIndex = 0;
             this.lblLayerHeight.Text = "Layer height";
             // 
+            // tlpOutputOptions
+            // 
+            this.tlpOutputOptions.ColumnCount = 1;
+            this.tlpOutputOptions.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpOutputOptions.Controls.Add(this.cbCompleteObjects, 0, 0);
+            this.tlpOutputOptions.Controls.Add(this.groupBox11, 0, 5);
+            this.tlpOutputOptions.Controls.Add(this.groupBox14, 0, 2);
+            this.tlpOutputOptions.Controls.Add(this.gbExtruderClearance, 0, 1);
+            this.tlpOutputOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpOutputOptions.Location = new System.Drawing.Point(3, 627);
+            this.tlpOutputOptions.Name = "tlpOutputOptions";
+            this.tlpOutputOptions.RowCount = 7;
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpOutputOptions.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpOutputOptions.Size = new System.Drawing.Size(524, 618);
+            this.tlpOutputOptions.TabIndex = 8;
+            // 
+            // cbCompleteObjects
+            // 
+            this.cbCompleteObjects.AutoSize = true;
+            this.cbCompleteObjects.Location = new System.Drawing.Point(3, 3);
+            this.cbCompleteObjects.Name = "cbCompleteObjects";
+            this.cbCompleteObjects.Size = new System.Drawing.Size(154, 17);
+            this.cbCompleteObjects.TabIndex = 49;
+            this.cbCompleteObjects.Text = "Complete individual objects";
+            this.cbCompleteObjects.UseVisualStyleBackColor = true;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.tbPostProcess);
+            this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox11.Location = new System.Drawing.Point(3, 178);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(518, 150);
+            this.groupBox11.TabIndex = 23;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "Post-processing scripts";
+            // 
+            // tbPostProcess
+            // 
+            this.tbPostProcess.Location = new System.Drawing.Point(11, 28);
+            this.tbPostProcess.Multiline = true;
+            this.tbPostProcess.Name = "tbPostProcess";
+            this.tbPostProcess.Size = new System.Drawing.Size(447, 107);
+            this.tbPostProcess.TabIndex = 49;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.cbGcodeComments);
+            this.groupBox14.Controls.Add(this.tbOutputFilenameFormat);
+            this.groupBox14.Controls.Add(this.label73);
+            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox14.Location = new System.Drawing.Point(3, 102);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(518, 70);
+            this.groupBox14.TabIndex = 24;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Flow";
+            // 
+            // cbGcodeComments
+            // 
+            this.cbGcodeComments.AutoSize = true;
+            this.cbGcodeComments.Location = new System.Drawing.Point(11, 41);
+            this.cbGcodeComments.Name = "cbGcodeComments";
+            this.cbGcodeComments.Size = new System.Drawing.Size(103, 17);
+            this.cbGcodeComments.TabIndex = 50;
+            this.cbGcodeComments.Text = "Verbose G-code";
+            this.cbGcodeComments.UseVisualStyleBackColor = true;
+            // 
+            // tbOutputFilenameFormat
+            // 
+            this.tbOutputFilenameFormat.Location = new System.Drawing.Point(183, 39);
+            this.tbOutputFilenameFormat.Name = "tbOutputFilenameFormat";
+            this.tbOutputFilenameFormat.Size = new System.Drawing.Size(275, 20);
+            this.tbOutputFilenameFormat.TabIndex = 48;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(180, 25);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(113, 13);
+            this.label73.TabIndex = 0;
+            this.label73.Text = "Output filename format";
+            // 
+            // gbExtruderClearance
+            // 
+            this.gbExtruderClearance.Controls.Add(this.tbExtruderClearanceRadius);
+            this.gbExtruderClearance.Controls.Add(this.label75);
+            this.gbExtruderClearance.Controls.Add(this.label76);
+            this.gbExtruderClearance.Controls.Add(this.tbExtruderClearanceHeight);
+            this.gbExtruderClearance.Controls.Add(this.label111);
+            this.gbExtruderClearance.Controls.Add(this.label112);
+            this.gbExtruderClearance.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbExtruderClearance.Location = new System.Drawing.Point(3, 26);
+            this.gbExtruderClearance.Name = "gbExtruderClearance";
+            this.gbExtruderClearance.Size = new System.Drawing.Size(518, 70);
+            this.gbExtruderClearance.TabIndex = 0;
+            this.gbExtruderClearance.TabStop = false;
+            this.gbExtruderClearance.Text = "Extruder clearance";
+            // 
+            // tbExtruderClearanceRadius
+            // 
+            this.tbExtruderClearanceRadius.Location = new System.Drawing.Point(11, 42);
+            this.tbExtruderClearanceRadius.Name = "tbExtruderClearanceRadius";
+            this.tbExtruderClearanceRadius.Size = new System.Drawing.Size(100, 20);
+            this.tbExtruderClearanceRadius.TabIndex = 51;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(116, 45);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(23, 13);
+            this.label75.TabIndex = 50;
+            this.label75.Text = "mm";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(8, 28);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(40, 13);
+            this.label76.TabIndex = 49;
+            this.label76.Text = "Radius";
+            // 
+            // tbExtruderClearanceHeight
+            // 
+            this.tbExtruderClearanceHeight.Location = new System.Drawing.Point(183, 42);
+            this.tbExtruderClearanceHeight.Name = "tbExtruderClearanceHeight";
+            this.tbExtruderClearanceHeight.Size = new System.Drawing.Size(100, 20);
+            this.tbExtruderClearanceHeight.TabIndex = 48;
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(288, 45);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(23, 13);
+            this.label111.TabIndex = 47;
+            this.label111.Text = "mm";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(180, 28);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(38, 13);
+            this.label112.TabIndex = 0;
+            this.label112.Text = "Height";
+            // 
+            // tlpMultipleExtruders
+            // 
+            this.tlpMultipleExtruders.ColumnCount = 1;
+            this.tlpMultipleExtruders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox7, 0, 1);
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox8, 0, 0);
+            this.tlpMultipleExtruders.Controls.Add(this.groupBox1, 0, 0);
+            this.tlpMultipleExtruders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpMultipleExtruders.Location = new System.Drawing.Point(3, 1251);
+            this.tlpMultipleExtruders.Name = "tlpMultipleExtruders";
+            this.tlpMultipleExtruders.RowCount = 6;
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpMultipleExtruders.Size = new System.Drawing.Size(524, 618);
+            this.tlpMultipleExtruders.TabIndex = 6;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cbInterfaceShells);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox7.Location = new System.Drawing.Point(3, 215);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(518, 80);
+            this.groupBox7.TabIndex = 1;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Advanced";
+            // 
+            // cbInterfaceShells
+            // 
+            this.cbInterfaceShells.AutoSize = true;
+            this.cbInterfaceShells.Location = new System.Drawing.Point(11, 39);
+            this.cbInterfaceShells.Name = "cbInterfaceShells";
+            this.cbInterfaceShells.Size = new System.Drawing.Size(97, 17);
+            this.cbInterfaceShells.TabIndex = 26;
+            this.cbInterfaceShells.Text = "Interface shells";
+            this.cbInterfaceShells.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.cbOozePrevention);
+            this.groupBox8.Controls.Add(this.label69);
+            this.groupBox8.Controls.Add(this.nbStandbyTemperatureDelta);
+            this.groupBox8.Controls.Add(this.label70);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox8.Location = new System.Drawing.Point(3, 129);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(518, 80);
+            this.groupBox8.TabIndex = 0;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Ooze prevention";
+            // 
+            // cbOozePrevention
+            // 
+            this.cbOozePrevention.AutoSize = true;
+            this.cbOozePrevention.Location = new System.Drawing.Point(11, 39);
+            this.cbOozePrevention.Name = "cbOozePrevention";
+            this.cbOozePrevention.Size = new System.Drawing.Size(59, 17);
+            this.cbOozePrevention.TabIndex = 25;
+            this.cbOozePrevention.Text = "Enable";
+            this.cbOozePrevention.UseVisualStyleBackColor = true;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(296, 43);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(25, 13);
+            this.label69.TabIndex = 24;
+            this.label69.Text = "Δ°C";
+            // 
+            // nbStandbyTemperatureDelta
+            // 
+            this.nbStandbyTemperatureDelta.Location = new System.Drawing.Point(191, 41);
+            this.nbStandbyTemperatureDelta.Name = "nbStandbyTemperatureDelta";
+            this.nbStandbyTemperatureDelta.Size = new System.Drawing.Size(100, 20);
+            this.nbStandbyTemperatureDelta.TabIndex = 23;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(188, 25);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(110, 13);
+            this.label70.TabIndex = 8;
+            this.label70.Text = "Temperature variation";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nbSupportMaterialInterfaceExtruder);
+            this.groupBox1.Controls.Add(this.label49);
+            this.groupBox1.Controls.Add(this.nbSupportMaterialExtruder);
+            this.groupBox1.Controls.Add(this.label48);
+            this.groupBox1.Controls.Add(this.nbSolidInfillExtruder);
+            this.groupBox1.Controls.Add(this.label47);
+            this.groupBox1.Controls.Add(this.nbInfillExtruder);
+            this.groupBox1.Controls.Add(this.label46);
+            this.groupBox1.Controls.Add(this.nbPerimeterExtruder);
+            this.groupBox1.Controls.Add(this.label66);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(518, 120);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Extruders";
+            // 
+            // nbSupportMaterialInterfaceExtruder
+            // 
+            this.nbSupportMaterialInterfaceExtruder.Location = new System.Drawing.Point(191, 90);
+            this.nbSupportMaterialInterfaceExtruder.Name = "nbSupportMaterialInterfaceExtruder";
+            this.nbSupportMaterialInterfaceExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSupportMaterialInterfaceExtruder.TabIndex = 18;
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(188, 75);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(188, 13);
+            this.label49.TabIndex = 17;
+            this.label49.Text = "Support material/raft interface extruder";
+            // 
+            // nbSupportMaterialExtruder
+            // 
+            this.nbSupportMaterialExtruder.Location = new System.Drawing.Point(11, 90);
+            this.nbSupportMaterialExtruder.Name = "nbSupportMaterialExtruder";
+            this.nbSupportMaterialExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSupportMaterialExtruder.TabIndex = 16;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(8, 75);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(168, 13);
+            this.label48.TabIndex = 15;
+            this.label48.Text = "Support material/raft/skirt extruder";
+            // 
+            // nbSolidInfillExtruder
+            // 
+            this.nbSolidInfillExtruder.Location = new System.Drawing.Point(372, 40);
+            this.nbSolidInfillExtruder.Name = "nbSolidInfillExtruder";
+            this.nbSolidInfillExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbSolidInfillExtruder.TabIndex = 14;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(369, 25);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(91, 13);
+            this.label47.TabIndex = 13;
+            this.label47.Text = "Solid infill extruder";
+            // 
+            // nbInfillExtruder
+            // 
+            this.nbInfillExtruder.Location = new System.Drawing.Point(191, 40);
+            this.nbInfillExtruder.Name = "nbInfillExtruder";
+            this.nbInfillExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbInfillExtruder.TabIndex = 12;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(188, 25);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(66, 13);
+            this.label46.TabIndex = 11;
+            this.label46.Text = "Infill extruder";
+            // 
+            // nbPerimeterExtruder
+            // 
+            this.nbPerimeterExtruder.Location = new System.Drawing.Point(11, 40);
+            this.nbPerimeterExtruder.Name = "nbPerimeterExtruder";
+            this.nbPerimeterExtruder.Size = new System.Drawing.Size(100, 20);
+            this.nbPerimeterExtruder.TabIndex = 10;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(8, 25);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(92, 13);
+            this.label66.TabIndex = 0;
+            this.label66.Text = "Perimeter extruder";
+            // 
+            // tlpSkirt
+            // 
+            this.tlpSkirt.ColumnCount = 1;
+            this.tlpSkirt.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpSkirt.Controls.Add(this.groupBox2, 0, 1);
+            this.tlpSkirt.Controls.Add(this.groupBox6, 0, 0);
+            this.tlpSkirt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpSkirt.Location = new System.Drawing.Point(3, 4371);
+            this.tlpSkirt.Name = "tlpSkirt";
+            this.tlpSkirt.RowCount = 6;
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpSkirt.Size = new System.Drawing.Size(524, 618);
+            this.tlpSkirt.TabIndex = 3;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblBrimWidth);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.tbBrimWidth);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 139);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(518, 80);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Brim";
+            // 
+            // lblBrimWidth
+            // 
+            this.lblBrimWidth.AutoSize = true;
+            this.lblBrimWidth.Location = new System.Drawing.Point(8, 27);
+            this.lblBrimWidth.Name = "lblBrimWidth";
+            this.lblBrimWidth.Size = new System.Drawing.Size(55, 13);
+            this.lblBrimWidth.TabIndex = 13;
+            this.lblBrimWidth.Text = "Brim width";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(117, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(23, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "mm";
+            // 
+            // tbBrimWidth
+            // 
+            this.tbBrimWidth.Location = new System.Drawing.Point(11, 43);
+            this.tbBrimWidth.Name = "tbBrimWidth";
+            this.tbBrimWidth.Size = new System.Drawing.Size(100, 20);
+            this.tbBrimWidth.TabIndex = 14;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lblMinSkirtLength);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.tbMinSkirtLength);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.label4);
+            this.groupBox6.Controls.Add(this.tbSkirtDistance);
+            this.groupBox6.Controls.Add(this.nbSkirtHeight);
+            this.groupBox6.Controls.Add(this.nbSkirts);
+            this.groupBox6.Controls.Add(this.lblSkirtDistance);
+            this.groupBox6.Controls.Add(this.lblSkirtHeight);
+            this.groupBox6.Controls.Add(this.lblSkirts);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(518, 130);
+            this.groupBox6.TabIndex = 0;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Skirt";
+            // 
+            // lblMinSkirtLength
+            // 
+            this.lblMinSkirtLength.AutoSize = true;
+            this.lblMinSkirtLength.Location = new System.Drawing.Point(188, 77);
+            this.lblMinSkirtLength.Name = "lblMinSkirtLength";
+            this.lblMinSkirtLength.Size = new System.Drawing.Size(125, 13);
+            this.lblMinSkirtLength.TabIndex = 18;
+            this.label11.Location = new System.Drawing.Point(297, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(23, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "mm";
+            // 
+            // tbMinSkirtLength
+            // 
+            this.tbMinSkirtLength.Location = new System.Drawing.Point(191, 93);
+            this.tbMinSkirtLength.Name = "tbMinSkirtLength";
+            this.tbMinSkirtLength.Size = new System.Drawing.Size(100, 20);
+            this.tbMinSkirtLength.TabIndex = 19;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(116, 95);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "layers";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(297, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(23, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "mm";
+            // 
+            // tbSkirtDistance
+            // 
+            this.tbSkirtDistance.Location = new System.Drawing.Point(191, 43);
+            this.tbSkirtDistance.Name = "tbSkirtDistance";
+            this.tbSkirtDistance.Size = new System.Drawing.Size(100, 20);
+            this.tbSkirtDistance.TabIndex = 12;
+            // 
+            // nbSkirtHeight
+            // 
+            this.nbSkirtHeight.Location = new System.Drawing.Point(11, 93);
+            this.nbSkirtHeight.Name = "nbSkirtHeight";
+            this.nbSkirtHeight.Size = new System.Drawing.Size(100, 20);
+            this.nbSkirtHeight.TabIndex = 11;
+            // 
+            // nbSkirts
+            // 
+            this.nbSkirts.Location = new System.Drawing.Point(11, 43);
+            this.nbSkirts.Name = "nbSkirts";
+            this.nbSkirts.Size = new System.Drawing.Size(100, 20);
+            this.nbSkirts.TabIndex = 10;
+            // 
+            // lblSkirtDistance
+            // 
+            this.lblSkirtDistance.AutoSize = true;
+            this.lblSkirtDistance.Location = new System.Drawing.Point(188, 27);
+            this.lblSkirtDistance.Name = "lblSkirtDistance";
+            this.lblSkirtDistance.Size = new System.Drawing.Size(104, 13);
+            this.lblSkirtDistance.TabIndex = 8;
+            this.lblSkirtDistance.Text = "Distance from object";
+            // 
+            // lblSkirtHeight
+            // 
+            this.lblSkirtHeight.AutoSize = true;
+            this.lblSkirtHeight.Location = new System.Drawing.Point(8, 77);
+            this.lblSkirtHeight.Name = "lblSkirtHeight";
+            this.lblSkirtHeight.Size = new System.Drawing.Size(60, 13);
+            this.lblSkirtHeight.TabIndex = 3;
+            this.lblSkirtHeight.Text = "Skirt height";
+            // 
+            // lblSkirts
+            // 
+            this.lblSkirts.AutoSize = true;
+            this.lblSkirts.Location = new System.Drawing.Point(8, 28);
+            this.lblSkirts.Name = "lblSkirts";
+            this.lblSkirts.Size = new System.Drawing.Size(85, 13);
+            this.lblSkirts.TabIndex = 0;
+            this.tlpInfill.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpInfill.Controls.Add(this.groupBox3, 0, 2);
+            this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
+            this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
+            this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpInfill.Location = new System.Drawing.Point(3, 3747);
+            this.tlpInfill.Name = "tlpInfill";
+            this.tlpInfill.RowCount = 6;
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpInfill.Size = new System.Drawing.Size(524, 618);
+            this.tlpInfill.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbInfillFirst);
+            this.groupBox3.Controls.Add(this.cbOnlyRetractWhenCrossingPerimeters);
+            this.groupBox3.Controls.Add(this.tbSolidInfillBellowArea);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.lblSolidInfillThreshouldArea);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.nbFillAngle);
+            this.groupBox3.Controls.Add(this.lblFillAngle);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.nbSolidInfillEveryLayers);
+            this.groupBox3.Controls.Add(this.lblSolidInfillLayers);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Location = new System.Drawing.Point(3, 185);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(518, 140);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Horizontal shells";
+            // 
+            // cbInfillFirst
+            // 
+            this.cbInfillFirst.AutoSize = true;
+            this.cbInfillFirst.Location = new System.Drawing.Point(10, 106);
+            this.cbInfillFirst.Name = "cbInfillFirst";
+            this.cbInfillFirst.Size = new System.Drawing.Size(128, 17);
+            this.cbInfillFirst.TabIndex = 17;
+            this.cbInfillFirst.Text = "Infill before perimeters";
+            this.cbInfillFirst.UseVisualStyleBackColor = true;
+            // 
+            // cbOnlyRetractWhenCrossingPerimeters
+            // 
+            this.cbOnlyRetractWhenCrossingPerimeters.AutoSize = true;
+            this.cbOnlyRetractWhenCrossingPerimeters.Location = new System.Drawing.Point(10, 83);
+            this.cbOnlyRetractWhenCrossingPerimeters.Name = "cbOnlyRetractWhenCrossingPerimeters";
+            this.cbOnlyRetractWhenCrossingPerimeters.Size = new System.Drawing.Size(202, 17);
+            this.cbOnlyRetractWhenCrossingPerimeters.TabIndex = 10;
+            this.cbOnlyRetractWhenCrossingPerimeters.Text = "Only retract when crossing perimeters";
+            this.cbOnlyRetractWhenCrossingPerimeters.UseVisualStyleBackColor = true;
+            // 
+            // tbSolidInfillBellowArea
+            // 
+            this.tbSolidInfillBellowArea.Location = new System.Drawing.Point(372, 44);
+            this.tbSolidInfillBellowArea.Name = "tbSolidInfillBellowArea";
+            this.tbSolidInfillBellowArea.Size = new System.Drawing.Size(100, 20);
+            this.tbSolidInfillBellowArea.TabIndex = 16;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(478, 46);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "mm²";
+            // 
+            // lblSolidInfillThreshouldArea
+            // 
+            this.lblSolidInfillThreshouldArea.AutoSize = true;
+            this.lblSolidInfillThreshouldArea.Location = new System.Drawing.Point(369, 28);
+            this.lblSolidInfillThreshouldArea.Name = "lblSolidInfillThreshouldArea";
+            this.lblSolidInfillThreshouldArea.Size = new System.Drawing.Size(120, 13);
+            this.lblSolidInfillThreshouldArea.TabIndex = 13;
+            this.lblSolidInfillThreshouldArea.Text = "Solid infill threshold area";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(297, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "°";
+            // 
+            // nbFillAngle
+            // 
+            this.nbFillAngle.Location = new System.Drawing.Point(191, 44);
+            this.nbFillAngle.Name = "nbFillAngle";
+            this.nbFillAngle.Size = new System.Drawing.Size(100, 20);
+            this.nbFillAngle.TabIndex = 11;
+            // 
+            // lblFillAngle
+            // 
+            this.lblFillAngle.AutoSize = true;
+            this.lblFillAngle.Location = new System.Drawing.Point(188, 28);
+            this.lblFillAngle.Name = "lblFillAngle";
+            this.lblFillAngle.Size = new System.Drawing.Size(48, 13);
+            this.lblFillAngle.TabIndex = 10;
+            this.lblFillAngle.Text = "Fill angle";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(116, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "layers";
+            // 
+            // nbSolidInfillEveryLayers
+            // 
+            this.nbSolidInfillEveryLayers.Location = new System.Drawing.Point(10, 44);
+            this.nbSolidInfillEveryLayers.Name = "nbSolidInfillEveryLayers";
+            this.nbSolidInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
+            this.nbSolidInfillEveryLayers.TabIndex = 7;
+            // 
+            // lblSolidInfillLayers
+            // 
+            this.lblSolidInfillLayers.AutoSize = true;
+            this.lblSolidInfillLayers.Location = new System.Drawing.Point(7, 28);
+            this.lblSolidInfillLayers.Name = "lblSolidInfillLayers";
+            this.lblSolidInfillLayers.Size = new System.Drawing.Size(80, 13);
+            this.lblSolidInfillLayers.TabIndex = 0;
+            this.lblSolidInfillLayers.Text = "Solid infill layers";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.cbInfillOnlyWhereNeeded);
+            this.groupBox4.Controls.Add(this.nbInfillEveryLayers);
+            this.groupBox4.Controls.Add(this.lblCombineInfillEvery);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Location = new System.Drawing.Point(3, 99);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(518, 80);
+            this.groupBox4.TabIndex = 1;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Reducing printing time";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(112, 38);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(34, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "layers";
+            // 
+            // cbInfillOnlyWhereNeeded
+            // 
+            this.cbInfillOnlyWhereNeeded.AutoSize = true;
+            this.cbInfillOnlyWhereNeeded.Location = new System.Drawing.Point(191, 37);
+            this.cbInfillOnlyWhereNeeded.Name = "cbInfillOnlyWhereNeeded";
+            this.cbInfillOnlyWhereNeeded.Size = new System.Drawing.Size(138, 17);
+            this.cbInfillOnlyWhereNeeded.TabIndex = 7;
+            this.cbInfillOnlyWhereNeeded.Text = "Only infill where needed";
+            this.cbInfillOnlyWhereNeeded.UseVisualStyleBackColor = true;
+            // 
+            // nbInfillEveryLayers
+            // 
+            this.nbInfillEveryLayers.Location = new System.Drawing.Point(10, 36);
+            this.nbInfillEveryLayers.Name = "nbInfillEveryLayers";
+            this.nbInfillEveryLayers.Size = new System.Drawing.Size(100, 20);
+            this.nbInfillEveryLayers.TabIndex = 6;
+            // 
+            // lblCombineInfillEvery
+            // 
+            this.lblCombineInfillEvery.AutoSize = true;
+            this.lblCombineInfillEvery.Location = new System.Drawing.Point(7, 20);
+            this.lblCombineInfillEvery.Name = "lblCombineInfillEvery";
+            this.lblCombineInfillEvery.Size = new System.Drawing.Size(97, 13);
+            this.lblCombineInfillEvery.TabIndex = 0;
+            this.lblCombineInfillEvery.Text = "Combine infill every";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.cboxExternalFillPattern);
+            this.groupBox5.Controls.Add(this.lblTopBottomFillPattern);
+            this.groupBox5.Controls.Add(this.cboxFillPattern);
+            this.groupBox5.Controls.Add(this.cboxFillDensity);
+            this.groupBox5.Controls.Add(this.lblFillPattern);
+            this.groupBox5.Controls.Add(this.lblFillDensity);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(518, 90);
+            this.groupBox5.TabIndex = 0;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Infill";
+            // 
+            // cboxExternalFillPattern
+            // 
+            this.cboxExternalFillPattern.FormattingEnabled = true;
+            this.cboxExternalFillPattern.Location = new System.Drawing.Point(372, 43);
+            this.cboxExternalFillPattern.Name = "cboxExternalFillPattern";
+            this.cboxExternalFillPattern.Size = new System.Drawing.Size(121, 21);
+            this.cboxExternalFillPattern.TabIndex = 9;
+            // 
+            // lblTopBottomFillPattern
+            // 
+            this.lblTopBottomFillPattern.AutoSize = true;
+            this.lblTopBottomFillPattern.Location = new System.Drawing.Point(369, 28);
+            this.lblTopBottomFillPattern.Name = "lblTopBottomFillPattern";
+            this.lblTopBottomFillPattern.Size = new System.Drawing.Size(111, 13);
+            this.lblTopBottomFillPattern.TabIndex = 8;
+            this.lblTopBottomFillPattern.Text = "Top/bottom fill pattern";
+            // 
+            // cboxFillPattern
+            // 
+            this.cboxFillPattern.FormattingEnabled = true;
+            this.cboxFillPattern.Location = new System.Drawing.Point(191, 43);
+            this.cboxFillPattern.Name = "cboxFillPattern";
+            this.cboxFillPattern.Size = new System.Drawing.Size(121, 21);
+            this.cboxFillPattern.TabIndex = 7;
+            // 
+            // cboxFillDensity
+            // 
+            this.cboxFillDensity.FormattingEnabled = true;
+            this.cboxFillDensity.Items.AddRange(new object[] {
+            "0%",
+            "5%",
+            "10%",
+            "15%",
+            "20%",
+            "25%",
+            "30%",
+            "40%",
+            "50%",
+            "60%",
+            "70%",
+            "80%",
+            "90%",
+            "100%"});
+            this.cboxFillDensity.Location = new System.Drawing.Point(10, 43);
+            this.cboxFillDensity.Name = "cboxFillDensity";
+            this.cboxFillDensity.Size = new System.Drawing.Size(121, 21);
+            this.cboxFillDensity.TabIndex = 6;
+            this.cboxFillDensity.Leave += new System.EventHandler(this.cboxFillDensity_Leave);
+            // 
+            // lblFillPattern
+            // 
+            this.lblFillPattern.AutoSize = true;
+            this.lblFillPattern.Location = new System.Drawing.Point(188, 28);
+            this.lblFillPattern.Name = "lblFillPattern";
+            this.lblFillPattern.Size = new System.Drawing.Size(55, 13);
+            this.lblFillPattern.TabIndex = 3;
+            this.lblFillPattern.Text = "Fill pattern";
+            // 
+            // lblFillDensity
+            // 
+            this.lblFillDensity.AutoSize = true;
+            this.lblFillDensity.Location = new System.Drawing.Point(8, 28);
+            this.lblFillDensity.Name = "lblFillDensity";
+            this.lblFillDensity.Size = new System.Drawing.Size(55, 13);
+            this.lblFillDensity.TabIndex = 0;
+            this.lblFillDensity.Text = "Fill density";
+            // 
             // pageFilament
             // 
             this.pageFilament.Location = new System.Drawing.Point(4, 22);
@@ -2286,6 +2911,38 @@
             this.gbPrint.PerformLayout();
             this.gbNonPrint.ResumeLayout(false);
             this.gbNonPrint.PerformLayout();
+            this.tlpAdvanced.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbThreads)).EndInit();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.tlpLayers.ResumeLayout(false);
+            this.gbAdvanced.ResumeLayout(false);
+            this.gbAdvanced.PerformLayout();
+            this.gbQuality.ResumeLayout(false);
+            this.gbQuality.PerformLayout();
+            this.gbHorizontalShells.ResumeLayout(false);
+            this.gbHorizontalShells.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBottomSolidLayers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbTopSolidLayers)).EndInit();
+            this.gbVerticalShells.ResumeLayout(false);
+            this.gbVerticalShells.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).EndInit();
+            this.gbLayerHeight.ResumeLayout(false);
+            this.gbLayerHeight.PerformLayout();
+            this.tlpOutputOptions.ResumeLayout(false);
+            this.tlpOutputOptions.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.gbExtruderClearance.ResumeLayout(false);
+            this.gbExtruderClearance.PerformLayout();
             this.tlpMultipleExtruders.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -2316,20 +2973,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tlpLayers.ResumeLayout(false);
-            this.gbAdvanced.ResumeLayout(false);
-            this.gbAdvanced.PerformLayout();
-            this.gbQuality.ResumeLayout(false);
-            this.gbQuality.PerformLayout();
-            this.gbHorizontalShells.ResumeLayout(false);
-            this.gbHorizontalShells.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbBottomSolidLayers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbTopSolidLayers)).EndInit();
-            this.gbVerticalShells.ResumeLayout(false);
-            this.gbVerticalShells.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).EndInit();
-            this.gbLayerHeight.ResumeLayout(false);
-            this.gbLayerHeight.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2512,9 +3155,9 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TableLayoutPanel tlpMultipleExtruders;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.CheckBox cboxInterfaceShells;
+        private System.Windows.Forms.CheckBox cbInterfaceShells;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.CheckBox cboxOozePrevention;
+        private System.Windows.Forms.CheckBox cbOozePrevention;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.NumericUpDown nbStandbyTemperatureDelta;
         private System.Windows.Forms.Label label70;
@@ -2529,5 +3172,63 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.NumericUpDown nbPerimeterExtruder;
         private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TableLayoutPanel tlpAdvanced;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.TextBox tbResolution;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox tbXySizeCompensation;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.TextBox tbBridgeFlowRatio;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.TextBox tbSupportMaterialExtrusionWidth;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.TextBox tbTopInfillExtrusionWidth;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox tbSolidInfillExtrusionWidth;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.TextBox tbInfillExtrusionWidth;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.TextBox tbExternalPerimeterExtrusionWidth;
+        private System.Windows.Forms.Label label91;
+        private System.Windows.Forms.Label label92;
+        private System.Windows.Forms.TextBox tbPerimeterExtrusionWidth;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.TextBox tbFirstLayerExtrusionWidth;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.TextBox tbExtrusionWidth;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.TextBox tbInfillOverlap;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.NumericUpDown nbThreads;
+        private System.Windows.Forms.TableLayoutPanel tlpOutputOptions;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.TextBox tbOutputFilenameFormat;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.GroupBox gbExtruderClearance;
+        private System.Windows.Forms.TextBox tbExtruderClearanceHeight;
+        private System.Windows.Forms.Label label111;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.CheckBox cbCompleteObjects;
+        private System.Windows.Forms.TextBox tbPostProcess;
+        private System.Windows.Forms.CheckBox cbGcodeComments;
+        private System.Windows.Forms.TextBox tbExtruderClearanceRadius;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label76;
     }
 }

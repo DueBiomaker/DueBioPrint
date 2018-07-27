@@ -63,6 +63,8 @@ namespace RepetierHost.view
             PrepareSupportMaterialBinding();
             PrepareSpeedBinding();
             PrepareMultipleExtrudersBinding();
+            PrepareAdvanced();
+            PrepareOutputOptions();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -166,9 +168,39 @@ namespace RepetierHost.view
             nbSolidInfillExtruder.DataBindings.Add("Value", PrintSettings, "SolidInfillExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
             nbSupportMaterialExtruder.DataBindings.Add("Value", PrintSettings, "SupportMaterialExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
             nbSupportMaterialInterfaceExtruder.DataBindings.Add("Value", PrintSettings, "SupportMaterialInterfaceExtruder", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxOozePrevention.DataBindings.Add("Checked", PrintSettings, "OozePrevention", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbOozePrevention.DataBindings.Add("Checked", PrintSettings, "OozePrevention", false, DataSourceUpdateMode.OnPropertyChanged);
             nbStandbyTemperatureDelta.DataBindings.Add("Value", PrintSettings, "StandbyTemperatureDelta", false, DataSourceUpdateMode.OnPropertyChanged);
-            cboxInterfaceShells.DataBindings.Add("Checked", PrintSettings, "InterfaceShells", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbInterfaceShells.DataBindings.Add("Checked", PrintSettings, "InterfaceShells", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        public void PrepareAdvanced()
+        {
+            tbExtrusionWidth.DataBindings.Add("Text", PrintSettings, "ExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbFirstLayerExtrusionWidth.DataBindings.Add("Text", PrintSettings, "FirstLayerExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPerimeterExtrusionWidth.DataBindings.Add("Text", PrintSettings, "PerimeterExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbExternalPerimeterExtrusionWidth.DataBindings.Add("Text", PrintSettings, "ExternalPerimeterExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbInfillExtrusionWidth.DataBindings.Add("Text", PrintSettings, "InfillExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSolidInfillExtrusionWidth.DataBindings.Add("Text", PrintSettings, "SolidInfillExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbTopInfillExtrusionWidth.DataBindings.Add("Text", PrintSettings, "TopInfillExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbSupportMaterialExtrusionWidth.DataBindings.Add("Text", PrintSettings, "SupportMaterialExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbInfillOverlap.DataBindings.Add("Text", PrintSettings, "InfillOverlap", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBridgeFlowRatio.DataBindings.Add("Text", PrintSettings, "BridgeFlowRatio", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbXySizeCompensation.DataBindings.Add("Text", PrintSettings, "XySizeCompensation", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbThreads.DataBindings.Add("Value", PrintSettings, "Threads", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbResolution.DataBindings.Add("Text", PrintSettings, "Resolution", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        public void PrepareOutputOptions()
+        {
+            gbExtruderClearance.DataBindings.Add("Enabled", PrintSettings, "CompleteObjects", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            cbCompleteObjects.DataBindings.Add("Checked", PrintSettings, "CompleteObjects", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbExtruderClearanceHeight.DataBindings.Add("Text", PrintSettings, "ExtruderClearanceHeight", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbExtruderClearanceRadius.DataBindings.Add("Text", PrintSettings, "ExtruderClearanceRadius", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbGcodeComments.DataBindings.Add("Checked", PrintSettings, "GcodeComments", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbOutputFilenameFormat.DataBindings.Add("Text", PrintSettings, "OutputFilenameFormat", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbPostProcess.DataBindings.Add("Text", PrintSettings, "PostProcess", false, DataSourceUpdateMode.OnPropertyChanged);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -184,6 +216,8 @@ namespace RepetierHost.view
             tlpSupportMaterial.Visible = false;
             tlpSpeed.Visible = false;
             tlpMultipleExtruders.Visible = false;
+            tlpAdvanced.Visible = false;
+            tlpOutputOptions.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
@@ -209,6 +243,14 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.MultipleExtruders:
                     tlpMultipleExtruders.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.Advanced:
+                    tlpAdvanced.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.OutputOptions:
+                    tlpOutputOptions.Visible = true;
                     break;
             }
         }
