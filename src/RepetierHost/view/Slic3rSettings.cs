@@ -65,6 +65,7 @@ namespace RepetierHost.view
             PrepareMultipleExtrudersBinding();
             PrepareAdvanced();
             PrepareOutputOptions();
+            PrepareNotes();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -200,7 +201,11 @@ namespace RepetierHost.view
             cbGcodeComments.DataBindings.Add("Checked", PrintSettings, "GcodeComments", false, DataSourceUpdateMode.OnPropertyChanged);
             tbOutputFilenameFormat.DataBindings.Add("Text", PrintSettings, "OutputFilenameFormat", false, DataSourceUpdateMode.OnPropertyChanged);
             tbPostProcess.DataBindings.Add("Text", PrintSettings, "PostProcess", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
 
+        public void PrepareNotes()
+        {
+            tbNotes.DataBindings.Add("Text", PrintSettings, "Notes", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -218,6 +223,7 @@ namespace RepetierHost.view
             tlpMultipleExtruders.Visible = false;
             tlpAdvanced.Visible = false;
             tlpOutputOptions.Visible = false;
+            tlpNotes.Visible = false;
 
             switch (lbPrintSettingsCategories.SelectedIndex)
             {
@@ -251,6 +257,10 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.OutputOptions:
                     tlpOutputOptions.Visible = true;
+                    break;
+
+                case (int)PrintSettingsCategory.Notes:
+                    tlpNotes.Visible = true;
                     break;
             }
         }
