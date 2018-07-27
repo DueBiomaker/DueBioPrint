@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RepetierHost.model.slic3r
 {
-    public class PrintSettings : INotifyPropertyChanged
+    public class PrintSettings : INotifyPropertyChanged, ISlic3rSettings
     {
         private const string DEFAULT_VALUE = "0";
         private const string TRUE_INT = "1";

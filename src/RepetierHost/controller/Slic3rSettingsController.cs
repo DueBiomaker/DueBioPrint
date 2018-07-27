@@ -27,12 +27,9 @@ namespace RepetierHost.controller
             SettingsPath = path;
         }
         
-        public PrintSettings LoadPrintProfile(string profile, PrintSettings printSettings = null)
+        public void LoadSettingsProfile(Slic3rSettingsCategory category, string profile, ISlic3rSettings slic3rSettings)
         {
-            if (printSettings == null)
-                printSettings = new PrintSettings();
-
-            string filePath = FileUtils.CreatePath(SettingsPath, PRINT_SETTINGS_SUBFOLDER, profile+CONFIG_EXTENSION);
+            string filePath = FileUtils.CreatePath(SettingsPath, GetCategoryFolder(category), profile+CONFIG_EXTENSION);
 
             FileInfo info = new FileInfo(filePath);
             if (info.Exists)
@@ -45,7 +42,7 @@ namespace RepetierHost.controller
                     {
                         var values = line.Split('=');
                         if (values.Count() == 2)
-                            printSettings.FillValue(values[0].Trim(), values[1].Trim());
+                            slic3rSettings.FillValue(values[0].Trim(), values[1].Trim());
                     }
                 }
             }
@@ -54,24 +51,22 @@ namespace RepetierHost.controller
                 throw new FileNotFoundException();
             }
 
-            printSettings.ProfileName = profile;
-            printSettings.FilePath = filePath;
-
-            return printSettings;
+            slic3rSettings.ProfileName = profile;
+            slic3rSettings.FilePath = filePath;
         }
 
-        public void SaveProfile(PrintSettings printSettings)
+        public void SaveProfile(ISlic3rSettings iSlic3rSettings)
         {
-            using (var fileStream = File.Open(printSettings.FilePath, FileMode.Create))
+            using (var fileStream = File.Open(iSlic3rSettings.FilePath, FileMode.Create))
             using (var streamReader = new StreamWriter(fileStream))
             {
-                streamReader.Write(printSettings.ToString());
+                streamReader.Write(iSlic3rSettings.ToString());
             }
         }
 
         public List<string> FindAvailableProfiles(Slic3rSettingsCategory category)
         {
-            string folder = FileUtils.CreatePath(SettingsPath, PRINT_SETTINGS_SUBFOLDER);
+            string folder = FileUtils.CreatePath(SettingsPath, GetCategoryFolder(category));
             DirectoryInfo di = new DirectoryInfo(folder);
 
             if (di.Exists)
@@ -87,9 +82,9 @@ namespace RepetierHost.controller
                 case Slic3rSettingsCategory.Print:
                     return PRINT_SETTINGS_SUBFOLDER;
                 case Slic3rSettingsCategory.Filament:
-                    return PRINT_SETTINGS_SUBFOLDER;
+                    return FILAMENT_SETTINGS_SUBFOLDER;
                 case Slic3rSettingsCategory.Printer:
-                    return PRINT_SETTINGS_SUBFOLDER;
+                    return PRINTER_SETTINGS_SUBFOLDER;
                 default:
                     throw new ArgumentOutOfRangeException("category");
             }

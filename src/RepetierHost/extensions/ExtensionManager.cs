@@ -2,12 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 
 namespace RepetierHost.extensions
 {
     public static class ExtensionManager
     {
+        private const int RGBMAX = 255;
+
+        public static String ToHex(this Color c)
+        {
+            return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        }
+
+        public static Color Invert(this Color ColourToInvert)
+        {
+            return Color.FromArgb(RGBMAX - ColourToInvert.R,
+              RGBMAX - ColourToInvert.G, RGBMAX - ColourToInvert.B);
+        }
+
         public static bool IsNullOrEmpty(this string value)
         {
             return value == null || value.Length == 0;

@@ -1,7 +1,9 @@
 ﻿using RepetierHost.controller;
+using RepetierHost.extensions;
 using RepetierHost.model.slic3r;
 using RepetierHost.util;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace RepetierHost.view
@@ -9,6 +11,7 @@ namespace RepetierHost.view
     public partial class Slic3rSettings : Form
     {
         private PrintSettings PrintSettings { get; set; }
+        private FilamentSettings FilamentSettings { get; set; }
         private Slic3rSettingsController SettingsController { get; set; }
 
         public Slic3rSettings()
@@ -16,7 +19,9 @@ namespace RepetierHost.view
             InitializeComponent();
             SettingsController = new Slic3rSettingsController(SettingsUtils.GetSlic3rDirectory());
             PrintSettings = new PrintSettings();
+            FilamentSettings = new FilamentSettings();
             PreparePrintBindings();
+            PrepareFilamentBindings();
             Customization();
         }
 
@@ -24,6 +29,12 @@ namespace RepetierHost.view
         {
             LoadAndFillProfileList();
             LoadProfiles();
+        }
+
+        private void LoadProfiles()
+        {
+            LoadProfile(Slic3rSettingsCategory.Print);
+            LoadProfile(Slic3rSettingsCategory.Filament);
         }
 
         public void Customization()
@@ -44,11 +55,31 @@ namespace RepetierHost.view
             cboxPrintProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Print).ToArray());
             cboxPrintProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxPrintProfiles.SelectedIndex = 0;
+
+            cboxFilamentProfiles.Items.Clear();
+            cboxFilamentProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Filament).ToArray());
+            cboxFilamentProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxFilamentProfiles.SelectedIndex = 0;
         }
 
-        public void LoadProfiles()
+        public void LoadProfile(Slic3rSettingsCategory category)
         {
-            PrintSettings = SettingsController.LoadPrintProfile(cboxPrintProfiles.Text, PrintSettings);
+            switch (category)
+            {
+                case Slic3rSettingsCategory.Print:
+                    SettingsController.LoadSettingsProfile(Slic3rSettingsCategory.Print, cboxPrintProfiles.Text, PrintSettings);
+                    break;
+
+                case Slic3rSettingsCategory.Filament:
+                    SettingsController.LoadSettingsProfile(Slic3rSettingsCategory.Filament, cboxFilamentProfiles.Text, FilamentSettings);
+                    break;
+
+                case Slic3rSettingsCategory.Printer:
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         public void PreparePrintBindings()
@@ -66,6 +97,15 @@ namespace RepetierHost.view
             PrepareAdvanced();
             PrepareOutputOptions();
             PrepareNotes();
+        }
+
+        public void PrepareFilamentBindings()
+        {
+            lbFilamentSettingsCategories.Items?.Clear();
+            lbFilamentSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<FilamentSettingsCategory>());
+            lbFilamentSettingsCategories.SelectedIndex = 0;
+
+            PrepareFilament();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -208,6 +248,22 @@ namespace RepetierHost.view
             tbNotes.DataBindings.Add("Text", PrintSettings, "Notes", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
+        public void PrepareFilament()
+        {
+            UpdateColorField();
+
+            tbFilamentColour.DataBindings.Add("BackColor", colorDialog, "Color", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            tbFilamentColour.DataBindings.Add("Text", FilamentSettings, "FilamentColour", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbFilamentDiameter.DataBindings.Add("Text", FilamentSettings, "FilamentDiameter", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbExtrusionMultiplier.DataBindings.Add("Text", FilamentSettings, "ExtrusionMultiplier", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            tbFirstLayerTemperature.DataBindings.Add("Text", FilamentSettings, "FirstLayerTemperature", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbTemperature.DataBindings.Add("Text", FilamentSettings, "Temperature", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbFirstLayerBedTemperature.DataBindings.Add("Text", FilamentSettings, "FirstLayerBedTemperature", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBedTemperature.DataBindings.Add("Text", FilamentSettings, "BedTemperature", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(PrintSettings.ToString());
@@ -278,12 +334,44 @@ namespace RepetierHost.view
 
         private void cboxPrintProfiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadProfiles();
+            LoadProfile(Slic3rSettingsCategory.Print);
+        }
+
+        private void cboxFilamentProfiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadProfile(Slic3rSettingsCategory.Filament);
         }
 
         private void btnSavePrintSettings_Click(object sender, EventArgs e)
         {
             SettingsController.SaveProfile(PrintSettings);
+        }
+
+        private void btnSaveFilamentSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.SaveProfile(FilamentSettings);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = colorDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                UpdateColorField();
+            }
+        }
+
+        private void UpdateColorField()
+        {
+            tbFilamentColour.BackColor = colorDialog.Color;
+            tbFilamentColour.ForeColor = colorDialog.Color.Invert();
+            tbFilamentColour.Text = colorDialog.Color.ToHex();
+        }
+
+        private void tbFilamentColour_TextChanged(object sender, EventArgs e)
+        {
+            colorDialog.Color = ColorTranslator.FromHtml(tbFilamentColour.Text);
+            UpdateColorField();
         }
     }
 }
