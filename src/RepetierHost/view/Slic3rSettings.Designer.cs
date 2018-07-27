@@ -279,6 +279,9 @@
             this.lblFillDensity = new System.Windows.Forms.Label();
             this.pageFilament = new System.Windows.Forms.TabPage();
             this.pagePrinter = new System.Windows.Forms.TabPage();
+            this.tlpNotes = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.tbNotes = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrint.SuspendLayout();
@@ -342,6 +345,8 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.tlpNotes.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -448,6 +453,7 @@
             this.tlpSettings.Controls.Add(this.tlpSpeed, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpAdvanced, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpLayers, 0, 0);
+            this.tlpSettings.Controls.Add(this.tlpNotes, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpOutputOptions, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpMultipleExtruders, 0, 0);
             this.tlpSettings.Controls.Add(this.tlpSkirt, 0, 4);
@@ -477,7 +483,7 @@
             this.tlpSupportMaterial.Controls.Add(this.cbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Controls.Add(this.gbSupportMaterial, 0, 0);
             this.tlpSupportMaterial.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 1875);
+            this.tlpSupportMaterial.Location = new System.Drawing.Point(3, 2499);
             this.tlpSupportMaterial.Name = "tlpSupportMaterial";
             this.tlpSupportMaterial.RowCount = 6;
             this.tlpSupportMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -783,7 +789,7 @@
             this.tlpSpeed.Controls.Add(this.gbPrint, 0, 0);
             this.tlpSpeed.Controls.Add(this.gbNonPrint, 0, 1);
             this.tlpSpeed.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSpeed.Location = new System.Drawing.Point(3, 2499);
+            this.tlpSpeed.Location = new System.Drawing.Point(3, 3123);
             this.tlpSpeed.Name = "tlpSpeed";
             this.tlpSpeed.RowCount = 7;
             this.tlpSpeed.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1388,7 +1394,7 @@
             this.tlpAdvanced.Controls.Add(this.groupBox12, 0, 0);
             this.tlpAdvanced.Controls.Add(this.groupBox13, 0, 1);
             this.tlpAdvanced.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpAdvanced.Location = new System.Drawing.Point(3, 3123);
+            this.tlpAdvanced.Location = new System.Drawing.Point(3, 3747);
             this.tlpAdvanced.Name = "tlpAdvanced";
             this.tlpAdvanced.RowCount = 7;
             this.tlpAdvanced.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1806,7 +1812,7 @@
             this.tlpLayers.Controls.Add(this.gbVerticalShells, 0, 1);
             this.tlpLayers.Controls.Add(this.gbLayerHeight, 0, 0);
             this.tlpLayers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpLayers.Location = new System.Drawing.Point(3, 3);
+            this.tlpLayers.Location = new System.Drawing.Point(3, 1875);
             this.tlpLayers.Name = "tlpLayers";
             this.tlpLayers.RowCount = 6;
             this.tlpLayers.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2122,6 +2128,7 @@
             this.tbPostProcess.Location = new System.Drawing.Point(11, 28);
             this.tbPostProcess.Multiline = true;
             this.tbPostProcess.Name = "tbPostProcess";
+            this.tbPostProcess.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbPostProcess.Size = new System.Drawing.Size(447, 107);
             this.tbPostProcess.TabIndex = 49;
             // 
@@ -2427,7 +2434,7 @@
             this.tlpSkirt.Controls.Add(this.groupBox2, 0, 1);
             this.tlpSkirt.Controls.Add(this.groupBox6, 0, 0);
             this.tlpSkirt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpSkirt.Location = new System.Drawing.Point(3, 4371);
+            this.tlpSkirt.Location = new System.Drawing.Point(3, 4995);
             this.tlpSkirt.Name = "tlpSkirt";
             this.tlpSkirt.RowCount = 6;
             this.tlpSkirt.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2503,8 +2510,11 @@
             this.lblMinSkirtLength.AutoSize = true;
             this.lblMinSkirtLength.Location = new System.Drawing.Point(188, 77);
             this.lblMinSkirtLength.Name = "lblMinSkirtLength";
-            this.lblMinSkirtLength.Size = new System.Drawing.Size(125, 13);
+            this.lblMinSkirtLength.Size = new System.Drawing.Size(0, 13);
             this.lblMinSkirtLength.TabIndex = 18;
+            // 
+            // label11
+            // 
             this.label11.Location = new System.Drawing.Point(297, 95);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(23, 13);
@@ -2580,14 +2590,17 @@
             this.lblSkirts.AutoSize = true;
             this.lblSkirts.Location = new System.Drawing.Point(8, 28);
             this.lblSkirts.Name = "lblSkirts";
-            this.lblSkirts.Size = new System.Drawing.Size(85, 13);
+            this.lblSkirts.Size = new System.Drawing.Size(0, 13);
             this.lblSkirts.TabIndex = 0;
+            // 
+            // tlpInfill
+            // 
             this.tlpInfill.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpInfill.Controls.Add(this.groupBox3, 0, 2);
             this.tlpInfill.Controls.Add(this.groupBox4, 0, 1);
             this.tlpInfill.Controls.Add(this.groupBox5, 0, 0);
             this.tlpInfill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpInfill.Location = new System.Drawing.Point(3, 3747);
+            this.tlpInfill.Location = new System.Drawing.Point(3, 4371);
             this.tlpInfill.Name = "tlpInfill";
             this.tlpInfill.RowCount = 6;
             this.tlpInfill.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2867,6 +2880,46 @@
             this.pagePrinter.Text = "Printer Settings";
             this.pagePrinter.UseVisualStyleBackColor = true;
             // 
+            // tlpNotes
+            // 
+            this.tlpNotes.ColumnCount = 1;
+            this.tlpNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpNotes.Controls.Add(this.groupBox15, 0, 5);
+            this.tlpNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpNotes.Location = new System.Drawing.Point(3, 3);
+            this.tlpNotes.Name = "tlpNotes";
+            this.tlpNotes.RowCount = 7;
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpNotes.Size = new System.Drawing.Size(524, 618);
+            this.tlpNotes.TabIndex = 9;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.tbNotes);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(3, 3);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(518, 150);
+            this.groupBox15.TabIndex = 23;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Notes";
+            // 
+            // tbNotes
+            // 
+            this.tbNotes.Location = new System.Drawing.Point(11, 28);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbNotes.Size = new System.Drawing.Size(447, 107);
+            this.tbNotes.TabIndex = 49;
+            // 
             // Slic3rSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2973,6 +3026,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tlpNotes.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3230,5 +3286,8 @@
         private System.Windows.Forms.TextBox tbExtruderClearanceRadius;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.TableLayoutPanel tlpNotes;
+        private System.Windows.Forms.GroupBox groupBox15;
+        private System.Windows.Forms.TextBox tbNotes;
     }
 }
