@@ -338,7 +338,6 @@ namespace RepetierHost
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
-            extensions.ExtensionManager.Initalize();
             if (conn.connector != null)
                 conn.connector.Activate();
             //TestTopoTriangle triTests = new TestTopoTriangle();
