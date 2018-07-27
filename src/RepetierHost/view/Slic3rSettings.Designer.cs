@@ -201,6 +201,9 @@
             this.tbFirstLayerHeight = new System.Windows.Forms.TextBox();
             this.tbLayerHeight = new System.Windows.Forms.TextBox();
             this.lblLayerHeight = new System.Windows.Forms.Label();
+            this.tlpNotes = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.tbNotes = new System.Windows.Forms.TextBox();
             this.tlpOutputOptions = new System.Windows.Forms.TableLayoutPanel();
             this.cbCompleteObjects = new System.Windows.Forms.CheckBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -279,9 +282,6 @@
             this.lblFillDensity = new System.Windows.Forms.Label();
             this.pageFilament = new System.Windows.Forms.TabPage();
             this.pagePrinter = new System.Windows.Forms.TabPage();
-            this.tlpNotes = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.tbNotes = new System.Windows.Forms.TextBox();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrint.SuspendLayout();
@@ -319,6 +319,8 @@
             this.gbVerticalShells.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).BeginInit();
             this.gbLayerHeight.SuspendLayout();
+            this.tlpNotes.SuspendLayout();
+            this.groupBox15.SuspendLayout();
             this.tlpOutputOptions.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox14.SuspendLayout();
@@ -345,8 +347,6 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.tlpNotes.SuspendLayout();
-            this.groupBox15.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -2079,6 +2079,46 @@
             this.lblLayerHeight.TabIndex = 0;
             this.lblLayerHeight.Text = "Layer height";
             // 
+            // tlpNotes
+            // 
+            this.tlpNotes.ColumnCount = 1;
+            this.tlpNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpNotes.Controls.Add(this.groupBox15, 0, 5);
+            this.tlpNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpNotes.Location = new System.Drawing.Point(3, 3);
+            this.tlpNotes.Name = "tlpNotes";
+            this.tlpNotes.RowCount = 7;
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpNotes.Size = new System.Drawing.Size(524, 618);
+            this.tlpNotes.TabIndex = 9;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.tbNotes);
+            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox15.Location = new System.Drawing.Point(3, 3);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(518, 150);
+            this.groupBox15.TabIndex = 23;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Notes";
+            // 
+            // tbNotes
+            // 
+            this.tbNotes.Location = new System.Drawing.Point(11, 28);
+            this.tbNotes.Multiline = true;
+            this.tbNotes.Name = "tbNotes";
+            this.tbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbNotes.Size = new System.Drawing.Size(447, 107);
+            this.tbNotes.TabIndex = 49;
+            // 
             // tlpOutputOptions
             // 
             this.tlpOutputOptions.ColumnCount = 1;
@@ -2314,6 +2354,16 @@
             // nbStandbyTemperatureDelta
             // 
             this.nbStandbyTemperatureDelta.Location = new System.Drawing.Point(191, 41);
+            this.nbStandbyTemperatureDelta.Maximum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            0});
+            this.nbStandbyTemperatureDelta.Minimum = new decimal(new int[] {
+            400,
+            0,
+            0,
+            -2147483648});
             this.nbStandbyTemperatureDelta.Name = "nbStandbyTemperatureDelta";
             this.nbStandbyTemperatureDelta.Size = new System.Drawing.Size(100, 20);
             this.nbStandbyTemperatureDelta.TabIndex = 23;
@@ -2880,46 +2930,6 @@
             this.pagePrinter.Text = "Printer Settings";
             this.pagePrinter.UseVisualStyleBackColor = true;
             // 
-            // tlpNotes
-            // 
-            this.tlpNotes.ColumnCount = 1;
-            this.tlpNotes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpNotes.Controls.Add(this.groupBox15, 0, 5);
-            this.tlpNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpNotes.Location = new System.Drawing.Point(3, 3);
-            this.tlpNotes.Name = "tlpNotes";
-            this.tlpNotes.RowCount = 7;
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpNotes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpNotes.Size = new System.Drawing.Size(524, 618);
-            this.tlpNotes.TabIndex = 9;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.tbNotes);
-            this.groupBox15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox15.Location = new System.Drawing.Point(3, 3);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(518, 150);
-            this.groupBox15.TabIndex = 23;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Notes";
-            // 
-            // tbNotes
-            // 
-            this.tbNotes.Location = new System.Drawing.Point(11, 28);
-            this.tbNotes.Multiline = true;
-            this.tbNotes.Name = "tbNotes";
-            this.tbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbNotes.Size = new System.Drawing.Size(447, 107);
-            this.tbNotes.TabIndex = 49;
-            // 
             // Slic3rSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2988,6 +2998,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbPerimeters)).EndInit();
             this.gbLayerHeight.ResumeLayout(false);
             this.gbLayerHeight.PerformLayout();
+            this.tlpNotes.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.tlpOutputOptions.ResumeLayout(false);
             this.tlpOutputOptions.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -3026,9 +3039,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbInfillEveryLayers)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.tlpNotes.ResumeLayout(false);
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
             this.ResumeLayout(false);
 
         }
