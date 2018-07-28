@@ -106,6 +106,7 @@ namespace RepetierHost.view
             lbFilamentSettingsCategories.SelectedIndex = 0;
 
             PrepareFilament();
+            PrepareCooling();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -264,6 +265,31 @@ namespace RepetierHost.view
             tbBedTemperature.DataBindings.Add("Text", FilamentSettings, "BedTemperature", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
+        public void PrepareCooling()
+        {
+            lblCoolingText.DataBindings.Add("Text", FilamentSettings, "CoolingDescription", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            cbFanAlwaysOn.DataBindings.Add("Checked", FilamentSettings, "FanAlwaysOn", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbCooling.DataBindings.Add("Checked", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbMinFanSpeed.DataBindings.Add("Value", FilamentSettings, "MinFanSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbMaxFanSpeed.DataBindings.Add("Value", FilamentSettings, "MaxFanSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbBridgeFanSpeed.DataBindings.Add("Value", FilamentSettings, "BridgeFanSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbDisableFanFirstLayers.DataBindings.Add("Value", FilamentSettings, "DisableFanFirstLayers", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbFanBelowLayerTime.DataBindings.Add("Value", FilamentSettings, "FanBelowLayerTime", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSlowdownBelowLayerTime.DataBindings.Add("Value", FilamentSettings, "SlowdownBelowLayerTime", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbMinPrintSpeed.DataBindings.Add("Value", FilamentSettings, "MinPrintSpeed", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbMinFanSpeed.DataBindings.Add("Enabled", FilamentSettings, "FanSettingsEnabled", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbMaxFanSpeed.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbDisableFanFirstLayers.DataBindings.Add("Enabled", FilamentSettings, "FanSettingsEnabled", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbFanBelowLayerTime.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbSlowdownBelowLayerTime.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbMinPrintSpeed.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(PrintSettings.ToString());
@@ -317,6 +343,23 @@ namespace RepetierHost.view
 
                 case (int)PrintSettingsCategory.Notes:
                     tlpNotes.Visible = true;
+                    break;
+            }
+        }
+
+        private void lbFilamentSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tlpFilament.Visible = false;
+            tlpCooling.Visible = false;
+
+            switch (lbFilamentSettingsCategories.SelectedIndex)
+            {
+                case (int)FilamentSettingsCategory.Filament:
+                    tlpFilament.Visible = true;
+                    break;
+
+                case (int)FilamentSettingsCategory.Cooling:
+                    tlpCooling.Visible = true;
                     break;
             }
         }

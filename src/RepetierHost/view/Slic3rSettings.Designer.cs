@@ -288,37 +288,6 @@
             this.btnSaveFilamentSettings = new System.Windows.Forms.Button();
             this.cboxFilamentProfiles = new System.Windows.Forms.ComboBox();
             this.tlpFilamentSettings = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpCooling = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label101 = new System.Windows.Forms.Label();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.label102 = new System.Windows.Forms.Label();
-            this.label103 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.label104 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.label105 = new System.Windows.Forms.Label();
-            this.label106 = new System.Windows.Forms.Label();
             this.tlpFilament = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.label119 = new System.Windows.Forms.Label();
@@ -340,6 +309,34 @@
             this.label142 = new System.Windows.Forms.Label();
             this.tbFilamentColour = new System.Windows.Forms.TextBox();
             this.label144 = new System.Windows.Forms.Label();
+            this.tlpCooling = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
+            this.nbMinPrintSpeed = new System.Windows.Forms.NumericUpDown();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.nbSlowdownBelowLayerTime = new System.Windows.Forms.NumericUpDown();
+            this.label102 = new System.Windows.Forms.Label();
+            this.label103 = new System.Windows.Forms.Label();
+            this.nbFanBelowLayerTime = new System.Windows.Forms.NumericUpDown();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.nbDisableFanFirstLayers = new System.Windows.Forms.NumericUpDown();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.nbBridgeFanSpeed = new System.Windows.Forms.NumericUpDown();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.nbMaxFanSpeed = new System.Windows.Forms.NumericUpDown();
+            this.nbMinFanSpeed = new System.Windows.Forms.NumericUpDown();
+            this.label105 = new System.Windows.Forms.Label();
+            this.label106 = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.lblCoolingText = new System.Windows.Forms.Label();
+            this.cbCooling = new System.Windows.Forms.CheckBox();
+            this.cbFanAlwaysOn = new System.Windows.Forms.CheckBox();
             this.pagePrinter = new System.Windows.Forms.TabPage();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.tabControl.SuspendLayout();
@@ -412,16 +409,6 @@
             this.tlpFilamentCategories.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tlpFilamentSettings.SuspendLayout();
-            this.tlpCooling.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            this.groupBox17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.groupBox18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
             this.tlpFilament.SuspendLayout();
             this.groupBox19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbFirstLayerBedTemperature)).BeginInit();
@@ -429,6 +416,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbBedTemperature)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbFirstLayerTemperature)).BeginInit();
             this.groupBox22.SuspendLayout();
+            this.tlpCooling.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMinPrintSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSlowdownBelowLayerTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFanBelowLayerTime)).BeginInit();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbDisableFanFirstLayers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBridgeFanSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMaxFanSpeed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMinFanSpeed)).BeginInit();
+            this.groupBox16.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -3043,6 +3041,7 @@
             this.lbFilamentSettingsCategories.Name = "lbFilamentSettingsCategories";
             this.lbFilamentSettingsCategories.Size = new System.Drawing.Size(238, 567);
             this.lbFilamentSettingsCategories.TabIndex = 0;
+            this.lbFilamentSettingsCategories.SelectedIndexChanged += new System.EventHandler(this.lbFilamentSettingsCategories_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -3079,8 +3078,8 @@
             // 
             this.tlpFilamentSettings.ColumnCount = 1;
             this.tlpFilamentSettings.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFilamentSettings.Controls.Add(this.tlpCooling, 0, 0);
             this.tlpFilamentSettings.Controls.Add(this.tlpFilament, 0, 0);
+            this.tlpFilamentSettings.Controls.Add(this.tlpCooling, 0, 0);
             this.tlpFilamentSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpFilamentSettings.Location = new System.Drawing.Point(253, 3);
             this.tlpFilamentSettings.Name = "tlpFilamentSettings";
@@ -3097,311 +3096,6 @@
             this.tlpFilamentSettings.Size = new System.Drawing.Size(530, 618);
             this.tlpFilamentSettings.TabIndex = 3;
             // 
-            // tlpCooling
-            // 
-            this.tlpCooling.ColumnCount = 1;
-            this.tlpCooling.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCooling.Controls.Add(this.groupBox16, 0, 3);
-            this.tlpCooling.Controls.Add(this.groupBox17, 0, 1);
-            this.tlpCooling.Controls.Add(this.checkBox2, 0, 0);
-            this.tlpCooling.Controls.Add(this.groupBox18, 0, 0);
-            this.tlpCooling.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpCooling.Location = new System.Drawing.Point(3, 627);
-            this.tlpCooling.Name = "tlpCooling";
-            this.tlpCooling.RowCount = 6;
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCooling.Size = new System.Drawing.Size(524, 618);
-            this.tlpCooling.TabIndex = 4;
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.comboBox2);
-            this.groupBox16.Controls.Add(this.checkBox1);
-            this.groupBox16.Controls.Add(this.label50);
-            this.groupBox16.Controls.Add(this.label51);
-            this.groupBox16.Controls.Add(this.label62);
-            this.groupBox16.Controls.Add(this.textBox1);
-            this.groupBox16.Controls.Add(this.label63);
-            this.groupBox16.Controls.Add(this.textBox2);
-            this.groupBox16.Controls.Add(this.label67);
-            this.groupBox16.Controls.Add(this.label77);
-            this.groupBox16.Controls.Add(this.label78);
-            this.groupBox16.Controls.Add(this.numericUpDown1);
-            this.groupBox16.Controls.Add(this.numericUpDown2);
-            this.groupBox16.Controls.Add(this.numericUpDown3);
-            this.groupBox16.Controls.Add(this.label80);
-            this.groupBox16.Controls.Add(this.label81);
-            this.groupBox16.Controls.Add(this.label82);
-            this.groupBox16.Controls.Add(this.label101);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox16.Location = new System.Drawing.Point(3, 198);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(518, 230);
-            this.groupBox16.TabIndex = 21;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Options for support material and raft";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(191, 42);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(101, 21);
-            this.comboBox2.TabIndex = 22;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 179);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(126, 17);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Don\'t support bridges";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(188, 129);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(125, 13);
-            this.label50.TabIndex = 18;
-            this.label50.Text = "Interface pattern spacing";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(297, 147);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(23, 13);
-            this.label51.TabIndex = 20;
-            this.label51.Text = "mm";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(188, 77);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(70, 13);
-            this.label62.TabIndex = 18;
-            this.label62.Text = "Pattern angle";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(191, 145);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 19;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(297, 95);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(11, 13);
-            this.label63.TabIndex = 20;
-            this.label63.Text = "°";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(11, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 19;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(116, 147);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(34, 13);
-            this.label67.TabIndex = 17;
-            this.label67.Text = "layers";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(116, 95);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(23, 13);
-            this.label77.TabIndex = 17;
-            this.label77.Text = "mm";
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(117, 46);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(23, 13);
-            this.label78.TabIndex = 15;
-            this.label78.Text = "mm";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(11, 145);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 11;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(191, 93);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown2.TabIndex = 11;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(11, 43);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown3.TabIndex = 10;
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(188, 27);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(41, 13);
-            this.label80.TabIndex = 8;
-            this.label80.Text = "Pattern";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(8, 129);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(79, 13);
-            this.label81.TabIndex = 3;
-            this.label81.Text = "Interface layers";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(8, 77);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(81, 13);
-            this.label82.TabIndex = 3;
-            this.label82.Text = "Pattern spacing";
-            // 
-            // label101
-            // 
-            this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(8, 28);
-            this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(97, 13);
-            this.label101.TabIndex = 0;
-            this.label101.Text = "Contact Z distance";
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.label102);
-            this.groupBox17.Controls.Add(this.label103);
-            this.groupBox17.Controls.Add(this.numericUpDown4);
-            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(3, 112);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(518, 80);
-            this.groupBox17.TabIndex = 1;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Raft";
-            // 
-            // label102
-            // 
-            this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(116, 45);
-            this.label102.Name = "label102";
-            this.label102.Size = new System.Drawing.Size(34, 13);
-            this.label102.TabIndex = 22;
-            this.label102.Text = "layers";
-            // 
-            // label103
-            // 
-            this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(8, 27);
-            this.label103.Name = "label103";
-            this.label103.Size = new System.Drawing.Size(57, 13);
-            this.label103.TabIndex = 13;
-            this.label103.Text = "Raft layers";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(11, 43);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown4.TabIndex = 21;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 3);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(147, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Generate support material";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.label104);
-            this.groupBox18.Controls.Add(this.numericUpDown5);
-            this.groupBox18.Controls.Add(this.numericUpDown6);
-            this.groupBox18.Controls.Add(this.label105);
-            this.groupBox18.Controls.Add(this.label106);
-            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox18.Location = new System.Drawing.Point(3, 26);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(518, 80);
-            this.groupBox18.TabIndex = 0;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Support Material";
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(296, 45);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(34, 13);
-            this.label104.TabIndex = 24;
-            this.label104.Text = "layers";
-            // 
-            // numericUpDown5
-            // 
-            this.numericUpDown5.Location = new System.Drawing.Point(191, 43);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown5.TabIndex = 23;
-            // 
-            // numericUpDown6
-            // 
-            this.numericUpDown6.Location = new System.Drawing.Point(11, 43);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown6.TabIndex = 10;
-            // 
-            // label105
-            // 
-            this.label105.AutoSize = true;
-            this.label105.Location = new System.Drawing.Point(188, 27);
-            this.label105.Name = "label105";
-            this.label105.Size = new System.Drawing.Size(137, 13);
-            this.label105.TabIndex = 8;
-            this.label105.Text = "Enforce support  for the first";
-            // 
-            // label106
-            // 
-            this.label106.AutoSize = true;
-            this.label106.Location = new System.Drawing.Point(8, 28);
-            this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(100, 13);
-            this.label106.TabIndex = 0;
-            this.label106.Text = "Overhang threshold";
-            // 
             // tlpFilament
             // 
             this.tlpFilament.ColumnCount = 1;
@@ -3409,7 +3103,7 @@
             this.tlpFilament.Controls.Add(this.groupBox19, 0, 5);
             this.tlpFilament.Controls.Add(this.groupBox22, 0, 0);
             this.tlpFilament.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpFilament.Location = new System.Drawing.Point(3, 3);
+            this.tlpFilament.Location = new System.Drawing.Point(3, 627);
             this.tlpFilament.Name = "tlpFilament";
             this.tlpFilament.RowCount = 7;
             this.tlpFilament.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -3633,6 +3327,284 @@
             this.label144.TabIndex = 3;
             this.label144.Text = "Color";
             // 
+            // tlpCooling
+            // 
+            this.tlpCooling.ColumnCount = 1;
+            this.tlpCooling.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCooling.Controls.Add(this.groupBox17, 0, 1);
+            this.tlpCooling.Controls.Add(this.groupBox18, 0, 0);
+            this.tlpCooling.Controls.Add(this.groupBox16, 0, 0);
+            this.tlpCooling.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCooling.Location = new System.Drawing.Point(3, 3);
+            this.tlpCooling.Name = "tlpCooling";
+            this.tlpCooling.RowCount = 6;
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCooling.Size = new System.Drawing.Size(524, 618);
+            this.tlpCooling.TabIndex = 4;
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.label82);
+            this.groupBox17.Controls.Add(this.label101);
+            this.groupBox17.Controls.Add(this.nbMinPrintSpeed);
+            this.groupBox17.Controls.Add(this.label80);
+            this.groupBox17.Controls.Add(this.label81);
+            this.groupBox17.Controls.Add(this.nbSlowdownBelowLayerTime);
+            this.groupBox17.Controls.Add(this.label102);
+            this.groupBox17.Controls.Add(this.label103);
+            this.groupBox17.Controls.Add(this.nbFanBelowLayerTime);
+            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox17.Location = new System.Drawing.Point(3, 295);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(518, 180);
+            this.groupBox17.TabIndex = 1;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Raft";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(116, 143);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(33, 13);
+            this.label82.TabIndex = 28;
+            this.label82.Text = "mm/s";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(8, 125);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(79, 13);
+            this.label101.TabIndex = 26;
+            this.label101.Text = "Min print speed";
+            // 
+            // nbMinPrintSpeed
+            // 
+            this.nbMinPrintSpeed.Location = new System.Drawing.Point(11, 141);
+            this.nbMinPrintSpeed.Name = "nbMinPrintSpeed";
+            this.nbMinPrintSpeed.Size = new System.Drawing.Size(100, 20);
+            this.nbMinPrintSpeed.TabIndex = 27;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(117, 93);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(47, 13);
+            this.label80.TabIndex = 25;
+            this.label80.Text = "seconds";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(9, 75);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(177, 13);
+            this.label81.TabIndex = 23;
+            this.label81.Text = "Enable fan if layer print time is below";
+            // 
+            // nbSlowdownBelowLayerTime
+            // 
+            this.nbSlowdownBelowLayerTime.Location = new System.Drawing.Point(12, 91);
+            this.nbSlowdownBelowLayerTime.Name = "nbSlowdownBelowLayerTime";
+            this.nbSlowdownBelowLayerTime.Size = new System.Drawing.Size(100, 20);
+            this.nbSlowdownBelowLayerTime.TabIndex = 24;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(116, 43);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(47, 13);
+            this.label102.TabIndex = 22;
+            this.label102.Text = "seconds";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(8, 25);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(177, 13);
+            this.label103.TabIndex = 13;
+            this.label103.Text = "Enable fan if layer print time is below";
+            // 
+            // nbFanBelowLayerTime
+            // 
+            this.nbFanBelowLayerTime.Location = new System.Drawing.Point(11, 41);
+            this.nbFanBelowLayerTime.Name = "nbFanBelowLayerTime";
+            this.nbFanBelowLayerTime.Size = new System.Drawing.Size(100, 20);
+            this.nbFanBelowLayerTime.TabIndex = 21;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.label77);
+            this.groupBox18.Controls.Add(this.nbDisableFanFirstLayers);
+            this.groupBox18.Controls.Add(this.label78);
+            this.groupBox18.Controls.Add(this.label63);
+            this.groupBox18.Controls.Add(this.nbBridgeFanSpeed);
+            this.groupBox18.Controls.Add(this.label67);
+            this.groupBox18.Controls.Add(this.label62);
+            this.groupBox18.Controls.Add(this.label51);
+            this.groupBox18.Controls.Add(this.nbMaxFanSpeed);
+            this.groupBox18.Controls.Add(this.nbMinFanSpeed);
+            this.groupBox18.Controls.Add(this.label105);
+            this.groupBox18.Controls.Add(this.label106);
+            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox18.Location = new System.Drawing.Point(3, 169);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(518, 120);
+            this.groupBox18.TabIndex = 0;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Fan settings";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(294, 92);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(34, 13);
+            this.label77.TabIndex = 32;
+            this.label77.Text = "layers";
+            // 
+            // nbDisableFanFirstLayers
+            // 
+            this.nbDisableFanFirstLayers.Location = new System.Drawing.Point(191, 90);
+            this.nbDisableFanFirstLayers.Name = "nbDisableFanFirstLayers";
+            this.nbDisableFanFirstLayers.Size = new System.Drawing.Size(100, 20);
+            this.nbDisableFanFirstLayers.TabIndex = 31;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(188, 75);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(112, 13);
+            this.label78.TabIndex = 30;
+            this.label78.Text = "Disable fan for the first";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(114, 92);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(15, 13);
+            this.label63.TabIndex = 29;
+            this.label63.Text = "%";
+            // 
+            // nbBridgeFanSpeed
+            // 
+            this.nbBridgeFanSpeed.Location = new System.Drawing.Point(11, 90);
+            this.nbBridgeFanSpeed.Name = "nbBridgeFanSpeed";
+            this.nbBridgeFanSpeed.Size = new System.Drawing.Size(100, 20);
+            this.nbBridgeFanSpeed.TabIndex = 28;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(8, 75);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(92, 13);
+            this.label67.TabIndex = 27;
+            this.label67.Text = "Bridges fan speed";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(297, 42);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(15, 13);
+            this.label62.TabIndex = 26;
+            this.label62.Text = "%";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(114, 42);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(15, 13);
+            this.label51.TabIndex = 25;
+            this.label51.Text = "%";
+            // 
+            // nbMaxFanSpeed
+            // 
+            this.nbMaxFanSpeed.Location = new System.Drawing.Point(191, 40);
+            this.nbMaxFanSpeed.Name = "nbMaxFanSpeed";
+            this.nbMaxFanSpeed.Size = new System.Drawing.Size(100, 20);
+            this.nbMaxFanSpeed.TabIndex = 23;
+            // 
+            // nbMinFanSpeed
+            // 
+            this.nbMinFanSpeed.Location = new System.Drawing.Point(11, 40);
+            this.nbMinFanSpeed.Name = "nbMinFanSpeed";
+            this.nbMinFanSpeed.Size = new System.Drawing.Size(100, 20);
+            this.nbMinFanSpeed.TabIndex = 10;
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Location = new System.Drawing.Point(188, 24);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(59, 13);
+            this.label105.TabIndex = 8;
+            this.label105.Text = "Max speed";
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Location = new System.Drawing.Point(8, 25);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(56, 13);
+            this.label106.TabIndex = 0;
+            this.label106.Text = "Min speed";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.lblCoolingText);
+            this.groupBox16.Controls.Add(this.cbCooling);
+            this.groupBox16.Controls.Add(this.cbFanAlwaysOn);
+            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox16.Location = new System.Drawing.Point(3, 3);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(518, 160);
+            this.groupBox16.TabIndex = 21;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Enable";
+            // 
+            // lblCoolingText
+            // 
+            this.lblCoolingText.AutoSize = true;
+            this.lblCoolingText.Location = new System.Drawing.Point(8, 75);
+            this.lblCoolingText.MaximumSize = new System.Drawing.Size(500, 0);
+            this.lblCoolingText.Name = "lblCoolingText";
+            this.lblCoolingText.Size = new System.Drawing.Size(0, 13);
+            this.lblCoolingText.TabIndex = 23;
+            // 
+            // cbCooling
+            // 
+            this.cbCooling.AutoSize = true;
+            this.cbCooling.Location = new System.Drawing.Point(11, 42);
+            this.cbCooling.Name = "cbCooling";
+            this.cbCooling.Size = new System.Drawing.Size(120, 17);
+            this.cbCooling.TabIndex = 22;
+            this.cbCooling.Text = "Enable auto cooling";
+            this.cbCooling.UseVisualStyleBackColor = true;
+            // 
+            // cbFanAlwaysOn
+            // 
+            this.cbFanAlwaysOn.AutoSize = true;
+            this.cbFanAlwaysOn.Location = new System.Drawing.Point(11, 19);
+            this.cbFanAlwaysOn.Name = "cbFanAlwaysOn";
+            this.cbFanAlwaysOn.Size = new System.Drawing.Size(119, 17);
+            this.cbFanAlwaysOn.TabIndex = 21;
+            this.cbFanAlwaysOn.Text = "Keep fan always on";
+            this.cbFanAlwaysOn.UseVisualStyleBackColor = true;
+            // 
             // pagePrinter
             // 
             this.pagePrinter.Location = new System.Drawing.Point(4, 22);
@@ -3758,20 +3730,6 @@
             this.tlpFilamentCategories.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tlpFilamentSettings.ResumeLayout(false);
-            this.tlpCooling.ResumeLayout(false);
-            this.tlpCooling.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
             this.tlpFilament.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
@@ -3781,6 +3739,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbFirstLayerTemperature)).EndInit();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
+            this.tlpCooling.ResumeLayout(false);
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMinPrintSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbSlowdownBelowLayerTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbFanBelowLayerTime)).EndInit();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbDisableFanFirstLayers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBridgeFanSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMaxFanSpeed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbMinFanSpeed)).EndInit();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4050,33 +4022,14 @@
         private System.Windows.Forms.TableLayoutPanel tlpFilamentSettings;
         private System.Windows.Forms.TableLayoutPanel tlpCooling;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.CheckBox cbFanAlwaysOn;
         private System.Windows.Forms.GroupBox groupBox17;
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.Label label103;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.NumericUpDown nbFanBelowLayerTime;
         private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.Label label104;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
+        private System.Windows.Forms.NumericUpDown nbMaxFanSpeed;
+        private System.Windows.Forms.NumericUpDown nbMinFanSpeed;
         private System.Windows.Forms.Label label105;
         private System.Windows.Forms.Label label106;
         private System.Windows.Forms.TableLayoutPanel tlpFilament;
@@ -4101,5 +4054,21 @@
         private System.Windows.Forms.NumericUpDown tbTemperature;
         private System.Windows.Forms.NumericUpDown tbBedTemperature;
         private System.Windows.Forms.NumericUpDown tbFirstLayerTemperature;
+        private System.Windows.Forms.Label lblCoolingText;
+        private System.Windows.Forms.CheckBox cbCooling;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.NumericUpDown nbMinPrintSpeed;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.NumericUpDown nbSlowdownBelowLayerTime;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.NumericUpDown nbDisableFanFirstLayers;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.NumericUpDown nbBridgeFanSpeed;
+        private System.Windows.Forms.Label label67;
     }
 }

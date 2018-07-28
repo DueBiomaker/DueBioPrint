@@ -13,8 +13,50 @@ namespace RepetierHost.model.slic3r
         private const string DEFAULT_COLOR = "#FFFFFF";
         private const string TRUE_INT = "1";
 
+        private const string TEXT_FAN_TURNED_OFF = "Fan will be turned off.";
+        private const string TEXT_FAN_ALWAYS_ON = "Fan will always run at {0}% except for the first {1} layers.";
+
+        private const string TEXT_COOLING = "If estimated layer time is below ~{0}s, fan will run at {1}% and print speed will be reduced so that no less than {0}s are spent on that layer(however, speed will never be reduced below {2}mm/s).\n" +
+                                            "If estimated layer time is greater, but still below ~{3}s, fan will run at a proportionally decreasing speed between {1}% and {4}%.\n";
+        private const string TEXT_FOOTER_ALWAYS_ON = "During the other layers, fan will always run at {0}% except for the first {1} layers.";
+
+        private const string TEXT_FOOTER = "During the other layers, fan will be turned off.";
+
+        public string CoolingDescription
+        {
+            get
+            {
+                StringBuilder builder = new StringBuilder();
+
+                if (!FanAlwaysOn && !Cooling)
+                    builder.Append(TEXT_FAN_TURNED_OFF);
+                else if (FanAlwaysOn && !Cooling)
+                    builder.AppendFormat(TEXT_FAN_ALWAYS_ON, MinFanSpeed, DisableFanFirstLayers);
+                else if (!FanAlwaysOn && Cooling)
+                {
+                    builder.AppendFormat(TEXT_COOLING, SlowdownBelowLayerTime, MaxFanSpeed, MinPrintSpeed, FanBelowLayerTime, MinFanSpeed);
+                    builder.Append(TEXT_FOOTER);
+                }
+                else
+                {
+                    builder.AppendFormat(TEXT_COOLING, SlowdownBelowLayerTime, MaxFanSpeed, MinPrintSpeed, FanBelowLayerTime, MinFanSpeed);
+                    builder.AppendFormat(TEXT_FOOTER_ALWAYS_ON, MinFanSpeed, DisableFanFirstLayers);
+                }
+
+                return builder.ToString();
+            }
+        }
+
         public string ProfileName { get; set; }
         public string FilePath { get; set; }
+
+        public bool FanSettingsEnabled
+        {
+            get
+            {
+                return FanAlwaysOn || Cooling;
+            }
+        }
 
         // Filament
         private string _FilamentColour;
@@ -117,32 +159,34 @@ namespace RepetierHost.model.slic3r
         }
 
         // Cooling
-        private string _FanAlwaysOn;
+        private bool _FanAlwaysOn;
 
-        public string FanAlwaysOn 
+        public bool FanAlwaysOn 
         {
             get
             {
-                return _FanAlwaysOn ?? DEFAULT_VALUE;
+                return _FanAlwaysOn;
             }
             set
             {
                 _FanAlwaysOn = value;
                 OnPropertyChanged("FanAlwaysOn");
+                OnPropertyChanged("CoolingDescription");
             }
         }
-        private string _Cooling;
+        private bool _Cooling;
 
-        public string Cooling 
+        public bool Cooling 
         {
             get
             {
-                return _Cooling ?? DEFAULT_VALUE;
+                return _Cooling;
             }
             set
             {
                 _Cooling = value;
                 OnPropertyChanged("Cooling");
+                OnPropertyChanged("CoolingDescription");
             }
         }
         private string _MaxFanSpeed;
@@ -286,7 +330,7 @@ namespace RepetierHost.model.slic3r
                     BridgeFanSpeed = input;
                     break;
                 case "cooling":
-                    Cooling = input;
+                    Cooling = input.Equals(TRUE_INT);
                     break;
                 case "disable_fan_first_layers":
                     DisableFanFirstLayers = input;
@@ -295,7 +339,7 @@ namespace RepetierHost.model.slic3r
                     ExtrusionMultiplier = input;
                     break;
                 case "fan_always_on":
-                    FanAlwaysOn = input;
+                    FanAlwaysOn = input.Equals(TRUE_INT);
                     break;
                 case "fan_below_layer_time":
                     FanBelowLayerTime = input;
