@@ -345,32 +345,19 @@
             this.btnSavePrinterSettings = new System.Windows.Forms.Button();
             this.cboxPrinterProfiles = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tlpCustomGcode = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.label104 = new System.Windows.Forms.Label();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label109 = new System.Windows.Forms.Label();
-            this.label113 = new System.Windows.Forms.Label();
-            this.label115 = new System.Windows.Forms.Label();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label117 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label120 = new System.Windows.Forms.Label();
-            this.label121 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label122 = new System.Windows.Forms.Label();
             this.tlpGeneral = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.label127 = new System.Windows.Forms.Label();
+            this.nbVibrationLimit = new System.Windows.Forms.NumericUpDown();
+            this.label126 = new System.Windows.Forms.Label();
+            this.nbPressureAdvance = new System.Windows.Forms.NumericUpDown();
+            this.label125 = new System.Windows.Forms.Label();
+            this.cbUseVolumetricE = new System.Windows.Forms.CheckBox();
+            this.cbUseFirmwareRetraction = new System.Windows.Forms.CheckBox();
+            this.cbUseRelativeEDistances = new System.Windows.Forms.CheckBox();
             this.gbFirmware = new System.Windows.Forms.GroupBox();
             this.cboxGcodeFlavor = new System.Windows.Forms.ComboBox();
             this.label124 = new System.Windows.Forms.Label();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.gbOctoPrint = new System.Windows.Forms.GroupBox();
             this.tbOctoprintApikey = new System.Windows.Forms.TextBox();
             this.label123 = new System.Windows.Forms.Label();
@@ -390,15 +377,18 @@
             this.nbBedXSize = new System.Windows.Forms.NumericUpDown();
             this.label137 = new System.Windows.Forms.Label();
             this.label138 = new System.Windows.Forms.Label();
+            this.tlpCustomGcode = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.tbToolchangeGcode = new System.Windows.Forms.TextBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.tbLayerGcode = new System.Windows.Forms.TextBox();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.tbBeforeLayerGcode = new System.Windows.Forms.TextBox();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.tbStartGcode = new System.Windows.Forms.TextBox();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.tbEndGcode = new System.Windows.Forms.TextBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.cbUseRelativeEDistances = new System.Windows.Forms.CheckBox();
-            this.cbUseFirmwareRetraction = new System.Windows.Forms.CheckBox();
-            this.cbUseVolumetricE = new System.Windows.Forms.CheckBox();
-            this.nbPressureAdvance = new System.Windows.Forms.NumericUpDown();
-            this.label125 = new System.Windows.Forms.Label();
-            this.nbVibrationLimit = new System.Windows.Forms.NumericUpDown();
-            this.label126 = new System.Windows.Forms.Label();
-            this.label127 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrintPage.SuspendLayout();
@@ -492,16 +482,11 @@
             this.tlpPrinterCategories.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tlpCustomGcode.SuspendLayout();
-            this.groupBox20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            this.groupBox21.SuspendLayout();
             this.tlpGeneral.SuspendLayout();
-            this.gbFirmware.SuspendLayout();
             this.groupBox26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).BeginInit();
+            this.gbFirmware.SuspendLayout();
             this.gbOctoPrint.SuspendLayout();
             this.gbCapabilities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nbExtruderCount)).BeginInit();
@@ -511,8 +496,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbBedXOrigin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbBedYSize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbBedXSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).BeginInit();
+            this.tlpCustomGcode.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox21.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -3779,8 +3768,8 @@
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Controls.Add(this.tlpCustomGcode, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tlpGeneral, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tlpCustomGcode, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(253, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -3797,235 +3786,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(530, 618);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
-            // tlpCustomGcode
-            // 
-            this.tlpCustomGcode.ColumnCount = 1;
-            this.tlpCustomGcode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpCustomGcode.Controls.Add(this.groupBox20, 0, 5);
-            this.tlpCustomGcode.Controls.Add(this.groupBox21, 0, 0);
-            this.tlpCustomGcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpCustomGcode.Location = new System.Drawing.Point(3, 627);
-            this.tlpCustomGcode.Name = "tlpCustomGcode";
-            this.tlpCustomGcode.RowCount = 7;
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpCustomGcode.Size = new System.Drawing.Size(524, 618);
-            this.tlpCustomGcode.TabIndex = 5;
-            // 
-            // groupBox20
-            // 
-            this.groupBox20.Controls.Add(this.label50);
-            this.groupBox20.Controls.Add(this.numericUpDown1);
-            this.groupBox20.Controls.Add(this.numericUpDown2);
-            this.groupBox20.Controls.Add(this.numericUpDown3);
-            this.groupBox20.Controls.Add(this.numericUpDown4);
-            this.groupBox20.Controls.Add(this.label104);
-            this.groupBox20.Controls.Add(this.label107);
-            this.groupBox20.Controls.Add(this.label109);
-            this.groupBox20.Controls.Add(this.label113);
-            this.groupBox20.Controls.Add(this.label115);
-            this.groupBox20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox20.Location = new System.Drawing.Point(3, 79);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(518, 120);
-            this.groupBox20.TabIndex = 23;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Temperature (°C)";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(355, 75);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(63, 13);
-            this.label50.TabIndex = 36;
-            this.label50.Text = "Other layers";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(183, 90);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 35;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(357, 41);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown2.TabIndex = 34;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(358, 90);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown3.TabIndex = 33;
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(183, 40);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            400,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown4.TabIndex = 32;
-            // 
-            // label104
-            // 
-            this.label104.AutoSize = true;
-            this.label104.Location = new System.Drawing.Point(181, 75);
-            this.label104.Name = "label104";
-            this.label104.Size = new System.Drawing.Size(51, 13);
-            this.label104.TabIndex = 29;
-            this.label104.Text = "First layer";
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(9, 92);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(26, 13);
-            this.label107.TabIndex = 26;
-            this.label107.Text = "Bed";
-            // 
-            // label109
-            // 
-            this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(355, 25);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(63, 13);
-            this.label109.TabIndex = 23;
-            this.label109.Text = "Other layers";
-            // 
-            // label113
-            // 
-            this.label113.AutoSize = true;
-            this.label113.Location = new System.Drawing.Point(181, 25);
-            this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(51, 13);
-            this.label113.TabIndex = 20;
-            this.label113.Text = "First layer";
-            // 
-            // label115
-            // 
-            this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(9, 43);
-            this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(46, 13);
-            this.label115.TabIndex = 3;
-            this.label115.Text = "Extruder";
-            // 
-            // groupBox21
-            // 
-            this.groupBox21.Controls.Add(this.button3);
-            this.groupBox21.Controls.Add(this.textBox1);
-            this.groupBox21.Controls.Add(this.label117);
-            this.groupBox21.Controls.Add(this.textBox2);
-            this.groupBox21.Controls.Add(this.label120);
-            this.groupBox21.Controls.Add(this.label121);
-            this.groupBox21.Controls.Add(this.textBox3);
-            this.groupBox21.Controls.Add(this.label122);
-            this.groupBox21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox21.Location = new System.Drawing.Point(3, 3);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(518, 70);
-            this.groupBox21.TabIndex = 21;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "Filament";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(117, 38);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 23);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "...";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(358, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 25;
-            // 
-            // label117
-            // 
-            this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(355, 25);
-            this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(93, 13);
-            this.label117.TabIndex = 23;
-            this.label117.Text = "Extrusion multiplier";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(184, 40);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 22;
-            // 
-            // label120
-            // 
-            this.label120.AutoSize = true;
-            this.label120.Location = new System.Drawing.Point(289, 43);
-            this.label120.Name = "label120";
-            this.label120.Size = new System.Drawing.Size(23, 13);
-            this.label120.TabIndex = 21;
-            this.label120.Text = "mm";
-            // 
-            // label121
-            // 
-            this.label121.AutoSize = true;
-            this.label121.Location = new System.Drawing.Point(181, 25);
-            this.label121.Name = "label121";
-            this.label121.Size = new System.Drawing.Size(49, 13);
-            this.label121.TabIndex = 20;
-            this.label121.Text = "Diameter";
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.Location = new System.Drawing.Point(11, 40);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 19;
-            // 
-            // label122
-            // 
-            this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(8, 25);
-            this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(31, 13);
-            this.label122.TabIndex = 3;
-            this.label122.Text = "Color";
-            // 
             // tlpGeneral
             // 
             this.tlpGeneral.ColumnCount = 1;
@@ -4036,7 +3796,7 @@
             this.tlpGeneral.Controls.Add(this.gbCapabilities, 0, 1);
             this.tlpGeneral.Controls.Add(this.gbBedShape, 0, 0);
             this.tlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpGeneral.Location = new System.Drawing.Point(3, 3);
+            this.tlpGeneral.Location = new System.Drawing.Point(3, 627);
             this.tlpGeneral.Name = "tlpGeneral";
             this.tlpGeneral.RowCount = 6;
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -4048,6 +3808,95 @@
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpGeneral.Size = new System.Drawing.Size(524, 618);
             this.tlpGeneral.TabIndex = 4;
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.label127);
+            this.groupBox26.Controls.Add(this.nbVibrationLimit);
+            this.groupBox26.Controls.Add(this.label126);
+            this.groupBox26.Controls.Add(this.nbPressureAdvance);
+            this.groupBox26.Controls.Add(this.label125);
+            this.groupBox26.Controls.Add(this.cbUseVolumetricE);
+            this.groupBox26.Controls.Add(this.cbUseFirmwareRetraction);
+            this.groupBox26.Controls.Add(this.cbUseRelativeEDistances);
+            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox26.Location = new System.Drawing.Point(3, 407);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(518, 95);
+            this.groupBox26.TabIndex = 22;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Advanced";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(298, 67);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(20, 13);
+            this.label127.TabIndex = 35;
+            this.label127.Text = "Hz";
+            // 
+            // nbVibrationLimit
+            // 
+            this.nbVibrationLimit.Location = new System.Drawing.Point(192, 65);
+            this.nbVibrationLimit.Name = "nbVibrationLimit";
+            this.nbVibrationLimit.Size = new System.Drawing.Size(100, 20);
+            this.nbVibrationLimit.TabIndex = 34;
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Location = new System.Drawing.Point(189, 50);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(68, 13);
+            this.label126.TabIndex = 33;
+            this.label126.Text = "Vibration limit";
+            // 
+            // nbPressureAdvance
+            // 
+            this.nbPressureAdvance.Location = new System.Drawing.Point(12, 65);
+            this.nbPressureAdvance.Name = "nbPressureAdvance";
+            this.nbPressureAdvance.Size = new System.Drawing.Size(100, 20);
+            this.nbPressureAdvance.TabIndex = 32;
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(9, 50);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(93, 13);
+            this.label125.TabIndex = 31;
+            this.label125.Text = "Pressure advance";
+            // 
+            // cbUseVolumetricE
+            // 
+            this.cbUseVolumetricE.AutoSize = true;
+            this.cbUseVolumetricE.Location = new System.Drawing.Point(372, 25);
+            this.cbUseVolumetricE.Name = "cbUseVolumetricE";
+            this.cbUseVolumetricE.Size = new System.Drawing.Size(106, 17);
+            this.cbUseVolumetricE.TabIndex = 2;
+            this.cbUseVolumetricE.Text = "Use volumetric E";
+            this.cbUseVolumetricE.UseVisualStyleBackColor = true;
+            // 
+            // cbUseFirmwareRetraction
+            // 
+            this.cbUseFirmwareRetraction.AutoSize = true;
+            this.cbUseFirmwareRetraction.Location = new System.Drawing.Point(192, 25);
+            this.cbUseFirmwareRetraction.Name = "cbUseFirmwareRetraction";
+            this.cbUseFirmwareRetraction.Size = new System.Drawing.Size(134, 17);
+            this.cbUseFirmwareRetraction.TabIndex = 1;
+            this.cbUseFirmwareRetraction.Text = "Use firmware retraction";
+            this.cbUseFirmwareRetraction.UseVisualStyleBackColor = true;
+            // 
+            // cbUseRelativeEDistances
+            // 
+            this.cbUseRelativeEDistances.AutoSize = true;
+            this.cbUseRelativeEDistances.Location = new System.Drawing.Point(12, 25);
+            this.cbUseRelativeEDistances.Name = "cbUseRelativeEDistances";
+            this.cbUseRelativeEDistances.Size = new System.Drawing.Size(140, 17);
+            this.cbUseRelativeEDistances.TabIndex = 0;
+            this.cbUseRelativeEDistances.Text = "Use relative E distances";
+            this.cbUseRelativeEDistances.UseVisualStyleBackColor = true;
             // 
             // gbFirmware
             // 
@@ -4077,24 +3926,6 @@
             this.label124.Size = new System.Drawing.Size(71, 13);
             this.label124.TabIndex = 13;
             this.label124.Text = "G-code flavor";
-            // 
-            // groupBox26
-            // 
-            this.groupBox26.Controls.Add(this.label127);
-            this.groupBox26.Controls.Add(this.nbVibrationLimit);
-            this.groupBox26.Controls.Add(this.label126);
-            this.groupBox26.Controls.Add(this.nbPressureAdvance);
-            this.groupBox26.Controls.Add(this.label125);
-            this.groupBox26.Controls.Add(this.cbUseVolumetricE);
-            this.groupBox26.Controls.Add(this.cbUseFirmwareRetraction);
-            this.groupBox26.Controls.Add(this.cbUseRelativeEDistances);
-            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox26.Location = new System.Drawing.Point(3, 407);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(518, 95);
-            this.groupBox26.TabIndex = 22;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "Advanced";
             // 
             // gbOctoPrint
             // 
@@ -4305,76 +4136,138 @@
             this.label138.TabIndex = 24;
             this.label138.Text = "X size";
             // 
-            // cbUseRelativeEDistances
+            // tlpCustomGcode
             // 
-            this.cbUseRelativeEDistances.AutoSize = true;
-            this.cbUseRelativeEDistances.Location = new System.Drawing.Point(12, 25);
-            this.cbUseRelativeEDistances.Name = "cbUseRelativeEDistances";
-            this.cbUseRelativeEDistances.Size = new System.Drawing.Size(140, 17);
-            this.cbUseRelativeEDistances.TabIndex = 0;
-            this.cbUseRelativeEDistances.Text = "Use relative E distances";
-            this.cbUseRelativeEDistances.UseVisualStyleBackColor = true;
+            this.tlpCustomGcode.ColumnCount = 1;
+            this.tlpCustomGcode.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpCustomGcode.Controls.Add(this.groupBox25, 0, 3);
+            this.tlpCustomGcode.Controls.Add(this.groupBox24, 0, 2);
+            this.tlpCustomGcode.Controls.Add(this.groupBox23, 0, 1);
+            this.tlpCustomGcode.Controls.Add(this.groupBox20, 0, 0);
+            this.tlpCustomGcode.Controls.Add(this.groupBox21, 0, 0);
+            this.tlpCustomGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpCustomGcode.Location = new System.Drawing.Point(3, 3);
+            this.tlpCustomGcode.Name = "tlpCustomGcode";
+            this.tlpCustomGcode.RowCount = 4;
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpCustomGcode.Size = new System.Drawing.Size(524, 618);
+            this.tlpCustomGcode.TabIndex = 5;
             // 
-            // cbUseFirmwareRetraction
+            // groupBox25
             // 
-            this.cbUseFirmwareRetraction.AutoSize = true;
-            this.cbUseFirmwareRetraction.Location = new System.Drawing.Point(192, 25);
-            this.cbUseFirmwareRetraction.Name = "cbUseFirmwareRetraction";
-            this.cbUseFirmwareRetraction.Size = new System.Drawing.Size(134, 17);
-            this.cbUseFirmwareRetraction.TabIndex = 1;
-            this.cbUseFirmwareRetraction.Text = "Use firmware retraction";
-            this.cbUseFirmwareRetraction.UseVisualStyleBackColor = true;
+            this.groupBox25.Controls.Add(this.tbToolchangeGcode);
+            this.groupBox25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox25.Location = new System.Drawing.Point(3, 467);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(518, 148);
+            this.groupBox25.TabIndex = 28;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Tool change G-code";
             // 
-            // cbUseVolumetricE
+            // tbToolchangeGcode
             // 
-            this.cbUseVolumetricE.AutoSize = true;
-            this.cbUseVolumetricE.Location = new System.Drawing.Point(372, 25);
-            this.cbUseVolumetricE.Name = "cbUseVolumetricE";
-            this.cbUseVolumetricE.Size = new System.Drawing.Size(106, 17);
-            this.cbUseVolumetricE.TabIndex = 2;
-            this.cbUseVolumetricE.Text = "Use volumetric E";
-            this.cbUseVolumetricE.UseVisualStyleBackColor = true;
+            this.tbToolchangeGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbToolchangeGcode.Location = new System.Drawing.Point(3, 16);
+            this.tbToolchangeGcode.Multiline = true;
+            this.tbToolchangeGcode.Name = "tbToolchangeGcode";
+            this.tbToolchangeGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbToolchangeGcode.Size = new System.Drawing.Size(512, 129);
+            this.tbToolchangeGcode.TabIndex = 49;
             // 
-            // nbPressureAdvance
+            // groupBox24
             // 
-            this.nbPressureAdvance.Location = new System.Drawing.Point(12, 65);
-            this.nbPressureAdvance.Name = "nbPressureAdvance";
-            this.nbPressureAdvance.Size = new System.Drawing.Size(100, 20);
-            this.nbPressureAdvance.TabIndex = 32;
+            this.groupBox24.Controls.Add(this.tbLayerGcode);
+            this.groupBox24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox24.Location = new System.Drawing.Point(3, 351);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(518, 110);
+            this.groupBox24.TabIndex = 27;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "After layer change G-code";
             // 
-            // label125
+            // tbLayerGcode
             // 
-            this.label125.AutoSize = true;
-            this.label125.Location = new System.Drawing.Point(9, 50);
-            this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(93, 13);
-            this.label125.TabIndex = 31;
-            this.label125.Text = "Pressure advance";
+            this.tbLayerGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbLayerGcode.Location = new System.Drawing.Point(3, 16);
+            this.tbLayerGcode.Multiline = true;
+            this.tbLayerGcode.Name = "tbLayerGcode";
+            this.tbLayerGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbLayerGcode.Size = new System.Drawing.Size(512, 91);
+            this.tbLayerGcode.TabIndex = 49;
             // 
-            // nbVibrationLimit
+            // groupBox23
             // 
-            this.nbVibrationLimit.Location = new System.Drawing.Point(192, 65);
-            this.nbVibrationLimit.Name = "nbVibrationLimit";
-            this.nbVibrationLimit.Size = new System.Drawing.Size(100, 20);
-            this.nbVibrationLimit.TabIndex = 34;
+            this.groupBox23.Controls.Add(this.tbBeforeLayerGcode);
+            this.groupBox23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox23.Location = new System.Drawing.Point(3, 235);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(518, 110);
+            this.groupBox23.TabIndex = 26;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Before layer change G-code";
             // 
-            // label126
+            // tbBeforeLayerGcode
             // 
-            this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(189, 50);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(68, 13);
-            this.label126.TabIndex = 33;
-            this.label126.Text = "Vibration limit";
+            this.tbBeforeLayerGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBeforeLayerGcode.Location = new System.Drawing.Point(3, 16);
+            this.tbBeforeLayerGcode.Multiline = true;
+            this.tbBeforeLayerGcode.Name = "tbBeforeLayerGcode";
+            this.tbBeforeLayerGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbBeforeLayerGcode.Size = new System.Drawing.Size(512, 91);
+            this.tbBeforeLayerGcode.TabIndex = 49;
             // 
-            // label127
+            // groupBox20
             // 
-            this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(298, 67);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(20, 13);
-            this.label127.TabIndex = 35;
-            this.label127.Text = "Hz";
+            this.groupBox20.Controls.Add(this.tbStartGcode);
+            this.groupBox20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox20.Location = new System.Drawing.Point(3, 3);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(518, 110);
+            this.groupBox20.TabIndex = 25;
+            this.groupBox20.TabStop = false;
+            this.groupBox20.Text = "Start G-code";
+            // 
+            // tbStartGcode
+            // 
+            this.tbStartGcode.AcceptsReturn = true;
+            this.tbStartGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbStartGcode.Location = new System.Drawing.Point(3, 16);
+            this.tbStartGcode.Multiline = true;
+            this.tbStartGcode.Name = "tbStartGcode";
+            this.tbStartGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbStartGcode.Size = new System.Drawing.Size(512, 91);
+            this.tbStartGcode.TabIndex = 49;
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.tbEndGcode);
+            this.groupBox21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox21.Location = new System.Drawing.Point(3, 119);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(518, 110);
+            this.groupBox21.TabIndex = 24;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "End G-code";
+            // 
+            // tbEndGcode
+            // 
+            this.tbEndGcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbEndGcode.Location = new System.Drawing.Point(3, 16);
+            this.tbEndGcode.Multiline = true;
+            this.tbEndGcode.Name = "tbEndGcode";
+            this.tbEndGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbEndGcode.Size = new System.Drawing.Size(512, 91);
+            this.tbEndGcode.TabIndex = 49;
             // 
             // Slic3rSettings
             // 
@@ -4384,6 +4277,7 @@
             this.Controls.Add(this.tabControl);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(816, 695);
             this.Name = "Slic3rSettings";
             this.ShowIcon = false;
             this.Text = "Slic3r Settings";
@@ -4520,20 +4414,13 @@
             this.tlpPrinterCategories.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tlpCustomGcode.ResumeLayout(false);
-            this.groupBox20.ResumeLayout(false);
-            this.groupBox20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            this.groupBox21.ResumeLayout(false);
-            this.groupBox21.PerformLayout();
             this.tlpGeneral.ResumeLayout(false);
-            this.gbFirmware.ResumeLayout(false);
-            this.gbFirmware.PerformLayout();
             this.groupBox26.ResumeLayout(false);
             this.groupBox26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).EndInit();
+            this.gbFirmware.ResumeLayout(false);
+            this.gbFirmware.PerformLayout();
             this.gbOctoPrint.ResumeLayout(false);
             this.gbOctoPrint.PerformLayout();
             this.gbCapabilities.ResumeLayout(false);
@@ -4546,8 +4433,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nbBedXOrigin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbBedYSize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbBedXSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).EndInit();
+            this.tlpCustomGcode.ResumeLayout(false);
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4873,26 +4769,6 @@
         private System.Windows.Forms.ComboBox cboxPrinterProfiles;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tlpCustomGcode;
-        private System.Windows.Forms.GroupBox groupBox20;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Label label104;
-        private System.Windows.Forms.Label label107;
-        private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.Label label115;
-        private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label117;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label120;
-        private System.Windows.Forms.Label label121;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label122;
         private System.Windows.Forms.TableLayoutPanel tlpGeneral;
         private System.Windows.Forms.GroupBox gbOctoPrint;
         private System.Windows.Forms.Label label128;
@@ -4925,5 +4801,15 @@
         private System.Windows.Forms.CheckBox cbUseVolumetricE;
         private System.Windows.Forms.CheckBox cbUseFirmwareRetraction;
         private System.Windows.Forms.CheckBox cbUseRelativeEDistances;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.TextBox tbToolchangeGcode;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.TextBox tbLayerGcode;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.TextBox tbBeforeLayerGcode;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.TextBox tbStartGcode;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.TextBox tbEndGcode;
     }
 }

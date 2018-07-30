@@ -40,7 +40,7 @@ namespace RepetierHost.extensions
 
         public static string ToSlic3rSettings(this string value)
         {
-            return value;
+            return value.Replace(Environment.NewLine, "\\n");
         }
 
         public static string ToSlic3rSettings(this Enum value)

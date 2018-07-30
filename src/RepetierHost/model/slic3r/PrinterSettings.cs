@@ -28,7 +28,7 @@ namespace RepetierHost.model.slic3r
             set
             {
                 _ExtruderCount = value;
-                AdjustExtruderList(ExtruderCount);
+                AdjustExtruderList();
                 OnPropertyChanged("ExtruderCount");
             }
         }
@@ -363,7 +363,8 @@ namespace RepetierHost.model.slic3r
         private void FillExtrudersValue(string key, string input)
         {
             string[] values = input.Split(',');
-            InternalAdjustExtruderList(values.Length);
+
+            ExtruderCount = values.Length;
 
             for (int i = 0; i < values.Length; i++)
             {
@@ -371,15 +372,15 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private void AdjustExtruderList(int size)
+        private void AdjustExtruderList()
         {
-            if (ExtrudersSettings.Count == size)
+            if (ExtrudersSettings.Count == ExtruderCount)
                 return;
 
-            if (ExtrudersSettings.Count > size)
+            if (ExtrudersSettings.Count > ExtruderCount)
             {
                 List<PrinterExtruderSettings> reducedList = new List<PrinterExtruderSettings>();
-                for (int i = 0; i < size; i++)
+                for (int i = 0; i < ExtruderCount; i++)
                 {
                     reducedList.Add(ExtrudersSettings[i]);
                 }
@@ -387,15 +388,9 @@ namespace RepetierHost.model.slic3r
             }
             else
             {
-                while (ExtrudersSettings.Count < size)
+                while (ExtrudersSettings.Count < ExtruderCount)
                     ExtrudersSettings.Add(new PrinterExtruderSettings());
             }
-        }
-
-        private void InternalAdjustExtruderList(int size)
-        {
-            ExtruderCount = size;
-            AdjustExtruderList(size);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

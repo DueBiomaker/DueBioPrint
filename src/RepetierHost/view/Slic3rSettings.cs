@@ -128,6 +128,7 @@ namespace RepetierHost.view
             lbPrinterSettingsCategories.SelectedIndex = 0;
 
             PrepareGeneralBinding();
+            PrepareCustomGcodeBinding();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -336,6 +337,15 @@ namespace RepetierHost.view
             nbVibrationLimit.DataBindings.Add("Value", PrinterSettings, "VibrationLimit", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
+        public void PrepareCustomGcodeBinding()
+        {
+            tbStartGcode.DataBindings.Add("Text", PrinterSettings, "StartGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbEndGcode.DataBindings.Add("Text", PrinterSettings, "EndGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbBeforeLayerGcode.DataBindings.Add("Text", PrinterSettings, "BeforeLayerGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbLayerGcode.DataBindings.Add("Text", PrinterSettings, "LayerGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbToolchangeGcode.DataBindings.Add("Text", PrinterSettings, "ToolchangeGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(PrintSettings.ToString());
@@ -415,7 +425,7 @@ namespace RepetierHost.view
             tlpGeneral.Visible = false;
             tlpCustomGcode.Visible = false;
 
-            switch (lbFilamentSettingsCategories.SelectedIndex)
+            switch (lbPrinterSettingsCategories.SelectedIndex)
             {
                 case (int)PrinterSettingsCategory.General:
                     tlpGeneral.Visible = true;

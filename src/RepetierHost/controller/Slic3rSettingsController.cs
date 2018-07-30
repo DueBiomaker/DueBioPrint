@@ -42,7 +42,7 @@ namespace RepetierHost.controller
                     {
                         var values = line.Split('=');
                         if (values.Count() == 2)
-                            slic3rSettings.FillValue(values[0].Trim(), values[1].Trim());
+                            slic3rSettings.FillValue(values[0].Trim(), values[1].Trim().Replace("\\n", Environment.NewLine));
                     }
                 }
             }
