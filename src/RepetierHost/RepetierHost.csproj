@@ -165,6 +165,7 @@
     <Compile Include="model\PulseAnimation.cs" />
     <Compile Include="model\RectPacker.cs" />
     <Compile Include="model\PrintModel.cs" />
+    <Compile Include="model\slic3r\PrinterSettingsCategory.cs" />
     <Compile Include="model\slic3r\ISlic3rSettings.cs" />
     <Compile Include="model\slic3r\FilamentSettingsCategory.cs" />
     <Compile Include="model\slic3r\SupportMaterialPattern.cs" />

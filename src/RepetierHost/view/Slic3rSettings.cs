@@ -364,6 +364,23 @@ namespace RepetierHost.view
             }
         }
 
+        private void lbPrinterSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tlpGeneral.Visible = false;
+            tlpCustomGcode.Visible = false;
+
+            switch (lbFilamentSettingsCategories.SelectedIndex)
+            {
+                case (int)PrinterSettingsCategory.General:
+                    tlpGeneral.Visible = true;
+                    break;
+
+                case (int)PrinterSettingsCategory.CustomGcode:
+                    tlpCustomGcode.Visible = true;
+                    break;
+            }
+        }
+
         private void cboxFillDensity_Leave(object sender, EventArgs e)
         {
             int value;

@@ -10,8 +10,14 @@ namespace RepetierHost.extensions
     public static class ExtensionManager
     {
         private const int RGBMAX = 255;
+        private const string TRUE_INT = "1";
 
-        public static String ToHex(this Color c)
+        public static bool ToBool(this string value)
+        {
+            return value.Equals(TRUE_INT);
+        }
+
+        public static string ToHex(this Color c)
         {
             return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
         }

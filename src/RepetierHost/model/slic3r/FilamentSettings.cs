@@ -11,7 +11,6 @@ namespace RepetierHost.model.slic3r
     {
         private const string DEFAULT_VALUE = "0";
         private const string DEFAULT_COLOR = "#FFFFFF";
-        private const string TRUE_INT = "1";
 
         private const string TEXT_FAN_TURNED_OFF = "Fan will be turned off.";
         private const string TEXT_FAN_ALWAYS_ON = "Fan will always run at {0}% except for the first {1} layers.";
@@ -330,7 +329,7 @@ namespace RepetierHost.model.slic3r
                     BridgeFanSpeed = input;
                     break;
                 case "cooling":
-                    Cooling = input.Equals(TRUE_INT);
+                    Cooling = input.ToBool();
                     break;
                 case "disable_fan_first_layers":
                     DisableFanFirstLayers = input;
@@ -339,7 +338,7 @@ namespace RepetierHost.model.slic3r
                     ExtrusionMultiplier = input;
                     break;
                 case "fan_always_on":
-                    FanAlwaysOn = input.Equals(TRUE_INT);
+                    FanAlwaysOn = input.ToBool();
                     break;
                 case "fan_below_layer_time":
                     FanBelowLayerTime = input;
