@@ -7,7 +7,7 @@ namespace RepetierHost.model.slic3r
     {
         private const string DEFAULT_VALUE = "0";
 
-        private string _NozzleDiameter;
+        private string _NozzleDiameter = "0.5";
 
         public string NozzleDiameter
         {
@@ -22,7 +22,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _ExtruderOffset;
+        private string _ExtruderOffset = "0x0";
 
         public string ExtruderOffset
         {
@@ -37,7 +37,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractLength;
+        private string _RetractLength = "2";
 
         public string RetractLength
         {
@@ -52,7 +52,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractLift;
+        private string _RetractLift = "0";
 
         public string RetractLift
         {
@@ -67,7 +67,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractSpeed;
+        private string _RetractSpeed = "40";
 
         public string RetractSpeed
         {
@@ -82,7 +82,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractRestartExtra;
+        private string _RetractRestartExtra = "0";
 
         public string RetractRestartExtra
         {
@@ -97,7 +97,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractBeforeTravel;
+        private string _RetractBeforeTravel = "2";
 
         public string RetractBeforeTravel
         {
@@ -142,7 +142,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractLengthToolchange;
+        private string _RetractLengthToolchange = "10";
 
         public string RetractLengthToolchange
         {
@@ -157,7 +157,7 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _RetractRestartExtraToolchange;
+        private string _RetractRestartExtraToolchange = "0";
 
         public string RetractRestartExtraToolchange
         {

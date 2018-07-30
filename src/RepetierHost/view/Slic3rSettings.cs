@@ -12,6 +12,7 @@ namespace RepetierHost.view
     {
         private PrintSettings PrintSettings { get; set; }
         private FilamentSettings FilamentSettings { get; set; }
+        private PrinterSettings PrinterSettings { get; set; }
         private Slic3rSettingsController SettingsController { get; set; }
 
         public Slic3rSettings()
@@ -20,8 +21,10 @@ namespace RepetierHost.view
             SettingsController = new Slic3rSettingsController(SettingsUtils.GetSlic3rDirectory());
             PrintSettings = new PrintSettings();
             FilamentSettings = new FilamentSettings();
+            PrinterSettings = new PrinterSettings();
             PreparePrintBindings();
             PrepareFilamentBindings();
+            PreparePrinterBindings();
             Customization();
         }
 
@@ -35,6 +38,7 @@ namespace RepetierHost.view
         {
             LoadProfile(Slic3rSettingsCategory.Print);
             LoadProfile(Slic3rSettingsCategory.Filament);
+            LoadProfile(Slic3rSettingsCategory.Printer);
         }
 
         public void Customization()
@@ -47,6 +51,8 @@ namespace RepetierHost.view
             cboxExternalFillPattern.SelectedIndex = 0;
             cboxSupportMaterialPattern.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxExternalFillPattern.SelectedIndex = 0;
+            cboxGcodeFlavor.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxGcodeFlavor.SelectedIndex = 0;
         }
 
         public void LoadAndFillProfileList()
@@ -60,6 +66,11 @@ namespace RepetierHost.view
             cboxFilamentProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Filament).ToArray());
             cboxFilamentProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxFilamentProfiles.SelectedIndex = 0;
+
+            cboxPrinterProfiles.Items.Clear();
+            cboxPrinterProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Printer).ToArray());
+            cboxPrinterProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboxPrinterProfiles.SelectedIndex = 0;
         }
 
         public void LoadProfile(Slic3rSettingsCategory category)
@@ -75,6 +86,7 @@ namespace RepetierHost.view
                     break;
 
                 case Slic3rSettingsCategory.Printer:
+                    SettingsController.LoadSettingsProfile(Slic3rSettingsCategory.Printer, cboxPrinterProfiles.Text, PrinterSettings);
                     break;
 
                 default:
@@ -94,9 +106,9 @@ namespace RepetierHost.view
             PrepareSupportMaterialBinding();
             PrepareSpeedBinding();
             PrepareMultipleExtrudersBinding();
-            PrepareAdvanced();
-            PrepareOutputOptions();
-            PrepareNotes();
+            PrepareAdvancedBinding();
+            PrepareOutputOptionsBinding();
+            PrepareNotesBinding();
         }
 
         public void PrepareFilamentBindings()
@@ -105,8 +117,17 @@ namespace RepetierHost.view
             lbFilamentSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<FilamentSettingsCategory>());
             lbFilamentSettingsCategories.SelectedIndex = 0;
 
-            PrepareFilament();
-            PrepareCooling();
+            PrepareFilamentBinding();
+            PrepareCoolingBinding();
+        }
+
+        public void PreparePrinterBindings()
+        {
+            lbPrinterSettingsCategories.Items?.Clear();
+            lbPrinterSettingsCategories.Items.AddRange(EnumUtils.GetDescriptions<PrinterSettingsCategory>());
+            lbPrinterSettingsCategories.SelectedIndex = 0;
+
+            PrepareGeneralBinding();
         }
 
         public void PrepareLayerAndPerimetersBinding()
@@ -215,7 +236,7 @@ namespace RepetierHost.view
             cbInterfaceShells.DataBindings.Add("Checked", PrintSettings, "InterfaceShells", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        public void PrepareAdvanced()
+        public void PrepareAdvancedBinding()
         {
             tbExtrusionWidth.DataBindings.Add("Text", PrintSettings, "ExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
             tbFirstLayerExtrusionWidth.DataBindings.Add("Text", PrintSettings, "FirstLayerExtrusionWidth", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -232,7 +253,7 @@ namespace RepetierHost.view
             tbResolution.DataBindings.Add("Text", PrintSettings, "Resolution", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        public void PrepareOutputOptions()
+        public void PrepareOutputOptionsBinding()
         {
             gbExtruderClearance.DataBindings.Add("Enabled", PrintSettings, "CompleteObjects", false, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -244,12 +265,12 @@ namespace RepetierHost.view
             tbPostProcess.DataBindings.Add("Text", PrintSettings, "PostProcess", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        public void PrepareNotes()
+        public void PrepareNotesBinding()
         {
             tbNotes.DataBindings.Add("Text", PrintSettings, "Notes", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        public void PrepareFilament()
+        public void PrepareFilamentBinding()
         {
             UpdateColorField();
 
@@ -265,7 +286,7 @@ namespace RepetierHost.view
             tbBedTemperature.DataBindings.Add("Text", FilamentSettings, "BedTemperature", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        public void PrepareCooling()
+        public void PrepareCoolingBinding()
         {
             lblCoolingText.DataBindings.Add("Text", FilamentSettings, "CoolingDescription", false, DataSourceUpdateMode.OnPropertyChanged);
 
@@ -288,6 +309,31 @@ namespace RepetierHost.view
             nbFanBelowLayerTime.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
             nbSlowdownBelowLayerTime.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
             nbMinPrintSpeed.DataBindings.Add("Enabled", FilamentSettings, "Cooling", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        public void PrepareGeneralBinding()
+        {
+            cboxGcodeFlavor.Items.Clear();
+            cboxGcodeFlavor.Items.AddRange(EnumUtils.GetDescriptions<GCodeFlavor>());
+
+            nbBedXOrigin.DataBindings.Add("Value", PrinterSettings, "BedXOrigin", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbBedYOrigin.DataBindings.Add("Value", PrinterSettings, "BedYOrigin", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbBedXSize.DataBindings.Add("Value", PrinterSettings, "BedXSize", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbBedYSize.DataBindings.Add("Value", PrinterSettings, "BedYSize", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbZOffset.DataBindings.Add("Value", PrinterSettings, "ZOffset", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            nbExtruderCount.DataBindings.Add("Value", PrinterSettings, "ExtruderCount", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            tbOctoprintApikey.DataBindings.Add("Text", PrinterSettings, "OctoprintApikey", false, DataSourceUpdateMode.OnPropertyChanged);
+            tbOctoprintHost.DataBindings.Add("Text", PrinterSettings, "OctoprintHost", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            cboxGcodeFlavor.DataBindings.Add("SelectedIndex", PrinterSettings, "GcodeFlavorInt", false, DataSourceUpdateMode.OnPropertyChanged);
+
+            cbUseRelativeEDistances.DataBindings.Add("Checked", PrinterSettings, "UseRelativeEDistances", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbUseFirmwareRetraction.DataBindings.Add("Checked", PrinterSettings, "UseFirmwareRetraction", false, DataSourceUpdateMode.OnPropertyChanged);
+            cbUseVolumetricE.DataBindings.Add("Checked", PrinterSettings, "UseVolumetricE", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbPressureAdvance.DataBindings.Add("Value", PrinterSettings, "PressureAdvance", false, DataSourceUpdateMode.OnPropertyChanged);
+            nbVibrationLimit.DataBindings.Add("Value", PrinterSettings, "VibrationLimit", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -402,6 +448,11 @@ namespace RepetierHost.view
             LoadProfile(Slic3rSettingsCategory.Filament);
         }
 
+        private void cboxPrinterProfiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadProfile(Slic3rSettingsCategory.Printer);
+        }
+
         private void btnSavePrintSettings_Click(object sender, EventArgs e)
         {
             SettingsController.SaveProfile(PrintSettings);
@@ -410,6 +461,11 @@ namespace RepetierHost.view
         private void btnSaveFilamentSettings_Click(object sender, EventArgs e)
         {
             SettingsController.SaveProfile(FilamentSettings);
+        }
+
+        private void btnSavePrinterSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.SaveProfile(PrinterSettings);
         }
 
         private void button2_Click(object sender, EventArgs e)

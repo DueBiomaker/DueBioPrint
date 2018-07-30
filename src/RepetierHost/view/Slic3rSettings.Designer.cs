@@ -338,7 +338,6 @@
             this.cbCooling = new System.Windows.Forms.CheckBox();
             this.cbFanAlwaysOn = new System.Windows.Forms.CheckBox();
             this.pagePrinter = new System.Windows.Forms.TabPage();
-            this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.tlpPrinterPage = new System.Windows.Forms.TableLayoutPanel();
             this.tlpPrinterCategories = new System.Windows.Forms.TableLayoutPanel();
             this.lbPrinterSettingsCategories = new System.Windows.Forms.ListBox();
@@ -368,33 +367,38 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label122 = new System.Windows.Forms.Label();
             this.tlpGeneral = new System.Windows.Forms.TableLayoutPanel();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.label123 = new System.Windows.Forms.Label();
+            this.gbFirmware = new System.Windows.Forms.GroupBox();
+            this.cboxGcodeFlavor = new System.Windows.Forms.ComboBox();
             this.label124 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.label125 = new System.Windows.Forms.Label();
-            this.label126 = new System.Windows.Forms.Label();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.label127 = new System.Windows.Forms.Label();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.gbOctoPrint = new System.Windows.Forms.GroupBox();
+            this.tbOctoprintApikey = new System.Windows.Forms.TextBox();
+            this.label123 = new System.Windows.Forms.Label();
+            this.tbOctoprintHost = new System.Windows.Forms.TextBox();
             this.label128 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.label129 = new System.Windows.Forms.Label();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.label130 = new System.Windows.Forms.Label();
-            this.label131 = new System.Windows.Forms.Label();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.label132 = new System.Windows.Forms.Label();
-            this.label133 = new System.Windows.Forms.Label();
-            this.label134 = new System.Windows.Forms.Label();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.label135 = new System.Windows.Forms.Label();
+            this.gbCapabilities = new System.Windows.Forms.GroupBox();
+            this.nbExtruderCount = new System.Windows.Forms.NumericUpDown();
             this.label136 = new System.Windows.Forms.Label();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.gbBedShape = new System.Windows.Forms.GroupBox();
+            this.nbZOffset = new System.Windows.Forms.NumericUpDown();
+            this.label145 = new System.Windows.Forms.Label();
+            this.nbBedYOrigin = new System.Windows.Forms.NumericUpDown();
+            this.nbBedXOrigin = new System.Windows.Forms.NumericUpDown();
+            this.label139 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.nbBedYSize = new System.Windows.Forms.NumericUpDown();
+            this.nbBedXSize = new System.Windows.Forms.NumericUpDown();
             this.label137 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label138 = new System.Windows.Forms.Label();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.cbUseRelativeEDistances = new System.Windows.Forms.CheckBox();
+            this.cbUseFirmwareRetraction = new System.Windows.Forms.CheckBox();
+            this.cbUseVolumetricE = new System.Windows.Forms.CheckBox();
+            this.nbPressureAdvance = new System.Windows.Forms.NumericUpDown();
+            this.label125 = new System.Windows.Forms.Label();
+            this.nbVibrationLimit = new System.Windows.Forms.NumericUpDown();
+            this.label126 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrintPage.SuspendLayout();
@@ -496,16 +500,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.groupBox21.SuspendLayout();
             this.tlpGeneral.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            this.groupBox24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            this.groupBox25.SuspendLayout();
+            this.gbFirmware.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.gbOctoPrint.SuspendLayout();
+            this.gbCapabilities.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbExtruderCount)).BeginInit();
+            this.gbBedShape.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbZOffset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedYOrigin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedXOrigin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedYSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedXSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -3757,6 +3764,7 @@
             this.btnSavePrinterSettings.TabIndex = 1;
             this.btnSavePrinterSettings.Text = "Save";
             this.btnSavePrinterSettings.UseVisualStyleBackColor = true;
+            this.btnSavePrinterSettings.Click += new System.EventHandler(this.btnSavePrinterSettings_Click);
             // 
             // cboxPrinterProfiles
             // 
@@ -3765,6 +3773,7 @@
             this.cboxPrinterProfiles.Name = "cboxPrinterProfiles";
             this.cboxPrinterProfiles.Size = new System.Drawing.Size(170, 21);
             this.cboxPrinterProfiles.TabIndex = 0;
+            this.cboxPrinterProfiles.SelectedIndexChanged += new System.EventHandler(this.cboxPrinterProfiles_SelectedIndexChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -4021,9 +4030,11 @@
             // 
             this.tlpGeneral.ColumnCount = 1;
             this.tlpGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpGeneral.Controls.Add(this.groupBox23, 0, 1);
-            this.tlpGeneral.Controls.Add(this.groupBox24, 0, 0);
-            this.tlpGeneral.Controls.Add(this.groupBox25, 0, 0);
+            this.tlpGeneral.Controls.Add(this.groupBox26, 0, 4);
+            this.tlpGeneral.Controls.Add(this.gbFirmware, 0, 3);
+            this.tlpGeneral.Controls.Add(this.gbOctoPrint, 0, 2);
+            this.tlpGeneral.Controls.Add(this.gbCapabilities, 0, 1);
+            this.tlpGeneral.Controls.Add(this.gbBedShape, 0, 0);
             this.tlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpGeneral.Location = new System.Drawing.Point(3, 3);
             this.tlpGeneral.Name = "tlpGeneral";
@@ -4034,266 +4045,336 @@
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpGeneral.Size = new System.Drawing.Size(524, 618);
             this.tlpGeneral.TabIndex = 4;
             // 
-            // groupBox23
+            // gbFirmware
             // 
-            this.groupBox23.Controls.Add(this.label123);
-            this.groupBox23.Controls.Add(this.label124);
-            this.groupBox23.Controls.Add(this.numericUpDown5);
-            this.groupBox23.Controls.Add(this.label125);
-            this.groupBox23.Controls.Add(this.label126);
-            this.groupBox23.Controls.Add(this.numericUpDown6);
-            this.groupBox23.Controls.Add(this.label127);
-            this.groupBox23.Controls.Add(this.label128);
-            this.groupBox23.Controls.Add(this.numericUpDown7);
-            this.groupBox23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox23.Location = new System.Drawing.Point(3, 295);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(518, 180);
-            this.groupBox23.TabIndex = 1;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "Raft";
+            this.gbFirmware.Controls.Add(this.cboxGcodeFlavor);
+            this.gbFirmware.Controls.Add(this.label124);
+            this.gbFirmware.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbFirmware.Location = new System.Drawing.Point(3, 331);
+            this.gbFirmware.Name = "gbFirmware";
+            this.gbFirmware.Size = new System.Drawing.Size(518, 70);
+            this.gbFirmware.TabIndex = 23;
+            this.gbFirmware.TabStop = false;
+            this.gbFirmware.Text = "Firmware";
             // 
-            // label123
+            // cboxGcodeFlavor
             // 
-            this.label123.AutoSize = true;
-            this.label123.Location = new System.Drawing.Point(116, 143);
-            this.label123.Name = "label123";
-            this.label123.Size = new System.Drawing.Size(33, 13);
-            this.label123.TabIndex = 28;
-            this.label123.Text = "mm/s";
+            this.cboxGcodeFlavor.FormattingEnabled = true;
+            this.cboxGcodeFlavor.Location = new System.Drawing.Point(12, 41);
+            this.cboxGcodeFlavor.Name = "cboxGcodeFlavor";
+            this.cboxGcodeFlavor.Size = new System.Drawing.Size(280, 21);
+            this.cboxGcodeFlavor.TabIndex = 24;
             // 
             // label124
             // 
             this.label124.AutoSize = true;
-            this.label124.Location = new System.Drawing.Point(8, 125);
+            this.label124.Location = new System.Drawing.Point(8, 25);
             this.label124.Name = "label124";
-            this.label124.Size = new System.Drawing.Size(79, 13);
-            this.label124.TabIndex = 26;
-            this.label124.Text = "Min print speed";
+            this.label124.Size = new System.Drawing.Size(71, 13);
+            this.label124.TabIndex = 13;
+            this.label124.Text = "G-code flavor";
             // 
-            // numericUpDown5
+            // groupBox26
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(11, 141);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown5.TabIndex = 27;
+            this.groupBox26.Controls.Add(this.label127);
+            this.groupBox26.Controls.Add(this.nbVibrationLimit);
+            this.groupBox26.Controls.Add(this.label126);
+            this.groupBox26.Controls.Add(this.nbPressureAdvance);
+            this.groupBox26.Controls.Add(this.label125);
+            this.groupBox26.Controls.Add(this.cbUseVolumetricE);
+            this.groupBox26.Controls.Add(this.cbUseFirmwareRetraction);
+            this.groupBox26.Controls.Add(this.cbUseRelativeEDistances);
+            this.groupBox26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox26.Location = new System.Drawing.Point(3, 407);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(518, 95);
+            this.groupBox26.TabIndex = 22;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Advanced";
             // 
-            // label125
+            // gbOctoPrint
             // 
-            this.label125.AutoSize = true;
-            this.label125.Location = new System.Drawing.Point(117, 93);
-            this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(47, 13);
-            this.label125.TabIndex = 25;
-            this.label125.Text = "seconds";
+            this.gbOctoPrint.Controls.Add(this.tbOctoprintApikey);
+            this.gbOctoPrint.Controls.Add(this.label123);
+            this.gbOctoPrint.Controls.Add(this.tbOctoprintHost);
+            this.gbOctoPrint.Controls.Add(this.label128);
+            this.gbOctoPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbOctoPrint.Location = new System.Drawing.Point(3, 255);
+            this.gbOctoPrint.Name = "gbOctoPrint";
+            this.gbOctoPrint.Size = new System.Drawing.Size(518, 70);
+            this.gbOctoPrint.TabIndex = 1;
+            this.gbOctoPrint.TabStop = false;
+            this.gbOctoPrint.Text = "OctoPrint upload";
             // 
-            // label126
+            // tbOctoprintApikey
             // 
-            this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(9, 75);
-            this.label126.Name = "label126";
-            this.label126.Size = new System.Drawing.Size(177, 13);
-            this.label126.TabIndex = 23;
-            this.label126.Text = "Enable fan if layer print time is below";
+            this.tbOctoprintApikey.Location = new System.Drawing.Point(192, 41);
+            this.tbOctoprintApikey.Name = "tbOctoprintApikey";
+            this.tbOctoprintApikey.Size = new System.Drawing.Size(100, 20);
+            this.tbOctoprintApikey.TabIndex = 25;
             // 
-            // numericUpDown6
+            // label123
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(12, 91);
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown6.TabIndex = 24;
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(188, 25);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(45, 13);
+            this.label123.TabIndex = 24;
+            this.label123.Text = "API Key";
             // 
-            // label127
+            // tbOctoprintHost
             // 
-            this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(116, 43);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(47, 13);
-            this.label127.TabIndex = 22;
-            this.label127.Text = "seconds";
+            this.tbOctoprintHost.Location = new System.Drawing.Point(12, 41);
+            this.tbOctoprintHost.Name = "tbOctoprintHost";
+            this.tbOctoprintHost.Size = new System.Drawing.Size(100, 20);
+            this.tbOctoprintHost.TabIndex = 23;
             // 
             // label128
             // 
             this.label128.AutoSize = true;
             this.label128.Location = new System.Drawing.Point(8, 25);
             this.label128.Name = "label128";
-            this.label128.Size = new System.Drawing.Size(177, 13);
+            this.label128.Size = new System.Drawing.Size(54, 13);
             this.label128.TabIndex = 13;
-            this.label128.Text = "Enable fan if layer print time is below";
+            this.label128.Text = "Host or IP";
             // 
-            // numericUpDown7
+            // gbCapabilities
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(11, 41);
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown7.TabIndex = 21;
+            this.gbCapabilities.Controls.Add(this.nbExtruderCount);
+            this.gbCapabilities.Controls.Add(this.label136);
+            this.gbCapabilities.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbCapabilities.Location = new System.Drawing.Point(3, 179);
+            this.gbCapabilities.Name = "gbCapabilities";
+            this.gbCapabilities.Size = new System.Drawing.Size(518, 70);
+            this.gbCapabilities.TabIndex = 0;
+            this.gbCapabilities.TabStop = false;
+            this.gbCapabilities.Text = "Capabilities";
             // 
-            // groupBox24
+            // nbExtruderCount
             // 
-            this.groupBox24.Controls.Add(this.label129);
-            this.groupBox24.Controls.Add(this.numericUpDown8);
-            this.groupBox24.Controls.Add(this.label130);
-            this.groupBox24.Controls.Add(this.label131);
-            this.groupBox24.Controls.Add(this.numericUpDown9);
-            this.groupBox24.Controls.Add(this.label132);
-            this.groupBox24.Controls.Add(this.label133);
-            this.groupBox24.Controls.Add(this.label134);
-            this.groupBox24.Controls.Add(this.numericUpDown10);
-            this.groupBox24.Controls.Add(this.numericUpDown11);
-            this.groupBox24.Controls.Add(this.label135);
-            this.groupBox24.Controls.Add(this.label136);
-            this.groupBox24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox24.Location = new System.Drawing.Point(3, 169);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(518, 120);
-            this.groupBox24.TabIndex = 0;
-            this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "Fan settings";
-            // 
-            // label129
-            // 
-            this.label129.AutoSize = true;
-            this.label129.Location = new System.Drawing.Point(294, 92);
-            this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(34, 13);
-            this.label129.TabIndex = 32;
-            this.label129.Text = "layers";
-            // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.Location = new System.Drawing.Point(191, 90);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown8.TabIndex = 31;
-            // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(188, 75);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(112, 13);
-            this.label130.TabIndex = 30;
-            this.label130.Text = "Disable fan for the first";
-            // 
-            // label131
-            // 
-            this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(114, 92);
-            this.label131.Name = "label131";
-            this.label131.Size = new System.Drawing.Size(15, 13);
-            this.label131.TabIndex = 29;
-            this.label131.Text = "%";
-            // 
-            // numericUpDown9
-            // 
-            this.numericUpDown9.Location = new System.Drawing.Point(11, 90);
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown9.TabIndex = 28;
-            // 
-            // label132
-            // 
-            this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(8, 75);
-            this.label132.Name = "label132";
-            this.label132.Size = new System.Drawing.Size(92, 13);
-            this.label132.TabIndex = 27;
-            this.label132.Text = "Bridges fan speed";
-            // 
-            // label133
-            // 
-            this.label133.AutoSize = true;
-            this.label133.Location = new System.Drawing.Point(297, 42);
-            this.label133.Name = "label133";
-            this.label133.Size = new System.Drawing.Size(15, 13);
-            this.label133.TabIndex = 26;
-            this.label133.Text = "%";
-            // 
-            // label134
-            // 
-            this.label134.AutoSize = true;
-            this.label134.Location = new System.Drawing.Point(114, 42);
-            this.label134.Name = "label134";
-            this.label134.Size = new System.Drawing.Size(15, 13);
-            this.label134.TabIndex = 25;
-            this.label134.Text = "%";
-            // 
-            // numericUpDown10
-            // 
-            this.numericUpDown10.Location = new System.Drawing.Point(191, 40);
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown10.TabIndex = 23;
-            // 
-            // numericUpDown11
-            // 
-            this.numericUpDown11.Location = new System.Drawing.Point(11, 40);
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown11.TabIndex = 10;
-            // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Location = new System.Drawing.Point(188, 24);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(59, 13);
-            this.label135.TabIndex = 8;
-            this.label135.Text = "Max speed";
+            this.nbExtruderCount.Location = new System.Drawing.Point(11, 40);
+            this.nbExtruderCount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nbExtruderCount.Name = "nbExtruderCount";
+            this.nbExtruderCount.Size = new System.Drawing.Size(100, 20);
+            this.nbExtruderCount.TabIndex = 10;
+            this.nbExtruderCount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label136
             // 
             this.label136.AutoSize = true;
             this.label136.Location = new System.Drawing.Point(8, 25);
             this.label136.Name = "label136";
-            this.label136.Size = new System.Drawing.Size(56, 13);
+            this.label136.Size = new System.Drawing.Size(51, 13);
             this.label136.TabIndex = 0;
-            this.label136.Text = "Min speed";
+            this.label136.Text = "Extruders";
             // 
-            // groupBox25
+            // gbBedShape
             // 
-            this.groupBox25.Controls.Add(this.label137);
-            this.groupBox25.Controls.Add(this.checkBox1);
-            this.groupBox25.Controls.Add(this.checkBox2);
-            this.groupBox25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox25.Location = new System.Drawing.Point(3, 3);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(518, 160);
-            this.groupBox25.TabIndex = 21;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Enable";
+            this.gbBedShape.Controls.Add(this.nbZOffset);
+            this.gbBedShape.Controls.Add(this.label145);
+            this.gbBedShape.Controls.Add(this.nbBedYOrigin);
+            this.gbBedShape.Controls.Add(this.nbBedXOrigin);
+            this.gbBedShape.Controls.Add(this.label139);
+            this.gbBedShape.Controls.Add(this.label143);
+            this.gbBedShape.Controls.Add(this.nbBedYSize);
+            this.gbBedShape.Controls.Add(this.nbBedXSize);
+            this.gbBedShape.Controls.Add(this.label137);
+            this.gbBedShape.Controls.Add(this.label138);
+            this.gbBedShape.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbBedShape.Location = new System.Drawing.Point(3, 3);
+            this.gbBedShape.Name = "gbBedShape";
+            this.gbBedShape.Size = new System.Drawing.Size(518, 170);
+            this.gbBedShape.TabIndex = 21;
+            this.gbBedShape.TabStop = false;
+            this.gbBedShape.Text = "Bed shape";
+            // 
+            // nbZOffset
+            // 
+            this.nbZOffset.Location = new System.Drawing.Point(11, 140);
+            this.nbZOffset.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nbZOffset.Name = "nbZOffset";
+            this.nbZOffset.Size = new System.Drawing.Size(100, 20);
+            this.nbZOffset.TabIndex = 33;
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Location = new System.Drawing.Point(8, 125);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(43, 13);
+            this.label145.TabIndex = 32;
+            this.label145.Text = "Z offset";
+            // 
+            // nbBedYOrigin
+            // 
+            this.nbBedYOrigin.Location = new System.Drawing.Point(192, 90);
+            this.nbBedYOrigin.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nbBedYOrigin.Name = "nbBedYOrigin";
+            this.nbBedYOrigin.Size = new System.Drawing.Size(100, 20);
+            this.nbBedYOrigin.TabIndex = 31;
+            // 
+            // nbBedXOrigin
+            // 
+            this.nbBedXOrigin.Location = new System.Drawing.Point(12, 90);
+            this.nbBedXOrigin.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nbBedXOrigin.Name = "nbBedXOrigin";
+            this.nbBedXOrigin.Size = new System.Drawing.Size(100, 20);
+            this.nbBedXOrigin.TabIndex = 30;
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Location = new System.Drawing.Point(189, 74);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(42, 13);
+            this.label139.TabIndex = 29;
+            this.label139.Text = "Y origin";
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Location = new System.Drawing.Point(9, 75);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(42, 13);
+            this.label143.TabIndex = 28;
+            this.label143.Text = "X origin";
+            // 
+            // nbBedYSize
+            // 
+            this.nbBedYSize.Location = new System.Drawing.Point(192, 40);
+            this.nbBedYSize.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nbBedYSize.Name = "nbBedYSize";
+            this.nbBedYSize.Size = new System.Drawing.Size(100, 20);
+            this.nbBedYSize.TabIndex = 27;
+            // 
+            // nbBedXSize
+            // 
+            this.nbBedXSize.Location = new System.Drawing.Point(12, 40);
+            this.nbBedXSize.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nbBedXSize.Name = "nbBedXSize";
+            this.nbBedXSize.Size = new System.Drawing.Size(100, 20);
+            this.nbBedXSize.TabIndex = 26;
             // 
             // label137
             // 
             this.label137.AutoSize = true;
-            this.label137.Location = new System.Drawing.Point(8, 75);
-            this.label137.MaximumSize = new System.Drawing.Size(500, 0);
+            this.label137.Location = new System.Drawing.Point(189, 24);
             this.label137.Name = "label137";
-            this.label137.Size = new System.Drawing.Size(0, 13);
-            this.label137.TabIndex = 23;
+            this.label137.Size = new System.Drawing.Size(35, 13);
+            this.label137.TabIndex = 25;
+            this.label137.Text = "Y size";
             // 
-            // checkBox1
+            // label138
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(11, 42);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(120, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Enable auto cooling";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label138.AutoSize = true;
+            this.label138.Location = new System.Drawing.Point(9, 25);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(35, 13);
+            this.label138.TabIndex = 24;
+            this.label138.Text = "X size";
             // 
-            // checkBox2
+            // cbUseRelativeEDistances
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(11, 19);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(119, 17);
-            this.checkBox2.TabIndex = 21;
-            this.checkBox2.Text = "Keep fan always on";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbUseRelativeEDistances.AutoSize = true;
+            this.cbUseRelativeEDistances.Location = new System.Drawing.Point(12, 25);
+            this.cbUseRelativeEDistances.Name = "cbUseRelativeEDistances";
+            this.cbUseRelativeEDistances.Size = new System.Drawing.Size(140, 17);
+            this.cbUseRelativeEDistances.TabIndex = 0;
+            this.cbUseRelativeEDistances.Text = "Use relative E distances";
+            this.cbUseRelativeEDistances.UseVisualStyleBackColor = true;
+            // 
+            // cbUseFirmwareRetraction
+            // 
+            this.cbUseFirmwareRetraction.AutoSize = true;
+            this.cbUseFirmwareRetraction.Location = new System.Drawing.Point(192, 25);
+            this.cbUseFirmwareRetraction.Name = "cbUseFirmwareRetraction";
+            this.cbUseFirmwareRetraction.Size = new System.Drawing.Size(134, 17);
+            this.cbUseFirmwareRetraction.TabIndex = 1;
+            this.cbUseFirmwareRetraction.Text = "Use firmware retraction";
+            this.cbUseFirmwareRetraction.UseVisualStyleBackColor = true;
+            // 
+            // cbUseVolumetricE
+            // 
+            this.cbUseVolumetricE.AutoSize = true;
+            this.cbUseVolumetricE.Location = new System.Drawing.Point(372, 25);
+            this.cbUseVolumetricE.Name = "cbUseVolumetricE";
+            this.cbUseVolumetricE.Size = new System.Drawing.Size(106, 17);
+            this.cbUseVolumetricE.TabIndex = 2;
+            this.cbUseVolumetricE.Text = "Use volumetric E";
+            this.cbUseVolumetricE.UseVisualStyleBackColor = true;
+            // 
+            // nbPressureAdvance
+            // 
+            this.nbPressureAdvance.Location = new System.Drawing.Point(12, 65);
+            this.nbPressureAdvance.Name = "nbPressureAdvance";
+            this.nbPressureAdvance.Size = new System.Drawing.Size(100, 20);
+            this.nbPressureAdvance.TabIndex = 32;
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(9, 50);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(93, 13);
+            this.label125.TabIndex = 31;
+            this.label125.Text = "Pressure advance";
+            // 
+            // nbVibrationLimit
+            // 
+            this.nbVibrationLimit.Location = new System.Drawing.Point(192, 65);
+            this.nbVibrationLimit.Name = "nbVibrationLimit";
+            this.nbVibrationLimit.Size = new System.Drawing.Size(100, 20);
+            this.nbVibrationLimit.TabIndex = 34;
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Location = new System.Drawing.Point(189, 50);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(68, 13);
+            this.label126.TabIndex = 33;
+            this.label126.Text = "Vibration limit";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(298, 67);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(20, 13);
+            this.label127.TabIndex = 35;
+            this.label127.Text = "Hz";
             // 
             // Slic3rSettings
             // 
@@ -4449,19 +4530,24 @@
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
             this.tlpGeneral.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            this.groupBox23.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
+            this.gbFirmware.ResumeLayout(false);
+            this.gbFirmware.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.gbOctoPrint.ResumeLayout(false);
+            this.gbOctoPrint.PerformLayout();
+            this.gbCapabilities.ResumeLayout(false);
+            this.gbCapabilities.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbExtruderCount)).EndInit();
+            this.gbBedShape.ResumeLayout(false);
+            this.gbBedShape.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbZOffset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedYOrigin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedXOrigin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedYSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbBedXSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbPressureAdvance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbVibrationLimit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4808,32 +4894,36 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label122;
         private System.Windows.Forms.TableLayoutPanel tlpGeneral;
-        private System.Windows.Forms.GroupBox groupBox23;
-        private System.Windows.Forms.Label label123;
-        private System.Windows.Forms.Label label124;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
-        private System.Windows.Forms.Label label125;
-        private System.Windows.Forms.Label label126;
-        private System.Windows.Forms.NumericUpDown numericUpDown6;
-        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.GroupBox gbOctoPrint;
         private System.Windows.Forms.Label label128;
-        private System.Windows.Forms.NumericUpDown numericUpDown7;
-        private System.Windows.Forms.GroupBox groupBox24;
-        private System.Windows.Forms.Label label129;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.Label label130;
-        private System.Windows.Forms.Label label131;
-        private System.Windows.Forms.NumericUpDown numericUpDown9;
-        private System.Windows.Forms.Label label132;
-        private System.Windows.Forms.Label label133;
-        private System.Windows.Forms.Label label134;
-        private System.Windows.Forms.NumericUpDown numericUpDown10;
-        private System.Windows.Forms.NumericUpDown numericUpDown11;
-        private System.Windows.Forms.Label label135;
+        private System.Windows.Forms.GroupBox gbCapabilities;
+        private System.Windows.Forms.NumericUpDown nbExtruderCount;
         private System.Windows.Forms.Label label136;
-        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.GroupBox gbBedShape;
+        private System.Windows.Forms.GroupBox gbFirmware;
+        private System.Windows.Forms.ComboBox cboxGcodeFlavor;
+        private System.Windows.Forms.Label label124;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.TextBox tbOctoprintApikey;
+        private System.Windows.Forms.Label label123;
+        private System.Windows.Forms.TextBox tbOctoprintHost;
+        private System.Windows.Forms.NumericUpDown nbZOffset;
+        private System.Windows.Forms.Label label145;
+        private System.Windows.Forms.NumericUpDown nbBedYOrigin;
+        private System.Windows.Forms.NumericUpDown nbBedXOrigin;
+        private System.Windows.Forms.Label label139;
+        private System.Windows.Forms.Label label143;
+        private System.Windows.Forms.NumericUpDown nbBedYSize;
+        private System.Windows.Forms.NumericUpDown nbBedXSize;
         private System.Windows.Forms.Label label137;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label138;
+        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.NumericUpDown nbVibrationLimit;
+        private System.Windows.Forms.Label label126;
+        private System.Windows.Forms.NumericUpDown nbPressureAdvance;
+        private System.Windows.Forms.Label label125;
+        private System.Windows.Forms.CheckBox cbUseVolumetricE;
+        private System.Windows.Forms.CheckBox cbUseFirmwareRetraction;
+        private System.Windows.Forms.CheckBox cbUseRelativeEDistances;
     }
 }

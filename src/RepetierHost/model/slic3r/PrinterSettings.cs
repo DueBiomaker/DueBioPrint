@@ -1,4 +1,5 @@
 ﻿using RepetierHost.extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,24 +10,111 @@ namespace RepetierHost.model.slic3r
     public class PrinterSettings : ISlic3rSettings, INotifyPropertyChanged
     {
         private const string DEFAULT_VALUE = "0";
+        private const string DEFAULT_ORIGIN = "0";
+        private const string DEFAULT_SIZE = "200";
+        private const string DEFAULT_BED_SHAPE = "0x0,200x0,200x200,0x200";
+        private const string BED_SHAPE_FORMAT = "{0}x{1},{2}x{1},{2}x{3},{0}x{3}";
 
         public string ProfileName { get; set; }
         public string FilePath { get; set; }
 
-        // General
-        private string _BedShape;
+        private int _ExtruderCount = 1;
+        public int ExtruderCount
+        {
+            get
+            {
+                return _ExtruderCount;
+            }
+            set
+            {
+                _ExtruderCount = value;
+                AdjustExtruderList(ExtruderCount);
+                OnPropertyChanged("ExtruderCount");
+            }
+        }
 
+        private string _BedXOrigin;
+        public string BedXOrigin
+        {
+            get
+            {
+                return _BedXOrigin ?? DEFAULT_ORIGIN;   
+            }
+            set
+            {
+                _BedXOrigin = value;
+                OnPropertyChanged("BedXOrigin");
+                OnPropertyChanged("BedShape");
+            }
+        }
+        private string _BedYOrigin;
+        public string BedYOrigin
+        {
+            get
+            {
+                return _BedYOrigin ?? DEFAULT_ORIGIN;   
+            }
+            set
+            {
+                _BedYOrigin = value;
+                OnPropertyChanged("BedYOrigin");
+                OnPropertyChanged("BedShape");
+            }
+        }
+        private string _BedXSize;
+        public string BedXSize
+        {
+            get
+            {
+                return _BedXSize ?? DEFAULT_SIZE;   
+            }
+            set
+            {
+                _BedXSize = value;
+                OnPropertyChanged("BedXSize");
+                OnPropertyChanged("BedShape");
+            }
+        }
+        private string _BedYSize;
+        public string BedYSize
+        {
+            get
+            {
+                return _BedYSize ?? DEFAULT_SIZE;   
+            }
+            set
+            {
+                _BedYSize = value;
+                OnPropertyChanged("BedYSize");
+                OnPropertyChanged("BedShape");
+            }
+        }
+
+        // General
         public string BedShape
         {
             get
             {
-                return _BedShape;
+                return string.Format(BED_SHAPE_FORMAT, BedXOrigin, BedYOrigin, BedXSize, BedYSize);
             }
             set
             {
-                _BedShape = value ?? DEFAULT_VALUE;
+                FillBedValues(value ?? DEFAULT_BED_SHAPE);
                 OnPropertyChanged("BedShape");
             }
+        }
+
+        private void FillBedValues(string bedShape)
+        {
+            string[] values = bedShape.Split(',');
+
+            string[] origin = values[0].Split('x');
+            string[] extremity = values[2].Split('x');
+
+            BedXOrigin = origin[0];
+            BedYOrigin = origin[1];
+            BedXSize = extremity[0];
+            BedYSize = extremity[1];
         }
 
         private string _ZOffset;
@@ -74,9 +162,9 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _GcodeFlavor;
+        private GCodeFlavor _GcodeFlavor;
 
-        public string GcodeFlavor
+        public GCodeFlavor GcodeFlavor
         {
             get
             {
@@ -84,7 +172,21 @@ namespace RepetierHost.model.slic3r
             }
             set
             {
-                _GcodeFlavor = value ?? DEFAULT_VALUE;
+                _GcodeFlavor = value;
+                OnPropertyChanged("GcodeFlavor");
+            }
+        }
+
+        public int GcodeFlavorInt
+        {
+            get
+            {
+                return (int)_GcodeFlavor;
+            }
+            set
+            {
+                _GcodeFlavor = (GCodeFlavor)value;
+                OnPropertyChanged("GcodeFlavorInt");
                 OnPropertyChanged("GcodeFlavor");
             }
         }
@@ -258,17 +360,10 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
         private void FillExtrudersValue(string key, string input)
         {
             string[] values = input.Split(',');
-            AdjustExtruderList(values.Length);
+            InternalAdjustExtruderList(values.Length);
 
             for (int i = 0; i < values.Length; i++)
             {
@@ -283,17 +378,31 @@ namespace RepetierHost.model.slic3r
 
             if (ExtrudersSettings.Count > size)
             {
-                List<PrinterExtruderSettings> newList = new List<PrinterExtruderSettings>();
+                List<PrinterExtruderSettings> reducedList = new List<PrinterExtruderSettings>();
                 for (int i = 0; i < size; i++)
                 {
-                    newList.Add(ExtrudersSettings[i]);
+                    reducedList.Add(ExtrudersSettings[i]);
                 }
+                ExtrudersSettings = reducedList;
             }
             else
             {
                 while (ExtrudersSettings.Count < size)
                     ExtrudersSettings.Add(new PrinterExtruderSettings());
             }
+        }
+
+        private void InternalAdjustExtruderList(int size)
+        {
+            ExtruderCount = size;
+            AdjustExtruderList(size);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
         public void FillValue(string key, string input)
@@ -317,7 +426,8 @@ namespace RepetierHost.model.slic3r
                     break;
 
                 case "gcode_flavor":
-                    GcodeFlavor = input;
+                    input = input.Replace("-", "_");
+                    GcodeFlavor = (GCodeFlavor)Enum.Parse(typeof(GCodeFlavor), input);
                     break;
 
                 case "layer_gcode":

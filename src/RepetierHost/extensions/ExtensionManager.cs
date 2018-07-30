@@ -48,7 +48,7 @@ namespace RepetierHost.extensions
             string result = value.ToString();
             if (value is FillPattern)
                 result = result.Replace("three", "3");
-            if (value is SupportMaterialPattern)
+            if (value is SupportMaterialPattern || value is GCodeFlavor)
                 result = result.Replace("_", "-");
             return result;
         }

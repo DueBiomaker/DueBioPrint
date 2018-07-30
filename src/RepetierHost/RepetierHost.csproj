@@ -168,6 +168,7 @@
     <Compile Include="model\slic3r\PrinterSettingsCategory.cs" />
     <Compile Include="model\slic3r\ISlic3rSettings.cs" />
     <Compile Include="model\slic3r\FilamentSettingsCategory.cs" />
+    <Compile Include="model\slic3r\GCodeFlavor.cs" />
     <Compile Include="model\slic3r\SupportMaterialPattern.cs" />
     <Compile Include="model\slic3r\FilamentSettings.cs" />
     <Compile Include="model\slic3r\ExternalFillPattern.cs" />
