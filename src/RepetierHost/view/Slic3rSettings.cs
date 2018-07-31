@@ -10,6 +10,8 @@ namespace RepetierHost.view
 {
     public partial class Slic3rSettings : Form
     {
+        private const string EXTRUDE_TITLE_FORMAT = "Extruder {0}";
+
         private PrintSettings PrintSettings { get; set; }
         private FilamentSettings FilamentSettings { get; set; }
         private PrinterSettings PrinterSettings { get; set; }
@@ -87,6 +89,7 @@ namespace RepetierHost.view
 
                 case Slic3rSettingsCategory.Printer:
                     SettingsController.LoadSettingsProfile(Slic3rSettingsCategory.Printer, cboxPrinterProfiles.Text, PrinterSettings);
+                    LoadExtrudersPage();
                     break;
 
                 default:
@@ -424,6 +427,7 @@ namespace RepetierHost.view
         {
             tlpGeneral.Visible = false;
             tlpCustomGcode.Visible = false;
+            tlpExtruders.Visible = false;
 
             switch (lbPrinterSettingsCategories.SelectedIndex)
             {
@@ -433,6 +437,10 @@ namespace RepetierHost.view
 
                 case (int)PrinterSettingsCategory.CustomGcode:
                     tlpCustomGcode.Visible = true;
+                    break;
+
+                case (int)PrinterSettingsCategory.Extruders:
+                    tlpExtruders.Visible = true;
                     break;
             }
         }
@@ -498,6 +506,42 @@ namespace RepetierHost.view
         {
             colorDialog.Color = ColorTranslator.FromHtml(tbFilamentColour.Text);
             UpdateColorField();
+        }
+
+        private void nbExtruderCount_ValueChanged(object sender, EventArgs e)
+        {
+            LoadExtrudersPage();
+        }
+
+        public void LoadExtrudersPage()
+        {
+            foreach (var tab in tabExtruders.TabPages)
+            {
+                try
+                {
+                    ((TabPage)tab).Dispose();
+                }
+                catch { }
+            }
+
+            tabExtruders.TabPages.Clear();
+
+            int i = 1;
+            foreach (var settings in PrinterSettings.ExtrudersSettings)
+            {
+                var extruderSettings = new PrinterExtruderSettings()
+                {
+                    Dock = DockStyle.Fill
+                };
+
+                extruderSettings.LoadSettings(settings);
+
+                var tabPage = new TabPage();
+                tabPage.Text = string.Format(EXTRUDE_TITLE_FORMAT, i++);
+                tabPage.Controls.Add(extruderSettings);
+
+                tabExtruders.TabPages.Add(tabPage);
+            }
         }
     }
 }

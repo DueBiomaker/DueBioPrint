@@ -12,7 +12,7 @@ namespace RepetierHost.model.slic3r
         General,
         [Description("Custom G-code")]
         CustomGcode,
-        [Description("Extruder")]
-        Extruder
+        [Description("Extruders")]
+        Extruders
     }
 }

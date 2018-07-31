@@ -3,9 +3,10 @@ using System.ComponentModel;
 
 namespace RepetierHost.model.slic3r
 {
-    public class PrinterExtruderSettings : INotifyPropertyChanged
+    public class ExtruderSettings : INotifyPropertyChanged
     {
         private const string DEFAULT_VALUE = "0";
+        private const string EXTRUDER_OFFSET_FORMAT = "{0}x{1}";
 
         private string _NozzleDiameter = "0.5";
 
@@ -22,19 +23,57 @@ namespace RepetierHost.model.slic3r
             }
         }
 
-        private string _ExtruderOffset = "0x0";
+        private string _ExtruderXOffset = "0";
+
+        public string ExtruderXOffset 
+        {
+            get
+            {
+                return _ExtruderXOffset;
+            }
+            set
+            {
+                _ExtruderXOffset = value;
+                OnPropertyChanged("ExtruderXOffset");
+                OnPropertyChanged("ExtruderOffset");
+            }
+        }
+
+        private string _ExtruderYOffset = "0";
+
+        public string ExtruderYOffset 
+        {
+            get
+            {
+                return _ExtruderYOffset;
+            }
+            set
+            {
+                _ExtruderYOffset = value;
+                OnPropertyChanged("ExtruderYOffset");
+                OnPropertyChanged("ExtruderOffset");
+            }
+        }
 
         public string ExtruderOffset
         {
             get
             {
-                return _ExtruderOffset;
+                return string.Format(EXTRUDER_OFFSET_FORMAT, ExtruderXOffset, ExtruderYOffset);
             }
             set
             {
-                _ExtruderOffset = value ?? DEFAULT_VALUE;
+                FillOffsetValues(value);
                 OnPropertyChanged("ExtruderOffset");
             }
+        }
+
+        private void FillOffsetValues(string offset)
+        {
+            string[] values = offset.Split('x');
+
+            ExtruderXOffset = values[0];
+            ExtruderYOffset = values[1];
         }
 
         private string _RetractLength = "2";

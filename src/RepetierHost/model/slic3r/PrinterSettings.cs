@@ -343,14 +343,14 @@ namespace RepetierHost.model.slic3r
         }
 
         // Extruder
-        private List<PrinterExtruderSettings> _ExtrudersSettings;
+        private List<ExtruderSettings> _ExtrudersSettings;
 
-        public List<PrinterExtruderSettings> ExtrudersSettings
+        public List<ExtruderSettings> ExtrudersSettings
         {
             get
             {
                 if (_ExtrudersSettings == null)
-                    _ExtrudersSettings = new List<PrinterExtruderSettings>();
+                    _ExtrudersSettings = new List<ExtruderSettings>();
                 return _ExtrudersSettings;
             }
             set
@@ -368,7 +368,7 @@ namespace RepetierHost.model.slic3r
 
             for (int i = 0; i < values.Length; i++)
             {
-                ExtrudersSettings[i].FillValue(key, input);
+                ExtrudersSettings[i].FillValue(key, values[i].Trim());
             }
         }
 
@@ -379,7 +379,7 @@ namespace RepetierHost.model.slic3r
 
             if (ExtrudersSettings.Count > ExtruderCount)
             {
-                List<PrinterExtruderSettings> reducedList = new List<PrinterExtruderSettings>();
+                List<ExtruderSettings> reducedList = new List<ExtruderSettings>();
                 for (int i = 0; i < ExtruderCount; i++)
                 {
                     reducedList.Add(ExtrudersSettings[i]);
@@ -389,7 +389,7 @@ namespace RepetierHost.model.slic3r
             else
             {
                 while (ExtrudersSettings.Count < ExtruderCount)
-                    ExtrudersSettings.Add(new PrinterExtruderSettings());
+                    ExtrudersSettings.Add(new ExtruderSettings());
             }
         }
 
@@ -486,15 +486,15 @@ namespace RepetierHost.model.slic3r
                     break;
 
                 case "use_firmware_retraction":
-                    FillExtrudersValue(key, input);
+                    UseFirmwareRetraction = input.ToBool();
                     break;
 
                 case "use_relative_e_distances":
-                    FillExtrudersValue(key, input);
+                    UseRelativeEDistances = input.ToBool();
                     break;
 
                 case "use_volumetric_e":
-                    FillExtrudersValue(key, input);
+                    UseVolumetricE = input.ToBool();
                     break;
 
                 case "vibration_limit":

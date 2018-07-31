@@ -389,6 +389,10 @@
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.tbEndGcode = new System.Windows.Forms.TextBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.tlpExtruders = new System.Windows.Forms.TableLayoutPanel();
+            this.tabExtruders = new System.Windows.Forms.TabControl();
+            this.tabExtruder1 = new System.Windows.Forms.TabPage();
+            this.printerExtruderSettings1 = new RepetierHost.view.PrinterExtruderSettings();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrintPage.SuspendLayout();
@@ -502,6 +506,9 @@
             this.groupBox23.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox21.SuspendLayout();
+            this.tlpExtruders.SuspendLayout();
+            this.tabExtruders.SuspendLayout();
+            this.tabExtruder1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -3770,6 +3777,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.tlpGeneral, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tlpCustomGcode, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.tlpExtruders, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(253, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -3796,7 +3804,7 @@
             this.tlpGeneral.Controls.Add(this.gbCapabilities, 0, 1);
             this.tlpGeneral.Controls.Add(this.gbBedShape, 0, 0);
             this.tlpGeneral.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpGeneral.Location = new System.Drawing.Point(3, 627);
+            this.tlpGeneral.Location = new System.Drawing.Point(3, 1251);
             this.tlpGeneral.Name = "tlpGeneral";
             this.tlpGeneral.RowCount = 6;
             this.tlpGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -4001,6 +4009,7 @@
             0,
             0,
             0});
+            this.nbExtruderCount.ValueChanged += new System.EventHandler(this.nbExtruderCount_ValueChanged);
             // 
             // label136
             // 
@@ -4146,7 +4155,7 @@
             this.tlpCustomGcode.Controls.Add(this.groupBox20, 0, 0);
             this.tlpCustomGcode.Controls.Add(this.groupBox21, 0, 0);
             this.tlpCustomGcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpCustomGcode.Location = new System.Drawing.Point(3, 3);
+            this.tlpCustomGcode.Location = new System.Drawing.Point(3, 627);
             this.tlpCustomGcode.Name = "tlpCustomGcode";
             this.tlpCustomGcode.RowCount = 4;
             this.tlpCustomGcode.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -4268,6 +4277,59 @@
             this.tbEndGcode.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tbEndGcode.Size = new System.Drawing.Size(512, 91);
             this.tbEndGcode.TabIndex = 49;
+            // 
+            // tlpExtruders
+            // 
+            this.tlpExtruders.ColumnCount = 1;
+            this.tlpExtruders.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpExtruders.Controls.Add(this.tabExtruders, 0, 3);
+            this.tlpExtruders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlpExtruders.Location = new System.Drawing.Point(3, 3);
+            this.tlpExtruders.Name = "tlpExtruders";
+            this.tlpExtruders.RowCount = 4;
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpExtruders.Size = new System.Drawing.Size(524, 618);
+            this.tlpExtruders.TabIndex = 6;
+            // 
+            // tabExtruders
+            // 
+            this.tabExtruders.Controls.Add(this.tabExtruder1);
+            this.tabExtruders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabExtruders.Location = new System.Drawing.Point(3, 3);
+            this.tabExtruders.Name = "tabExtruders";
+            this.tabExtruders.SelectedIndex = 0;
+            this.tabExtruders.Size = new System.Drawing.Size(518, 612);
+            this.tabExtruders.TabIndex = 50;
+            // 
+            // tabExtruder1
+            // 
+            this.tabExtruder1.Controls.Add(this.printerExtruderSettings1);
+            this.tabExtruder1.Location = new System.Drawing.Point(4, 22);
+            this.tabExtruder1.Name = "tabExtruder1";
+            this.tabExtruder1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabExtruder1.Size = new System.Drawing.Size(510, 586);
+            this.tabExtruder1.TabIndex = 0;
+            this.tabExtruder1.Text = "Extruder 1";
+            this.tabExtruder1.UseVisualStyleBackColor = true;
+            // 
+            // printerExtruderSettings1
+            // 
+            this.printerExtruderSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.printerExtruderSettings1.Location = new System.Drawing.Point(3, 3);
+            this.printerExtruderSettings1.MinimumSize = new System.Drawing.Size(524, 618);
+            this.printerExtruderSettings1.Name = "printerExtruderSettings1";
+            this.printerExtruderSettings1.Size = new System.Drawing.Size(524, 618);
+            this.printerExtruderSettings1.TabIndex = 0;
             // 
             // Slic3rSettings
             // 
@@ -4444,6 +4506,9 @@
             this.groupBox20.PerformLayout();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
+            this.tlpExtruders.ResumeLayout(false);
+            this.tabExtruders.ResumeLayout(false);
+            this.tabExtruder1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -4811,5 +4876,9 @@
         private System.Windows.Forms.TextBox tbStartGcode;
         private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.TextBox tbEndGcode;
+        private System.Windows.Forms.TableLayoutPanel tlpExtruders;
+        private System.Windows.Forms.TabControl tabExtruders;
+        private System.Windows.Forms.TabPage tabExtruder1;
+        private PrinterExtruderSettings printerExtruderSettings1;
     }
 }
