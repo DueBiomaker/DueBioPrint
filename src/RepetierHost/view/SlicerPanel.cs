@@ -220,7 +220,7 @@ namespace RepetierHost.view
 
         private void buttonSlic3rConfigure_Click(object sender, EventArgs e)
         {
-            Main.slic3r.RunConfig();
+            Main.slic3rSettings.ShowDialog();
         }
 
         private void switchSlic3rActive_OnChange(SwitchButton button)

@@ -52,6 +52,7 @@ namespace RepetierHost
         public static bool IsMono = Type.GetType("Mono.Runtime") != null;
         public static Slicer slicer = null;
         public static Slic3r slic3r = null;
+        public static Slic3rSettings slic3rSettings = null;
         public static bool IsMac = false;
 
         public EEPROMRepetier eepromSettings = null;
@@ -283,7 +284,8 @@ namespace RepetierHost
             editor.commands.Read("default", "en");
             UpdateHistory();
             UpdateConnections();
-            Main.slic3r = new Slic3r();
+            slic3r = new Slic3r();
+            slic3rSettings = new Slic3rSettings();
             slicer = new Slicer();
             //toolShowLog_CheckedChanged(null, null);
             updateShowFilament();
@@ -316,10 +318,6 @@ namespace RepetierHost
                 Text = basicTitle;
             }
             slicerPanel.UpdateSelection();
-            if (Custom.GetBool("removeUpdates", false))
-                checkForUpdatesToolStripMenuItem.Visible = false;
-            else
-                RHUpdater.checkForUpdates(true);
             UpdateToolbarSize();
             // Add languages
             foreach (Translation t in trans.translations.Values)
@@ -339,7 +337,6 @@ namespace RepetierHost
             this.AllowDrop = true;
             this.DragEnter += new DragEventHandler(Form1_DragEnter);
             this.DragDrop += new DragEventHandler(Form1_DragDrop);
-            extensions.ExtensionManager.Initalize();
             if (conn.connector != null)
                 conn.connector.Activate();
             //TestTopoTriangle triTests = new TestTopoTriangle();
