@@ -1,5 +1,7 @@
 ﻿using RepetierHost.model;
 using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace RepetierHost.util
 {
@@ -8,6 +10,8 @@ namespace RepetierHost.util
         private const string SLIC3R_FOLDER = "Slic3r";
         private const string SLICER_MONO_FOLDER = ".Slic3r";
         private const string ENVIROMENT = "HOME";
+        private const string DATA_FOLDER = "data";
+        private const string DEFAULT_FOLDER = "default";
 
         public static string GetSlic3rDirectory()
         {
@@ -26,6 +30,11 @@ namespace RepetierHost.util
                 }
             }
             return cdir;
+        }
+
+        public static string GetDefaultDataDirectory()
+        {
+            return FileUtils.CreatePath(Application.StartupPath, DATA_FOLDER, DEFAULT_FOLDER);
         }
     }
 }
