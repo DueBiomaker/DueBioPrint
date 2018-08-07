@@ -112,24 +112,24 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="buttonDelete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAABzklEQVQ4T72SS0tbQRTHRyG7
-        igsFXeqqhW5KpZsKfgO9WSQx7/e7uXksxE0RiqJ2IW5aS9tF10XwC7QUxI/QTR5koaviheTGmkTbJONv
-        pHWTK1IKLv7cc8/8z2/mnBkhpfwv3QT9fl/U63VRLpdFpVJRmq7VavNogXhW5dQa/6LX6w0DOp2OiMfj
-        QtM04XA4ZoLB4I9QKGSgU9RyOp3P7Xa7IC9arZYlYDSVSj3GuOj3+98C63m93h20HYvFTAr3XS6XFg6H
-        nzYaDdsQwDTNKV3Xf2UyGZnP52WpVJKFQuFaf+NcLiej0aisVqtPhgDtdtuWTqeX3G73C07wMhAIbLLr
-        thLxFlrzeDx6JBJxGYbxYAjQ7XYFLYxi2sX8Bsi6z+d7hTaIlfZo5z2A8dtmoACTGCS7fmYGBsf9zgC/
-        JpNJCeADs5CsP2o2m7cCJhjSJTstYfxG8R6FOoXHtDZH7jd6eBfgAsAyxkMAHwGsADgBsHBvANWChlG1
-        8A5A4U8Lz+4EJBKJCQY4APAaYxnAFwCfAJgAVoFLctZDVNfIY7EBOeAhdYh/onPidrFYPOPb5YRH2Wx2
-        zPIaldQC9BFe5bSVWLMpz2AwsAb8u6S4Al5xXKfsxdkLAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAHOSURBVDhPvZJLS1tBFMdHIbuKCwVd6qqFbkqlmwp+
+        A71ZJDHv97u5eSzETRGKonYhblpL20XXRfALtBTEj9BNHmShq+KF5MaaRNsk42+kdZMrUgou/txzz/zP
+        b+acGSGl/C/dBP1+X9TrdVEul0WlUlGartVq82iBeFbl1Br/otfrDQM6nY6Ix+NC0zThcDhmgsHgj1Ao
+        ZKBT1HI6nc/tdrsgL1qtliVgNJVKPca46Pf73wLreb3eHbQdi8VMCvddLpcWDoefNhoN2xDANM0pXdd/
+        ZTIZmc/nZalUkoVC4Vp/41wuJ6PRqKxWq0+GAO1225ZOp5fcbvcLTvAyEAhssuu2EvEWWvN4PHokEnEZ
+        hvFgCNDtdgUtjGLaxfwGyLrP53uFNoiV9mjnPYDx22agAJMYJLt+ZgYGx/3OAL8mk0kJ4AOzkKw/ajab
+        twImGNIlOy1h/EbxHoU6hce0NkfuN3p4F+ACwDLGQwAfAawAOAGwcG8A1YKGUbXwDkDhTwvP7gQkEokJ
+        BjgA8BpjGcAXAJ8AmABWgUty1kNU18hjsQE54CF1iH+ic+J2sVg849vlhEfZbHbM8hqV1AL0EV7ltJVY
+        synPYDCwBvy7pLgCXnFcp+zF2QsAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="labelShapeInfo.Text" xml:space="preserve">
@@ -138,7 +138,7 @@ can be negative and outside the print bed. Bed left/front define the coordinates
 printbed itself starts. By changing the min/max values you can even move the origin in the
 center of the print bed, if supported by firmware.</value>
   </data>
-  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="errorProvider.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -183,7 +183,7 @@ center of the print bed, if supported by firmware.</value>
         AAAAAAAAAAAAAAAAAAAAAAAA
 </value>
   </data>
-  <metadata name="bindingConnectors.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="bindingConnectors.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>140, 17</value>
   </metadata>
 </root>

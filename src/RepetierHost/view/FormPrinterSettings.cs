@@ -124,6 +124,7 @@ namespace RepetierHost.view
             checkGoDisposeAfterJob.Text = Trans.T("L_GO_PARK_POSITION");
             //checkHasDumpArea.Text = Trans.T("L_HAS_DUMP_AREA");
             checkRunFilterEverySlice.Text = Trans.T("L_RUN_FILTER_EVERY_SLICE");
+            textFilterPath.Text = Trans.T("FILTER_COMMAND");
             labelCheckEveryX.Text = Trans.T1("L_CHECK_EVERY_X", trackTempPeriod.Value.ToString());
             checkTemp.Text = Trans.T("L_CHECK_EXTRUDER_BED_TEMPERATURE");
             logM105Checkbox.Text = Trans.T("L_REMOVE_M105_REQUEST_LOG");

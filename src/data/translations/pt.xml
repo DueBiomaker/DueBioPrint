@@ -6,7 +6,7 @@
 <t id="M_TEMPERATURE" ver="1">Temperatura</t>
 <t id="M_PRINTER" ver="1">Impressora</t>
 <t id="M_HELP" ver="1">Ajuda</t>
-<t id="M_LOAD_GCODE" ver="1">carregar G-Code</t>
+<t id="M_LOAD_GCODE" ver="1">Carregar G-Code</t>
 <t id="M_SHOW_WORKDIRECTORY" ver="1">Mostrar diretório de trabalho</t>
 <t id="M_LANGUAGE" ver="1">Linguagem</t>
 <t id="M_PRINTER_SETTINGS" ver="1">Config. da Impressora</t>
@@ -20,7 +20,7 @@
 <t id="M_SHOW_TARGET_TEMPERATURES" ver="1">Mostrar temperatura do alvo</t>
 <t id="M_SHOW_AVERAGE_TEMPERATURES" ver="1">Mostrar temperatura média</t>
 <t id="M_SHOW_HEATER_POWER" ver="1">Mostrar alimentação do aquecedor</t>
-<t id="M_AUTOSCROLL_TEMPERATURE_VIEW" ver="1">Autoscroll Temperature View</t>
+<t id="M_AUTOSCROLL_TEMPERATURE_VIEW" ver="1">Rolagem Automática da Visão de Temperatura</t>
 <t id="M_TIMEPERIOD" ver="1">Periodo de tempo</t>
 <t id="M_TEMPERATURE_ZOOM" ver="1">Zoom</t>
 <t id="M_BUILD_AVERAGE_OVER" ver="1">Média de construção após ...</t>
@@ -161,7 +161,7 @@ você pode adicionar pausas no seu código adicionando
 <t id="L_SERIAL_COM_ERROR" ver="1">Serial COM erro:</t>
 <t id="L_SHOW_IN_LOG" ver="1">Ver no registro:</t>
 <t id="B_ACK" ver="1">ACK</t>
-<t id="B_AUTO_SCROLL" ver="1">Auto Scroll</t>
+<t id="B_AUTO_SCROLL" ver="1">Rolagem automática</t>
 <t id="B_COMMANDS" ver="1">Comandos</t>
 <t id="B_LOG_ERRORS" ver="1">Erros</t>
 <t id="B_LOG_INFO" ver="1">Informações</t>
@@ -197,7 +197,7 @@ você pode adicionar pausas no seu código adicionando
 <t id="L_LAST_LAYER" ver="1">Última camada:</t>
 <t id="L_REALLY_DELETE_PRINTER" ver="1">Você realmente quer apagar todos os ajustes para $1?</t>
 <t id="L_SECURITY_QUESTION" ver="1">Pergunta de segurança</t>
-<t id="L_ADD_PRINTING_TIME" ver="1">Adicionar à amostra. O tempo de impressão</t>
+<t id="L_ADD_PRINTING_TIME" ver="1">Tempo de impressão extra</t>
 <t id="L_BAUD_RATE" ver="1">Taxa de Transmissão:</t>
 <t id="L_CACHE_SIZE_HINT" ver="1">Do Arduino 1 ao receber o cache é reduzido de 127 para 63 bytes!</t>
 <t id="L_CHECK_EVERY_X" ver="1">Checar a cada $1 segundos.</t>
@@ -207,7 +207,7 @@ nome da impressora e pressione Aplicar. A nova impressora começa com as última
 seleccionado.</t>
 <t id="L_DEFAULT_EXTRUDER_TEMPERATURE" ver="1">Temperatura padrão extrusora:</t>
 <t id="L_DEFAULT_HEATED_BED_TEMPERATURE" ver="1">Temperatura padrão mesa aquecida:</t>
-<t id="L_DUMP_AREA_DEPTH" ver="1">profundidade da área de despejo:</t>
+<t id="L_DUMP_AREA_DEPTH" ver="1">Profundidade da área de despejo:</t>
 <t id="L_DUMP_AREA_FRONT" ver="1">Área de despejo de frente:</t>
 <t id="L_DUMP_AREA_LEFT" ver="1">Área de despejo de Esquerda:</t>
 <t id="L_DUMP_AREA_WIDTH" ver="1">Largura da área de despejo:</t>
@@ -221,10 +221,10 @@ produzida pela segmentação de dados. Utilize # e # para inserir a entrada e sa
 <t id="L_PRINT_AREA_HEIGHT" ver="1">Altura da área de impressão:</t>
 <t id="L_PRINT_AREA_WIDTH" ver="1">Largura da área de impressão:</t>
 <t id="L_PRINTER" ver="1">Impressora:</t>
-<t id="L_RECEIVE_CACHE_SIZE" ver="1">Tamanho do cache recebido:</t>
+<t id="L_RECEIVE_CACHE_SIZE" ver="1">Tamanho do cache:</t>
 <t id="L_STOPBITS" ver="1">Bits de parada:</t>
 <t id="L_TRANSFER_PROTOCOL" ver="1">Protocolo de transf.:</t>
-<t id="L_TRAVEL_FEED_RATE" ver="1">taxa de movimento:</t>
+<t id="L_TRAVEL_FEED_RATE" ver="1">Taxa de movimento:</t>
 <t id="L_ZFEED_RATE" ver="1">Taxa de alimentação do eixo-Z:</t>
 <t id="L_DISABLE_EXTRUDER_AFTER_JOB" ver="1">Desabilitar extrusora após Job/Kill</t>
 <t id="L_DISABLE_MOTORS" ver="1">Desabilitar motores após Job/Kill</t>
@@ -236,7 +236,7 @@ produzida pela segmentação de dados. Utilize # e # para inserir a entrada e sa
 <t id="L_HOME_Z_MAX" ver="1">inicio em Z Max</t>
 <t id="L_PING_PONG_MODE" ver="1">Usar Comunicação Ping-Pong (Enviar somente depois de ok)</t>
 <t id="L_RUN_FILTER_EVERY_SLICE" ver="1">Executar filtro após todo fatiamento</t>
-<t id="L_CHECK_EXTRUDER_BED_TEMPERATURE" ver="1">verificar extrusora &amp; temperatura da mesa</t>
+<t id="L_CHECK_EXTRUDER_BED_TEMPERATURE" ver="1">Verificar Extrusora &amp;&amp; Temperatura da Mesa</t>
 <t id="L_REMOVE_M105_REQUEST_LOG" ver="1">Remover M105 Pedidos de registro</t>
 <t id="B_CANCEL" ver="1">Cancelar</t>
 <t id="B_APPLY" ver="1">Aplicar</t>
@@ -309,7 +309,7 @@ caso esteja desabilitada a visualização do registro. As mudanças estarão ati
 <t id="L_SELECT_WORKING_DIRECTORY" ver="1">Selecione o diretório de trabalho</t>
 <t id="L_PAST_60_MINUTES" ver="1">Ápós 60 minutos</t>
 <t id="W_3D_VISUALIZATION_SETTINGS" ver="1">Config. de visualização 3D</t>
-<t id="L_COLORS" ver="1">Colores</t>
+<t id="L_COLORS" ver="1">Cores</t>
 <t id="L_EDITOR" ver="1">Editor</t>
 <t id="L_VISUALIZATION" ver="1">Visualização:</t>
 <t id="L_AMBIENT_COLOR" ver="1">Cor ambiente:</t>
@@ -348,7 +348,7 @@ melhores resultados, se a camada de mudanças de altura, o que pode acontecer em
 <t id="L_LAYER_HEIGHT" ver="1">Altura da camada:</t>
 <t id="L_FILAMENT_DIAMETER" ver="1">Diametro do Filamento:</t>
 <t id="L_DRAW_METHOD_AUTODETECT" ver="1">Detecção automática</t>
-<t id="L_DRAW_METHOD_VBOS" ver="1">VBOs (Fastest)</t>
+<t id="L_DRAW_METHOD_VBOS" ver="1">VBOs (Rápido)</t>
 <t id="L_DRAW_METHOD_ARRAYS" ver="1">matrizes (Medium)</t>
 <t id="L_DRAW_METHOD_IMMEDIATE" ver="1">imediato (Slow)</t>
 <t id="W_JOB_STATUS" ver="1">Status do trabalho</t>
@@ -434,7 +434,7 @@ melhores resultados, se a camada de mudanças de altura, o que pode acontecer em
 <t id="L_M_MIN_TRAVEL_FEEDRATE" ver="1">Taxa de avanço Min [mm/s]</t>
 <t id="L_M_PID_SETTINGS" ver="1">Configurações PID:</t>
 <t id="L_M_STEPS_PER_MM" ver="1">Passos por mm:</t>
-<t id="L_M_RETRACT_ACCELERATION" ver="1">Retract Acceleration:</t>
+<t id="L_M_RETRACT_ACCELERATION" ver="1">Aceleração de retração:</t>
 <t id="B_M_LOAD" ver="1">Recarregar configurações</t>
 <t id="B_M_RESTORE" ver="1">Restaurar as configurações de fábrica</t>
 <t id="B_M_SAVE" ver="1">Salvar no EEPROM</t>
@@ -474,5 +474,195 @@ Escrever as mudanças no EEPROM?</t>
 <t id="T_ZOOM_VIEW" ver="1">Zoom</t>
 <t id="T_CLEAR_OBJECTS" ver="1">Limpar</t>
 <t id="L_DEBUG_OPTIONS" ver="2">Opções de depuração</t>
+<t id="L_X_MIN:" ver="3">X Min</t>
+<t id="L_X_MAX:" ver="3">X Max</t>
+<t id="L_Y_MIN:" ver="3">Y Min</t>
+<t id="L_Y_MAX:" ver="3">Y Max</t>
+<t id="L_BED_LEFT:" ver="3">Base Esquerda:</t>
+<t id="L_BED_FRONT:" ver="3">Base Frontal:</t>
+<t id="L_SHAPE_INFO" ver="3">Os valores mínimos e máximos definem o intervalo possível de coordenadas da extrusora. Essas coordenadas podem ser negativas e fora da base de impressão. Base Esquerda/Frontal definem as coordenadas onde a base de impressão começa. Ao mudar esses valores máximos/mínimos você pode mover a origem no centro da mesa de impressão, se suportado pelo firmware.</t>
+<t id="L_SELECTION_BOX" ver="3">Selection Box:</t>
+<t id="L_FILAMENT_NONE" ver="3">None/Same as Extruder 1</t>
+<t id="L_REALLY_QUIT" ver="3">Printing not finished. Exit anyway?</t>
+<t id="M_DONATE" ver="3">Donate or Support</t>
+<t id="L_FAN" ver="4">Fan</t>
+<t id="L_HOME_X:" ver="4">Origem X:</t>
+<t id="L_HOME_Y:" ver="4">Origem Y:</t>
+<t id="L_HOME_Z:" ver="4">Origem Z:</t>
+<t id="L_MIN" ver="4">Min</t>
+<t id="L_MAX" ver="4">Max</t>
+<t id="L_PAUSED_FIRMWARE" ver="4">Your printer requested a pause.</t>
+<t id="L_CREATE_FOLDER" ver="4">Create new Folder</t>
+<t id="L_CREATE_FOLDER_INFO" ver="4">Enter folder name in 8.3 notation:</t>
+<t id="L_UPLOADING_TIME" ver="4">Uploading time: $1</t>
+<t id="L_FILAMENT_POS" ver="4">Fil: $1</t>
+<t id="L_TRAVEL_VISUALIZATION_DISABLED" ver="4">Travel visualization disabled</t>
+<t id="M_HIDE_TRAVEL" ver="4">Esconder movimentação</t>
+<t id="L_TRAVEL_VISUALIZATION_ENABLED" ver="4">Travel visualization enabled</t>
+<t id="M_SHOW_TRAVEL" ver="4">Mostrar movimentação</t>
+<t id="L_TRAVEL_MOVES:" ver="4">Travel Moves:</t>
+<t id="L_DISABLE_TRAVEL_MOVES_VIS" ver="4">Disable Travel Move Visualization</t>
+<t id="L_NUMBER_OF_EXTRUDER:" ver="5">Número de Extrusora:</t>
+<t id="L_NEW_FOLDER" ver="5">New Folder</t>
+<t id="L_USE_PARALLEL_PROJECTION" ver="5">Usar projeção paralela</t>
+<t id="L_USE_RED_GREEN_SWITCH" ver="5">Use red/green switch buttons (requires restart)</t>
+<t id="L_SLIC3R_NOT_FOUND" ver="6">Slic3r not found.</t>
+<t id="L_ANALYSING_STL" ver="6">Analyzing STL file ...</t>
+<t id="L_SLICING_STL" ver="6">Slicing STL file ...</t>
+<t id="L_PYPY_NOT_FOUND" ver="6">Pypy or Python interpreter not found.</t>
+<t id="L_SKEINCRAFT_NOT_FOUND" ver="6">Skeinforge craft not found.</t>
+<t id="L_PYTHON_NOT_FOUND" ver="6">Python interpreter not found.</t>
+<t id="L_SKEINFORGE_NOT_FOUND" ver="6">Skeinforge not found.</t>
+<t id="L_SKEINCRAFT_PROFILES_NOT_FOUND" ver="6">Skeinforge/SFACT profiles directory not found.</t>
+<t id="B_REFRESH_PORTS" ver="6">Refresh Ports</t>
+<t id="L_ROS_PRINTABLE_HEIGHT:" ver="6">Printable Height:</t>
+<t id="L_ROS_PRINTABLE_RADIUS:" ver="6">Printable Radius:</t>
+<t id="L_CARTESIAN_PRINTER" ver="6">Impressora Clássica</t>
+<t id="L_CARTESIAN_PRINTER_DUMP" ver="6">Classic Printer (with dump area)</t>
+<t id="L_ROSTOCK_CIRCLE" ver="6">Rostock Printer (circular print shape)</t>
+<t id="L_CORRECT_NORMALS" ver="7">Use correct normals (looks better, needs more memory)</t>
+<t id="L_WARNING" ver="8">Warning</t>
+<t id="L_HEATERS_ON_QUEST" ver="8">Some heaters are still on. Shall I disable them?</t>
+<t id="L_OBJECTS_OUTSIDE_SLICE_QUEST" ver="8">At least one object is outside the printable area. Abort slicing?</t>
+<t id="L_CNC_ROUTER" ver="8">CNC Router</t>
+<t id="L_SLIC3R_VERSION" ver="8">Slic3r Version</t>
+<t id="L_MODEL_ERRORS" ver="9">Model Errors:</t>
+<t id="L_REPAIR" ver="9">Repair</t>
+<t id="L_SPLIT" ver="9">Split</t>
+<t id="L_YES" ver="9">Yes</t>
+<t id="L_NO" ver="9">No</t>
+<t id="L_MODEL_CHANGED_RELOAD" ver="9"><![CDATA[One or more objects files are changed.
+Reload objects?]]></t>
+<t id="L_FILES_CHANGED" ver="9">Files changed</t>
+<t id="L_INNER_FACES" ver="9">Inner faces:</t>
+<t id="L_BACKGROUND_TOP" ver="9">Background Top:</t>
+<t id="L_BACKGROUND_BOTTOM" ver="9">Background Bottom:</t>
+<t id="L_PRINTER_FRAME" ver="9">Printer Frame:</t>
+<t id="L_ISOMETRIC_VIEW" ver="9">Visão Isométrica</t>
+<t id="L_BOTTOM_VIEW" ver="9">Visão da Base</t>
+<t id="L_LEFT_VIEW" ver="9">Visão da Esquerda</t>
+<t id="L_RIGHT_VIEW" ver="9">Visão da Direita</t>
+<t id="L_FRONT_VIEW" ver="9">Visão Frontal</t>
+<t id="L_BACK_VIEW" ver="9">Visão Traseira</t>
+<t id="M_VIEW" ver="9">Visualização</t>
+<t id="M_SHOW_EDGES" ver="9">Mostrar Arestas</t>
+<t id="M_SHOW_FACES" ver="9">Mostrar Faces</t>
+<t id="L_ANA_MODIFIED" ver="9">Modified:</t>
+<t id="L_ANA_MANIFOLD" ver="9">Manifold:</t>
+<t id="L_ANA_INTERSECTING_TRIANGLES" ver="9">Intersecting triangles:</t>
+<t id="L_ANA_NORMALS" ver="9">Normals:</t>
+<t id="L_ANA_LOOP_EDGES" ver="9">Loop Edges:</t>
+<t id="L_ANA_HIGHLY_CONNECTED" ver="9">Highly Connected Edges:</t>
+<t id="L_ANA_VERTICES" ver="9">Points:</t>
+<t id="L_ANA_EDGES" ver="9">Arestas:</t>
+<t id="L_ANA_FACES" ver="9">Faces:</t>
+<t id="L_ANA_SHELLS" ver="9">Shells:</t>
+<t id="L_ANA_ORIENTED" ver="9">Oriented</t>
+<t id="L_ANA_NOT_ORIENTED" ver="9">Not Oriented</t>
+<t id="M_TOOLS" ver="9">Ferramentas</t>
+<t id="M_BELT_CALCULATOR" ver="9">Belt Calculator</t>
+<t id="M_LEADSCREW_CALCULATOR" ver="9">Leadscrew Calculator</t>
+<t id="L_MOTOR_STEP_ANGLE" ver="9">Motor step angle</t>
+<t id="L_DRIVER_MICROSTEPPING" ver="9">Driver Microstepping</t>
+<t id="L_BELT_PITCH" ver="9">Belt Pitch</t>
+<t id="L_TOOTH_COUNT" ver="9">Tooth Count</t>
+<t id="B_CALCULATE" ver="9">Calculate</t>
+<t id="L_STEPS_PER_MM" ver="9">Value for steps per mm</t>
+<t id="L_TOOTH_COUNT_MUST_INT" ver="9">Tooth Count must be int</t>
+<t id="L_LEADSCREW_PITCH" ver="9">Leadscrew pitch</t>
+<t id="L_GEAR_RATIO" ver="9">Gear ratio</t>
+<t id="L_SERIAL_CONNECTION" ver="9">Conexão Serial</t>
+<t id="L_VIRTUAL_CONNECTION" ver="9">Impressora Virtual</t>
+<t id="L_REPETIER_SERVER_CONNECTION" ver="9">Repetier-Server</t>
+<t id="L_CONNECTOR" ver="9">Conector</t>
+<t id="L_DISABLED" ver="9">Desabilitado</t>
+<t id="L_DTR_LOW_HIGH" ver="9">DTR high->low</t>
+<t id="L_DTR_LOW_HIGH_LOW" ver="9">DTR low->high->low</t>
+<t id="L_DTR_TOGGLE" ver="9">DTR toggle</t>
+<t id="L_RESET_ON_CONNECT" ver="9">Reinício ao Conectar</t>
+<t id="L_RESET_ON_EMERGENCY" ver="9">Reinício Emergencial</t>
+<t id="L_SEND_EMERGENCY_CMD" ver="9">Enviar comando de emergência</t>
+<t id="L_SEND_EMERGENCY_CMD_DTR_TOGGLE" ver="9">Enviar comando de emergência + DTR high->low</t>
+<t id="L_SEND_EMERGENCY_CMD_RECONNECT" ver="9">Enviar comando de emergência e reconectar</t>
+<t id="L_FILE_ASSOCIATIONS" ver="9">File Associations</t>
+<t id="L_ASSOCIATE_EXTENSIONS" ver="9">Associate Extensions</t>
+<t id="L_CONNECTION_FAILED" ver="9">The connection failed with the following error: $1. Make sure your printer is connected, enabled and connection data is set correct. Open printer settings?</t>
+<t id="L_AUTOENABLE_PARALLEL_TOPVIEW" ver="9">Enable parallel mode in top view</t>
+<t id="L_RESET_DEFAULTS" ver="9">Reset defaults</t>
+<t id="L_REMOVED_DEGENERATED" ver="9">Removed degenerated triangles:</t>
+<t id="L_REMOVED_ISOLATED" ver="9">Removed isolated triangles:</t>
+<t id="L_REMOVED_DOUBLE" ver="9">Removed double triangles:</t>
+<t id="L_STARTING_ANALYSER" ver="9">Starting object analyser ...</t>
+<t id="L_ANALYSER_FINISHED" ver="9">Analysing finished.</t>
+<t id="L_LOADING_3D_FAILED" ver="9">Loading of 3d file $1 failed.</t>
+<t id="L_OBJECT_INFORMATIONS" ver="9">Object Informations</t>
+<t id="L_MINIMUM:" ver="9">Minimum:</t>
+<t id="L_MAXIMUM:" ver="9">Maximum:</t>
+<t id="L_SIZE:" ver="9">Size:</t>
+<t id="L_VOLUME:" ver="9">Volume:</t>
+<t id="L_SURFACE:" ver="9">Surface:</t>
+<t id="L_DIMENSIONS:" ver="9">Dimensions:</t>
+<t id="L_SPLIT_OBJECT" ver="9">Split Object</t>
+<t id="L_FIX_NORMALS" ver="9">Fix Normals</t>
+<t id="M_FIT_PRINTER" ver="9">Encaixar Impressora</t>
+<t id="M_FIT_OBJECTS" ver="9">Encaixar Objetos</t>
+<t id="IMPORTING_1" ver="9">Importing $1</t>
+<t id="L_LOADING..." ver="9">Loading ...</t>
+<t id="L_INTERSECTION_TESTS" ver="9">Intersection tests</t>
+<t id="L_FIXING_NORMALS" ver="9">Fixing normals</t>
+<t id="L_ANA_FIXED_COLLINEAR_TRIANGLES" ver="9">Fixed collinear triangles:</t>
+<t id="L_ANA_CORRECTED_NORMAL_ORIENTATIONS" ver="9">Corrected normal orientations:</t>
+<t id="L_OBJECT_IS_MANIFOLD" ver="9">Object is manifold.</t>
+<t id="L_OBJECT_IS_NON_MANIFOLD" ver="9">Object is non-manifold. Slicing may produce wrong results. Please repair object file first.</t>
+<t id="L_SHOW_COMPASS" ver="9">Mostrar Bússola</t>
+<t id="L_CONFIRM_DELETE_JOB" ver="10">Are you sure you want to delete job $1?</t>
+<t id="L_PRINT_STATE_SAVED_SUCCESSFULLY" ver="10">State was saved successfully</t>
+<t id="M_POSPONED_JOBS" ver="10">Postponed Jobs</t>
+<t id="M_RESUME_JOB" ver="10">Resume</t>
+<t id="M_POSTPONE_JOB" ver="10">Postpone Current Job</t>
+<t id="W_POSTPONED_PRINT_JOBS" ver="10">Postponed Print Jobs</t>
+<t id="M_POSTPONED_JOB_SELECT_JOB" ver="10">Resume Job</t>
+<t id="M_POSTPONED_JOB_KILL_JOB" ver="10">Delete Job</t>
+<t id="M_POSTPONED_JOB_RENAME_JOB" ver="10">Rename Job</t>
+<t id="L_POSTPONED_JOB_NAME" ver="10">Job Name</t>
+<t id="L_NAME_POSTPONED_JOB" ver="10">Please name the Job</t>
+<t id="L_POSTPONED_JOB_DIALOG_DESCRIPTION" ver="10">The Job state will be saved once the current layer is completed. You can also force saving the job state now, or resume printing.</t>
+<t id="B_FORCE_SAVE_POSTPONED_JOB" ver="10">&amp;Force</t>
+<t id="B_RESUME_PRINTING_JOB" ver="10">&amp;Resume</t>
+<t id="W_POSTPONED_JOB_DIALOG" ver="10">Postpone Print Job</t>
+<t id="M_TOGGLE_PRINTER_ID" ver="10">Alternar Visualização do ID da Impressora</t>
+<t id="L_PRINTER_ID" ver="10">Printer ID</t>
+<t id="L_BGCOLOR:" ver="10">Background Color:</t>
+<t id="L_EDIT_INSTANCE_NAME" ver="10">Edit Printer ID</t>
+<t id="L_ANAYLSING" ver="10">Analysing</t>
+<t id="L_NOT_TESTED" ver="10">Not tested</t>
+<t id="L_CONNECTOR:" ver="10">Connector:</t>
+<t id="L_NORMAL_CORRECTION_IMPOSSIBLE" ver="10">Normal correction not possible for non-manifold meshes.</t>
+<t id="M_MED_HEIGHT_MAP" var="10">Bed height map</t>
+<t id="M_CREATE_HEIGHT_MAP" var="10">Create Height Map</t>
+<t id="B_MEASURE_HEIGHTS" ver="10">Measure Heights</t>
+<t id="B_RESULT_TO_CLIPBOARD" ver="10">Result to Clipboard</t>
+<t id="L_SCAN_AREA" ver="10">Scan Area</t>
+<t id="L_SCAN_RESULTS" ver="10">Scan Results</t>
+<t id="L_X_MIN:" ver="10">X min:</t>
+<t id="L_Y_MIN:" ver="10">Y max:</t>
+<t id="L_X_MAX:" ver="10">X min:</t>
+<t id="L_Y_MAX:" ver="10">Y max:</t>
+<t id="L_X_POINTS:" ver="10">X points:</t>
+<t id="L_Y_POINTS:" ver="10">Y points:</t>
+<t id="L_Z_MIN:" ver="10">Z min:</t>
+<t id="L_Z_MAX:" ver="10">Z max:</t>
+<t id="L_Z_AVG:" ver="10">Z avg:</t>
+<t id="L_Z_CENTER:" ver="10">Z center</t>
+<t id="L_CUT_FACES" ver="10">Cortar Objetos</t>
+<t id="L_CUT_POSITION" ver="10">Posição</t>
+<t id="L_CUT_INCLINATION" ver="10">Inclinação</t>
+<t id="L_CUT_AZIMUTH" ver="10">Azimute</t>
+<t id="UNITS_OF_IMPORTED_OBJECTS" ver="10">Unidades de Medida de Objetos Importados</t>
+<t id="OBJECTS_ARE_IN_MILLIMETER" ver="10">Objetos em milímetros</t>
+<t id="OBJECTS_ARE_IN_INCHES" ver="10">Objetos em polegadas</t>
+<t id="OBJECTS_ARE_IN_FOOT" ver="10">Objetos em pés</t>
+<t id="OBJECTS_ARE_IN_METER" ver="10">Objetos em metros</t>
+<t id="FILTER_COMMAND" ver="10">SeuFiltro #entrada #saída</t>
 </translation>
 
