@@ -70,16 +70,21 @@ namespace RepetierHost.controller
             slic3rSettings.FilePath = filePath;
         }
 
-        public void SaveProfile(ISlic3rSettings iSlic3rSettings, string newProfileName = null)
+        public void SaveProfile(ISlic3rSettings slic3rSettings, string newProfileName = null)
         {
             if (newProfileName != null)
-                iSlic3rSettings.FilePath =  FileUtils.CreatePath(SettingsPath, GetCategoryFolder(iSlic3rSettings.Category), newProfileName + CONFIG_EXTENSION);
+                slic3rSettings.FilePath =  FileUtils.CreatePath(SettingsPath, GetCategoryFolder(slic3rSettings.Category), newProfileName + CONFIG_EXTENSION);
 
-            using (var fileStream = File.Open(iSlic3rSettings.FilePath, FileMode.Create))
+            using (var fileStream = File.Open(slic3rSettings.FilePath, FileMode.Create))
             using (var streamReader = new StreamWriter(fileStream))
             {
-                streamReader.Write(iSlic3rSettings.ToString());
+                streamReader.Write(slic3rSettings.ToString());
             }
+        }
+
+        public void DeleteProfile(ISlic3rSettings slic3rSettings)
+        {
+            File.Delete(slic3rSettings.FilePath);
         }
 
         public List<string> FindAvailableProfiles(Slic3rSettingsCategory category)

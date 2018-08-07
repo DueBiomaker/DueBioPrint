@@ -70,6 +70,10 @@ namespace RepetierHost.view
             cboxPrinterProfiles.Items.Clear();
             cboxPrinterProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Printer).ToArray());
             cboxPrinterProfiles.SelectedIndex = 0;
+
+            btnDeletePrintSettings.Enabled = true;
+            btnDeleteFilamentSettings.Enabled = true;
+            btnDeletePrinterSettings.Enabled = true;
         }
 
         public void LoadProfile(Slic3rSettingsCategory category)
@@ -543,6 +547,39 @@ namespace RepetierHost.view
 
                 tabExtruders.TabPages.Add(tabPage);
             }
+        }
+
+        private void btnDeletePrinterSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.DeleteProfile(PrinterSettings);
+            LoadAndFillProfileList();
+        }
+
+        private void btnDeleteFilamentSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.DeleteProfile(FilamentSettings);
+            LoadAndFillProfileList();
+        }
+
+        private void btnDeletePrintSettings_Click(object sender, EventArgs e)
+        {
+            SettingsController.DeleteProfile(PrintSettings);
+            LoadAndFillProfileList();
+        }
+
+        private void cboxPrintProfiles_TextUpdate(object sender, EventArgs e)
+        {
+            btnDeletePrintSettings.Enabled = cboxPrintProfiles.Text.Equals(PrintSettings.ProfileName);
+        }
+
+        private void cboxFilamentProfiles_TextUpdate(object sender, EventArgs e)
+        {
+            btnDeleteFilamentSettings.Enabled = cboxFilamentProfiles.Text.Equals(FilamentSettings.ProfileName);
+        }
+
+        private void cboxPrinterProfiles_TextUpdate(object sender, EventArgs e)
+        {
+            btnDeletePrinterSettings.Enabled = cboxPrinterProfiles.Text.Equals(PrinterSettings.ProfileName);
         }
     }
 }
