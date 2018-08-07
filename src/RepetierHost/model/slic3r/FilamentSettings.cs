@@ -287,6 +287,14 @@ namespace RepetierHost.model.slic3r
             }
         }
 
+        public Slic3rSettingsCategory Category
+        {
+            get
+            {
+                return Slic3rSettingsCategory.Filament;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)

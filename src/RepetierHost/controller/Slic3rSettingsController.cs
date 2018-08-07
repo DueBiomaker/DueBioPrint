@@ -70,8 +70,11 @@ namespace RepetierHost.controller
             slic3rSettings.FilePath = filePath;
         }
 
-        public void SaveProfile(ISlic3rSettings iSlic3rSettings)
+        public void SaveProfile(ISlic3rSettings iSlic3rSettings, string newProfileName = null)
         {
+            if (newProfileName != null)
+                iSlic3rSettings.FilePath =  FileUtils.CreatePath(SettingsPath, GetCategoryFolder(iSlic3rSettings.Category), newProfileName + CONFIG_EXTENSION);
+
             using (var fileStream = File.Open(iSlic3rSettings.FilePath, FileMode.Create))
             using (var streamReader = new StreamWriter(fileStream))
             {

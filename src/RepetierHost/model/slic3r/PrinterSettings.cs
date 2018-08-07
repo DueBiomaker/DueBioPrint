@@ -360,6 +360,14 @@ namespace RepetierHost.model.slic3r
             }
         }
 
+        public Slic3rSettingsCategory Category
+        {
+            get
+            {
+                return Slic3rSettingsCategory.Printer;
+            }
+        }
+
         private void FillExtrudersValue(string key, string input)
         {
             string[] values = input.Split(',');

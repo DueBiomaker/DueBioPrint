@@ -61,17 +61,14 @@ namespace RepetierHost.view
         {
             cboxPrintProfiles.Items.Clear();
             cboxPrintProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Print).ToArray());
-            cboxPrintProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxPrintProfiles.SelectedIndex = 0;
 
             cboxFilamentProfiles.Items.Clear();
             cboxFilamentProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Filament).ToArray());
-            cboxFilamentProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxFilamentProfiles.SelectedIndex = 0;
 
             cboxPrinterProfiles.Items.Clear();
             cboxPrinterProfiles.Items.AddRange(SettingsController.FindAvailableProfiles(Slic3rSettingsCategory.Printer).ToArray());
-            cboxPrinterProfiles.DropDownStyle = ComboBoxStyle.DropDownList;
             cboxPrinterProfiles.SelectedIndex = 0;
         }
 
@@ -349,11 +346,6 @@ namespace RepetierHost.view
             tbToolchangeGcode.DataBindings.Add("Text", PrinterSettings, "ToolchangeGcode", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(PrintSettings.ToString());
-        }
-
         private void lbPrintSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
             tlpLayers.Visible = false;
@@ -473,17 +465,26 @@ namespace RepetierHost.view
 
         private void btnSavePrintSettings_Click(object sender, EventArgs e)
         {
-            SettingsController.SaveProfile(PrintSettings);
+            string profileName = cboxPrintProfiles.Text;
+            SettingsController.SaveProfile(PrintSettings, profileName);
+            LoadAndFillProfileList();
+            cboxPrintProfiles.SelectedItem = profileName;
         }
 
         private void btnSaveFilamentSettings_Click(object sender, EventArgs e)
         {
-            SettingsController.SaveProfile(FilamentSettings);
+            string profileName = cboxFilamentProfiles.Text;
+            SettingsController.SaveProfile(FilamentSettings, profileName);
+            LoadAndFillProfileList();
+            cboxFilamentProfiles.SelectedItem = profileName;
         }
 
         private void btnSavePrinterSettings_Click(object sender, EventArgs e)
         {
-            SettingsController.SaveProfile(PrinterSettings);
+            string profileName = cboxPrinterProfiles.Text;
+            SettingsController.SaveProfile(PrinterSettings, profileName);
+            LoadAndFillProfileList();
+            cboxPrinterProfiles.SelectedItem = profileName;
         }
 
         private void button2_Click(object sender, EventArgs e)
