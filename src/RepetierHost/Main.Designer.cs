@@ -931,7 +931,7 @@
             // 
             this.aboutRepetierHostToolStripMenuItem.Name = "aboutRepetierHostToolStripMenuItem";
             this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.aboutRepetierHostToolStripMenuItem.Text = "&About DUE Print";
+            this.aboutRepetierHostToolStripMenuItem.Text = "&About DUE BioPrint";
             this.aboutRepetierHostToolStripMenuItem.Click += new System.EventHandler(this.aboutRepetierHostToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
@@ -1383,7 +1383,7 @@
             this.MainMenuStrip = this.menu;
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "Main";
-            this.Text = "DUE Print";
+            this.Text = "DUE BioPrint";
             this.Activated += new System.EventHandler(this.Main_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
