@@ -89,7 +89,7 @@
 você pode adicionar pausas no seu código adicionando
 @pause </t>
 <t id="L_UPDATING..." ver="1">Atualizando ...</t>
-<t id="L_SLICE_WITH" ver="1">Slice com $1</t>
+<t id="L_SLICE_WITH" ver="1">Preparar Impressão</t><!--$1 é usado aqui-->
 <t id="L_EMERGENCY_STOP_MSG" ver="1">Enviar parada de emergência para a impressora. Pode ser necessário reiniciar a impressora para um reinício!</t>
 <t id="L_TRANSLATION:" ver="1">Mover</t>
 <t id="L_SCALE:" ver="1">Escala</t>
