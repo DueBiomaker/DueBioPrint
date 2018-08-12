@@ -519,22 +519,22 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_CARTESIAN_PRINTER_DUMP" ver="6">Classic Printer (with dump area)</t>
 <t id="L_ROSTOCK_CIRCLE" ver="6">Rostock Printer (circular print shape)</t>
 <t id="L_CORRECT_NORMALS" ver="7">Use correct normals (looks better, needs more memory)</t>
-<t id="L_WARNING" ver="8">Warning</t>
-<t id="L_HEATERS_ON_QUEST" ver="8">Some heaters are still on. Shall I disable them?</t>
-<t id="L_OBJECTS_OUTSIDE_SLICE_QUEST" ver="8">At least one object is outside the printable area. Abort slicing?</t>
-<t id="L_CNC_ROUTER" ver="8">CNC Router</t>
-<t id="L_SLIC3R_VERSION" ver="8">Slic3r Version</t>
-<t id="L_MODEL_ERRORS" ver="9">Model Errors:</t>
-<t id="L_REPAIR" ver="9">Repair</t>
-<t id="L_SPLIT" ver="9">Split</t>
-<t id="L_YES" ver="9">Yes</t>
-<t id="L_NO" ver="9">No</t>
+<t id="L_WARNING" ver="8">Atenção</t>
+<t id="L_HEATERS_ON_QUEST" ver="8">Alguns aquecedores ainda estão ligados. Devo desliga-los?</t>
+<t id="L_OBJECTS_OUTSIDE_SLICE_QUEST" ver="8">Pelo menos um objeto esta fora da área de impressão, abortar fatiamento?</t>
+<t id="L_CNC_ROUTER" ver="8">Roteador CNC</t>
+<t id="L_SLIC3R_VERSION" ver="8">Slic3r Versão</t>
+<t id="L_MODEL_ERRORS" ver="9">Erros no Modelo:</t>
+<t id="L_REPAIR" ver="9">Reparo</t>
+<t id="L_SPLIT" ver="9">Dividir</t>
+<t id="L_YES" ver="9">Sim</t>
+<t id="L_NO" ver="9">Não</t>
 <t id="L_MODEL_CHANGED_RELOAD" ver="9"><![CDATA[One or more objects files are changed.
 Reload objects?]]></t>
-<t id="L_FILES_CHANGED" ver="9">Files changed</t>
-<t id="L_INNER_FACES" ver="9">Inner faces:</t>
-<t id="L_BACKGROUND_TOP" ver="9">Background Top:</t>
-<t id="L_BACKGROUND_BOTTOM" ver="9">Background Bottom:</t>
+<t id="L_FILES_CHANGED" ver="9">Arquivos modificados</t>
+<t id="L_INNER_FACES" ver="9">Faces Internas:</t>
+<t id="L_BACKGROUND_TOP" ver="9">Background Topo:</t>
+<t id="L_BACKGROUND_BOTTOM" ver="9">Background Fundo:</t>
 <t id="L_PRINTER_FRAME" ver="9">Printer Frame:</t>
 <t id="L_ISOMETRIC_VIEW" ver="9">Visão Isométrica</t>
 <t id="L_BOTTOM_VIEW" ver="9">Visão da Base</t>
@@ -545,26 +545,26 @@ Reload objects?]]></t>
 <t id="M_VIEW" ver="9">Visualização</t>
 <t id="M_SHOW_EDGES" ver="9">Mostrar Arestas</t>
 <t id="M_SHOW_FACES" ver="9">Mostrar Faces</t>
-<t id="L_ANA_MODIFIED" ver="9">Modified:</t>
-<t id="L_ANA_MANIFOLD" ver="9">Manifold:</t>
-<t id="L_ANA_INTERSECTING_TRIANGLES" ver="9">Intersecting triangles:</t>
-<t id="L_ANA_NORMALS" ver="9">Normals:</t>
-<t id="L_ANA_LOOP_EDGES" ver="9">Loop Edges:</t>
-<t id="L_ANA_HIGHLY_CONNECTED" ver="9">Highly Connected Edges:</t>
-<t id="L_ANA_VERTICES" ver="9">Points:</t>
+<t id="L_ANA_MODIFIED" ver="9">Modificado:</t>
+<t id="L_ANA_MANIFOLD" ver="9">Multifold:</t>
+<t id="L_ANA_INTERSECTING_TRIANGLES" ver="9">Triangulos Interseccionados:</t>
+<t id="L_ANA_NORMALS" ver="9">Normais:</t>
+<t id="L_ANA_LOOP_EDGES" ver="9">Arestas em Loop:</t>
+<t id="L_ANA_HIGHLY_CONNECTED" ver="9">Arestas Altamente Conectadas:</t>
+<t id="L_ANA_VERTICES" ver="9">Pontos:</t>
 <t id="L_ANA_EDGES" ver="9">Arestas:</t>
 <t id="L_ANA_FACES" ver="9">Faces:</t>
-<t id="L_ANA_SHELLS" ver="9">Shells:</t>
-<t id="L_ANA_ORIENTED" ver="9">Oriented</t>
-<t id="L_ANA_NOT_ORIENTED" ver="9">Not Oriented</t>
+<t id="L_ANA_SHELLS" ver="9">Cascas:</t>
+<t id="L_ANA_ORIENTED" ver="9">Orientado</t>
+<t id="L_ANA_NOT_ORIENTED" ver="9">Não Orientado</t>
 <t id="M_TOOLS" ver="9">Ferramentas</t>
 <t id="M_BELT_CALCULATOR" ver="9">Belt Calculator</t>
 <t id="M_LEADSCREW_CALCULATOR" ver="9">Leadscrew Calculator</t>
-<t id="L_MOTOR_STEP_ANGLE" ver="9">Motor step angle</t>
+<t id="L_MOTOR_STEP_ANGLE" ver="9">Angulo do Motor de Paço</t>
 <t id="L_DRIVER_MICROSTEPPING" ver="9">Driver Microstepping</t>
 <t id="L_BELT_PITCH" ver="9">Belt Pitch</t>
 <t id="L_TOOTH_COUNT" ver="9">Tooth Count</t>
-<t id="B_CALCULATE" ver="9">Calculate</t>
+<t id="B_CALCULATE" ver="9">Calcular</t>
 <t id="L_STEPS_PER_MM" ver="9">Value for steps per mm</t>
 <t id="L_TOOTH_COUNT_MUST_INT" ver="9">Tooth Count must be int</t>
 <t id="L_LEADSCREW_PITCH" ver="9">Leadscrew pitch</t>
@@ -574,84 +574,85 @@ Reload objects?]]></t>
 <t id="L_REPETIER_SERVER_CONNECTION" ver="9">Repetier-Server</t>
 <t id="L_CONNECTOR" ver="9">Conector</t>
 <t id="L_DISABLED" ver="9">Desabilitado</t>
-<t id="L_DTR_LOW_HIGH" ver="9">DTR high->low</t>
-<t id="L_DTR_LOW_HIGH_LOW" ver="9">DTR low->high->low</t>
-<t id="L_DTR_TOGGLE" ver="9">DTR toggle</t>
+<t id="L_DTR_LOW_HIGH" ver="9">DTR alto->baixo</t>
+<t id="L_DTR_LOW_HIGH_LOW" ver="9">DTR baixo->alto->baixo</t>
+<t id="L_DTR_TOGGLE" ver="9">DTR alternado</t>
 <t id="L_RESET_ON_CONNECT" ver="9">Reinício ao Conectar</t>
 <t id="L_RESET_ON_EMERGENCY" ver="9">Reinício Emergencial</t>
 <t id="L_SEND_EMERGENCY_CMD" ver="9">Enviar comando de emergência</t>
-<t id="L_SEND_EMERGENCY_CMD_DTR_TOGGLE" ver="9">Enviar comando de emergência + DTR high->low</t>
+<t id="L_SEND_EMERGENCY_CMD_DTR_TOGGLE" ver="9">Enviar comando de emergência + DTR alto->baixo</t>
 <t id="L_SEND_EMERGENCY_CMD_RECONNECT" ver="9">Enviar comando de emergência e reconectar</t>
-<t id="L_FILE_ASSOCIATIONS" ver="9">File Associations</t>
-<t id="L_ASSOCIATE_EXTENSIONS" ver="9">Associate Extensions</t>
-<t id="L_CONNECTION_FAILED" ver="9">The connection failed with the following error: $1. Make sure your printer is connected, enabled and connection data is set correct. Open printer settings?</t>
-<t id="L_AUTOENABLE_PARALLEL_TOPVIEW" ver="9">Enable parallel mode in top view</t>
-<t id="L_RESET_DEFAULTS" ver="9">Reset defaults</t>
-<t id="L_REMOVED_DEGENERATED" ver="9">Removed degenerated triangles:</t>
-<t id="L_REMOVED_ISOLATED" ver="9">Removed isolated triangles:</t>
-<t id="L_REMOVED_DOUBLE" ver="9">Removed double triangles:</t>
-<t id="L_STARTING_ANALYSER" ver="9">Starting object analyser ...</t>
-<t id="L_ANALYSER_FINISHED" ver="9">Analysing finished.</t>
-<t id="L_LOADING_3D_FAILED" ver="9">Loading of 3d file $1 failed.</t>
-<t id="L_OBJECT_INFORMATIONS" ver="9">Object Informations</t>
-<t id="L_MINIMUM:" ver="9">Minimum:</t>
-<t id="L_MAXIMUM:" ver="9">Maximum:</t>
-<t id="L_SIZE:" ver="9">Size:</t>
+<t id="L_FILE_ASSOCIATIONS" ver="9">Arquivos Associados</t>
+<t id="L_ASSOCIATE_EXTENSIONS" ver="9">Extems]pes Associadas</t>
+<t id="L_CONNECTION_FAILED" ver="9">A conexão falhou com o seguinte errro: $1. Certifique-se que  sua impressora esta conectada, ativada e os dados de conexão estão corretos. Abrir configurações de impressão?</t>
+<t id="L_AUTOENABLE_PARALLEL_TOPVIEW" ver="9">Ativar modo paralelo na vista de topo</t>
+<t id="L_RESET_DEFAULTS" ver="9">Redefinir defaults</t>
+<t id="L_REMOVED_DEGENERATED" ver="9">Triângulos degenerados removidos:</t>
+<t id="L_REMOVED_ISOLATED" ver="9">Triângulos isolados removidos:</t>
+<t id="L_REMOVED_DOUBLE" ver="9">Triângulos duplos removidos:</t>
+<t id="L_STARTING_ANALYSER" ver="9">Começando analisador de objetos...</t>
+<t id="L_ANALYSER_FINISHED" ver="9">Analise finalizada.</t>
+<t id="L_LOADING_3D_FAILED" ver="9">Carregamento do arquivo 3d $1 falhou.</t>
+<t id="L_OBJECT_INFORMATIONS" ver="9">Informações de Objetos</t>
+<t id="L_MINIMUM:" ver="9">Mínimo:</t>
+<t id="L_MAXIMUM:" ver="9">Máximo:</t>
+<t id="L_SIZE:" ver="9">Tamanho:</t>
 <t id="L_VOLUME:" ver="9">Volume:</t>
-<t id="L_SURFACE:" ver="9">Surface:</t>
+<t id="L_SURFACE:" ver="9">Superfice:</t>
 <t id="L_DIMENSIONS:" ver="9">Dimensions:</t>
-<t id="L_SPLIT_OBJECT" ver="9">Split Object</t>
-<t id="L_FIX_NORMALS" ver="9">Fix Normals</t>
+<t id="L_SPLIT_OBJECT" ver="9">Dividir Objeto</t>
+<t id="L_FIX_NORMALS" ver="9">Concertar Normais</t>
 <t id="M_FIT_PRINTER" ver="9">Encaixar Impressora</t>
 <t id="M_FIT_OBJECTS" ver="9">Encaixar Objetos</t>
-<t id="IMPORTING_1" ver="9">Importing $1</t>
-<t id="L_LOADING..." ver="9">Loading ...</t>
-<t id="L_INTERSECTION_TESTS" ver="9">Intersection tests</t>
-<t id="L_FIXING_NORMALS" ver="9">Fixing normals</t>
-<t id="L_ANA_FIXED_COLLINEAR_TRIANGLES" ver="9">Fixed collinear triangles:</t>
-<t id="L_ANA_CORRECTED_NORMAL_ORIENTATIONS" ver="9">Corrected normal orientations:</t>
-<t id="L_OBJECT_IS_MANIFOLD" ver="9">Object is manifold.</t>
-<t id="L_OBJECT_IS_NON_MANIFOLD" ver="9">Object is non-manifold. Slicing may produce wrong results. Please repair object file first.</t>
+<t id="IMPORTING_1" ver="9">Importando $1</t>
+<t id="L_LOADING..." ver="9">Carregando ...</t>
+<t id="L_INTERSECTION_TESTS" ver="9">Testes de interseção</t>
+<t id="L_FIXING_NORMALS" ver="9">Concertando normais</t>
+<t id="L_ANA_FIXED_COLLINEAR_TRIANGLES" ver="9">Triangulos colineares corrigidos:</t>
+<t id="L_ANA_CORRECTED_NORMAL_ORIENTATIONS" ver="9">Orientações das normais corrigidas:</t>
+<t id="L_OBJECT_IS_MANIFOLD" ver="9">Objeto é multifold.</t>
+<t id="L_OBJECT_IS_NON_MANIFOLD" ver="9">
+Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor repare os objetos primeiro.</t>
 <t id="L_SHOW_COMPASS" ver="9">Mostrar Bússola</t>
-<t id="L_CONFIRM_DELETE_JOB" ver="10">Are you sure you want to delete job $1?</t>
-<t id="L_PRINT_STATE_SAVED_SUCCESSFULLY" ver="10">State was saved successfully</t>
-<t id="M_POSPONED_JOBS" ver="10">Postponed Jobs</t>
-<t id="M_RESUME_JOB" ver="10">Resume</t>
-<t id="M_POSTPONE_JOB" ver="10">Postpone Current Job</t>
-<t id="W_POSTPONED_PRINT_JOBS" ver="10">Postponed Print Jobs</t>
-<t id="M_POSTPONED_JOB_SELECT_JOB" ver="10">Resume Job</t>
-<t id="M_POSTPONED_JOB_KILL_JOB" ver="10">Delete Job</t>
-<t id="M_POSTPONED_JOB_RENAME_JOB" ver="10">Rename Job</t>
-<t id="L_POSTPONED_JOB_NAME" ver="10">Job Name</t>
-<t id="L_NAME_POSTPONED_JOB" ver="10">Please name the Job</t>
-<t id="L_POSTPONED_JOB_DIALOG_DESCRIPTION" ver="10">The Job state will be saved once the current layer is completed. You can also force saving the job state now, or resume printing.</t>
-<t id="B_FORCE_SAVE_POSTPONED_JOB" ver="10">&amp;Force</t>
-<t id="B_RESUME_PRINTING_JOB" ver="10">&amp;Resume</t>
-<t id="W_POSTPONED_JOB_DIALOG" ver="10">Postpone Print Job</t>
+<t id="L_CONFIRM_DELETE_JOB" ver="10">Você esta certo que quer deleetar o traabalho $1?</t>
+<t id="L_PRINT_STATE_SAVED_SUCCESSFULLY" ver="10">O estado foi salvo com sucesso</t>
+<t id="M_POSPONED_JOBS" ver="10">Adiar Trabalhos</t>
+<t id="M_RESUME_JOB" ver="10">Continuar</t>
+<t id="M_POSTPONE_JOB" ver="10">Adiar Trabalho Atual</t>
+<t id="W_POSTPONED_PRINT_JOBS" ver="10">Adiar Trabalhos de Impressão</t>
+<t id="M_POSTPONED_JOB_SELECT_JOB" ver="10">Continuar Trabalhar</t>
+<t id="M_POSTPONED_JOB_KILL_JOB" ver="10">Deletar Trabalho</t>
+<t id="M_POSTPONED_JOB_RENAME_JOB" ver="10">Renomear Trabalho</t>
+<t id="L_POSTPONED_JOB_NAME" ver="10">Nome do Trabalho</t>
+<t id="L_NAME_POSTPONED_JOB" ver="10">Por favor de um nome ao Trabalho</t>
+<t id="L_POSTPONED_JOB_DIALOG_DESCRIPTION" ver="10">O estado do Trabalho vai ser salvo quando a camada atual estiver completa. Você também pode forçar o salvamento agora, ou continuar a impressão.</t>
+<t id="B_FORCE_SAVE_POSTPONED_JOB" ver="10">&amp;Forçar</t>
+<t id="B_RESUME_PRINTING_JOB" ver="10">&amp;Continuar</t>
+<t id="W_POSTPONED_JOB_DIALOG" ver="10">Adiar Trabalho de Impressão</t>
 <t id="M_TOGGLE_PRINTER_ID" ver="10">Alternar Visualização do ID da Impressora</t>
-<t id="L_PRINTER_ID" ver="10">Printer ID</t>
-<t id="L_BGCOLOR:" ver="10">Background Color:</t>
-<t id="L_EDIT_INSTANCE_NAME" ver="10">Edit Printer ID</t>
-<t id="L_ANAYLSING" ver="10">Analysing</t>
-<t id="L_NOT_TESTED" ver="10">Not tested</t>
-<t id="L_CONNECTOR:" ver="10">Connector:</t>
-<t id="L_NORMAL_CORRECTION_IMPOSSIBLE" ver="10">Normal correction not possible for non-manifold meshes.</t>
-<t id="M_MED_HEIGHT_MAP" var="10">Bed height map</t>
-<t id="M_CREATE_HEIGHT_MAP" var="10">Create Height Map</t>
-<t id="B_MEASURE_HEIGHTS" ver="10">Measure Heights</t>
-<t id="B_RESULT_TO_CLIPBOARD" ver="10">Result to Clipboard</t>
-<t id="L_SCAN_AREA" ver="10">Scan Area</t>
-<t id="L_SCAN_RESULTS" ver="10">Scan Results</t>
+<t id="L_PRINTER_ID" ver="10">ID da Impressora</t>
+<t id="L_BGCOLOR:" ver="10">Cor de Fundo:</t>
+<t id="L_EDIT_INSTANCE_NAME" ver="10">Editar ID da Impressora</t>
+<t id="L_ANAYLSING" ver="10">Aanalisando</t>
+<t id="L_NOT_TESTED" ver="10">Não testado</t>
+<t id="L_CONNECTOR:" ver="10">Conector:</t>
+<t id="L_NORMAL_CORRECTION_IMPOSSIBLE" ver="10">Correção de Normal não é póssível para malhas não-multifold.</t>
+<t id="M_MED_HEIGHT_MAP" var="10">Mapa com altura errada</t>
+<t id="M_CREATE_HEIGHT_MAP" var="10">Altura de mapa criada</t>
+<t id="B_MEASURE_HEIGHTS" ver="10">Medidas de Altura</t>
+<t id="B_RESULT_TO_CLIPBOARD" ver="10">Resultados na Área de Transferência</t>
+<t id="L_SCAN_AREA" ver="10">Scan Área</t>
+<t id="L_SCAN_RESULTS" ver="10">Scan Resultados</t>
 <t id="L_X_MIN:" ver="10">X min:</t>
 <t id="L_Y_MIN:" ver="10">Y max:</t>
 <t id="L_X_MAX:" ver="10">X min:</t>
 <t id="L_Y_MAX:" ver="10">Y max:</t>
-<t id="L_X_POINTS:" ver="10">X points:</t>
-<t id="L_Y_POINTS:" ver="10">Y points:</t>
+<t id="L_X_POINTS:" ver="10">X pontos:</t>
+<t id="L_Y_POINTS:" ver="10">Y pontos:</t>
 <t id="L_Z_MIN:" ver="10">Z min:</t>
 <t id="L_Z_MAX:" ver="10">Z max:</t>
-<t id="L_Z_AVG:" ver="10">Z avg:</t>
-<t id="L_Z_CENTER:" ver="10">Z center</t>
+<t id="L_Z_AVG:" ver="10">Z med:</t>
+<t id="L_Z_CENTER:" ver="10">Z centro</t>
 <t id="L_CUT_FACES" ver="10">Cortar Objetos</t>
 <t id="L_CUT_POSITION" ver="10">Posição</t>
 <t id="L_CUT_INCLINATION" ver="10">Inclinação</t>
