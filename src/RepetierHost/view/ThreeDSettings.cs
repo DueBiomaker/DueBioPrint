@@ -636,5 +636,15 @@ Immediate (slow)*/
         {
             Main.main.Update3D();
         }
+
+        private void labelHotFilamentLength_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupVisualization_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
