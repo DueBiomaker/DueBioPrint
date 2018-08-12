@@ -663,5 +663,10 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="OBJECTS_ARE_IN_FOOT" ver="10">Objetos em pés</t>
 <t id="OBJECTS_ARE_IN_METER" ver="10">Objetos em metros</t>
 <t id="FILTER_COMMAND" ver="10">SeuFiltro #entrada #saída</t>
+
+<t id="L_NAME" ver="10">Nome</t>
+<t id="L_MESH" ver="10">Malha</t>
+<t id="L_COLLISIONE" ver="10">Colisão</t>
+
 </translation>
 

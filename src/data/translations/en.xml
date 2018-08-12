@@ -664,5 +664,9 @@ Reload objects?]]></t>
 <t id="OBJECTS_ARE_IN_INCHES" ver="10">Objects are in inches</t>
 <t id="OBJECTS_ARE_IN_FOOT" ver="10">Objects are in feet</t>
 <t id="OBJECTS_ARE_IN_METER" ver="10">Objects are in meter</t>
+<t id="FILTER_COMMAND" ver="10">YourFilter #input #output</t>
+<t id="L_NAME" ver="10">Nome</t>
+<t id="L_MESH" ver="10">Malha</t>
+<t id="L_COLLISIONE" ver="10">Colisão</t>
 </translation>
 
