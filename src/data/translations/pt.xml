@@ -503,7 +503,7 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_NUMBER_OF_EXTRUDER:" ver="5">Número de Extrusora:</t>
 <t id="L_NEW_FOLDER" ver="5">New Folder</t>
 <t id="L_USE_PARALLEL_PROJECTION" ver="5">Usar projeção paralela</t>
-<t id="L_USE_RED_GREEN_SWITCH" ver="5">Use red/green switch buttons (requires restart)</t>
+<t id="L_USE_RED_GREEN_SWITCH" ver="5">Usar botões verde/vermelho (requir reiniciar)</t>
 <t id="L_SLIC3R_NOT_FOUND" ver="6">Slic3r not found.</t>
 <t id="L_ANALYSING_STL" ver="6">Analyzing STL file ...</t>
 <t id="L_SLICING_STL" ver="6">Slicing STL file ...</t>
@@ -583,7 +583,7 @@ Reload objects?]]></t>
 <t id="L_SEND_EMERGENCY_CMD_DTR_TOGGLE" ver="9">Enviar comando de emergência + DTR alto->baixo</t>
 <t id="L_SEND_EMERGENCY_CMD_RECONNECT" ver="9">Enviar comando de emergência e reconectar</t>
 <t id="L_FILE_ASSOCIATIONS" ver="9">Arquivos Associados</t>
-<t id="L_ASSOCIATE_EXTENSIONS" ver="9">Extems]pes Associadas</t>
+<t id="L_ASSOCIATE_EXTENSIONS" ver="9">Extensões Associadas</t>
 <t id="L_CONNECTION_FAILED" ver="9">A conexão falhou com o seguinte errro: $1. Certifique-se que  sua impressora esta conectada, ativada e os dados de conexão estão corretos. Abrir configurações de impressão?</t>
 <t id="L_AUTOENABLE_PARALLEL_TOPVIEW" ver="9">Ativar modo paralelo na vista de topo</t>
 <t id="L_RESET_DEFAULTS" ver="9">Redefinir padrões</t>
@@ -668,5 +668,10 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="L_COLLISIONE" ver="10">Colisão</t>
 <t id="L_CUT_FACES" ver="10">Faces cortadas:</t>
 <t id="L_MODEL_ERRORS_EDGE" ver="10">Erros no Modelo (arestas):</t>
+
+<t id="L_SIMPLE" ver="10">Simples</t>
+<t id="L_MEDIUM" ver="10">Médio</t>
+<t id="L_FINE" ver="10">Fino</t>
+<t id="L_ULTRA_FINE" ver="10">Ultra Fino</t>
 </translation>
 

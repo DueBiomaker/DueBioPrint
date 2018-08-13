@@ -129,6 +129,15 @@ Immediate (slow)*/
             buttonModelColorsDefaults.Text = Trans.T("L_RESET_DEFAULTS");
             labelModelErrorEdge.Text = Trans.T("L_MODEL_ERRORS_EDGE");
             labelCutFaces.Text = Trans.T("L_CUT_FACES");
+
+            comboFilamentVisualization.Items.Clear();
+            comboFilamentVisualization.Items.AddRange(new object[] {
+                Trans.T("L_SIMPLE"),
+                Trans.T("L_MEDIUM"),
+                Trans.T("L_FINE"),
+                Trans.T("L_ULTRA_FINE"),
+            });
+            comboFilamentVisualization.SelectedIndex = 1;
         }
 
         protected override void OnClosing(CancelEventArgs e)

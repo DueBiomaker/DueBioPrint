@@ -58,6 +58,7 @@
             this.labelBackgroundTop = new System.Windows.Forms.Label();
             this.buttonOK = new System.Windows.Forms.Button();
             this.showEdges = new System.Windows.Forms.CheckBox();
+            this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.comboDrawMethod = new System.Windows.Forms.ComboBox();
             this.labelDrawMethod = new System.Windows.Forms.Label();
             this.checkDisableFilamentVisualization = new System.Windows.Forms.CheckBox();
@@ -146,9 +147,9 @@
             this.specular3 = new System.Windows.Forms.Panel();
             this.specular4 = new System.Windows.Forms.Panel();
             this.diffuse4 = new System.Windows.Forms.Panel();
-            this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.groupColors2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabGeneral.SuspendLayout();
@@ -160,7 +161,6 @@
             this.groupVisualization.SuspendLayout();
             this.tabLights.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).BeginInit();
             this.SuspendLayout();
             // 
             // groupColors2
@@ -455,6 +455,10 @@
             this.showEdges.TabIndex = 0;
             this.showEdges.Text = "Show edges";
             this.showEdges.UseVisualStyleBackColor = true;
+            // 
+            // tdSettings
+            // 
+            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
             // 
             // comboDrawMethod
             // 
@@ -1462,10 +1466,6 @@
             this.diffuse4.TabIndex = 27;
             this.diffuse4.Click += new System.EventHandler(this.lightcolor_Click);
             // 
-            // tdSettings
-            // 
-            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
-            // 
             // ThreeDSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1486,6 +1486,7 @@
             this.groupColors2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabGeneral.ResumeLayout(false);
@@ -1503,7 +1504,6 @@
             this.tabLights.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).EndInit();
             this.ResumeLayout(false);
 
         }

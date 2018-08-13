@@ -670,5 +670,9 @@ Reload objects?]]></t>
 <t id="L_COLLISIONE" ver="10">Colisão</t>
 <t id="L_CUT_FACES" ver="10">Cut Faces:</t>
 <t id="L_MODEL_ERRORS_EDGE" ver="10">Model Erros (edge):</t>
+<t id="L_SIMPLE" ver="10">Simple</t>
+<t id="L_MEDIUM" ver="10">Medium</t>
+<t id="L_FINE" ver="10">Fine</t>
+<t id="L_ULTRA_FINE" ver="10">Ultra Fine</t>
 </translation>
 
