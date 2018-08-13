@@ -66,7 +66,7 @@
 <t id="TAB_3D_VIEW" ver="1">Visualização 3D</t>
 <t id="TAB_TEMPERATURE_CURVE" ver="1">Curva de temperatura</t>
 <t id="TAB_OBJECT_PLACEMENT" ver="1">Colocação de Objetos</t>
-<t id="TAB_SLICER" ver="1">Slicer</t>
+<t id="TAB_SLICER" ver="1">Fatiar</t>
 <t id="TAB_GCODE_EDITOR" ver="1">Editor G-Code</t>
 <t id="TAB_MANUAL_CONTROL" ver="1">Controle Manual</t>
 <t id="M_EMERGENCY_STOP" ver="1">Parada de emergência</t>
