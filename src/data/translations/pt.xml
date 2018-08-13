@@ -12,7 +12,7 @@
 <t id="M_PRINTER_SETTINGS" ver="1">Config. da Impressora</t>
 <t id="M_EEPROM_SETTINGS" ver="1">Config. do Firmware EEPROM</t>
 <t id="M_3D_VIEWER_CONFIGURATION" ver="1">Config. da visualização 3D</t>
-<t id="M_REPETIER_SETTINGS" ver="1">Config. Geral Repetier</t>
+<t id="M_REPETIER_SETTINGS" ver="1">Config. DUE BioPrint</t>
 <t id="M_TESTCASE_SETTINGS" ver="1">Parâmetro de teste de Slicing</t>
 <t id="M_SOUND_CONFIGURATION" ver="1">Config. de som</t>
 <t id="M_SHOW_EXTRUDER_TEMPERATURES" ver="1">Mostrar temperatura do Extruder</t>
@@ -293,7 +293,7 @@ As possíveis razões:
 - O Slicer tinha um erro e não terminou fatiamento. Verifique a saída do log.
 - O slicer armazenado o arquivo com um nome de arquivo inesperado.</t>
 <t id="B_CLOSE" ver="1">Fechar</t>
-<t id="W_REPETIER_SETTINGS" ver="1">Configurações Repetier</t>
+<t id="W_REPETIER_SETTINGS" ver="1">Configurações DUE BioPrint</t>
 <t id="L_BEHAVIOUR" ver="1">Comportamento</t>
 <t id="L_FILES_AND_DIRECTORIES" ver="1">Arquivos e Diretórios</t>
 <t id="L_GUI" ver="1">GUI</t>
