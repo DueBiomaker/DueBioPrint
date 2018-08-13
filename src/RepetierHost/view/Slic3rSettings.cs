@@ -381,8 +381,8 @@ namespace RepetierHost.view
             SetTransStringsToTextFields("L_DONT_SUPPORT_BRIDGES", cbDontSupportBridges);//"Don\'t support bridges"
             SetTransStringsToTextFields("L_INTERFACE_PATTERN_SPACING", lblSupportMaterialInterfaceSpacing);//"Interface pattern spacing"
             SetTransStringsToTextFields("L_PATTERN_ANGLE", lblSupportMaterialAngle);//"Pattern angle"
-            SetTransStringsToTextFields("L_LAYERS", label15, label10, label16, label8, label9, label77);//layers
-            SetTransStringsToTextFields("L_PATTERN", lblSupportMaterialPattern);//Pattern
+            SetTransStringsToTextFields("L_LAYERS", label15, label10, label16, label8, label9, label77);//"layers"
+            SetTransStringsToTextFields("L_PATTERN", lblSupportMaterialPattern);//"Pattern"
 
             SetTransStringsToTextFields("L_INTERFACE_LAYERS", lblSupportMaterialInterfaceLayers);//"Interface layers"
             SetTransStringsToTextFields("L_PATTERN_SPACING", lblSupportMaterialSpacing);//"Pattern spacing"
@@ -508,20 +508,22 @@ namespace RepetierHost.view
             SetTransStringsToTextFields("L_USE_RELATIVE_E_DISTANCES", cbUseRelativeEDistances);// "Use relative E distances"
             SetTransStringsToTextFields("L_FIRMWARE", gbFirmware);//"Firmware"
             SetTransStringsToTextFields("L_G_CODE_FLAVOR", label124);//"G-code flavor"
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
-            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("L_OCTO_PRINT_UPLOAD", gbOctoPrint);//"OctoPrint upload"
+            SetTransStringsToTextFields("L_API_KEY", label123);//"API Key"
+            SetTransStringsToTextFields("L_HOST_OR_IP", label128);//"Host or IP"
+            SetTransStringsToTextFields("L_CAPABILITIES", gbCapabilities);//"Capabilities"
+            SetTransStringsToTextFields("L_BED_SHAPE", gbBedShape);// "Bed shape"
+            SetTransStringsToTextFields("L_Z_OFFSET", label145);//"Z offset"
+            SetTransStringsToTextFields("L_Y_ORIGIN", label139);//"Y origin"
+            SetTransStringsToTextFields("L_X_ORIGIN", label143);//"X origin"
+            SetTransStringsToTextFields("L_Y_SIZE", label137);//"Y size"
+            SetTransStringsToTextFields("L_X_SIZE", label138);//"X size"
+            SetTransStringsToTextFields("L_TOOL_CHANGE_G_CODE", groupBox25);//"Tool change G-code"
+            SetTransStringsToTextFields("L_AFTER_LAYER_CHANGE_G_CODE", groupBox24);//"After layer change G-code"
+            SetTransStringsToTextFields("L_BEFORE_LAYER_CHANGE_G_CODE", groupBox23);//"Before layer change G-code"
+            SetTransStringsToTextFields("L_START_G_CODE", groupBox20);//"Start G-code"
+            SetTransStringsToTextFields("L_END_G_CODE", groupBox21);//"End G-code"
+            SetTransStringsToTextFields("L_TAB_EXTRUDER1", tabExtruder1);//"Extruder 1"
 
 
 
