@@ -47,22 +47,22 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Sänd Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Sänd Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Sänd Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Repetier-Host Hemsida</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Repetier-Host Download</t>
-<t id="M_MANUAL" ver="1">Repetier-Host Manual</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">DUE Print Hemsida</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">DUE Print Download</t>
+<t id="M_MANUAL" ver="1">DUE Print Manual</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Slic3r Hemsida</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Skeinforge Hemsida</t>
 <t id="M_REPRAP_WEBSITE" ver="1">RepRap Hemsida</t>
 <t id="M_REPRAP_FORUM" ver="1">RepRap Forum</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Thingiverse Newest Things</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Thingiverse Popular Things</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">OM Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">OM DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Leta efter uppdateringar</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Koppla Från Printer</t>
 <t id="L_CONNECT_PRINTER" ver="1">Anslut Printer</t>
 <t id="M_DISCONNECT" ver="1">Koppla från</t>
 <t id="M_CONNECT" ver="1">Anslut</t>
-<t id="M_QUIT" ver="1">Stäng Repetier-Host</t>
+<t id="M_QUIT" ver="1">Stäng DUE Print</t>
 <t id="TAB_3D_VIEW" ver="1">3D Vy</t>
 <t id="TAB_TEMPERATURE_CURVE" ver="1">Temperaturkurva</t>
 <t id="TAB_OBJECT_PLACEMENT" ver="1">Placera Objekt</t>
@@ -249,7 +249,7 @@ skapats av slicern. Använd #in och #out för att ange in och ut filnamnen som p
 <t id="W_PRINT_PAUSED" ver="1">Utskrift Pausad</t>
 <t id="L_PAUSE_HINT" ver="1">Tips: Du har möjlighet att flytta extrudern och mata ut tråd för att byta tråd eller fylla munstycket om förångning inträffat. Programmet återgår till skrivposition när utskriften återuptas.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Fortsätt utskrift</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Repetier-Host Updateringskontroll</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">DUE Print Updateringskontroll</t>
 <t id="B_DOWNLOAD" ver="1">Download</t>
 <t id="B_REMIND_ME_LATER" ver="1">Påminn mig senare</t>
 <t id="B_SKIP_VERSION" ver="1">Avstå denna version</t>
@@ -264,7 +264,7 @@ Du avänder redan den senaste versionen.</t>
 <t id="L_DURATION:" ver="1">arbetad tid:</t>
 <t id="L_SLICER:" ver="1">Slicer:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Starta utskrift efter Slicing</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">Om Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">Om DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licens och bibliotek</t>
 <t id="L_REPETIER_INFO" ver="1">Detta program har utvecklats för att styra RepRap liknande 3D-skrivare. Den fungerar bäst med Repetier-Firmware, som stöder alla funktioner. Annan firmware som Marlin, Teacup, Sprinter och 5D GCode interpreter ska fugera med korrekta inställningar.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Kopiera markerade objekt</t>

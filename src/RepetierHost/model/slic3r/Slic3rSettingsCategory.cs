@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace RepetierHost.controller
+namespace RepetierHost.model.slic3r
 {
     public enum Slic3rSettingsCategory
     {

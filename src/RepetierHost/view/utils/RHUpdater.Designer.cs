@@ -154,7 +154,7 @@
             this.Controls.Add(this.labelInstalled);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RHUpdater";
-            this.Text = "Repetier-Host Update check";
+            this.Text = "DUE BioPrint Update check";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -152,9 +152,11 @@
             this.tab = new System.Windows.Forms.TabControl();
             this.tabModel = new System.Windows.Forms.TabPage();
             this.tabSlicer = new System.Windows.Forms.TabPage();
-            this.slicerPanel = new RepetierHost.view.SlicerPanel();
-            this.tabGCode = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlVisualization = new System.Windows.Forms.Panel();
             this.tabPrint = new System.Windows.Forms.TabPage();
+            this.gCodeEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.slicerPanel = new RepetierHost.view.SlicerPanel();
             this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
             this.menu.SuspendLayout();
             this.status.SuspendLayout();
@@ -173,6 +175,7 @@
             this.splitPrinterId.SuspendLayout();
             this.tab.SuspendLayout();
             this.tabSlicer.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -909,6 +912,8 @@
             // 
             // toolsToolStripMenuItem
             // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gCodeEditorToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -925,14 +930,14 @@
             // aboutRepetierHostToolStripMenuItem
             // 
             this.aboutRepetierHostToolStripMenuItem.Name = "aboutRepetierHostToolStripMenuItem";
-            this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.aboutRepetierHostToolStripMenuItem.Text = "&About Repetier-Host";
+            this.aboutRepetierHostToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.aboutRepetierHostToolStripMenuItem.Text = "&About DUE BioPrint";
             this.aboutRepetierHostToolStripMenuItem.Click += new System.EventHandler(this.aboutRepetierHostToolStripMenuItem_Click);
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
             // 
@@ -1023,7 +1028,7 @@
             // 
             // toolLoad
             // 
-            this.toolLoad.Image = ((System.Drawing.Image)(resources.GetObject("toolLoad.Image")));
+            this.toolLoad.Image = global::RepetierHost.Properties.Resources.load;
             this.toolLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolLoad.Name = "toolLoad";
             this.toolLoad.Size = new System.Drawing.Size(49, 51);
@@ -1034,7 +1039,7 @@
             // 
             // toolStripSaveJob
             // 
-            this.toolStripSaveJob.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSaveJob.Image")));
+            this.toolStripSaveJob.Image = global::RepetierHost.Properties.Resources.save;
             this.toolStripSaveJob.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSaveJob.Name = "toolStripSaveJob";
             this.toolStripSaveJob.Size = new System.Drawing.Size(55, 51);
@@ -1092,7 +1097,7 @@
             this.toolStripEmergencyButton.Enabled = false;
             this.toolStripEmergencyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripEmergencyButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripEmergencyButton.Image = ((System.Drawing.Image)(resources.GetObject("toolStripEmergencyButton.Image")));
+            this.toolStripEmergencyButton.Image = global::RepetierHost.Properties.Resources.emergency_stop;
             this.toolStripEmergencyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripEmergencyButton.Name = "toolStripEmergencyButton";
             this.toolStripEmergencyButton.Size = new System.Drawing.Size(96, 51);
@@ -1103,7 +1108,7 @@
             // toolPrinterSettings
             // 
             this.toolPrinterSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolPrinterSettings.Image = ((System.Drawing.Image)(resources.GetObject("toolPrinterSettings.Image")));
+            this.toolPrinterSettings.Image = global::RepetierHost.Properties.Resources.printer_settings;
             this.toolPrinterSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPrinterSettings.Name = "toolPrinterSettings";
             this.toolPrinterSettings.Size = new System.Drawing.Size(90, 51);
@@ -1274,7 +1279,6 @@
             // 
             this.tab.Controls.Add(this.tabModel);
             this.tab.Controls.Add(this.tabSlicer);
-            this.tab.Controls.Add(this.tabGCode);
             this.tab.Controls.Add(this.tabPrint);
             this.tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab.Location = new System.Drawing.Point(0, 0);
@@ -1296,7 +1300,7 @@
             // 
             // tabSlicer
             // 
-            this.tabSlicer.Controls.Add(this.slicerPanel);
+            this.tabSlicer.Controls.Add(this.tableLayoutPanel1);
             this.tabSlicer.Location = new System.Drawing.Point(4, 22);
             this.tabSlicer.Name = "tabSlicer";
             this.tabSlicer.Size = new System.Drawing.Size(467, 270);
@@ -1304,26 +1308,32 @@
             this.tabSlicer.Text = "Slicer";
             this.tabSlicer.UseVisualStyleBackColor = true;
             // 
-            // slicerPanel
+            // tableLayoutPanel1
             // 
-            this.slicerPanel.AutoScroll = true;
-            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.slicerPanel.Location = new System.Drawing.Point(0, 0);
-            this.slicerPanel.Name = "slicerPanel";
-            this.slicerPanel.Size = new System.Drawing.Size(467, 270);
-            this.slicerPanel.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.slicerPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pnlVisualization, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(467, 270);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // tabGCode
+            // pnlVisualization
             // 
-            this.tabGCode.AutoScroll = true;
-            this.tabGCode.BackColor = System.Drawing.Color.Transparent;
-            this.tabGCode.Location = new System.Drawing.Point(4, 22);
-            this.tabGCode.Name = "tabGCode";
-            this.tabGCode.Padding = new System.Windows.Forms.Padding(3);
-            this.tabGCode.Size = new System.Drawing.Size(467, 270);
-            this.tabGCode.TabIndex = 1;
-            this.tabGCode.Text = "G-Code editor";
-            this.tabGCode.UseVisualStyleBackColor = true;
+            this.pnlVisualization.AutoSize = true;
+            this.pnlVisualization.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.pnlVisualization.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlVisualization.Location = new System.Drawing.Point(0, 70);
+            this.pnlVisualization.Margin = new System.Windows.Forms.Padding(0);
+            this.pnlVisualization.Name = "pnlVisualization";
+            this.pnlVisualization.Size = new System.Drawing.Size(467, 200);
+            this.pnlVisualization.TabIndex = 1;
+            this.pnlVisualization.Visible = false;
             // 
             // tabPrint
             // 
@@ -1335,6 +1345,22 @@
             this.tabPrint.TabIndex = 0;
             this.tabPrint.Text = "Manual control";
             this.tabPrint.UseVisualStyleBackColor = true;
+            // 
+            // gCodeEditorToolStripMenuItem
+            // 
+            this.gCodeEditorToolStripMenuItem.Name = "gCodeEditorToolStripMenuItem";
+            this.gCodeEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gCodeEditorToolStripMenuItem.Text = "G-Code Editor";
+            this.gCodeEditorToolStripMenuItem.Click += new System.EventHandler(this.gCodeEditorToolStripMenuItem_Click);
+            // 
+            // slicerPanel
+            // 
+            this.slicerPanel.AutoScroll = true;
+            this.slicerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.slicerPanel.Location = new System.Drawing.Point(3, 3);
+            this.slicerPanel.Name = "slicerPanel";
+            this.slicerPanel.Size = new System.Drawing.Size(461, 64);
+            this.slicerPanel.TabIndex = 0;
             // 
             // tdSettings
             // 
@@ -1357,7 +1383,7 @@
             this.MainMenuStrip = this.menu;
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "Main";
-            this.Text = "Repetier-Host V0.90D";
+            this.Text = "DUE BioPrint";
             this.Activated += new System.EventHandler(this.Main_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.Load += new System.EventHandler(this.Main_Load);
@@ -1385,6 +1411,8 @@
             this.splitPrinterId.ResumeLayout(false);
             this.tab.ResumeLayout(false);
             this.tabSlicer.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tdSettings)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1420,7 +1448,6 @@
         public System.Windows.Forms.TabPage tabPrint;
         public System.Windows.Forms.TabPage tabModel;
         public System.Windows.Forms.SaveFileDialog saveJobDialog;
-        public System.Windows.Forms.TabPage tabGCode;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripSplitButton toolConnect;
         private System.Windows.Forms.SplitContainer splitLog;
@@ -1519,6 +1546,9 @@
         private System.Windows.Forms.ToolStripMenuItem objectsAreInInchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectsAreInFootToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem objectsAreInMeterToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel pnlVisualization;
+        private System.Windows.Forms.ToolStripMenuItem gCodeEditorToolStripMenuItem;
     }
 }
 

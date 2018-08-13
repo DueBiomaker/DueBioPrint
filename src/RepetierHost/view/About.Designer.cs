@@ -97,7 +97,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(272, 13);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Repetier-Host (C) 2011-2013 Hot-World GmbH && Co. KG";
+            this.label2.Text = "DUE BioPrint (C) 2011-2013 Hot-World GmbH && Co. KG";
             // 
             // labelRepetierInfo
             // 
@@ -123,7 +123,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "About";
             this.ShowInTaskbar = false;
-            this.Text = "About Repetier-Host";
+            this.Text = "About DUE BioPrint";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.About_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -1789,5 +1789,35 @@ namespace RepetierHost.view
         {
             goLayer(ShowMaxLayer + 1);
         }
+
+        public void SetMode(Mode mode)
+        {
+            switch (mode)
+            {
+                case Mode.Full:
+                    splitContainer.Panel1Collapsed = false;
+                    statusStrip1.Hide();
+                    tabPageHelp.Show();
+                    toolStrip1.Show();
+                    tabHelpview.Controls.Add(tabPageHelp);
+                    break;
+                case Mode.Visualization:
+                    splitContainer.Panel1Collapsed = true;
+                    statusStrip1.Hide();
+                    toolStrip1.Hide();
+                    tabHelpview.Controls.Remove(tabPageHelp);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("mode");
+            }
+        }
+
+        public enum Mode
+        {
+            Full,
+            Visualization
+        }
     }
+
+    
 }

@@ -52,6 +52,7 @@ namespace RepetierHost
         public static bool IsMono = Type.GetType("Mono.Runtime") != null;
         public static Slicer slicer = null;
         public static Slic3r slic3r = null;
+        public static Slic3rSettings slic3rSettings = null;
         public static bool IsMac = false;
 
         public EEPROMRepetier eepromSettings = null;
@@ -203,7 +204,8 @@ namespace RepetierHost
             tdSettings_DataMemberChanged(null, null);
             editor = new RepetierEditor();
             editor.Dock = DockStyle.Fill;
-            tabGCode.Controls.Add(editor);
+            pnlVisualization.Controls.Add(editor);
+            editor.SetMode(RepetierEditor.Mode.Visualization);
             updateShowFilament();
             RegMemory.RestoreWindowPos("mainWindow", this);
             if (WindowState == FormWindowState.Maximized)
@@ -282,7 +284,8 @@ namespace RepetierHost
             editor.commands.Read("default", "en");
             UpdateHistory();
             UpdateConnections();
-            Main.slic3r = new Slic3r();
+            slic3r = new Slic3r();
+            slic3rSettings = new Slic3rSettings();
             slicer = new Slicer();
             //toolShowLog_CheckedChanged(null, null);
             updateShowFilament();
@@ -315,10 +318,6 @@ namespace RepetierHost
                 Text = basicTitle;
             }
             slicerPanel.UpdateSelection();
-            if (Custom.GetBool("removeUpdates", false))
-                checkForUpdatesToolStripMenuItem.Visible = false;
-            else
-                RHUpdater.checkForUpdates(true);
             UpdateToolbarSize();
             // Add languages
             foreach (Translation t in trans.translations.Values)
@@ -488,7 +487,6 @@ namespace RepetierHost
             tabPageTemp.Text = Trans.T("TAB_TEMPERATURE_CURVE");
             tabModel.Text = Trans.T("TAB_OBJECT_PLACEMENT");
             tabSlicer.Text = Trans.T("TAB_SLICER");
-            tabGCode.Text = Trans.T("TAB_GCODE_EDITOR");
             tabPrint.Text = Trans.T("TAB_MANUAL_CONTROL");
             toolPrinterSettings.Text = Trans.T("M_PRINTER_SETTINGS");
             toolPrinterSettings.ToolTipText = Trans.T("M_PRINTER_SETTINGS");
@@ -816,7 +814,8 @@ namespace RepetierHost
             {
                 try
                 {
-                    tab.SelectTab(tabGCode);
+                    pnlVisualization.Visible = true;
+                    tab.SelectTab(tabSlicer);
                     editor.selectContent(0);
                     editor.setContent(0, System.IO.File.ReadAllText(file));
                 }
@@ -832,7 +831,8 @@ namespace RepetierHost
             try
             {
                 editor.setContent(0, System.IO.File.ReadAllText(file));
-                tab.SelectTab(tabGCode);
+                pnlVisualization.Visible = true;
+                tab.SelectTab(tabSlicer);
                 editor.selectContent(0);
                 fileHistory.Save(file);
                 UpdateHistory();
@@ -852,7 +852,8 @@ namespace RepetierHost
             try
             {
                 editor.setContent(0, text);
-                tab.SelectTab(tabGCode);
+                pnlVisualization.Visible = true;
+                tab.SelectTab(tabSlicer);
                 editor.selectContent(0);
             }
             catch (Exception e)
@@ -1203,15 +1204,17 @@ namespace RepetierHost
             switch (tab.SelectedIndex)
             {
                 case 0:
-                case 1:
                     threedview.SetView(objectPlacement.cont);
+                    break;
+                case 1:
+                    if (editor.Text != null && editor.Text.Length > 0)
+                        threedview.SetView(jobPreview);
+                    else
+                        threedview.SetView(objectPlacement.cont);
                     break;
 
                 case 2:
-                    threedview.SetView(jobPreview);
-                    break;
-
-                case 3:
+                    
                     threedview.SetView(printPreview);
                     break;
             }
@@ -1856,6 +1859,22 @@ namespace RepetierHost
         private void showCompassToolStripMenuItem_Click(object sender, EventArgs e)
         {
             threeDSettings.ShowCompass = !threeDSettings.ShowCompass;
+        }
+
+        private void gCodeEditorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlVisualization.Controls.Clear();
+            Form editorForm = new RepetierEditorWindow(editor);
+            editor.SetMode(RepetierEditor.Mode.Full);
+            editorForm.FormClosed += EditorForm_FormClosed;
+            editorForm.Show();
+        }
+
+        private void EditorForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            editor.SetMode(RepetierEditor.Mode.Visualization);
+            pnlVisualization.Controls.Add(editor);
+
         }
 
         public void setImportUnits(double units)

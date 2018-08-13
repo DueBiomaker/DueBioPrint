@@ -2,12 +2,32 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 
 namespace RepetierHost.extensions
 {
     public static class ExtensionManager
     {
+        private const int RGBMAX = 255;
+        private const string TRUE_INT = "1";
+
+        public static bool ToBool(this string value)
+        {
+            return value.Equals(TRUE_INT);
+        }
+
+        public static string ToHex(this Color c)
+        {
+            return "#" + c.R.ToString("X2") + c.G.ToString("X2") + c.B.ToString("X2");
+        }
+
+        public static Color Invert(this Color ColourToInvert)
+        {
+            return Color.FromArgb(RGBMAX - ColourToInvert.R,
+              RGBMAX - ColourToInvert.G, RGBMAX - ColourToInvert.B);
+        }
+
         public static bool IsNullOrEmpty(this string value)
         {
             return value == null || value.Length == 0;
@@ -20,7 +40,7 @@ namespace RepetierHost.extensions
 
         public static string ToSlic3rSettings(this string value)
         {
-            return value;
+            return value.Replace(Environment.NewLine, "\\n");
         }
 
         public static string ToSlic3rSettings(this Enum value)
@@ -28,7 +48,7 @@ namespace RepetierHost.extensions
             string result = value.ToString();
             if (value is FillPattern)
                 result = result.Replace("three", "3");
-            if (value is SupportMaterialPattern)
+            if (value is SupportMaterialPattern || value is GCodeFlavor)
                 result = result.Replace("_", "-");
             return result;
         }

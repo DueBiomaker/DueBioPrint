@@ -98,13 +98,13 @@
       Zend Script 5
    </t>
    <t id="M_REPETIER_HOST_HOMEPAGE" ver="1">
-      Repetier-Host Homepage
+      DUE Print Homepage
    </t>
    <t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">
-      Repetier-Host Download
+      DUE Print Download
    </t>
    <t id="M_MANUAL" ver="1">
-      Repetier-Host Handleiding
+      DUE Print Handleiding
    </t>
    <t id="M_SLIC3R_HOMEPAGE" ver="1">
       Slic3r Homepage
@@ -125,7 +125,7 @@
       Thingiverse Populaire dingen
    </t>
    <t id="M_ABOUT_REPETIER_HOST" ver="1">
-      Over Repetier-Host
+      Over DUE Print
    </t>
    <t id="M_CHECK_FOR_UPDATES" ver="1">
       Controleer op Updates
@@ -685,7 +685,7 @@
       Vervolg Printen
    </t>
    <t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">
-      Repetier-Host Update Controle
+      DUE Print Update Controle
    </t>
    <t id="B_DOWNLOAD" ver="1">
       Download
@@ -727,7 +727,7 @@
       Start Taak Na Slicing
    </t>
    <t id="W_ABOUT_REPETIER_HOST" ver="1">
-      Over Repetier-Host
+      Over DUE Print
    </t>
    <t id="L_LICENCE_AND_LIBRARIES" ver="1">
       Licenties en Bibliotheken

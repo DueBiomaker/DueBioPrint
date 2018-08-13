@@ -16,7 +16,7 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <ApplicationIcon>repetier-logo-trans32.ico</ApplicationIcon>
+    <ApplicationIcon>due-logo.ico</ApplicationIcon>
     <StartupObject>RepetierHost.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -34,7 +34,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ProductName>Repetier-Host</ProductName>
+    <ProductName>DUE Print</ProductName>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -115,7 +115,7 @@
     <Compile Include="connector\VirtualPrinterPanel.Designer.cs">
       <DependentUpon>VirtualPrinterPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="controller\Slic3rSettingsCategory.cs" />
+    <Compile Include="model\slic3r\Slic3rSettingsCategory.cs" />
     <Compile Include="controller\Slic3rSettingsController.cs" />
     <Compile Include="extensions\ExtensionManager.cs" />
     <Compile Include="Main.cs">
@@ -165,10 +165,14 @@
     <Compile Include="model\PulseAnimation.cs" />
     <Compile Include="model\RectPacker.cs" />
     <Compile Include="model\PrintModel.cs" />
+    <Compile Include="model\slic3r\PrinterSettingsCategory.cs" />
+    <Compile Include="model\slic3r\ISlic3rSettings.cs" />
+    <Compile Include="model\slic3r\FilamentSettingsCategory.cs" />
+    <Compile Include="model\slic3r\GCodeFlavor.cs" />
     <Compile Include="model\slic3r\SupportMaterialPattern.cs" />
     <Compile Include="model\slic3r\FilamentSettings.cs" />
     <Compile Include="model\slic3r\ExternalFillPattern.cs" />
-    <Compile Include="model\slic3r\PrinterExtruderSettings.cs" />
+    <Compile Include="model\slic3r\ExtruderSettings.cs" />
     <Compile Include="model\slic3r\PrinterSettings.cs" />
     <Compile Include="model\slic3r\PrintSettings.cs" />
     <Compile Include="model\slic3r\PrintSettingsCategory.cs" />
@@ -252,6 +256,9 @@
       <DependentUpon>Preferences.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\PrinterExtruderSettings.resx">
+      <DependentUpon>PrinterExtruderSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\PrinterInfo.resx">
       <DependentUpon>PrinterInfo.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -263,6 +270,9 @@
     <EmbeddedResource Include="view\RepetierEditor.resx">
       <DependentUpon>RepetierEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\RepetierEditorWindow.resx">
+      <DependentUpon>RepetierEditorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Slic3r.resx">
       <DependentUpon>Slic3r.cs</DependentUpon>
@@ -442,6 +452,12 @@
     <Compile Include="view\Preferences.Designer.cs">
       <DependentUpon>Preferences.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\PrinterExtruderSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\PrinterExtruderSettings.Designer.cs">
+      <DependentUpon>PrinterExtruderSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\PrinterInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -459,6 +475,12 @@
     </Compile>
     <Compile Include="view\RepetierEditor.Designer.cs">
       <DependentUpon>RepetierEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\RepetierEditorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\RepetierEditorWindow.Designer.cs">
+      <DependentUpon>RepetierEditorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Slic3r.cs">
       <SubType>Form</SubType>
@@ -607,10 +629,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="due-logo.ico" />
+    <Content Include="due.ico" />
     <Content Include="images\switch_on.bmp" />
     <Content Include="images\switch_off.bmp" />
-    <Content Include="repetier-logo-trans32.ico" />
-    <Content Include="repetier-logo32.ico" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\printer_settings.png" />
+    <None Include="Resources\load.png" />
+    <None Include="Resources\emergency_stop.png" />
     <None Include="Properties\DataSources\Main.datasource" />
     <None Include="Properties\DataSources\RepetierHost.model.PrinterModel.datasource" />
     <None Include="Resources\home.png" />

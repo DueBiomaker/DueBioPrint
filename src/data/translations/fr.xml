@@ -47,16 +47,16 @@
 <t id="M_SEND_SCRIPT_3" ver="1">Envoyer Script 3</t>
 <t id="M_SEND_SCRIPT_4" ver="1">Envoyer Script 4</t>
 <t id="M_SEND_SCRIPT_5" ver="1">Envoyer Script 5</t>
-<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Site web Repetier-Host</t>
-<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Téléchargements Repetier-Host</t>
-<t id="M_MANUAL" ver="1">Manuel Repetier-Host</t>
+<t id="M_REPETIER_HOST_HOMEPAGE" ver="1">Site web DUE Print</t>
+<t id="M_REPETIER_HOST_DOWNLOAD_PAGE" ver="1">Téléchargements DUE Print</t>
+<t id="M_MANUAL" ver="1">Manuel DUE Print</t>
 <t id="M_SLIC3R_HOMEPAGE" ver="1">Site web Slic3r</t>
 <t id="M_SKEINFORGE_HOMEPAGE" ver="1">Site web Skeinforge</t>
 <t id="M_REPRAP_WEBSITE" ver="1">Site web RepRap</t>
 <t id="M_REPRAP_FORUM" ver="1">Forum RepRap</t>
 <t id="M_THINGIVERSE_NEWEST" ver="1">Nouveautés sur Thingiverse</t>
 <t id="M_THINGIVERSE_POPULAR" ver="1">Poulaires sur Thingiverse</t>
-<t id="M_ABOUT_REPETIER_HOST" ver="1">A propos Repetier-Host</t>
+<t id="M_ABOUT_REPETIER_HOST" ver="1">A propos DUE Print</t>
 <t id="M_CHECK_FOR_UPDATES" ver="1">Vérifier les mises à jour</t>
 <t id="L_DISCONNECT_PRINTER" ver="1">Déconnecter Imprimante</t>
 <t id="L_CONNECT_PRINTER" ver="1">Connecter Imprimante</t>
@@ -252,7 +252,7 @@ lancé sur le Gcode produit par le Trancheur. Utilisez #in et #out pour insérer
 <t id="W_PRINT_PAUSED" ver="1">Impression en pause</t>
 <t id="L_PAUSE_HINT" ver="1">Astuce : Vous pouvez déplacer l'extrudeyr et extruder du filament afin de changer le filament ou reremplir la tête chauffante si un suintement l'a vidée. Le logiciel restaurera la position avant la pause automatiquement pour vous.</t>
 <t id="B_CONTINUE_PRINTING" ver="1">Continuer l'impression</t>
-<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Vérification des mises à jour de Repetier-Host</t>
+<t id="W_REPETIER_HOST_UPDATE_CHECK" ver="1">Vérification des mises à jour de DUE Print</t>
 <t id="B_DOWNLOAD" ver="1">Télécharger</t>
 <t id="B_REMIND_ME_LATER" ver="1">RMe le rappeler</t>
 <t id="B_SKIP_VERSION" ver="1">Sauter cette Version</t>
@@ -267,7 +267,7 @@ Vous utilisez la dernière version.</t>
 <t id="L_DURATION:" ver="1">Durée:</t>
 <t id="L_SLICER:" ver="1">Trancheur:</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Démarrer l'impression après Tranchage</t>
-<t id="W_ABOUT_REPETIER_HOST" ver="1">A propos de Repetier-Host</t>
+<t id="W_ABOUT_REPETIER_HOST" ver="1">A propos de DUE Print</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">License et Bibliothèques</t>
 <t id="L_REPETIER_INFO" ver="1">Ce logiciel a été développé pour piloter une imprimante 3D de type Reprap. Le meilleur usage peut en être fait avec Repetier-Firmware, micrologiciel qui supporte toutes les fonctions. D'autres micrologiciels comme Marlin, Teacup, Sprinter ou l'interprêteur Gcode 5D GCode devraient fonctionner avec les réglages appropriés.</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copier les objets marqués</t>

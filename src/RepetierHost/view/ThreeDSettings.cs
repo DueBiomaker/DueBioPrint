@@ -127,6 +127,17 @@ Immediate (slow)*/
             checkAutoenableParallelInTopView.Text = Trans.T("L_AUTOENABLE_PARALLEL_TOPVIEW");
             buttonGeneralColorDefaults.Text = Trans.T("L_RESET_DEFAULTS");
             buttonModelColorsDefaults.Text = Trans.T("L_RESET_DEFAULTS");
+            labelModelErrorEdge.Text = Trans.T("L_MODEL_ERRORS_EDGE");
+            labelCutFaces.Text = Trans.T("L_CUT_FACES");
+
+            comboFilamentVisualization.Items.Clear();
+            comboFilamentVisualization.Items.AddRange(new object[] {
+                Trans.T("L_SIMPLE"),
+                Trans.T("L_MEDIUM"),
+                Trans.T("L_FINE"),
+                Trans.T("L_ULTRA_FINE"),
+            });
+            comboFilamentVisualization.SelectedIndex = 1;
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -635,6 +646,16 @@ Immediate (slow)*/
         private void showCoordinate_CheckedChanged(object sender, EventArgs e)
         {
             Main.main.Update3D();
+        }
+
+        private void labelHotFilamentLength_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupVisualization_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

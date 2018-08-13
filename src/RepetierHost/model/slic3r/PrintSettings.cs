@@ -5,10 +5,9 @@ using System.Text;
 
 namespace RepetierHost.model.slic3r
 {
-    public class PrintSettings : INotifyPropertyChanged
+    public class PrintSettings : INotifyPropertyChanged, ISlic3rSettings
     {
         private const string DEFAULT_VALUE = "0";
-        private const string TRUE_INT = "1";
 
         public string ProfileName { get; set; }
         public string FilePath { get; set; }
@@ -1353,6 +1352,14 @@ namespace RepetierHost.model.slic3r
             }
         }
 
+        public Slic3rSettingsCategory Category
+        {
+            get
+            {
+                return Slic3rSettingsCategory.Print;
+            }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string name)
@@ -1365,7 +1372,7 @@ namespace RepetierHost.model.slic3r
             switch (key)
             {
                 case "avoid_crossing_perimeters":
-                    AvoidCrossingPerimeters = input.Equals(TRUE_INT);
+                    AvoidCrossingPerimeters = input.ToBool();
                     break;
                 case "bottom_solid_layers":
                     BottomSolidLayers = input;
@@ -1383,13 +1390,13 @@ namespace RepetierHost.model.slic3r
                     BrimWidth = input;
                     break;
                 case "complete_objects":
-                    CompleteObjects = input.Equals(TRUE_INT);
+                    CompleteObjects = input.ToBool();
                     break;
                 case "default_acceleration":
                     DefaultAcceleration = input;
                     break;
                 case "dont_support_bridges":
-                    DontSupportBridges = input.Equals(TRUE_INT);
+                    DontSupportBridges = input.ToBool();
                     break;
                 case "external_fill_pattern":
                     ExternalFillPattern = (ExternalFillPattern)Enum.Parse(typeof(ExternalFillPattern), input);
@@ -1401,10 +1408,10 @@ namespace RepetierHost.model.slic3r
                     ExternalPerimeterSpeed = input;
                     break;
                 case "external_perimeters_first":
-                    ExternalPerimetersFirst = input.Equals(TRUE_INT);
+                    ExternalPerimetersFirst = input.ToBool();
                     break;
                 case "extra_perimeters":
-                    ExtraPerimeters = input.Equals(TRUE_INT);
+                    ExtraPerimeters = input.ToBool();
                     break;
                 case "extruder_clearance_height":
                     ExtruderClearanceHeight = input;
@@ -1441,7 +1448,7 @@ namespace RepetierHost.model.slic3r
                     GapFillSpeed = input;
                     break;
                 case "gcode_comments":
-                    GcodeComments = input.Equals(TRUE_INT);
+                    GcodeComments = input.ToBool();
                     break;
                 case "infill_acceleration":
                     InfillAcceleration = input;
@@ -1456,10 +1463,10 @@ namespace RepetierHost.model.slic3r
                     InfillExtrusionWidth = input;
                     break;
                 case "infill_first":
-                    InfillFirst = input.Equals(TRUE_INT);
+                    InfillFirst = input.ToBool();
                     break;
                 case "infill_only_where_needed":
-                    InfillOnlyWhereNeeded = input.Equals(TRUE_INT);
+                    InfillOnlyWhereNeeded = input.ToBool();
                     break;
                 case "infill_overlap":
                     InfillOverlap = input;
@@ -1468,7 +1475,7 @@ namespace RepetierHost.model.slic3r
                     InfillSpeed = input;
                     break;
                 case "interface_shells":
-                    InterfaceShells = input.Equals(TRUE_INT);
+                    InterfaceShells = input.ToBool();
                     break;
                 case "layer_height":
                     LayerHeight = input;
@@ -1486,16 +1493,16 @@ namespace RepetierHost.model.slic3r
                     Notes = input;
                     break;
                 case "only_retract_when_crossing_perimeters":
-                    OnlyRetractWhenCrossingPerimeters = input.Equals(TRUE_INT);
+                    OnlyRetractWhenCrossingPerimeters = input.ToBool();
                     break;
                 case "ooze_prevention":
-                    OozePrevention = input.Equals(TRUE_INT);
+                    OozePrevention = input.ToBool();
                     break;
                 case "output_filename_format":
                     OutputFilenameFormat = input;
                     break;
                 case "overhangs":
-                    Overhangs = input.Equals(TRUE_INT);
+                    Overhangs = input.ToBool();
                     break;
                 case "perimeter_acceleration":
                     PerimeterAcceleration = input;
@@ -1552,13 +1559,13 @@ namespace RepetierHost.model.slic3r
                     SolidInfillSpeed = input;
                     break;
                 case "spiral_vase":
-                    SpiralVase = input.Equals(TRUE_INT);
+                    SpiralVase = input.ToBool();
                     break;
                 case "standby_temperature_delta":
                     StandbyTemperatureDelta = input;
                     break;
                 case "support_material":
-                    SupportMaterial = input.Equals(TRUE_INT);
+                    SupportMaterial = input.ToBool();
                     break;
                 case "support_material_angle":
                     SupportMaterialAngle = input;
@@ -1601,7 +1608,7 @@ namespace RepetierHost.model.slic3r
                     SupportMaterialThreshold = input;
                     break;
                 case "thin_walls":
-                    ThinWalls = input.Equals(TRUE_INT);
+                    ThinWalls = input.ToBool();
                     break;
                 case "threads":
                     Threads = input;

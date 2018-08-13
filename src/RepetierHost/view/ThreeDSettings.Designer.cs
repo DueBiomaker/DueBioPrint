@@ -314,7 +314,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(222, 230);
+            this.label13.Location = new System.Drawing.Point(318, 244);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(29, 13);
             this.label13.TabIndex = 8;
@@ -322,9 +322,9 @@
             // 
             // textHotFilamentLength
             // 
-            this.textHotFilamentLength.Location = new System.Drawing.Point(133, 227);
+            this.textHotFilamentLength.Location = new System.Drawing.Point(186, 241);
             this.textHotFilamentLength.Name = "textHotFilamentLength";
-            this.textHotFilamentLength.Size = new System.Drawing.Size(81, 20);
+            this.textHotFilamentLength.Size = new System.Drawing.Size(106, 20);
             this.textHotFilamentLength.TabIndex = 6;
             this.textHotFilamentLength.Text = "1000";
             this.textHotFilamentLength.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
@@ -332,11 +332,12 @@
             // labelHotFilamentLength
             // 
             this.labelHotFilamentLength.AutoSize = true;
-            this.labelHotFilamentLength.Location = new System.Drawing.Point(6, 230);
+            this.labelHotFilamentLength.Location = new System.Drawing.Point(5, 244);
             this.labelHotFilamentLength.Name = "labelHotFilamentLength";
-            this.labelHotFilamentLength.Size = new System.Drawing.Size(98, 13);
+            this.labelHotFilamentLength.Size = new System.Drawing.Size(105, 13);
             this.labelHotFilamentLength.TabIndex = 6;
-            this.labelHotFilamentLength.Text = "Hot filament length:";
+            this.labelHotFilamentLength.Text = "Hot Filament Length:";
+            this.labelHotFilamentLength.Click += new System.EventHandler(this.labelHotFilamentLength_Click);
             // 
             // labelPrinterBase
             // 
@@ -496,7 +497,7 @@
             // 
             // labelFilamentVisInfo
             // 
-            this.labelFilamentVisInfo.Location = new System.Drawing.Point(6, 169);
+            this.labelFilamentVisInfo.Location = new System.Drawing.Point(6, 178);
             this.labelFilamentVisInfo.Name = "labelFilamentVisInfo";
             this.labelFilamentVisInfo.Size = new System.Drawing.Size(461, 55);
             this.labelFilamentVisInfo.TabIndex = 13;
@@ -505,7 +506,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(291, 153);
+            this.label10.Location = new System.Drawing.Point(318, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 13);
             this.label10.TabIndex = 12;
@@ -514,7 +515,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(291, 130);
+            this.label8.Location = new System.Drawing.Point(318, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 13);
             this.label8.TabIndex = 12;
@@ -522,7 +523,7 @@
             // 
             // textDiameter
             // 
-            this.textDiameter.Location = new System.Drawing.Point(160, 151);
+            this.textDiameter.Location = new System.Drawing.Point(187, 151);
             this.textDiameter.Name = "textDiameter";
             this.textDiameter.Size = new System.Drawing.Size(106, 20);
             this.textDiameter.TabIndex = 5;
@@ -555,7 +556,7 @@
             // 
             // textWidthOverThickness
             // 
-            this.textWidthOverThickness.Location = new System.Drawing.Point(160, 98);
+            this.textWidthOverThickness.Location = new System.Drawing.Point(187, 98);
             this.textWidthOverThickness.Name = "textWidthOverThickness";
             this.textWidthOverThickness.Size = new System.Drawing.Size(106, 20);
             this.textWidthOverThickness.TabIndex = 1;
@@ -565,7 +566,7 @@
             // 
             // textLayerHeight
             // 
-            this.textLayerHeight.Location = new System.Drawing.Point(160, 124);
+            this.textLayerHeight.Location = new System.Drawing.Point(187, 124);
             this.textLayerHeight.Name = "textLayerHeight";
             this.textLayerHeight.Size = new System.Drawing.Size(106, 20);
             this.textLayerHeight.TabIndex = 3;
@@ -600,7 +601,7 @@
             "Medium",
             "Fine",
             "Ultra fine"});
-            this.comboFilamentVisualization.Location = new System.Drawing.Point(159, 70);
+            this.comboFilamentVisualization.Location = new System.Drawing.Point(186, 70);
             this.comboFilamentVisualization.Name = "comboFilamentVisualization";
             this.comboFilamentVisualization.Size = new System.Drawing.Size(129, 21);
             this.comboFilamentVisualization.TabIndex = 0;
@@ -680,7 +681,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(494, 409);
+            this.tabControl1.Size = new System.Drawing.Size(494, 445);
             this.tabControl1.TabIndex = 0;
             // 
             // tabGeneral
@@ -692,7 +693,7 @@
             this.tabGeneral.Controls.Add(this.labelDrawMethod);
             this.tabGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabGeneral.Name = "tabGeneral";
-            this.tabGeneral.Size = new System.Drawing.Size(486, 383);
+            this.tabGeneral.Size = new System.Drawing.Size(486, 419);
             this.tabGeneral.TabIndex = 0;
             this.tabGeneral.Text = "General";
             this.tabGeneral.UseVisualStyleBackColor = true;
@@ -792,7 +793,7 @@
             this.tabModel.Controls.Add(this.groupColors);
             this.tabModel.Location = new System.Drawing.Point(4, 22);
             this.tabModel.Name = "tabModel";
-            this.tabModel.Size = new System.Drawing.Size(486, 383);
+            this.tabModel.Size = new System.Drawing.Size(486, 419);
             this.tabModel.TabIndex = 1;
             this.tabModel.Text = "Model";
             this.tabModel.UseVisualStyleBackColor = true;
@@ -991,7 +992,7 @@
             this.tabFilament.Controls.Add(this.groupColors2);
             this.tabFilament.Location = new System.Drawing.Point(4, 22);
             this.tabFilament.Name = "tabFilament";
-            this.tabFilament.Size = new System.Drawing.Size(486, 383);
+            this.tabFilament.Size = new System.Drawing.Size(486, 419);
             this.tabFilament.TabIndex = 2;
             this.tabFilament.Text = "Filament";
             this.tabFilament.UseVisualStyleBackColor = true;
@@ -1003,9 +1004,9 @@
             this.groupVisualization.Controls.Add(this.checkDisableFilamentVisualization);
             this.groupVisualization.Controls.Add(this.label13);
             this.groupVisualization.Controls.Add(this.labelFilamentVisualization);
+            this.groupVisualization.Controls.Add(this.labelHotFilamentLength);
             this.groupVisualization.Controls.Add(this.textHotFilamentLength);
             this.groupVisualization.Controls.Add(this.labelFilamentVisInfo);
-            this.groupVisualization.Controls.Add(this.labelHotFilamentLength);
             this.groupVisualization.Controls.Add(this.comboFilamentVisualization);
             this.groupVisualization.Controls.Add(this.label10);
             this.groupVisualization.Controls.Add(this.labelWidthOverThickness);
@@ -1017,10 +1018,11 @@
             this.groupVisualization.Controls.Add(this.radioHeight);
             this.groupVisualization.Location = new System.Drawing.Point(3, 124);
             this.groupVisualization.Name = "groupVisualization";
-            this.groupVisualization.Size = new System.Drawing.Size(475, 256);
+            this.groupVisualization.Size = new System.Drawing.Size(475, 292);
             this.groupVisualization.TabIndex = 0;
             this.groupVisualization.TabStop = false;
             this.groupVisualization.Text = "Visualization";
+            this.groupVisualization.Enter += new System.EventHandler(this.groupVisualization_Enter);
             // 
             // checkCorrectNormals
             // 
@@ -1051,7 +1053,7 @@
             this.tabLights.Controls.Add(this.tableLayoutPanel1);
             this.tabLights.Location = new System.Drawing.Point(4, 22);
             this.tabLights.Name = "tabLights";
-            this.tabLights.Size = new System.Drawing.Size(486, 383);
+            this.tabLights.Size = new System.Drawing.Size(486, 419);
             this.tabLights.TabIndex = 3;
             this.tabLights.Text = "Lights";
             this.tabLights.UseVisualStyleBackColor = true;

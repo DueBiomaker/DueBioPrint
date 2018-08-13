@@ -1113,7 +1113,7 @@ namespace RepetierHost.model.geom
         {
             FileStream fs = File.Open(filename, FileMode.Create);
             TextWriter w = new EnglishStreamWriter(fs);
-            w.WriteLine("# exported by Repetier-Host");
+            w.WriteLine("# exported by DUE BioPrint");
             foreach (TopoVertex v in vertices)
             {
                 w.Write("v ");
