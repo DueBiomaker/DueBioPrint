@@ -12,7 +12,7 @@
 <t id="M_PRINTER_SETTINGS" ver="1">Printer Settings</t>
 <t id="M_EEPROM_SETTINGS" ver="1">Firmware EEPROM Configuration</t>
 <t id="M_3D_VIEWER_CONFIGURATION" ver="1">3D View Configuration</t>
-<t id="M_REPETIER_SETTINGS" ver="1">Repetier General Settings</t>
+<t id="M_REPETIER_SETTINGS" ver="1">DUE BioPrint Settings</t>
 <t id="M_TESTCASE_SETTINGS" ver="1">Test Case Slicing Parameter</t>
 <t id="M_SOUND_CONFIGURATION" ver="1">Sound Configuration</t>
 <t id="M_SHOW_EXTRUDER_TEMPERATURES" ver="1">Show Extruder Temperatures</t>
@@ -104,7 +104,6 @@ You can add pauses in your code with
 <t id="B_COPY_OBJECTS" ver="1">Copy Object(s)</t>
 <t id="B_CENTER_OBJECT" ver="1">Center Object</t>
 <t id="L_LOCK_ASPECT_RATIO" ver="1">Lock Aspect Ratio</t>
-<t id="B_KILL_SLICING_PROCESS" ver="1">Kill Slicing</t>
 <t id="B_SETUP_SKEINFORGE" ver="1">Setup</t>
 <t id="B_SETUP_SLIC3R" ver="1">Setup</t>
 <t id="B_CONFIGURE_SKEINFORGE" ver="1">Configure</t>
@@ -293,7 +292,7 @@ Possible reasons:
 - the slicer had an error and didn't finish slicing. Check log output.
 - the slicer stored the file with an unexpected filename.</t>
 <t id="B_CLOSE" ver="1">Close</t>
-<t id="W_REPETIER_SETTINGS" ver="1">Repetier Settings</t>
+<t id="W_REPETIER_SETTINGS" ver="1">Due BioPrint Settings</t>
 <t id="L_BEHAVIOUR" ver="1">Behaviour</t>
 <t id="L_FILES_AND_DIRECTORIES" ver="1">Files and Directories</t>
 <t id="L_GUI" ver="1">GUI</t>

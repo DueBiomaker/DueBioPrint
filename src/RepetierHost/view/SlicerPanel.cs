@@ -41,7 +41,6 @@ namespace RepetierHost.view
 
         private void translate()
         {
-            buttonKillSlicing.Text = Trans.T("B_KILL_SLICING_PROCESS");
             buttonSetupSlic3r.Text = Trans.T("B_SETUP_SLIC3R");
             buttonSlic3rConfigure.Text = Trans.T("B_CONFIGURE_SLIC3R");
             switchSlic3rActive.TextOn = switchSlic3rActive.TextOff = Trans.T("B_ACTIVE");
