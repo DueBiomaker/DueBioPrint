@@ -449,6 +449,73 @@ namespace RepetierHost.view
             SetTransStringsToTextFields("L_POST_PROCESSING_SCRIPTS", groupBox11);//"Post-processing scripts"
             SetTransStringsToTextFields("L_VERBOSE_G_CODE", cbGcodeComments);//"Verbose G-code"
             SetTransStringsToTextFields("L_OUTPUT_FILENAME_FORMAT", label73);//"Output filename format"
+            SetTransStringsToTextFields("L_EXTRUDER_CLEARANCE", gbExtruderClearance);//"Extruder clearance"
+            SetTransStringsToTextFields("L_RADIUS", label76);//"Radius"
+            SetTransStringsToTextFields("L_HEIGHT", label112);//"Height"
+            SetTransStringsToTextFields("L_INTERFACE_SHELLS", cbInterfaceShells);//"Interface shells"
+            SetTransStringsToTextFields("L_OOZE_PREVENTION", groupBox8);//"Ooze prevention"
+            SetTransStringsToTextFields("L_ENABLE", cbOozePrevention, groupBox16);//"Enable"
+            SetTransStringsToTextFields("L_TEMPERATURE_VARIATION", label70);//"Temperature variation"
+            SetTransStringsToTextFields("L_EXTRUDERS", groupBox1, label136);//"Extruders"
+            SetTransStringsToTextFields("L_SUPPORT_MATERIAL_RAFT_INTERFACE_EXTRUDER", label49);//"Support material/raft interface extruder"
+            SetTransStringsToTextFields("L_SUPPORT_MATERIAL_RAFT_SKIRT_EXTRUDER", label48);//"Support material/raft/skirt extruder"
+            SetTransStringsToTextFields("L_SOLID_INFILL_EXTRUDER", label47);//"Solid infill extruder"
+            SetTransStringsToTextFields("L_INFILL_EXTRUDER", label46);//"Infill extruder"
+            SetTransStringsToTextFields("L_PERIMETER_EXTRUDER", label66);// "Perimeter extruder"
+            SetTransStringsToTextFields("L_BRIM", groupBox2);//"Brim"
+            SetTransStringsToTextFields("L_BRIM_WIDTH", lblBrimWidth);//"Brim width"
+            SetTransStringsToTextFields("L_SKIRT", groupBox6);//"Skirt"
+            SetTransStringsToTextFields("L_DISTANCE_FROM_OBJECT", lblSkirtDistance);//"Distance from object"
+            SetTransStringsToTextFields("L_SKIRT_HEIGHT", lblSkirtHeight);//"Skirt height"
+            SetTransStringsToTextFields("L_HORIZONTAL_SHELLS", groupBox3);// "Horizontal shells"
+            SetTransStringsToTextFields("L_INFILL_BEFORE_PERIMETERS", cbInfillFirst);//"Infill before perimeters"
+            SetTransStringsToTextFields("L_ONLY_RETRACT_WHEN_CROSSING_PERIMETER", cbOnlyRetractWhenCrossingPerimeters);//"Only retract when crossing perimeters"
+            SetTransStringsToTextFields("L_SOLID_INFILL_THRESHOLD_AREA", lblSolidInfillThreshouldArea);//"Solid infill threshold area"
+            SetTransStringsToTextFields("L_FILL_ANGLE", lblFillAngle);//"Fill angle"
+            SetTransStringsToTextFields("L_SOLID_INFILL_LAYERS", lblSolidInfillLayers);//"Solid infill layers"
+            SetTransStringsToTextFields("L_REDUCING_PRINTING_TIME", groupBox4);//"Reducing printing time"
+            SetTransStringsToTextFields("L_ONLY_INFILL_WHERE_NEEDED", cbInfillOnlyWhereNeeded);//"Only infill where needed"
+            SetTransStringsToTextFields("L_COMBINE_INFILL_EVERY", lblCombineInfillEvery);//"Combine infill every"
+            SetTransStringsToTextFields("L_TOP_BOTTOM_FILL_PATTERN", lblTopBottomFillPattern);//"Top/bottom fill pattern"
+            SetTransStringsToTextFields("L_FILL_PATTERN", lblFillPattern);//"Fill pattern"
+            SetTransStringsToTextFields("L_FILL_DENSITY", lblFillDensity);//"Fill density"
+            SetTransStringsToTextFields("L_FILAMENT_SETTINGS", pageFilament);//"Filament Settings"
+            SetTransStringsToTextFields("L_TEMPERATURE", groupBox19);//"Temperature (°C)";
+            SetTransStringsToTextFields("L_OTHER_LAYERS", label114, label119);//"Other layers"
+            SetTransStringsToTextFields("L_FIRST_LAYER", label108, label116);//"First layer"
+            SetTransStringsToTextFields("L_BED", label110);//"Bed"
+            SetTransStringsToTextFields("L_EXTRUDER", label118);//"Extruder"
+            SetTransStringsToTextFields("L_FILAMENT", groupBox22);//"Filament";
+            SetTransStringsToTextFields("L_EXTRUSION_MULTIPLIER", label140);//"Extrusion multiplier"
+            SetTransStringsToTextFields("L_DIAMETER", label142);// "Diameter"
+            SetTransStringsToTextFields("L_COLOR", label144);//"Color"
+            SetTransStringsToTextFields("L_RAFT", groupBox17);//"Raft"
+            SetTransStringsToTextFields("L_MIN_PRINT_SPEED", label101);//"Min print speed"
+            SetTransStringsToTextFields("L_SECONDS", label80, label102);//"seconds"
+            SetTransStringsToTextFields("L_ENABLE_FAN_IF_LAYER_PRINT_TIME_IS_BELOW", label81, label103);//"Enable fan if layer print time is below"
+            SetTransStringsToTextFields("L_FAN_SETTINGS", groupBox18);//"Fan settings"
+            SetTransStringsToTextFields("L_DISABLE_FAN_FOR_THE_FIRST", label78);//"Disable fan for the first"
+            SetTransStringsToTextFields("L_BRIDGES_FAN_SPEED", label67);//"Bridges fan speed"
+            SetTransStringsToTextFields("L_MAX_SPEED", label105);//"Max speed"
+            SetTransStringsToTextFields("L_MIN_SPEED", label106);//"Min speed"
+            SetTransStringsToTextFields("L_ENABLE_AUTO_CODING", cbCooling);//"Enable auto cooling";
+            SetTransStringsToTextFields("L_KEEP_FAN_ALWAYS_ON", cbFanAlwaysOn);//"Keep fan always on"
+            SetTransStringsToTextFields("L_PRINTER_SETTINGS", pagePrinter);//"Printer Settings"
+            SetTransStringsToTextFields("L_VIBRATION_LIMIT", label126);//"Vibration limit"
+            SetTransStringsToTextFields("L_PRESSURE_ADVANCE", label125);//"Pressure advance"
+            SetTransStringsToTextFields("L_USE_VOLUMETRIC_E", cbUseVolumetricE);//"Use volumetric E"
+            SetTransStringsToTextFields("L_USE_FIRMWARE_RETRACTION", cbUseFirmwareRetraction);//"Use firmware retraction"
+            SetTransStringsToTextFields("L_USE_RELATIVE_E_DISTANCES", cbUseRelativeEDistances);// "Use relative E distances"
+            SetTransStringsToTextFields("L_FIRMWARE", gbFirmware);//"Firmware"
+            SetTransStringsToTextFields("L_G_CODE_FLAVOR", label124);//"G-code flavor"
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
             SetTransStringsToTextFields("", null);//
             SetTransStringsToTextFields("", null);//
             SetTransStringsToTextFields("", null);//
