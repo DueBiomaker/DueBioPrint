@@ -12,19 +12,16 @@ namespace RepetierHost.model.slic3r
         private const string DEFAULT_VALUE = "0";
         private const string DEFAULT_COLOR = "#FFFFFF";
 
-        private const string TEXT_FAN_TURNED_OFF = "Fan will be turned off.";
-        private const string TEXT_FAN_ALWAYS_ON = "Fan will always run at {0}% except for the first {1} layers.";
-
-        private const string TEXT_COOLING = "If estimated layer time is below ~{0}s, fan will run at {1}% and print speed will be reduced so that no less than {0}s are spent on that layer(however, speed will never be reduced below {2}mm/s).\n" +
-                                            "If estimated layer time is greater, but still below ~{3}s, fan will run at a proportionally decreasing speed between {1}% and {4}%.\n";
-        private const string TEXT_FOOTER_ALWAYS_ON = "During the other layers, fan will always run at {0}% except for the first {1} layers.";
-
-        private const string TEXT_FOOTER = "During the other layers, fan will be turned off.";
-
         public string CoolingDescription
         {
             get
             {
+                var TEXT_FAN_TURNED_OFF = Trans.T("L_TEXT_FAN_TURNED_OFF");
+                var TEXT_FAN_ALWAYS_ON = Trans.T("L_TEXT_FAN_ALWAYS_ON");
+                var TEXT_COOLING = Trans.T("L_TEXT_COOLING");
+                var TEXT_FOOTER_ALWAYS_ON = Trans.T("L_TEXT_FOOTER_ALWAYS_ON");
+                var TEXT_FOOTER = Trans.T("L_TEXT_FOOTER");
+
                 StringBuilder builder = new StringBuilder();
 
                 if (!FanAlwaysOn && !Cooling)

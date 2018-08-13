@@ -850,5 +850,13 @@ Reload objects?]]></t>
 <t id ="E_NEAREST" ver="11">Nearest</t>
 <t id ="E_ALIGNED" ver="11">Aligned</t>
 
+<t id ="L_TEXT_FAN_TURNED_OFF" ver="11">Fan will be turned off.</t>
+<t id ="L_TEXT_FAN_ALWAYS_ON" ver="11">Fan will always run at {0}% except for the first {1} layers.</t>
+<t id ="L_TEXT_COOLING" ver="11">If estimated layer time is below ~{0}s, fan will run at {1}% and print speed will be reduced so that no less than {0}s are spent on that layer(however, speed will never be reduced below {2}mm/s).
+If estimated layer time is greater, but still below ~{3}s, fan will run at a proportionally decreasing speed between {1}% and {4}%.
+</t>
+<t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">During the other layers, fan will always run at {0}% except for the first {1} layers.</t>
+<t id ="L_TEXT_FOOTER" ver="11">During the other layers, fan will be turned off.</t>
+
 </translation>
 
