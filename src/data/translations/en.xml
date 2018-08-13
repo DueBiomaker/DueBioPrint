@@ -824,5 +824,31 @@ Reload objects?]]></t>
 <t id="L_END_G_CODE" ver="11">End G-code</t>
 <t id="L_TAB_EXTRUDER1" ver="11">Extruder 1</t>
 
+<t id ="E_GENERAL" ver="11">General</t>
+<t id ="E_CUSTOM_G_CODE" ver="11">Custom G-code</t>
+<t id ="E_EXTRUDERS" ver="11">Extruders</t>
+
+<t id ="E_LAYERS_AND_PERIMETERS" ver="11">Layers and Perimeters</t>
+<t id ="E_INFILL" ver="11">Infill</t>
+<t id ="E_SKIRT_AND_BRIM" ver="11">Skirt and Brim</t>
+<t id ="E_SUPPORT_MATERIAL" ver="11">Support Material</t>
+<t id ="E_SPEED" ver="11">Speed</t>
+<t id ="E_MULTIPLE_EXTRUDERS" ver="11">Multiple Extruders</t>
+<t id ="E_ADVANCED" ver="11">Advanced</t>
+<t id ="E_OUTPUT_OPTIONS" ver="11">Output Options</t>
+<t id ="E_NOTES" ver="11">Notes</t>
+<t id ="E_FILAMENT" ver="11">Filament</t>
+<t id ="E_COOLING" ver="11">Cooling</t>
+<t id ="E_REPRAP" ver="11">RepRap (Marlin/Sprinter/Repetier)</t>
+<t id ="E_TEACUP" ver="11">Teacup</t>
+<t id ="E_MAKERWAVE" ver="11">MakerWare (MakerBot)</t>
+<t id ="E_SAILFISH" ver="11">Sailfish (MakerBot)</t>
+<t id ="E_MACH3_LINUXCNC" ver="11">Mach3/LinuxCNC</t>
+<t id ="E_MACHINEKIT" ver="11">Machinekit</t>
+<t id ="E_NO_EXTRUSION" ver="11">No extrusion</t>
+<t id ="E_RANDOM" ver="11">Random</t>
+<t id ="E_NEAREST" ver="11">Nearest</t>
+<t id ="E_ALIGNED" ver="11">Aligned</t>
+
 </translation>
 

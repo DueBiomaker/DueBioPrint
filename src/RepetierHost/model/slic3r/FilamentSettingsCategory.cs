@@ -8,9 +8,9 @@ namespace RepetierHost.model.slic3r
 {
     public enum  FilamentSettingsCategory
     {
-        [Description("Filament")]
+        [Description("E_FILAMENT")]//Filament
         Filament,
-        [Description("Cooling")]
+        [Description("E_COOLING")]//Cooling
         Cooling
     }
 }

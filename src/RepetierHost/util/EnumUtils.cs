@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RepetierHost.model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace RepetierHost.util
                 var descriptionAttributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
                 if (descriptionAttributes.Length > 0)
                 {
-                    descriptions.Add(((DescriptionAttribute)descriptionAttributes[0]).Description);
+                    descriptions.Add(Trans.T(((DescriptionAttribute)descriptionAttributes[0]).Description));
                 }
             }
 

@@ -8,19 +8,19 @@ namespace RepetierHost.model.slic3r
 {
     public enum GCodeFlavor
     {
-        [Description("RepRap (Marlin/Sprinter/Repetier)")]
+        [Description("E_REPRAP")]//RepRap (Marlin/Sprinter/Repetier)
         reprap,
-        [Description("Teacup")]
+        [Description("E_TEACUP")]//Teacup
         teacup,
-        [Description("MakerWare (MakerBot)")]
+        [Description("E_MAKERWAVE")]//MakerWare (MakerBot)
         makerware,
-        [Description("Sailfish (MakerBot)")]
+        [Description("E_SAILFISH")]//Sailfish (MakerBot)
         sailfish,
-        [Description("Mach3/LinuxCNC")]
+        [Description("E_MACH3_LINUXCNC")]//Mach3/LinuxCNC
         mach3,
-        [Description("Machinekit")]
+        [Description("E_MACHINEKIT")]//Machinekit
         machinekit,
-        [Description("No extrusion")]
+        [Description("E_NO_EXTRUSION")]//No extrusion
         no_extrusion
     }
 }

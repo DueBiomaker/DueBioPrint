@@ -8,23 +8,23 @@ namespace RepetierHost.model.slic3r
 {
     public enum  PrintSettingsCategory
     {
-        [Description("Layers and Perimeters")]
+        [Description("E_LAYERS_AND_PERIMETERS")]//Layers and Perimeters
         LayersAndPerimeters,
-        [Description("Infill")]
+        [Description("E_INFILL")]//Infill
         Infill,
-        [Description("Skirt and Brim")]
+        [Description("E_SKIRT_AND_BRIM")]//Skirt and Brim
         SkirtAndBrim,
-        [Description("Support Material")]
+        [Description("E_SUPPORT_MATERIAL")]//Support Material
         SupportMaterial,
-        [Description("Speed")]
+        [Description("E_SPEED")]//Speed
         Speed,
-        [Description("Multiple Extruders")]
+        [Description("E_MULTIPLE_EXTRUDERS")]//Multiple Extruders
         MultipleExtruders,
-        [Description("Advanced")]
+        [Description("E_ADVANCED")]//Advanced
         Advanced,
-        [Description("Output Options")]
+        [Description("E_OUTPUT_OPTIONS")]//Output Options
         OutputOptions,
-        [Description("Notes")]
+        [Description("E_NOTES")]//Notes
         Notes
     }
 }

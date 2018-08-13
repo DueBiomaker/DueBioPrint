@@ -8,11 +8,11 @@ namespace RepetierHost.model.slic3r
 {
     public enum SeamPosition
     {
-        [Description("Random")]
+        [Description("E_RANDOM")]//Random
         random,
-        [Description("Nearest")]
+        [Description("E_NEAREST")]//Nearest
         nearest,
-        [Description("Aligned")]
+        [Description("E_ALIGNED")]//Aligned
         aligned
     }
 }

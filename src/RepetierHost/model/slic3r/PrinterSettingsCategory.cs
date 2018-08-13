@@ -8,11 +8,11 @@ namespace RepetierHost.model.slic3r
 {
     public enum  PrinterSettingsCategory
     {
-        [Description("General")]
+        [Description("E_GENERAL")]//General
         General,
-        [Description("Custom G-code")]
+        [Description("E_CUSTOM_G_CODE")]//Custom G-code
         CustomGcode,
-        [Description("Extruders")]
-        Extruders
+        [Description("E_EXTRUDERS")]//Extruders
+        Extruders,
     }
 }
