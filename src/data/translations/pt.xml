@@ -668,10 +668,193 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="L_COLLISIONE" ver="10">Colisão</t>
 <t id="L_CUT_FACES" ver="10">Faces cortadas:</t>
 <t id="L_MODEL_ERRORS_EDGE" ver="10">Erros no Modelo (arestas):</t>
-
 <t id="L_SIMPLE" ver="10">Simples</t>
 <t id="L_MEDIUM" ver="10">Médio</t>
 <t id="L_FINE" ver="10">Fino</t>
 <t id="L_ULTRA_FINE" ver="10">Ultra Fino</t>
+
+<t id="L_DELETE" ver="11">Deletar</t>
+<t id="L_PRINT_SETTINGS" ver="11">Imprimir Configurações</t>
+<t id="L_OPTIONS_FOR_SUPPORT_MATERIAL_AND_RAFT" ver="11">Opções para materiais de suporte e raft</t>
+<t id="L_DONT_SUPPORT_BRIDGES" ver="11">Não suportar pontes</t>
+<t id="L_INTERFACE_PATTERN_SPACING" ver="11">Espaçamento de padrão de interface</t>
+<t id="L_PATTERN_ANGLE" ver="11">Angulo do Padrão</t>
+<t id="L_LAYERS" ver="11">camadas</t>
+<t id="L_PATTERN" ver="11">Padrão</t>
+<t id="L_INTERFACE_LAYERS" ver="11">Interface das camadas</t>
+<t id="L_PATTERN_SPACING" ver="11">Padrão de espaçamento</t>
+<t id="L_CONTACT_Z_DISTANCE" ver="11">Distancia de Contato Z</t>
+<t id="L_RAFT" ver="11">Raft</t>
+<t id="L_RAFT_LAYERS" ver="11">Camadas raft</t>
+<t id="L_GENERATE_SUPPORT_MATERIAL" ver="11">Gerar material de suporte</t>
+<t id="L_SUPPORT_MATERIAL" ver="11">Material de suporte</t>
+<t id="L_SUPPORT_MATERIAL_ENFORCE_LAYERS" ver="11">Forçar suporte no começo</t>
+<t id="L_OVERHANG_THRESHOLD" ver="11">Limiar saliência</t>
+<t id="L_ACCELERATION_CONTROL_ADVANCED" ver="11">Controle de aceleração (avançado)</t>
+<t id="L_DEFAULT" ver="11">Padrão</t>
+<t id="L_FIRST_LAYER_" ver="11">Primeira camada</t>
+<t id="L_BRIDGE" ver="11">Ponte</t>
+<t id="L_INFILL" ver="11">Preenchimento</t>
+<t id="L_PERIMETERS" ver="11">Perimetro</t>
+<t id="L_MODIFIERS" ver="11">Modificadores</t>
+<t id="L_MMS_OR_PERCENT" ver="11">mm/s ou %</t>
+<t id="L_FIRST_LAYER_SPEED" ver="11">Velocidade da primeira camada</t>
+<t id="L_AUTOSPEED_ADVANCED" ver="11">Autovelocidade (avançado)</t>
+<t id="L_MAX_VOLUMETRIC_SPEED" ver="11">Max velocidade volumétrica</t>
+<t id="L_MAX_PRINT_SPEED" ver="11">Max velocidade de impressão</t>
+<t id="L_SPEED_FOR_PRINT_MOVES" ver="11">Velocidade por movimento de impressão</t>
+<t id="L_GAP_FILL" ver="11">Preenchimento de lacuna</t>
+<t id="L_BRIDGES" ver="11">Pontes</t>
+<t id="L_SUPPORT_MATERIAL_INTERFACE" ver="11">Interface de suporte material</t>
+<t id="L_TOP_SOLID_INFILL" ver="11">Preenchimento solido do topo</t>
+<t id="L_SOLID_INFILL" ver="11">Prenchimento solido</t>
+<t id="L_EXTERNAL_PERIMETERS" ver="11">Perímetros externos</t>
+<t id="L_SMALL_PERIMETERS" ver="11">Pequenos perímetros</t>
+<t id="L_SPEED_FOR_NON_PRINT_MOVES" ver="11">Velocidade para movimentos de não impressão</t>
+<t id="L_TRAVEL" ver="11">Trajeto</t>
+<t id="L_OTHER" ver="11">Outros</t>
+<t id="L_RESOLUTION" ver="11">Resolução</t>
+<t id="L_THREADS" ver="11">Fios</t>
+<t id="L_XY_SIZE_COMPENSATION" ver="11">Tamanho de compensação XY</t>
+<t id="L_FLOW" ver="11">Fluxo</t>
+<t id="L_BRIDGE_FLOW_RATIO" ver="11">Proporção de fluxo nas pontes</t>
+<t id="L_EXTRUSION_WIDTH" ver="11">Largura de extrusão</t>
+<t id="L_LEAVE_0_FOR_AUTO_DEFAULT" ver="11">* Deixe 0 para auto/default</t>
+<t id="L_MM_OR_PERCENT" ver="11">mm ou %</t>
+<t id="L_DEFAULT_EXTRUSION_WIDTH" ver="11">Largura de extrusão padrão</t>
+<t id="L_OVERLAP" ver="11">Sobreposição</t>
+<t id="L_INFILL_PERIMETERS_OVERLAP" ver="11">Sobreposição de prenchimento/perímetros</t>
+<t id="L_ADVANCED" ver="11">Avançado</t>
+<t id="L_EXTERNAL_PERMITERS_FIRST" ver="11">Perímetros externos primeiro</t>
+<t id="L_SEAM_POSITION" ver="11">Posição das costuras</t>
+<t id="L_QUALITY_SLOWER_SLICING" ver="11">Qualidade (fatiamento mais lento)</t>
+<t id="L_DETECT_BRIDGIN_PERMITERS" ver="11">Detectar perímetros das pontes</t>
+<t id="L_DETECT_THIN_WALLS" ver="11">Detectar paredes finas</t>
+<t id="L_AVOID_CROSSING_PERIMETERS" ver="11">Evitar cruzar perímetros</t>
+<t id="L_EXTRA_PERIMETERS_IF_NEED" ver="11">Perímetros extras se necessário</t>
+<t id="L_HORIZONTAL_SHELLS" ver="11">Casca horizontais</t>
+<t id="L_BOTTOM" ver="11">Inferior</t>
+<t id="L_TOP" ver="11">Topo</t>
+<t id="L_SOLID_LAYERS" ver="11">Camadas solidas</t>
+<t id="L_VERTICAL_SHELLS" ver="11">Cascas verticais</t>
+<t id="L_SPIRAL_VASE" ver="11">Vaso espiral</t>
+<t id="L_PERIMETERS" ver="11">Perímetros</t>
+<t id="L_LAYER_HEIGHT" ver="11">Altura das camadas</t>
+<t id="L_FIRST_LAYER_HEIGHT" ver="11">Altura da primeira camada</t>
+<t id="L_NOTES" ver="11">Notas</t>
+<t id="L_COMPLETE_INDIVIDUAL_OBJECTS" ver="11">Completar objetos individuais</t>
+<t id="L_POST_PROCESSING_SCRIPTS" ver="11">Script de pós-processamento</t>
+<t id="L_VERBOSE_G_CODE" ver="11">G-code Verboso</t>
+<t id="L_OUTPUT_FILENAME_FORMAT" ver="11">Formato da saída do filamento</t>
+<t id="L_EXTRUDER_CLEARANCE" ver="11">Liberação de extrusão</t>
+<t id="L_RADIUS" ver="11">Raio</t>
+<t id="L_HEIGHT" ver="11">Altura</t>
+<t id="L_INTERFACE_SHELLS" ver="11">Interface das cascas</t>
+<t id="L_OOZE_PREVENTION" ver="11">Prevenção Ooze</t>
+<t id="L_ENABLE" ver="11">Ativo</t>
+<t id="L_TEMPERATURE_VARIATION" ver="11">Variação de temperatura</t>
+<t id="L_EXTRUDERS" ver="11">Extrusores</t>
+<t id="L_SUPPORT_MATERIAL_RAFT_INTERFACE_EXTRUDER" ver="11">Material de suporte/interface raft extrusor</t>
+<t id="L_SUPPORT_MATERIAL_RAFT_SKIRT_EXTRUDER" ver="11">Material de suporte/raft/saia da extrusora</t>
+<t id="L_SOLID_INFILL_EXTRUDER" ver="11">Preenchimento solido da extrusora</t>
+<t id="L_INFILL_EXTRUDER" ver="11">Preenchiumento da extrusora</t>
+<t id="L_PERIMETER_EXTRUDER" ver="11">Perimetro da extrusora</t>
+<t id="L_BRIM" ver="11">Borda</t>
+<t id="L_BRIM_WIDTH" ver="11">Largura da borda</t>
+<t id="L_SKIRT" ver="11">Saia</t>
+<t id="L_DISTANCE_FROM_OBJECT" ver="11">Distância entre objetos</t>
+<t id="L_SKIRT_HEIGHT" ver="11">Altura da saia</t>
+<t id="L_HORIZONTAL_SHELLS" ver="11">Cascas horizontais</t>
+<t id="L_INFILL_BEFORE_PERIMETERS" ver="11">Preencher antes do perímetro</t>
+<t id="L_ONLY_RETRACT_WHEN_CROSSING_PERIMETER" ver="11">Apenas retrair quando cruzando perimetro</t>
+<t id="L_SOLID_INFILL_THRESHOLD_AREA" ver="11">Limiar de área para preenchimento solido</t>
+<t id="L_FILL_ANGLE" ver="11">Ângulo de preenchimento</t>
+<t id="L_SOLID_INFILL_LAYERS" ver="11">Solid infill layers</t>
+<t id="L_REDUCING_PRINTING_TIME" ver="11">Reducing printing time</t>
+<t id="L_ONLY_INFILL_WHERE_NEEDED" ver="11">Only infill where needed</t>
+<t id="L_COMBINE_INFILL_EVERY" ver="11">Combine infill every</t>
+<t id="L_TOP_BOTTOM_FILL_PATTERN" ver="11">Top/bottom fill pattern</t>
+<t id="L_FILL_PATTERN" ver="11">Fill pattern</t>
+<t id="L_FILL_DENSITY" ver="11">Fill density</t>
+<t id="L_FILAMENT_SETTINGS" ver="11">Filament Settings</t>
+<t id="L_TEMPERATURE" ver="11">Temperature (°C)</t>
+<t id="L_OTHER_LAYERS" ver="11">Other layers</t>
+<t id="L_FIRST_LAYER" ver="11">First layer</t>
+<t id="L_BED" ver="11">Bed</t>
+<t id="L_EXTRUDER" ver="11">Extruder</t>
+<t id="L_FILAMENT" ver="11">Filament</t>
+<t id="L_EXTRUSION_MULTIPLIER" ver="11">Extrusion multiplier</t>
+<t id="L_DIAMETER" ver="11">Diameter</t>
+<t id="L_COLOR" ver="11">Color</t>
+<t id="L_RAFT" ver="11">Raft</t>
+<t id="L_MIN_PRINT_SPEED" ver="11">Min print speed</t>
+<t id="L_SECONDS" ver="11">seconds</t>
+<t id="L_ENABLE_FAN_IF_LAYER_PRINT_TIME_IS_BELOW" ver="11">Enable fan if layer print time is below</t>
+<t id="L_FAN_SETTINGS" ver="11">Fan settings</t>
+<t id="L_DISABLE_FAN_FOR_THE_FIRST" ver="11">Disable fan for the first</t>
+<t id="L_BRIDGES_FAN_SPEED" ver="11">Bridges fan speed</t>
+<t id="L_MAX_SPEED" ver="11">Max speed</t>
+<t id="L_MIN_SPEED" ver="11">Min speed</t>
+<t id="L_ENABLE_AUTO_CODING" ver="11">Enable auto cooling</t>
+<t id="L_KEEP_FAN_ALWAYS_ON" ver="11">Keep fan always on</t>
+<t id="L_PRINTER_SETTINGS" ver="11">Printer Settings</t>
+<t id="L_VIBRATION_LIMIT" ver="11">Vibration limit</t>
+<t id="L_PRESSURE_ADVANCE" ver="11">Pressure advance</t>
+<t id="L_USE_VOLUMETRIC_E" ver="11">Use volumetric E</t>
+<t id="L_USE_FIRMWARE_RETRACTION" ver="11">Use firmware retraction</t>
+<t id="L_USE_RELATIVE_E_DISTANCES" ver="11">Use relative E distances</t>
+<t id="L_FIRMWARE" ver="11">Firmware</t>
+<t id="L_G_CODE_FLAVOR" ver="11">G-code flavor</t>
+<t id="L_OCTO_PRINT_UPLOAD" ver="11">OctoPrint upload</t>
+<t id="L_API_KEY" ver="11">API Key</t>
+<t id="L_HOST_OR_IP" ver="11">Host or IP</t>
+<t id="L_CAPABILITIES" ver="11">Capabilities</t>
+<t id="L_BED_SHAPE" ver="11">Bed shape</t>
+<t id="L_Z_OFFSET" ver="11">Z offset</t>
+<t id="L_Y_ORIGIN" ver="11">Y origin</t>
+<t id="L_X_ORIGIN" ver="11">X origin</t>
+<t id="L_Y_SIZE" ver="11">Y size</t>
+<t id="L_X_SIZE" ver="11">X size</t>
+<t id="L_TOOL_CHANGE_G_CODE" ver="11">Tool change G-code</t>
+<t id="L_AFTER_LAYER_CHANGE_G_CODE" ver="11">After layer change G-code</t>
+<t id="L_BEFORE_LAYER_CHANGE_G_CODE" ver="11">Before layer change G-code</t>
+<t id="L_START_G_CODE" ver="11">Start G-code</t>
+<t id="L_END_G_CODE" ver="11">End G-code</t>
+<t id="L_TAB_EXTRUDER1" ver="11">Extruder 1</t>
+
+<t id ="E_GENERAL" ver="11">General</t>
+<t id ="E_CUSTOM_G_CODE" ver="11">Custom G-code</t>
+<t id ="E_EXTRUDERS" ver="11">Extruders</t>
+
+<t id ="E_LAYERS_AND_PERIMETERS" ver="11">Layers and Perimeters</t>
+<t id ="E_INFILL" ver="11">Infill</t>
+<t id ="E_SKIRT_AND_BRIM" ver="11">Skirt and Brim</t>
+<t id ="E_SUPPORT_MATERIAL" ver="11">Support Material</t>
+<t id ="E_SPEED" ver="11">Speed</t>
+<t id ="E_MULTIPLE_EXTRUDERS" ver="11">Multiple Extruders</t>
+<t id ="E_ADVANCED" ver="11">Advanced</t>
+<t id ="E_OUTPUT_OPTIONS" ver="11">Output Options</t>
+<t id ="E_NOTES" ver="11">Notes</t>
+<t id ="E_FILAMENT" ver="11">Filament</t>
+<t id ="E_COOLING" ver="11">Cooling</t>
+<t id ="E_REPRAP" ver="11">RepRap (Marlin/Sprinter/Repetier)</t>
+<t id ="E_TEACUP" ver="11">Teacup</t>
+<t id ="E_MAKERWAVE" ver="11">MakerWare (MakerBot)</t>
+<t id ="E_SAILFISH" ver="11">Sailfish (MakerBot)</t>
+<t id ="E_MACH3_LINUXCNC" ver="11">Mach3/LinuxCNC</t>
+<t id ="E_MACHINEKIT" ver="11">Machinekit</t>
+<t id ="E_NO_EXTRUSION" ver="11">No extrusion</t>
+<t id ="E_RANDOM" ver="11">Random</t>
+<t id ="E_NEAREST" ver="11">Nearest</t>
+<t id ="E_ALIGNED" ver="11">Aligned</t>
+
+<t id ="L_TEXT_FAN_TURNED_OFF" ver="11">Fan will be turned off.</t>
+<t id ="L_TEXT_FAN_ALWAYS_ON" ver="11">Fan will always run at {0}% except for the first {1} layers.</t>
+<t id ="L_TEXT_COOLING" ver="11">If estimated layer time is below ~{0}s, fan will run at {1}% and print speed will be reduced so that no less than {0}s are spent on that layer(however, speed will never be reduced below {2}mm/s).
+If estimated layer time is greater, but still below ~{3}s, fan will run at a proportionally decreasing speed between {1}% and {4}%.
+</t>
+<t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">During the other layers, fan will always run at {0}% except for the first {1} layers.</t>
+<t id ="L_TEXT_FOOTER" ver="11">During the other layers, fan will be turned off.</t>
+
 </translation>
 

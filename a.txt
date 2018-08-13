@@ -1,0 +1,150 @@
+<t id="L_DELETE" ver="11">Delete</t>
+<t id="L_PRINT_SETTINGS" ver="11">Print Settings</t>
+<t id="L_SAVE" ver="11">Save</t>
+<t id="L_OPTIONS_FOR_SUPPORT_MATERIAL_AND_RAFT" ver="11">Options for support material and raft</t>
+<t id="L_DONT_SUPPORT_BRIDGES" ver="11">Don\'t support bridges</t>
+<t id="L_INTERFACE_PATTERN_SPACING" ver="11">Interface pattern spacing</t>
+<t id="L_PATTERN_ANGLE" ver="11">Pattern angle</t>
+<t id="L_LAYERS" ver="11">layers</t>
+<t id="L_PATTERN" ver="11">Pattern</t>
+<t id="L_INTERFACE_LAYERS" ver="11">Interface layers</t>
+<t id="L_PATTERN_SPACING" ver="11">Pattern spacing</t>
+<t id="L_CONTACT_Z_DISTANCE" ver="11">Contact Z distance</t>
+<t id="L_RAFT" ver="11">Raft</t>
+<t id="L_RAFT_LAYERS" ver="11">Raft layers</t>
+<t id="L_GENERATE_SUPPORT_MATERIAL" ver="11">Generate support material</t>
+<t id="L_SUPPORT_MATERIAL" ver="11">Support Material</t>
+<t id="L_SUPPORT_MATERIAL_ENFORCE_LAYERS" ver="11">Enforce support for the first</t>
+<t id="L_OVERHANG_THRESHOLD" ver="11">Overhang threshold</t>
+<t id="L_ACCELERATION_CONTROL_ADVANCED" ver="11">Acceleration control (advanced)</t>
+<t id="L_DEFAULT" ver="11">Default</t>
+<t id="L_FIRST_LAYER" ver="11">First layer</t>
+<t id="L_BRIDGE" ver="11">Bridge</t>
+<t id="L_INFILL" ver="11">Infill</t>
+<t id="L_PERIMETERS" ver="11">Perimeters</t>
+<t id="L_MODIFIERS" ver="11">Modifiers</t>
+<t id="L_MMS_OR_PERCENT" ver="11">mm/s or %</t>
+<t id="L_FIRST_LAYER_SPEED" ver="11">First layer speed</t>
+<t id="L_AUTOSPEED_ADVANCED" ver="11">Autospeed (advanced)</t>
+<t id="L_MAX_VOLUMETRIC_SPEED" ver="11">Max volumetric speed</t>
+<t id="L_MAX_PRINT_SPEED" ver="11">Max print speed</t>
+<t id="L_SPEED_FOR_PRINT_MOVES" ver="11">Speed for print moves</t>
+<t id="L_GAP_FILL" ver="11">Gap fill</t>
+<t id="L_BRIDGES" ver="11">Bridges</t>
+<t id="L_SUPPORT_MATERIAL_INTERFACE" ver="11">Support material interface</t>
+<t id="L_TOP_SOLID_INFILL" ver="11">Top solid infill</t>
+<t id="L_SOLID_INFILL" ver="11">Solid infill</t>
+<t id="L_EXTERNAL_PERIMETERS" ver="11">External perimeters</t>
+<t id="L_SMALL_PERIMETERS" ver="11">Small perimeters</t>
+<t id="L_SPEED_FOR_NON_PRINT_MOVES" ver="11">Speed for non-print moves</t>
+<t id="L_TRAVEL" ver="11">Travel</t>
+<t id="L_OTHER" ver="11">Other</t>
+<t id="L_RESOLUTION" ver="11">Resolution</t>
+<t id="L_THREADS" ver="11">Threads</t>
+<t id="L_XY_SIZE_COMPENSATION" ver="11">XY size compensation</t>
+<t id="L_FLOW" ver="11">Flow</t>
+<t id="L_BRIDGE_FLOW_RATIO" ver="11">Bridge flow ratio</t>
+<t id="L_EXTRUSION_WIDTH" ver="11">Extrusion width</t>
+<t id="L_LEAVE_0_FOR_AUTO_DEFAULT" ver="11">* Leave 0 for auto / default</t>
+<t id="L_MM_OR_PERCENT" ver="11">mm or %</t>
+<t id="L_DEFAULT_EXTRUSION_WIDTH" ver="11">Default extrusion width</t>
+<t id="L_OVERLAP" ver="11">Overlap</t>
+<t id="L_INFILL_PERIMETERS_OVERLAP" ver="11">Infill/perimeters overlap</t>
+<t id="L_ADVANCED" ver="11">Advanced</t>
+<t id="L_EXTERNAL_PERMITERS_FIRST" ver="11">External perimeters first</t>
+<t id="L_SEAM_POSITION" ver="11">Seam position</t>
+<t id="L_QUALITY_SLOWER_SLICING" ver="11">Quality (slower slicing)</t>
+<t id="L_DETECT_BRIDGIN_PERMITERS" ver="11">Detect bridging perimeters</t>
+<t id="L_DETECT_THIN_WALLS" ver="11">Detect thin walls</t>
+<t id="L_AVOID_CROSSING_PERIMETERS" ver="11">Avoid crossing perimeters</t>
+<t id="L_EXTRA_PERIMETERS_IF_NEED" ver="11">Extra perimeters if needed</t>
+<t id="L_HORIZONTAL_SHELLS" ver="11">Horizontal shells</t>
+<t id="L_BOTTOM" ver="11">Bottom</t>
+<t id="L_TOP" ver="11">Top</t>
+<t id="L_SOLID_LAYERS" ver="11">Solid layers</t>
+<t id="L_VERTICAL_SHELLS" ver="11">Vertical shells</t>
+<t id="L_SPIRAL_VASE" ver="11">Spiral vase</t>
+<t id="L_PERIMETERS" ver="11">Perimeters</t>
+<t id="L_LAYER_HEIGHT" ver="11">Layer height</t>
+<t id="L_FIRST_LAYER_HEIGHT" ver="11">First layer height</t>
+<t id="L_NOTES" ver="11">Notes</t>
+<t id="L_COMPLETE_INDIVIDUAL_OBJECTS" ver="11">Complete individual objects</t>
+<t id="L_POST_PROCESSING_SCRIPTS" ver="11">Post-processing scripts</t>
+<t id="L_VERBOSE_G_CODE" ver="11">Verbose G-code</t>
+<t id="L_OUTPUT_FILENAME_FORMAT" ver="11">Output filename format</t>
+<t id="L_EXTRUDER_CLEARANCE" ver="11">Extruder clearance</t>
+<t id="L_RADIUS" ver="11">Radius</t>
+<t id="L_HEIGHT" ver="11">Height</t>
+<t id="L_INTERFACE_SHELLS" ver="11">Interface shells</t>
+<t id="L_OOZE_PREVENTION" ver="11">Ooze prevention</t>
+<t id="L_ENABLE" ver="11">Enable</t>
+<t id="L_TEMPERATURE_VARIATION" ver="11">Temperature variation</t>
+<t id="L_EXTRUDERS" ver="11">Extruders</t>
+<t id="L_SUPPORT_MATERIAL_RAFT_INTERFACE_EXTRUDER" ver="11">Support material/raft interface extruder</t>
+<t id="L_SUPPORT_MATERIAL_RAFT_SKIRT_EXTRUDER" ver="11">Support material/raft/skirt extruder</t>
+<t id="L_SOLID_INFILL_EXTRUDER" ver="11">Solid infill extruder</t>
+<t id="L_INFILL_EXTRUDER" ver="11">Infill extruder</t>
+<t id="L_PERIMETER_EXTRUDER" ver="11">Perimeter extruder</t>
+<t id="L_BRIM" ver="11">Brim</t>
+<t id="L_BRIM_WIDTH" ver="11">Brim width</t>
+<t id="L_SKIRT" ver="11">Skirt</t>
+<t id="L_DISTANCE_FROM_OBJECT" ver="11">Distance from object</t>
+<t id="L_SKIRT_HEIGHT" ver="11">Skirt height</t>
+<t id="L_HORIZONTAL_SHELLS" ver="11">Horizontal shells</t>
+<t id="L_INFILL_BEFORE_PERIMETERS" ver="11">Infill before perimeters</t>
+<t id="L_ONLY_RETRACT_WHEN_CROSSING_PERIMETER" ver="11">Only retract when crossing perimeters</t>
+<t id="L_SOLID_INFILL_THRESHOLD_AREA" ver="11">Solid infill threshold area</t>
+<t id="L_FILL_ANGLE" ver="11">Fill angle</t>
+<t id="L_SOLID_INFILL_LAYERS" ver="11">Solid infill layers</t>
+<t id="L_REDUCING_PRINTING_TIME" ver="11">Reducing printing time</t>
+<t id="L_ONLY_INFILL_WHERE_NEEDED" ver="11">Only infill where needed</t>
+<t id="L_COMBINE_INFILL_EVERY" ver="11">Combine infill every</t>
+<t id="L_TOP_BOTTOM_FILL_PATTERN" ver="11">Top/bottom fill pattern</t>
+<t id="L_FILL_PATTERN" ver="11">Fill pattern</t>
+<t id="L_FILL_DENSITY" ver="11">Fill density</t>
+<t id="L_FILAMENT_SETTINGS" ver="11">Filament Settings</t>
+<t id="L_TEMPERATURE" ver="11">Temperature (°C)</t>
+<t id="L_OTHER_LAYERS" ver="11">Other layers</t>
+<t id="L_FIRST_LAYER" ver="11">First layer</t>
+<t id="L_BED" ver="11">Bed</t>
+<t id="L_EXTRUDER" ver="11">Extruder</t>
+<t id="L_FILAMENT" ver="11">Filament</t>
+<t id="L_EXTRUSION_MULTIPLIER" ver="11">Extrusion multiplier</t>
+<t id="L_DIAMETER" ver="11">Diameter</t>
+<t id="L_COLOR" ver="11">Color</t>
+<t id="L_RAFT" ver="11">Raft</t>
+<t id="L_MIN_PRINT_SPEED" ver="11">Min print speed</t>
+<t id="L_SECONDS" ver="11">seconds</t>
+<t id="L_ENABLE_FAN_IF_LAYER_PRINT_TIME_IS_BELOW" ver="11">Enable fan if layer print time is below</t>
+<t id="L_FAN_SETTINGS" ver="11">Fan settings</t>
+<t id="L_DISABLE_FAN_FOR_THE_FIRST" ver="11">Disable fan for the first</t>
+<t id="L_BRIDGES_FAN_SPEED" ver="11">Bridges fan speed</t>
+<t id="L_MAX_SPEED" ver="11">Max speed</t>
+<t id="L_MIN_SPEED" ver="11">Min speed</t>
+<t id="L_ENABLE_AUTO_CODING" ver="11">Enable auto cooling</t>
+<t id="L_KEEP_FAN_ALWAYS_ON" ver="11">Keep fan always on</t>
+<t id="L_PRINTER_SETTINGS" ver="11">Printer Settings</t>
+<t id="L_VIBRATION_LIMIT" ver="11">Vibration limit</t>
+<t id="L_PRESSURE_ADVANCE" ver="11">Pressure advance</t>
+<t id="L_USE_VOLUMETRIC_E" ver="11">Use volumetric E</t>
+<t id="L_USE_FIRMWARE_RETRACTION" ver="11">Use firmware retraction</t>
+<t id="L_USE_RELATIVE_E_DISTANCES" ver="11">Use relative E distances</t>
+<t id="L_FIRMWARE" ver="11">Firmware</t>
+<t id="L_G_CODE_FLAVOR" ver="11">G-code flavor</t>
+<t id="L_OCTO_PRINT_UPLOAD" ver="11">OctoPrint upload</t>
+<t id="L_API_KEY" ver="11">API Key</t>
+<t id="L_HOST_OR_IP" ver="11">Host or IP</t>
+<t id="L_CAPABILITIES" ver="11">Capabilities</t>
+<t id="L_BED_SHAPE" ver="11">Bed shape</t>
+<t id="L_Z_OFFSET" ver="11">Z offset</t>
+<t id="L_Y_ORIGIN" ver="11">Y origin</t>
+<t id="L_X_ORIGIN" ver="11">X origin</t>
+<t id="L_Y_SIZE" ver="11">Y size</t>
+<t id="L_X_SIZE" ver="11">X size</t>
+<t id="L_TOOL_CHANGE_G_CODE" ver="11">Tool change G-code</t>
+<t id="L_AFTER_LAYER_CHANGE_G_CODE" ver="11">After layer change G-code</t>
+<t id="L_BEFORE_LAYER_CHANGE_G_CODE" ver="11">Before layer change G-code</t>
+<t id="L_START_G_CODE" ver="11">Start G-code</t>
+<t id="L_END_G_CODE" ver="11">End G-code</t>
+<t id="L_TAB_EXTRUDER1" ver="11">Extruder 1</t>
+
