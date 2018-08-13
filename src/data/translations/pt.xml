@@ -109,8 +109,8 @@ você pode adicionar pausas no seu código adicionando
 <t id="B_CONFIGURE_SLIC3R" ver="1">Configurar</t>
 <t id="B_ACTIVE" ver="1">Ativo</t>
 <t id="L_FILAMENT_SETTINGS" ver="1">Config. do Filamento:</t>
-<t id="L_PRINTER_SETTINGS" ver="1">Config. do Filamento:</t>
-<t id="L_PRINT_SETTINGS" ver="1">Config. da impressora:</t>
+<t id="L_PRINTER_SETTINGS" ver="1">Config. da Impressora:</t>
+<t id="L_PRINT_SETTINGS" ver="1">Config. da Impressão:</t>
 <t id="L_PROFILE" ver="1">Perfil:</t>
 <t id="B_SEND" ver="1">Enviar</t>
 <t id="B_SIMULATE_OK" ver="1">OK</t>
