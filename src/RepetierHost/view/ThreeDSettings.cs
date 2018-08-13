@@ -127,6 +127,8 @@ Immediate (slow)*/
             checkAutoenableParallelInTopView.Text = Trans.T("L_AUTOENABLE_PARALLEL_TOPVIEW");
             buttonGeneralColorDefaults.Text = Trans.T("L_RESET_DEFAULTS");
             buttonModelColorsDefaults.Text = Trans.T("L_RESET_DEFAULTS");
+            labelModelErrorEdge.Text = Trans.T("L_MODEL_ERRORS_EDGE");
+            labelCutFaces.Text = Trans.T("L_CUT_FACES");
         }
 
         protected override void OnClosing(CancelEventArgs e)

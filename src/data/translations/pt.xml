@@ -324,7 +324,7 @@ caso esteja desabilitada a visualização do registro. As mudanças estarão ati
 <t id="L_HOT_FILAMENT" ver="1">Filamento aquecido:</t>
 <t id="L_HOT_FILAMENT_LENGTH" ver="1">Comprimento do filamento aquecido:</t>
 <t id="L_LIGHT_X" ver="1">Luzes $1</t>
-<t id="L_OBJECTS_OUTSIDE_PRINTBED" ver="1">Objetos fora da mesa de impressão:</t>
+<t id="L_OBJECTS_OUTSIDE_PRINTBED" ver="1">Objetos fora da impressão:</t>
 <t id="L_PRINTER_BASE" ver="1">Base de impressão:</t>
 <t id="L_SELECTED_FACES" ver="1">Face selecionada:</t>
 <t id="L_SELECTED_FILAMENT" ver="1">Filamento selecionado:</t>
@@ -479,7 +479,7 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_BED_LEFT:" ver="3">Base Esquerda:</t>
 <t id="L_BED_FRONT:" ver="3">Base Frontal:</t>
 <t id="L_SHAPE_INFO" ver="3">Os valores mínimos e máximos definem o intervalo possível de coordenadas da extrusora. Essas coordenadas podem ser negativas e fora da base de impressão. Base Esquerda/Frontal definem as coordenadas onde a base de impressão começa. Ao mudar esses valores máximos/mínimos você pode mover a origem no centro da mesa de impressão, se suportado pelo firmware.</t>
-<t id="L_SELECTION_BOX" ver="3">Selection Box:</t>
+<t id="L_SELECTION_BOX" ver="3">Caixa de Seleção:</t>
 <t id="L_FILAMENT_NONE" ver="3">None/Same as Extruder 1</t>
 <t id="L_REALLY_QUIT" ver="3">Printing not finished. Exit anyway?</t>
 <t id="M_DONATE" ver="3">Donate or Support</t>
@@ -498,8 +498,8 @@ Escrever as mudanças no EEPROM?</t>
 <t id="M_HIDE_TRAVEL" ver="4">Esconder movimentação</t>
 <t id="L_TRAVEL_VISUALIZATION_ENABLED" ver="4">Travel visualization enabled</t>
 <t id="M_SHOW_TRAVEL" ver="4">Mostrar movimentação</t>
-<t id="L_TRAVEL_MOVES:" ver="4">Travel Moves:</t>
-<t id="L_DISABLE_TRAVEL_MOVES_VIS" ver="4">Disable Travel Move Visualization</t>
+<t id="L_TRAVEL_MOVES:" ver="4">Trajeto dos Movimentos:</t>
+<t id="L_DISABLE_TRAVEL_MOVES_VIS" ver="4">Desabilitar Trajetos dos Movimentos</t>
 <t id="L_NUMBER_OF_EXTRUDER:" ver="5">Número de Extrusora:</t>
 <t id="L_NEW_FOLDER" ver="5">New Folder</t>
 <t id="L_USE_PARALLEL_PROJECTION" ver="5">Usar projeção paralela</t>
@@ -518,7 +518,7 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_CARTESIAN_PRINTER" ver="6">Impressora Clássica</t>
 <t id="L_CARTESIAN_PRINTER_DUMP" ver="6">Classic Printer (with dump area)</t>
 <t id="L_ROSTOCK_CIRCLE" ver="6">Rostock Printer (circular print shape)</t>
-<t id="L_CORRECT_NORMALS" ver="7">Use correct normals (looks better, needs more memory)</t>
+<t id="L_CORRECT_NORMALS" ver="7">Usar normais corretas (melhor aparência, mas precisa de mais memória)</t>
 <t id="L_WARNING" ver="8">Atenção</t>
 <t id="L_HEATERS_ON_QUEST" ver="8">Alguns aquecedores ainda estão ligados. Devo desliga-los?</t>
 <t id="L_OBJECTS_OUTSIDE_SLICE_QUEST" ver="8">Pelo menos um objeto esta fora da área de impressão, abortar fatiamento?</t>
@@ -533,9 +533,9 @@ Escrever as mudanças no EEPROM?</t>
 Reload objects?]]></t>
 <t id="L_FILES_CHANGED" ver="9">Arquivos modificados</t>
 <t id="L_INNER_FACES" ver="9">Faces Internas:</t>
-<t id="L_BACKGROUND_TOP" ver="9">Background Topo:</t>
-<t id="L_BACKGROUND_BOTTOM" ver="9">Background Fundo:</t>
-<t id="L_PRINTER_FRAME" ver="9">Printer Frame:</t>
+<t id="L_BACKGROUND_TOP" ver="9">Fundo Superior:</t>
+<t id="L_BACKGROUND_BOTTOM" ver="9">Fundo Inferior:</t>
+<t id="L_PRINTER_FRAME" ver="9">Frame de Impressão:</t>
 <t id="L_ISOMETRIC_VIEW" ver="9">Visão Isométrica</t>
 <t id="L_BOTTOM_VIEW" ver="9">Visão da Base</t>
 <t id="L_LEFT_VIEW" ver="9">Visão da Esquerda</t>
@@ -586,7 +586,7 @@ Reload objects?]]></t>
 <t id="L_ASSOCIATE_EXTENSIONS" ver="9">Extems]pes Associadas</t>
 <t id="L_CONNECTION_FAILED" ver="9">A conexão falhou com o seguinte errro: $1. Certifique-se que  sua impressora esta conectada, ativada e os dados de conexão estão corretos. Abrir configurações de impressão?</t>
 <t id="L_AUTOENABLE_PARALLEL_TOPVIEW" ver="9">Ativar modo paralelo na vista de topo</t>
-<t id="L_RESET_DEFAULTS" ver="9">Redefinir defaults</t>
+<t id="L_RESET_DEFAULTS" ver="9">Redefinir padrões</t>
 <t id="L_REMOVED_DEGENERATED" ver="9">Triângulos degenerados removidos:</t>
 <t id="L_REMOVED_ISOLATED" ver="9">Triângulos isolados removidos:</t>
 <t id="L_REMOVED_DOUBLE" ver="9">Triângulos duplos removidos:</t>
@@ -663,10 +663,10 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="OBJECTS_ARE_IN_FOOT" ver="10">Objetos em pés</t>
 <t id="OBJECTS_ARE_IN_METER" ver="10">Objetos em metros</t>
 <t id="FILTER_COMMAND" ver="10">SeuFiltro #entrada #saída</t>
-
 <t id="L_NAME" ver="10">Nome</t>
 <t id="L_MESH" ver="10">Malha</t>
 <t id="L_COLLISIONE" ver="10">Colisão</t>
-
+<t id="L_CUT_FACES" ver="10">Faces cortadas:</t>
+<t id="L_MODEL_ERRORS_EDGE" ver="10">Erros no Modelo (arestas):</t>
 </translation>
 

@@ -668,5 +668,7 @@ Reload objects?]]></t>
 <t id="L_NAME" ver="10">Nome</t>
 <t id="L_MESH" ver="10">Malha</t>
 <t id="L_COLLISIONE" ver="10">Colisão</t>
+<t id="L_CUT_FACES" ver="10">Cut Faces:</t>
+<t id="L_MODEL_ERRORS_EDGE" ver="10">Model Erros (edge):</t>
 </translation>
 
