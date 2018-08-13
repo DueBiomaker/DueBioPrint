@@ -104,7 +104,6 @@ You can add pauses in your code with
 <t id="B_COPY_OBJECTS" ver="1">Copy Object(s)</t>
 <t id="B_CENTER_OBJECT" ver="1">Center Object</t>
 <t id="L_LOCK_ASPECT_RATIO" ver="1">Lock Aspect Ratio</t>
-<t id="B_KILL_SLICING_PROCESS" ver="1">Kill Slicing</t>
 <t id="B_SETUP_SKEINFORGE" ver="1">Setup</t>
 <t id="B_SETUP_SLIC3R" ver="1">Setup</t>
 <t id="B_CONFIGURE_SKEINFORGE" ver="1">Configure</t>
