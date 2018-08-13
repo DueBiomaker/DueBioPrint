@@ -70,7 +70,7 @@
 <t id="TAB_GCODE_EDITOR" ver="1">Editor G-Code</t>
 <t id="TAB_MANUAL_CONTROL" ver="1">Controle Manual</t>
 <t id="M_EMERGENCY_STOP" ver="1">Parada de emergência</t>
-<t id="M_LOAD" ver="1">carregar</t>
+<t id="M_LOAD" ver="1">Carregar</t>
 <t id="M_SAVE_JOB" ver="1">Salvar</t>
 <t id="M_RUN_JOB" ver="1">Executar</t>
 <t id="M_PAUSE_JOB" ver="1">pausar</t>
