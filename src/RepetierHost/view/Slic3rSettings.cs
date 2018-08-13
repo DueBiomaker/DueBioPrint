@@ -395,7 +395,7 @@ namespace RepetierHost.view
             SetTransStringsToTextFields("L_OVERHANG_THRESHOLD", lblSupportMaterialThreshold);//"Overhang threshold"
             SetTransStringsToTextFields("L_ACCELERATION_CONTROL_ADVANCED", gbAcceleration);//"Acceleration control (advanced)";
             SetTransStringsToTextFields("L_DEFAULT", label53);//"Default"
-            SetTransStringsToTextFields("L_FIRST_LAYER", label55, label96, label108, label116);//"First layer"
+            SetTransStringsToTextFields("L_FIRST_LAYER_", label55, label96, label108, label116);//"First layer"
             SetTransStringsToTextFields("L_BRIDGE", label57);//"Bridge"
             SetTransStringsToTextFields("L_INFILL", label59, label24, label90, groupBox5);//"Infill"
             SetTransStringsToTextFields("L_PERIMETERS", label61, label27, label94, lblPerimeters);//"Perimeters"

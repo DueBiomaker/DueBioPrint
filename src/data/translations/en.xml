@@ -677,7 +677,6 @@ Reload objects?]]></t>
 
 <t id="L_DELETE" ver="11">Delete</t>
 <t id="L_PRINT_SETTINGS" ver="11">Print Settings</t>
-<t id="L_SAVE" ver="11">Save</t>
 <t id="L_OPTIONS_FOR_SUPPORT_MATERIAL_AND_RAFT" ver="11">Options for support material and raft</t>
 <t id="L_DONT_SUPPORT_BRIDGES" ver="11">Don\'t support bridges</t>
 <t id="L_INTERFACE_PATTERN_SPACING" ver="11">Interface pattern spacing</t>
@@ -695,7 +694,7 @@ Reload objects?]]></t>
 <t id="L_OVERHANG_THRESHOLD" ver="11">Overhang threshold</t>
 <t id="L_ACCELERATION_CONTROL_ADVANCED" ver="11">Acceleration control (advanced)</t>
 <t id="L_DEFAULT" ver="11">Default</t>
-<t id="L_FIRST_LAYER" ver="11">First layer</t>
+<t id="L_FIRST_LAYER_" ver="11">First layer</t>
 <t id="L_BRIDGE" ver="11">Bridge</t>
 <t id="L_INFILL" ver="11">Infill</t>
 <t id="L_PERIMETERS" ver="11">Perimeters</t>

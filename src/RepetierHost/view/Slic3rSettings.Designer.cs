@@ -394,8 +394,8 @@
             this.tlpExtruders = new System.Windows.Forms.TableLayoutPanel();
             this.tabExtruders = new System.Windows.Forms.TabControl();
             this.tabExtruder1 = new System.Windows.Forms.TabPage();
-            this.printerExtruderSettings1 = new RepetierHost.view.PrinterExtruderSettings();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.printerExtruderSettings1 = new RepetierHost.view.PrinterExtruderSettings();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrintPage.SuspendLayout();
@@ -549,8 +549,8 @@
             this.tlpPrintPage.Name = "tlpPrintPage";
             this.tlpPrintPage.RowCount = 1;
             this.tlpPrintPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrintPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.tlpPrintPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.tlpPrintPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
+            this.tlpPrintPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
             this.tlpPrintPage.Size = new System.Drawing.Size(786, 543);
             this.tlpPrintPage.TabIndex = 0;
             // 
@@ -3110,8 +3110,8 @@
             this.tlpFilamentPage.Name = "tlpFilamentPage";
             this.tlpFilamentPage.RowCount = 1;
             this.tlpFilamentPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpFilamentPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.tlpFilamentPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.tlpFilamentPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
+            this.tlpFilamentPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
             this.tlpFilamentPage.Size = new System.Drawing.Size(786, 543);
             this.tlpFilamentPage.TabIndex = 1;
             // 
@@ -3737,8 +3737,8 @@
             this.tlpPrinterPage.Name = "tlpPrinterPage";
             this.tlpPrinterPage.RowCount = 1;
             this.tlpPrinterPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpPrinterPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
-            this.tlpPrinterPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 629F));
+            this.tlpPrinterPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
+            this.tlpPrinterPage.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 543F));
             this.tlpPrinterPage.Size = new System.Drawing.Size(786, 543);
             this.tlpPrinterPage.TabIndex = 2;
             // 
@@ -4366,7 +4366,7 @@
             this.printerExtruderSettings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.printerExtruderSettings1.ExtruderSettings = null;
             this.printerExtruderSettings1.Location = new System.Drawing.Point(3, 3);
-            this.printerExtruderSettings1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.printerExtruderSettings1.Margin = new System.Windows.Forms.Padding(6);
             this.printerExtruderSettings1.MinimumSize = new System.Drawing.Size(524, 618);
             this.printerExtruderSettings1.Name = "printerExtruderSettings1";
             this.printerExtruderSettings1.Size = new System.Drawing.Size(524, 618);
