@@ -1,9 +1,12 @@
 ﻿using RepetierHost.controller;
 using RepetierHost.extensions;
+using RepetierHost.model;
 using RepetierHost.model.slic3r;
 using RepetierHost.util;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace RepetierHost.view
@@ -28,6 +31,12 @@ namespace RepetierHost.view
             PrepareFilamentBindings();
             PreparePrinterBindings();
             Customization();
+
+            if (Main.main != null)
+            {
+                Main.main.languageChanged += translate;
+                translate();
+            }
         }
 
         private void Slic3rSettings_Load(object sender, EventArgs e)
@@ -348,6 +357,107 @@ namespace RepetierHost.view
             tbBeforeLayerGcode.DataBindings.Add("Text", PrinterSettings, "BeforeLayerGcode", false, DataSourceUpdateMode.OnPropertyChanged);
             tbLayerGcode.DataBindings.Add("Text", PrinterSettings, "LayerGcode", false, DataSourceUpdateMode.OnPropertyChanged);
             tbToolchangeGcode.DataBindings.Add("Text", PrinterSettings, "ToolchangeGcode", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        private void SetTransStringsToTextFields(string key_translate, params object[] objects)
+        {
+            var translate_string = Trans.T(key_translate);
+
+            if (objects != null)
+                foreach (object obj in objects)
+                {
+                    Type type = obj.GetType();
+                    PropertyInfo prop = type.GetProperty("Text");
+                    prop.SetValue(obj, translate_string, null);
+                }
+        }
+
+        public void translate()
+        {
+            SetTransStringsToTextFields("L_DELETE", btnDeletePrintSettings, btnDeleteFilamentSettings);//"Delete"
+            SetTransStringsToTextFields("L_PRINT_SETTINGS", pagePrint);//"Print Settings"
+            SetTransStringsToTextFields("L_SAVE", btnSavePrintSettings, btnSavePrinterSettings);//"Save"
+            SetTransStringsToTextFields("L_OPTIONS_FOR_SUPPORT_MATERIAL_AND_RAFT", gbSupportMaterialOptions);// "Options for support material and raft"
+            SetTransStringsToTextFields("L_DONT_SUPPORT_BRIDGES", cbDontSupportBridges);//"Don\'t support bridges"
+            SetTransStringsToTextFields("L_INTERFACE_PATTERN_SPACING", lblSupportMaterialInterfaceSpacing);//"Interface pattern spacing"
+            SetTransStringsToTextFields("L_PATTERN_ANGLE", lblSupportMaterialAngle);//"Pattern angle"
+            SetTransStringsToTextFields("L_LAYERS", label15, label10, label16, label8, label9, label77);//layers
+            SetTransStringsToTextFields("L_PATTERN", lblSupportMaterialPattern);//Pattern
+
+            SetTransStringsToTextFields("L_INTERFACE_LAYERS", lblSupportMaterialInterfaceLayers);//"Interface layers"
+            SetTransStringsToTextFields("L_PATTERN_SPACING", lblSupportMaterialSpacing);//"Pattern spacing"
+            SetTransStringsToTextFields("L_CONTACT_Z_DISTANCE", lblSupportMaterialContactDistance);//"Contact Z distance"
+            SetTransStringsToTextFields("L_RAFT", gbRaft, groupBox17);//"Raft"
+            SetTransStringsToTextFields("L_RAFT_LAYERS", lblRaftLayers);//"Raft layers"
+            SetTransStringsToTextFields("L_GENERATE_SUPPORT_MATERIAL", cbSupportMaterial);//"Generate support material"
+            SetTransStringsToTextFields("L_SUPPORT_MATERIAL", gbSupportMaterial, label36, label84);//"Support Material"
+            SetTransStringsToTextFields("L_SUPPORT_MATERIAL_ENFORCE_LAYERS", lblSupportMaterialEnforceLayers);//"Enforce support for the first"
+            SetTransStringsToTextFields("L_OVERHANG_THRESHOLD", lblSupportMaterialThreshold);//"Overhang threshold"
+            SetTransStringsToTextFields("L_ACCELERATION_CONTROL_ADVANCED", gbAcceleration);//"Acceleration control (advanced)";
+            SetTransStringsToTextFields("L_DEFAULT", label53);//"Default"
+            SetTransStringsToTextFields("L_FIRST_LAYER", label55, label96, label108, label116);//"First layer"
+            SetTransStringsToTextFields("L_BRIDGE", label57);//"Bridge"
+            SetTransStringsToTextFields("L_INFILL", label59, label24, label90, groupBox5);//"Infill"
+            SetTransStringsToTextFields("L_PERIMETERS", label61, label27, label94, lblPerimeters);//"Perimeters"
+            SetTransStringsToTextFields("L_MODIFIERS", gbModifiers);//"Modifiers"
+            SetTransStringsToTextFields("L_MMS_OR_PERCENT", label31, label37, label17, label3 );//"mm/s or %"
+            SetTransStringsToTextFields("L_FIRST_LAYER_SPEED", label32);//"First layer speed"
+            SetTransStringsToTextFields("L_AUTOSPEED_ADVANCED", gbAutospeed);//"Autospeed (advanced)"
+            SetTransStringsToTextFields("L_MAX_VOLUMETRIC_SPEED", label45);//"Max volumetric speed"
+            SetTransStringsToTextFields("L_MAX_PRINT_SPEED", label30);//"Max print speed"
+            SetTransStringsToTextFields("L_SPEED_FOR_PRINT_MOVES", gbPrint);//"Speed for print moves"
+            SetTransStringsToTextFields("L_GAP_FILL", label42);//"Gap fill"
+            SetTransStringsToTextFields("L_BRIDGES", label40);//"Bridges"
+            SetTransStringsToTextFields("L_SUPPORT_MATERIAL_INTERFACE", label38);//"Support material interface"
+            SetTransStringsToTextFields("L_TOP_SOLID_INFILL", label34, label86);//"Top solid infill"
+            SetTransStringsToTextFields("L_SOLID_INFILL", label26, label88);//"Solid infill"
+            SetTransStringsToTextFields("L_EXTERNAL_PERIMETERS", label18, label92);//"External perimeters"
+            SetTransStringsToTextFields("L_SMALL_PERIMETERS", label13);//"Small perimeters"
+            SetTransStringsToTextFields("L_SPEED_FOR_NON_PRINT_MOVES", gbNonPrint);//"Speed for non-print moves"
+            SetTransStringsToTextFields("L_TRAVEL", label33);//"Travel"
+            SetTransStringsToTextFields("L_OTHER", groupBox9);//"Other"
+            SetTransStringsToTextFields("L_RESOLUTION", label65);//"Resolution"
+            SetTransStringsToTextFields("L_THREADS", label68);//"Threads"
+            SetTransStringsToTextFields("L_XY_SIZE_COMPENSATION", label72);//"XY size compensation"
+            SetTransStringsToTextFields("L_FLOW", groupBox10);//"Flow"
+            SetTransStringsToTextFields("L_BRIDGE_FLOW_RATIO", label74);//"Bridge flow ratio"
+            SetTransStringsToTextFields("L_EXTRUSION_WIDTH", groupBox12);//"Extrusion width"
+            SetTransStringsToTextFields("L_LEAVE_0_FOR_AUTO_DEFAULT", label79);//"* Leave 0 for auto / default"
+            SetTransStringsToTextFields("L_MM_OR_PERCENT", lblFirstLayerHeightMmOrPercent,  label83, label85, label87, label89, label91, label93, label95, label97, label99);//"mm or %"
+            SetTransStringsToTextFields("L_DEFAULT_EXTRUSION_WIDTH", label98);//"Default extrusion width"
+            SetTransStringsToTextFields("L_OVERLAP", groupBox13);//"Overlap"
+            SetTransStringsToTextFields("L_INFILL_PERIMETERS_OVERLAP", label100);//"Infill/perimeters overlap"
+            SetTransStringsToTextFields("L_ADVANCED", gbAdvanced, groupBox7, groupBox26);//"Advanced"
+            SetTransStringsToTextFields("L_EXTERNAL_PERMITERS_FIRST", cbExternalPerimetersFirst);//"External perimeters first"
+            SetTransStringsToTextFields("L_SEAM_POSITION", lblSeamPosition);//"Seam position"
+            SetTransStringsToTextFields("L_QUALITY_SLOWER_SLICING", gbQuality);//"Quality (slower slicing)"
+            SetTransStringsToTextFields("L_DETECT_BRIDGIN_PERMITERS", cbOverhangs);//"Detect bridging perimeters"
+            SetTransStringsToTextFields("L_DETECT_THIN_WALLS", cbThinWalls);//"Detect thin walls"
+            SetTransStringsToTextFields("L_AVOID_CROSSING_PERIMETERS", cbAvoidCrossingPerimeters);//"Avoid crossing perimeters"
+            SetTransStringsToTextFields("L_EXTRA_PERIMETERS_IF_NEED", cbExtraPerimetersfNeeded);//"Extra perimeters if needed"
+            SetTransStringsToTextFields("L_HORIZONTAL_SHELLS", gbHorizontalShells);//"Horizontal shells"
+            SetTransStringsToTextFields("L_BOTTOM", label5);//"Bottom"
+            SetTransStringsToTextFields("L_TOP", label6);//"Top"
+            SetTransStringsToTextFields("L_SOLID_LAYERS", lblSolidLayers);//"Solid layers"
+            SetTransStringsToTextFields("L_VERTICAL_SHELLS", gbVerticalShells);//"Vertical shells"
+            SetTransStringsToTextFields("L_SPIRAL_VASE", cbSpiralVase);//"Spiral vase"
+            SetTransStringsToTextFields("L_PERIMETERS", lblPerimeters);//"Perimeters"
+            SetTransStringsToTextFields("L_LAYER_HEIGHT", gbLayerHeight, lblLayerHeight);//"Layer height"
+            SetTransStringsToTextFields("L_FIRST_LAYER_HEIGHT", lblFirstLayerHeight);//"First layer height";
+            SetTransStringsToTextFields("L_NOTES", groupBox15);//"Notes"
+            SetTransStringsToTextFields("L_COMPLETE_INDIVIDUAL_OBJECTS", cbCompleteObjects);//"Complete individual objects"
+            SetTransStringsToTextFields("L_POST_PROCESSING_SCRIPTS", groupBox11);//"Post-processing scripts"
+            SetTransStringsToTextFields("L_VERBOSE_G_CODE", cbGcodeComments);//"Verbose G-code"
+            SetTransStringsToTextFields("L_OUTPUT_FILENAME_FORMAT", label73);//"Output filename format"
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+            SetTransStringsToTextFields("", null);//
+
+
+
         }
 
         private void lbPrintSettingsCategories_SelectedIndexChanged(object sender, EventArgs e)
