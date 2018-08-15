@@ -633,6 +633,8 @@
     <Content Include="due.ico" />
     <Content Include="images\switch_on.bmp" />
     <Content Include="images\switch_off.bmp" />
+    <None Include="Resources\icones_novos_log_oculto.png" />
+    <None Include="Resources\toolHiddenLog.Image.bmp" />
     <None Include="Resources\save.png" />
     <None Include="Resources\printer_settings.png" />
     <None Include="Resources\load.png" />

@@ -81,6 +81,7 @@ namespace RepetierHost
         public double gcodePrintingTime = 0;
         public string lastFileLoadedName = null;
         public double importScaleFactor = 1;
+        private System.ComponentModel.ComponentResourceManager resources;
 
         public class JobUpdater
         {
@@ -170,6 +171,7 @@ namespace RepetierHost
 
         public Main()
         {
+            resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             executeHostCall = new executeHostCommandDelegate(this.executeHostCommand);
             repetierKey = Custom.BaseKey; // Registry.CurrentUser.CreateSubKey("SOFTWARE\\Repetier");
             repetierKey.SetValue("installPath", Application.StartupPath);
@@ -1168,10 +1170,12 @@ namespace RepetierHost
             if (splitLog.Panel2Collapsed == true)
             {
                 splitLog.Panel2Collapsed = false;
+                this.toolShowLog.Image = ((System.Drawing.Image)(resources.GetObject("toolShowLog.Image")));
             }
             else
             {
                 splitLog.Panel2Collapsed = true;
+                this.toolShowLog.Image = ((System.Drawing.Image)(resources.GetObject("toolHiddenLog.Image")));
             }
         }
 
