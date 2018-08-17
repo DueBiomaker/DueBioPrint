@@ -31,5 +31,11 @@ namespace RepetierHost.util
 
             return subPath.Trim();
         }
+
+        public static bool FilePathHasInvalidChars(string path)
+        {
+
+            return (!string.IsNullOrEmpty(path) && path.IndexOfAny(System.IO.Path.GetInvalidPathChars()) >= 0);
+        }
     }
 }

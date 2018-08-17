@@ -17,6 +17,7 @@
 using Microsoft.Win32;
 using RepetierHost.model;
 using RepetierHost.model.geom;
+using RepetierHost.util;
 using RepetierHost.view.utils;
 using System;
 using System.ComponentModel;
@@ -715,10 +716,13 @@ namespace RepetierHost.view
             foreach (string test in (Environment.GetEnvironmentVariable("PATH") ?? "").Split(Path.PathSeparator))
             {
                 string path = test.Trim();
-                foreach (string exname in possibleNames) // Search bundled version
+                if (!String.IsNullOrEmpty(path) && !FileUtils.FilePathHasInvalidChars(path))
                 {
-                    if (!String.IsNullOrEmpty(path) && File.Exists(Path.Combine(path, exname)))
-                        return Path.GetFullPath(Path.Combine(path, exname));
+                    foreach (string exname in possibleNames) // Search bundled version
+                    {
+                        if (File.Exists(Path.Combine(path, exname)))
+                            return Path.GetFullPath(Path.Combine(path, exname));
+                    }
                 }
             }
             return null;
