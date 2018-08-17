@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepetierHost", "RepetierHost.csproj", "{B118044A-6AC1-407D-8CE9-A624810BEE0C}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{896E9619-99E6-47F7-BA3C-AC011B596ED4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,9 @@ Global
 		{B118044A-6AC1-407D-8CE9-A624810BEE0C}.MacOSX|Any CPU.Build.0 = MacOSX|Any CPU
 		{B118044A-6AC1-407D-8CE9-A624810BEE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B118044A-6AC1-407D-8CE9-A624810BEE0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{896E9619-99E6-47F7-BA3C-AC011B596ED4}.Debug|Any CPU.ActiveCfg = Debug
+		{896E9619-99E6-47F7-BA3C-AC011B596ED4}.MacOSX|Any CPU.ActiveCfg = Release
+		{896E9619-99E6-47F7-BA3C-AC011B596ED4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

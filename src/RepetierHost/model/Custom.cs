@@ -15,6 +15,7 @@
 */
 
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
@@ -34,6 +35,16 @@ namespace RepetierHost.model
             if (File.Exists(customfile))
                 ReadFile(customfile);
             baseKey = Registry.CurrentUser.CreateSubKey("SOFTWARE\\" + dic["registryFolder"]);
+            CreateNeededDirectories();
+        }
+
+        public static void CreateNeededDirectories()
+        {
+            var user_directory = Environment.GetEnvironmentVariable("UserProfile");
+            System.IO.Directory.CreateDirectory(user_directory + "\\AppData\\Roaming\\Slic3r");
+            System.IO.Directory.CreateDirectory(user_directory + "\\AppData\\Roaming\\Slic3r\\filament");
+            System.IO.Directory.CreateDirectory(user_directory + "\\AppData\\Roaming\\Slic3r\\print");
+            System.IO.Directory.CreateDirectory(user_directory + "\\AppData\\Roaming\\Slic3r\\printer");
         }
 
         public static void ReadFile(string fname)

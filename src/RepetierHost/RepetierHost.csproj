@@ -58,7 +58,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MacOSX|AnyCPU' ">
@@ -633,6 +633,55 @@
     <Content Include="due.ico" />
     <Content Include="images\switch_on.bmp" />
     <Content Include="images\switch_off.bmp" />
+    <Content Include="data\default\syntax_en.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="data\splashscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\translations\en.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="data\translations\old_repetier_translations\cz.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data\translations\old_repetier_translations\de.xml" />
+    <None Include="data\translations\old_repetier_translations\es.xml" />
+    <None Include="data\translations\old_repetier_translations\eu.xml" />
+    <None Include="data\translations\old_repetier_translations\fr.xml" />
+    <None Include="data\translations\old_repetier_translations\it.xml" />
+    <None Include="data\translations\old_repetier_translations\jp.xml" />
+    <None Include="data\translations\old_repetier_translations\lv.xml" />
+    <None Include="data\translations\old_repetier_translations\nl.xml" />
+    <None Include="data\translations\old_repetier_translations\ru.xml" />
+    <None Include="data\translations\old_repetier_translations\se.xml" />
+    <None Include="data\translations\old_repetier_translations\tw.xml" />
+    <None Include="data\translations\old_repetier_translations\zh.xml" />
+    <Content Include="data\translations\pt.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowX.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowY.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowZ.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\custom.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\filament\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\printer\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\print\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\icones_novos_log_oculto.png" />
     <None Include="Resources\toolHiddenLog.Image.bmp" />
     <None Include="Resources\save.png" />
