@@ -627,17 +627,39 @@
     <Compile Include="view\utils\StringInput.Designer.cs">
       <DependentUpon>StringInput.cs</DependentUpon>
     </Compile>
-    <Content Include="Slic3r\cpfworkrt\cpfworkrt.manifest" />
-    <Content Include="Slic3r\lib\std\Mozilla\CA.pm" />
-    <Content Include="Slic3r\lib\std\Mozilla\CA\cacert.pem" />
-    <Content Include="Slic3r\lib\std\XML\SAX\ParserDetails.ini" />
-    <Content Include="Slic3r\lib\vrt\11897113663a72e0cf3a40f86569d0d3\package.lib" />
-    <Content Include="Slic3r\lib\vrt\42c3d19347a691f255d231da3d91f1ab\package.lib" />
-    <Content Include="Slic3r\lib\vrt\471029ae61c0427e58f24ac9e5a0cca5\package.lib" />
-    <Content Include="Slic3r\lib\vrt\528ccea98cad02a5f453a7135f9ca183\package.lib" />
-    <Content Include="Slic3r\lib\vrt\804f15d0b003b04c3feb68e47adacf8d\package.lib" />
-    <Content Include="Slic3r\lib\vrt\fa119178d164dcf97f19aecc876231c0\package.lib" />
-    <Content Include="Slic3r\res\Slic3r.icns" />
+    <Content Include="Slic3r\cpfworkrt\cpfworkrt.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\Mozilla\CA.pm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\Mozilla\CA\cacert.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\XML\SAX\ParserDetails.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\11897113663a72e0cf3a40f86569d0d3\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\42c3d19347a691f255d231da3d91f1ab\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\471029ae61c0427e58f24ac9e5a0cca5\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\528ccea98cad02a5f453a7135f9ca183\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\804f15d0b003b04c3feb68e47adacf8d\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fa119178d164dcf97f19aecc876231c0\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.icns">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="due-logo.ico" />
@@ -654,131 +676,381 @@
     <Content Include="data\translations\en.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Slic3r\cpfworkrt\libgcc_s_sjlj-1.dll" />
-    <Content Include="Slic3r\cpfworkrt\libstdc++-6.dll" />
-    <Content Include="Slic3r\cpfworkrt\perl514.dll" />
-    <Content Include="Slic3r\dll\cpwgui.exe" />
-    <Content Include="Slic3r\dll\freeglut.dll" />
-    <Content Include="Slic3r\dll\wxbase30u_gcc_custom.dll" />
-    <Content Include="Slic3r\dll\wxbase30u_net_gcc_custom.dll" />
-    <Content Include="Slic3r\dll\wxmsw30u_adv_gcc_custom.dll" />
-    <Content Include="Slic3r\dll\wxmsw30u_core_gcc_custom.dll" />
-    <Content Include="Slic3r\dll\wxmsw30u_gl_gcc_custom.dll" />
-    <Content Include="Slic3r\dll\wxmsw30u_html_gcc_custom.dll" />
-    <Content Include="Slic3r\lib\vrt\04ee3d95b58f845ff68e790ea821ed28\Html.dll" />
-    <Content Include="Slic3r\lib\vrt\06615b42ca13eb33c2bd565cd183b04f\HiRes.dll" />
-    <Content Include="Slic3r\lib\vrt\09fcc17b59e8184d6f6aae2234232643\XSAccessor.dll" />
-    <Content Include="Slic3r\lib\vrt\0b08f7a4655e765d374c9386ac0f9cba\Registry.dll" />
-    <Content Include="Slic3r\lib\vrt\0f68c17a897e3679d0bc75cf25eb0d32\Call.dll" />
-    <Content Include="Slic3r\lib\vrt\1fb7fccc91b710fda9ef22107dcb9876\re.dll" />
-    <Content Include="Slic3r\lib\vrt\28efad0606947abe70c91c677186917e\ExpatXS.dll" />
-    <Content Include="Slic3r\lib\vrt\3d62cb26e6ceed8f5606f9f2a93c1e74\via.dll" />
-    <Content Include="Slic3r\lib\vrt\3ef6a67678d4d353722e0c5e0db8c4f5\CN.dll" />
-    <Content Include="Slic3r\lib\vrt\47c098db907fb380d6d148278f686943\Socket.dll" />
-    <Content Include="Slic3r\lib\vrt\54e802a96f0ea33926b1007d108dc397\MD5.dll" />
-    <Content Include="Slic3r\lib\vrt\570dcc9cd1a931ef472e53d090cc064e\FastCalc.dll" />
-    <Content Include="Slic3r\lib\vrt\578b3dbe5ff53a601682dc56ffdd65a7\POSIX.dll" />
-    <Content Include="Slic3r\lib\vrt\5882e6f237045a804dfc5455909a4ef5\Util.dll" />
-    <Content Include="Slic3r\lib\vrt\5de5875f61f5b19f4f9c25e88f7f6e4c\API.dll" />
-    <Content Include="Slic3r\lib\vrt\5fb4ed9da866dcbc5a4bfcd36e8fe58e\File.dll" />
-    <Content Include="Slic3r\lib\vrt\62d106ae250be36bf54a500a33ccec74\Dumper.dll" />
-    <Content Include="Slic3r\lib\vrt\655be3f152e0f49d92e5569d71e6d99c\KR.dll" />
-    <Content Include="Slic3r\lib\vrt\6b7bcdae351c4ae9a44d7ee62332f080\OpenGL.dll" />
-    <Content Include="Slic3r\lib\vrt\6d4345158da3b83d38ed2f56d4c56c78\NamedCapture.dll" />
-    <Content Include="Slic3r\lib\vrt\6fc4d39c5f1073f52caedc475613462f\B.dll" />
-    <Content Include="Slic3r\lib\vrt\70b13a2b969036b2ea204a384e92dde0\Storable.dll" />
-    <Content Include="Slic3r\lib\vrt\7464aa29115ac75e97a1e6255ea549d8\Grid.dll" />
-    <Content Include="Slic3r\lib\vrt\79d4a9b9bd0c863d1460541692cbc683\Wx.dll" />
-    <Content Include="Slic3r\lib\vrt\7be7d4bb5eaa5868e3a0ae944cabfebf\XS.dll" />
-    <Content Include="Slic3r\lib\vrt\7cde4e9332cde5476cf2b70dcc99c418\Console.dll" />
-    <Content Include="Slic3r\lib\vrt\7e81750a97666029546ee618858c3c45\WinError.dll" />
-    <Content Include="Slic3r\lib\vrt\7eb1ab674bda4ca6853ffeebfe556d6c\encoding.dll" />
-    <Content Include="Slic3r\lib\vrt\83c459cb2603eb137b1131f0d51a25ad\Glob.dll" />
-    <Content Include="Slic3r\lib\vrt\8ced8e40959c7aaaec9eabc6cd465904\Encode.dll" />
-    <Content Include="Slic3r\lib\vrt\8e00755f20c9b127001f4e59846a6f2f\SSLeay.dll" />
-    <Content Include="Slic3r\lib\vrt\960ec7e6f4a938ce522ee9624df09205\TW.dll" />
-    <Content Include="Slic3r\lib\vrt\9682eb250d2ea959f14d5be994aff5c0\XS.dll" />
-    <Content Include="Slic3r\lib\vrt\9cb28c3e329fe96a5904acf8060e9f30\Clone.dll" />
-    <Content Include="Slic3r\lib\vrt\a432eb96c840bf291c7e74a52ec3d1d1\Libm.dll" />
-    <Content Include="Slic3r\lib\vrt\a524bf7bdaf8bd727c1e386a04a39394\Print.dll" />
-    <Content Include="Slic3r\lib\vrt\b1d98a954c3a035cd4c81ba8f690ad20\Zlib.dll" />
-    <Content Include="Slic3r\lib\vrt\b4046bc459901be0cdfbcb6c24b6e21a\attributes.dll" />
-    <Content Include="Slic3r\lib\vrt\b58eed1bc32878bcb2b3675609612c5f\IO.dll" />
-    <Content Include="Slic3r\lib\vrt\b87690aa33bad1778f53634193f1949c\Int64.dll" />
-    <Content Include="Slic3r\lib\vrt\bbed0b2fcc51fc2c0c62e7222b4a7589\Symbol.dll" />
-    <Content Include="Slic3r\lib\vrt\bf7da2c9eaa09b8323ce57b01f285471\Fcntl.dll" />
-    <Content Include="Slic3r\lib\vrt\c93de1b57cd21b1b5ba750d058d99f0b\Byte.dll" />
-    <Content Include="Slic3r\lib\vrt\ca49bc1868902d77d13001c600ba4869\EBCDIC.dll" />
-    <Content Include="Slic3r\lib\vrt\cc47a811533a0b23681c166b272d128f\Cwd.dll" />
-    <Content Include="Slic3r\lib\vrt\cd45fac1e540d2848c95261aa92e8807\GLCanvas.dll" />
-    <Content Include="Slic3r\lib\vrt\ce0955ee513292b97f0e392e4aab62a9\scalar.dll" />
-    <Content Include="Slic3r\lib\vrt\d096807d882102d4cbe697541d8d16ec\JP.dll" />
-    <Content Include="Slic3r\lib\vrt\d4bbf351cc436285cacff307e682c200\DND.dll" />
-    <Content Include="Slic3r\lib\vrt\d80d31ac28d171ab395c0e25a77e13f9\SSLeay.dll" />
-    <Content Include="Slic3r\lib\vrt\d92296ca8ef4f7b7a6eb9b56490f3a17\Base64.dll" />
-    <Content Include="Slic3r\lib\vrt\dd518db440bd40c1c7a892e8a72788c7\UUID.dll" />
-    <Content Include="Slic3r\lib\vrt\df4d3d3357081ba457ee2381ed830575\Unicode.dll" />
-    <Content Include="Slic3r\lib\vrt\e1775cefa37d5a3c958c1ec29973c546\threads.dll" />
-    <Content Include="Slic3r\lib\vrt\f37bd731d38294fd44693e79c8fd9f36\Bzip2.dll" />
-    <Content Include="Slic3r\lib\vrt\f7db393de11f3b1c5f29fc52a790a84c\Win32.dll" />
-    <Content Include="Slic3r\lib\vrt\f8583ead0d63eb73d28afb2cf314bc7a\Parser.dll" />
-    <Content Include="Slic3r\lib\vrt\f95b485db18c3fbdb309c6508f1973a6\SHA.dll" />
-    <Content Include="Slic3r\lib\vrt\fb3ae9079e14ae4cec4e17e6dfb85ab7\mro.dll" />
-    <Content Include="Slic3r\lib\vrt\fc44d03a1d4d8d5b60fbee0b5eacb800\shared.dll" />
-    <Content Include="Slic3r\res\add.png" />
-    <Content Include="Slic3r\res\application_view_tile.png" />
-    <Content Include="Slic3r\res\arrow_out.png" />
-    <Content Include="Slic3r\res\arrow_rotate_anticlockwise.png" />
-    <Content Include="Slic3r\res\arrow_rotate_clockwise.png" />
-    <Content Include="Slic3r\res\arrow_up.png" />
-    <Content Include="Slic3r\res\box.png" />
-    <Content Include="Slic3r\res\brick.png" />
-    <Content Include="Slic3r\res\bricks.png" />
-    <Content Include="Slic3r\res\brick_add.png" />
-    <Content Include="Slic3r\res\brick_delete.png" />
-    <Content Include="Slic3r\res\brick_go.png" />
-    <Content Include="Slic3r\res\building.png" />
-    <Content Include="Slic3r\res\bullet_black.png" />
-    <Content Include="Slic3r\res\bullet_blue.png" />
-    <Content Include="Slic3r\res\bullet_white.png" />
-    <Content Include="Slic3r\res\cog.png" />
-    <Content Include="Slic3r\res\cog_go.png" />
-    <Content Include="Slic3r\res\cross.png" />
-    <Content Include="Slic3r\res\delete.png" />
-    <Content Include="Slic3r\res\disk.png" />
-    <Content Include="Slic3r\res\error.png" />
-    <Content Include="Slic3r\res\funnel.png" />
-    <Content Include="Slic3r\res\hourglass.png" />
-    <Content Include="Slic3r\res\joystick.png" />
-    <Content Include="Slic3r\res\layers.png" />
-    <Content Include="Slic3r\res\lorry_add.png" />
-    <Content Include="Slic3r\res\lorry_go.png" />
-    <Content Include="Slic3r\res\note.png" />
-    <Content Include="Slic3r\res\package.png" />
-    <Content Include="Slic3r\res\package_green.png" />
-    <Content Include="Slic3r\res\page_white_go.png" />
-    <Content Include="Slic3r\res\plugin.png" />
-    <Content Include="Slic3r\res\plugin_add.png" />
-    <Content Include="Slic3r\res\plugin_go.png" />
-    <Content Include="Slic3r\res\printer_empty.png" />
-    <Content Include="Slic3r\res\shading.png" />
-    <Content Include="Slic3r\res\shape_flip_horizontal.png" />
-    <Content Include="Slic3r\res\shape_handles.png" />
-    <Content Include="Slic3r\res\shape_ungroup.png" />
-    <Content Include="Slic3r\res\Slic3r.ico" />
-    <Content Include="Slic3r\res\Slic3r.png" />
-    <Content Include="Slic3r\res\Slic3r_128px.png" />
-    <Content Include="Slic3r\res\Slic3r_192px.png" />
-    <Content Include="Slic3r\res\Slic3r_192px_transparent.png" />
-    <Content Include="Slic3r\res\spool.png" />
-    <Content Include="Slic3r\res\tag_blue.png" />
-    <Content Include="Slic3r\res\textfield.png" />
-    <Content Include="Slic3r\res\time.png" />
-    <Content Include="Slic3r\res\wrench.png" />
-    <Content Include="Slic3r\res\zoom.png" />
-    <Content Include="Slic3r\slic3r-console.exe" />
-    <Content Include="Slic3r\cpfworkrt\slic3r.exe" />
-    <Content Include="Slic3r\slic3r.exe" />
+    <Content Include="Slic3r\cpfworkrt\libgcc_s_sjlj-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\perl514.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\cpwgui.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\freeglut.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxbase30u_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxbase30u_net_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw30u_adv_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw30u_core_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw30u_gl_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw30u_html_gcc_custom.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\04ee3d95b58f845ff68e790ea821ed28\Html.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\06615b42ca13eb33c2bd565cd183b04f\HiRes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\09fcc17b59e8184d6f6aae2234232643\XSAccessor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\0b08f7a4655e765d374c9386ac0f9cba\Registry.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\0f68c17a897e3679d0bc75cf25eb0d32\Call.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\1fb7fccc91b710fda9ef22107dcb9876\re.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\28efad0606947abe70c91c677186917e\ExpatXS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\3d62cb26e6ceed8f5606f9f2a93c1e74\via.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\3ef6a67678d4d353722e0c5e0db8c4f5\CN.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\47c098db907fb380d6d148278f686943\Socket.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\54e802a96f0ea33926b1007d108dc397\MD5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\570dcc9cd1a931ef472e53d090cc064e\FastCalc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\578b3dbe5ff53a601682dc56ffdd65a7\POSIX.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\5882e6f237045a804dfc5455909a4ef5\Util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\5de5875f61f5b19f4f9c25e88f7f6e4c\API.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\5fb4ed9da866dcbc5a4bfcd36e8fe58e\File.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\62d106ae250be36bf54a500a33ccec74\Dumper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\655be3f152e0f49d92e5569d71e6d99c\KR.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\6b7bcdae351c4ae9a44d7ee62332f080\OpenGL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\6d4345158da3b83d38ed2f56d4c56c78\NamedCapture.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\6fc4d39c5f1073f52caedc475613462f\B.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\70b13a2b969036b2ea204a384e92dde0\Storable.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7464aa29115ac75e97a1e6255ea549d8\Grid.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\79d4a9b9bd0c863d1460541692cbc683\Wx.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7be7d4bb5eaa5868e3a0ae944cabfebf\XS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7cde4e9332cde5476cf2b70dcc99c418\Console.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7e81750a97666029546ee618858c3c45\WinError.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7eb1ab674bda4ca6853ffeebfe556d6c\encoding.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\83c459cb2603eb137b1131f0d51a25ad\Glob.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\8ced8e40959c7aaaec9eabc6cd465904\Encode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\8e00755f20c9b127001f4e59846a6f2f\SSLeay.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\960ec7e6f4a938ce522ee9624df09205\TW.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9682eb250d2ea959f14d5be994aff5c0\XS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9cb28c3e329fe96a5904acf8060e9f30\Clone.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\a432eb96c840bf291c7e74a52ec3d1d1\Libm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\a524bf7bdaf8bd727c1e386a04a39394\Print.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b1d98a954c3a035cd4c81ba8f690ad20\Zlib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b4046bc459901be0cdfbcb6c24b6e21a\attributes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b58eed1bc32878bcb2b3675609612c5f\IO.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b87690aa33bad1778f53634193f1949c\Int64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\bbed0b2fcc51fc2c0c62e7222b4a7589\Symbol.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\bf7da2c9eaa09b8323ce57b01f285471\Fcntl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\c93de1b57cd21b1b5ba750d058d99f0b\Byte.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\ca49bc1868902d77d13001c600ba4869\EBCDIC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cc47a811533a0b23681c166b272d128f\Cwd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cd45fac1e540d2848c95261aa92e8807\GLCanvas.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\ce0955ee513292b97f0e392e4aab62a9\scalar.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d096807d882102d4cbe697541d8d16ec\JP.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d4bbf351cc436285cacff307e682c200\DND.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d80d31ac28d171ab395c0e25a77e13f9\SSLeay.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d92296ca8ef4f7b7a6eb9b56490f3a17\Base64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\dd518db440bd40c1c7a892e8a72788c7\UUID.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\df4d3d3357081ba457ee2381ed830575\Unicode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\e1775cefa37d5a3c958c1ec29973c546\threads.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f37bd731d38294fd44693e79c8fd9f36\Bzip2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f7db393de11f3b1c5f29fc52a790a84c\Win32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f8583ead0d63eb73d28afb2cf314bc7a\Parser.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f95b485db18c3fbdb309c6508f1973a6\SHA.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fb3ae9079e14ae4cec4e17e6dfb85ab7\mro.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fc44d03a1d4d8d5b60fbee0b5eacb800\shared.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\application_view_tile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_rotate_anticlockwise.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_rotate_clockwise.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bricks.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\building.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_white.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cog_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\disk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\error.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\funnel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\hourglass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\joystick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\layers.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\lorry_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\lorry_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\note.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\package.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\package_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\page_white_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\printer_empty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shading.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_flip_horizontal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_handles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_ungroup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_128px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_192px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_192px_transparent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\spool.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\tag_blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\textfield.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\time.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\wrench.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\zoom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\slic3r-console.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\slic3r.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\slic3r.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="data\translations\old_repetier_translations\cz.xml">
       <SubType>Designer</SubType>
     </None>
