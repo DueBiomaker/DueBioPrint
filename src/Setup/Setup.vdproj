@@ -325,7 +325,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_9997B45A88224EB9A14810CADF372E68"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
@@ -350,7 +350,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Due BioPrint"
         "ProductCode" = "8:{B0A21F29-9783-46E1-99B0-9C589568C8D8}"
-        "PackageCode" = "8:{A9DC2F6B-45C4-4705-962E-1FD5A98C41CF}"
+        "PackageCode" = "8:{BF321A29-D3DC-465F-B5EC-42F95DF99769}"
         "UpgradeCode" = "8:{4210B57C-EDC3-473E-8E70-B28FF71320CE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -470,6 +470,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_73DBDB3FE7E145F2A0912E7515324AC6"
+            {
+            "Name" = "8:Due BioPrint"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_296CC3144C3446D3AF6E42E3A351D34C"
+            "Folder" = "8:_9997B45A88224EB9A14810CADF372E68"
+            "WorkingFolder" = "8:_41D50B89395D4E18B4CC481297E083D3"
+            "Icon" = "8:_B607E4E618904D4E994D5ADEF7546358"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8AF8D032705D47128305E9482697CFA7"
             {
             "Name" = "8:Due BioPrint"
