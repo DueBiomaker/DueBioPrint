@@ -190,15 +190,29 @@ namespace RepetierHost.view
             updating = false;
         }
 
-        public void SetFilamentSettings(string filamentName)
+        public void SetFilamentSettings(string filamentSettingsName)
         {
             UpdateSelection();
 
             if (comboSlic3rFilamentSettings.Enabled)
-                comboSlic3rFilamentSettings.SelectedItem = filamentName;
+                comboSlic3rFilamentSettings.SelectedItem = filamentSettingsName;
 
             if (comboSlic3rFilamentSettings2.Enabled)
-                comboSlic3rFilamentSettings2.SelectedItem = filamentName;
+                comboSlic3rFilamentSettings2.SelectedItem = filamentSettingsName;
+        }
+
+        public void SetPrinterSettings(string printerSettingName)
+        {
+            UpdateSelection();
+
+            comboSlic3rPrinterSettings.SelectedItem = printerSettingName;
+        }
+
+        public void SetPrintSettings(string printSettingNameName)
+        {
+            UpdateSelection();
+
+            comboSlic3rPrintSettings.SelectedItem = printSettingNameName;
         }
 
         private void comboSlic3rPrintSettings_SelectedIndexChanged(object sender, EventArgs e)
@@ -263,5 +277,6 @@ namespace RepetierHost.view
                     Main.printerModel.Slic3rFilament2 = (string)comboSlic3rFilamentSettings2.SelectedItem;
             }
         }
+
     }
 }
