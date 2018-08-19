@@ -49,7 +49,7 @@ namespace RepetierHost.view
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Main.main.openLink("http://duelaser.com/");
+            Main.main.openLink("https://loja.duelaser.com/");
         }
 
         protected override void OnClosing(CancelEventArgs e)
