@@ -268,7 +268,8 @@ Você esta usando a última versão.</t>
 <t id="L_START_JOB_AFTER_SLICING" ver="1">Iniciar trabalho após Fatiamento</t>
 <t id="W_ABOUT_REPETIER_HOST" ver="1">Sobre Due BioPrint</t>
 <t id="L_LICENCE_AND_LIBRARIES" ver="1">Licencas e Bibliotecas</t>
-<t id="L_REPETIER_INFO" ver="1">Este software foi desenvolvido para controlar impressoras como a RepRap. É melhor se usado com Repetier-Firmware, que suporta todas as funcionalidades. Firmware de outra impressora como Marlin, Teacup, Sprinter ou Gcode 5D intérprete deve trabalhar com as configurações adequadas.</t>
+<t id="L_REPETIER_INFO" ver="1">Este Software foi desenvolvido para controlar a bioimpressora 3D "DUE BioPrint".
+</t>
 <t id="W_COPY_MARKED_OBJECTS" ver="1">Copiar objetos marcados</t>
 <t id="L_NUMBER_OF_COPIES:" ver="1">Numeros de cópias:</t>
 <t id="L_AUTO_POSITION_AFTER_COPY" ver="1">Auto posição após adicionar objetos</t>
