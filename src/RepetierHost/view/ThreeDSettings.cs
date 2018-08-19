@@ -35,7 +35,7 @@ namespace RepetierHost.view
         public float openGLVersion = 1.0f; // Version for feature detection
         private bool _showEdges = false;
         private bool _showFaces = true;
-        private bool _showCompass = true;
+        private bool _showCompass = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -624,9 +624,9 @@ Immediate (slow)*/
 
         private void buttonGeneralColorDefaults_Click(object sender, EventArgs e)
         {
-            backgroundTop.BackColor = Color.WhiteSmoke;
-            backgroundBottom.BackColor = Color.CornflowerBlue;
-            printerBase.BackColor = Color.PaleGoldenrod;
+            backgroundTop.BackColor = Color.White;
+            backgroundBottom.BackColor = Color.White;
+            printerBase.BackColor = Color.LightGray;
             printerFrame.BackColor = Color.Black;
         }
 
