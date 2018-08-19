@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0740D3C0F1CA4648B3331B1B67BD2373"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_296CC3144C3446D3AF6E42E3A351D34C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -29,6 +23,12 @@
         {
         "MsmKey" = "8:_6F6CA2D84F5A7BD7ABD8C41127FDE4F5"
         "OwnerKey" = "8:_296CC3144C3446D3AF6E42E3A351D34C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B607E4E618904D4E994D5ADEF7546358"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -180,26 +180,6 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0740D3C0F1CA4648B3331B1B67BD2373"
-            {
-            "SourcePath" = "8:..\\RepetierHost\\Resources\\due.ico"
-            "TargetName" = "8:due.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_41D50B89395D4E18B4CC481297E083D3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6F6CA2D84F5A7BD7ABD8C41127FDE4F5"
             {
             "AssemblyRegister" = "3:1"
@@ -229,6 +209,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B607E4E618904D4E994D5ADEF7546358"
+            {
+            "SourcePath" = "8:..\\BioMaker\\due.ico"
+            "TargetName" = "8:due.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_41D50B89395D4E18B4CC481297E083D3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DAA56D75DFF23441299BCC907574A01B"
@@ -350,7 +350,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Due BioPrint"
         "ProductCode" = "8:{B0A21F29-9783-46E1-99B0-9C589568C8D8}"
-        "PackageCode" = "8:{9F7806F4-632E-4F37-B74A-F15A733B7D9D}"
+        "PackageCode" = "8:{A9DC2F6B-45C4-4705-962E-1FD5A98C41CF}"
         "UpgradeCode" = "8:{4210B57C-EDC3-473E-8E70-B28FF71320CE}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -481,7 +481,7 @@
             "Target" = "8:_296CC3144C3446D3AF6E42E3A351D34C"
             "Folder" = "8:_5E5C30EF74644637B336D53F58FF9901"
             "WorkingFolder" = "8:_41D50B89395D4E18B4CC481297E083D3"
-            "Icon" = "8:_0740D3C0F1CA4648B3331B1B67BD2373"
+            "Icon" = "8:_B607E4E618904D4E994D5ADEF7546358"
             "Feature" = "8:"
             }
         }
@@ -939,7 +939,7 @@
                 {
                 }
             }
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D6CDA8277347448AABACB63AF7C3BED5"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_404254C3EF074AFE9B0A7B123A5C8AF5"
             {
             "SourcePath" = "8:"
             "TargetName" = "8:"
