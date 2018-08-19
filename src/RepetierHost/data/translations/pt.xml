@@ -300,9 +300,9 @@ As possíveis razões:
 <t id="L_INFO_WORKDIR" ver="1">Os arquivos de registro e os arquivos temporários para fatiamento são armazenados no diretório de trabalho, caso o registro esteja habilitado,
 haverá um arquivo do repetier.log depois que o programa é fechado. O registro antigo é deletado assim que iniciado o programa novamente, ele contém toda a comunicação com a impressora
 caso esteja desabilitada a visualização do registro. As mudanças estarão ativas após reiniciar</t>
-<t id="L_LOG_SESSION" ver="1">LOG de sessão</t>
-<t id="REDUCE_TOOLBAR_SIZE" ver="1">Reduzir tamanho da barra de ferramentas</t>
-<t id="L_DISABLE_QUALITY_REDUCTION" ver="1">Desabilitar redução de qualidade</t>
+<t id="L_LOG_SESSION" ver="1">LOG de Sessão</t>
+<t id="REDUCE_TOOLBAR_SIZE" ver="1">Reduzir Tamanho da Barra de Ferramentas</t>
+<t id="L_DISABLE_QUALITY_REDUCTION" ver="1">Desabilitar Redução de Qualidade</t>
 <t id="L_EXISTING_WORKDIR_REQUIRED" ver="1">Diretório de trabalho existente necessário!</t>
 <t id="L_WORKDIR:" ver="1">Diretório de trabalho:</t>
 <t id="B_BROWSE" ver="1">Procurar...</t>
@@ -503,7 +503,7 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_NUMBER_OF_EXTRUDER:" ver="5">Número de Extrusora:</t>
 <t id="L_NEW_FOLDER" ver="5">New Folder</t>
 <t id="L_USE_PARALLEL_PROJECTION" ver="5">Usar projeção paralela</t>
-<t id="L_USE_RED_GREEN_SWITCH" ver="5">Usar botões verde/vermelho (requir reiniciar)</t>
+<t id="L_USE_RED_GREEN_SWITCH" ver="5">Usar Botões Verde/Vermelho (requer reiniciar)</t>
 <t id="L_SLIC3R_NOT_FOUND" ver="6">Slic3r not found.</t>
 <t id="L_ANALYSING_STL" ver="6">Analyzing STL file ...</t>
 <t id="L_SLICING_STL" ver="6">Slicing STL file ...</t>
