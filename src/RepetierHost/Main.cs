@@ -245,7 +245,7 @@ namespace RepetierHost
                 }
             }
             slicerToolStripMenuItem.Visible = false;
-            splitLog.Panel2Collapsed = !RegMemory.GetBool("logShow", true);
+            splitLog.Panel2Collapsed = !RegMemory.GetBool("logShow", false);
             splitPrinterId.Panel1Collapsed = !RegMemory.GetBool("printerIdShow", false);
             conn.eventConnectionChange += OnPrinterConnectionChange;
             conn.eventPrinterAction += OnPrinterAction;
