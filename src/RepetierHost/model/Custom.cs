@@ -30,7 +30,7 @@ namespace RepetierHost.model
         public static void Initialize()
         {
             dic = new Dictionary<string, string>();
-            dic["registryFolder"] = "Repetier";
+            dic["registryFolder"] = "DueBioPrint";
             string customfile = Application.StartupPath + Path.DirectorySeparatorChar + "data" + Path.DirectorySeparatorChar + "custom.ini";
             if (File.Exists(customfile))
                 ReadFile(customfile);

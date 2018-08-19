@@ -44,10 +44,23 @@ namespace RepetierHost.view
                 checkNC.Enabled = false;
             }
             RegMemory.RestoreWindowPos("globalSettingsWindow", this);
-            repetierKey = Custom.BaseKey; // Registry.CurrentUser.CreateSubKey("SOFTWARE\\Repetier");
+            repetierKey = Custom.BaseKey;
+            CreateWorkspaceIfNeeded();
             RegToForm();
             translate();
             Main.main.languageChanged += translate;
+        }
+
+        public void CreateWorkspaceIfNeeded()
+        {
+            var currentWorkspace = (string)repetierKey.GetValue("workdir", Workdir);
+            if (currentWorkspace.Length == 0)
+            {
+                var userDirectory = Environment.GetEnvironmentVariable("UserProfile");
+                var newWorkspace = userDirectory + "\\DueBioPrint workspace";
+                System.IO.Directory.CreateDirectory(newWorkspace);
+                repetierKey.SetValue("workdir", newWorkspace);
+            }
         }
 
         public void translate()
