@@ -90,7 +90,7 @@ You can add pauses in your code with
 @pause Some text like this</t>
 <t id="L_DISCONNECTED" ver="1">Disconnected</t>
 <t id="L_UPDATING..." ver="1">Updating ...</t>
-<t id="L_SLICE_WITH" ver="1">Slice with $1</t>
+<t id="L_SLICE_WITH" ver="1">Prepare Print</t>
 <t id="L_EMERGENCY_STOP_MSG" ver="1">Send emergency stop to printer. You may need to reset the printer for a restart!</t>
 <t id="L_TRANSLATION:" ver="1">Translation</t>
 <t id="L_SCALE:" ver="1">Scale</t>
