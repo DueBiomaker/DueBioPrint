@@ -129,7 +129,7 @@ você pode adicionar pausas no seu código adicionando
 <t id="B_DEBUG_INFO" ver="1">Info</t>
 <t id="L_EXTRUDER" ver="1">Extrusora</t>
 <t id="L_PRINTBED" ver="1">Mesa de Impressão</t>
-<t id="L_SPEED_MULTIPLY" ver="1">Multiplicador de velocidade</t>
+<t id="L_SPEED_MULTIPLY" ver="1">Multiplicador de Velocidade</t>
 <t id="L_EXTRUDE_MM" ver="1">Extrusão [mm]</t>
 <t id="L_EXTRUDER_SPEED_MM_MIN" ver="1">Velocidade [mm/min]</t>
 <t id="L_RETRACT_MM" ver="1">Recuo [mm]</t>
@@ -337,7 +337,7 @@ caso esteja desabilitada a visualização do registro. As mudanças estarão ati
 <t id="L_ENABLE_LIGHT" ver="1">habilitar luzes</t>
 <t id="L_SHOW_EDGES" ver="1">Mostrar bordas</t>
 <t id="L_SHOW_FACES" ver="1">Mostrar faces</t>
-<t id="L_SHOW_PRINTBED" ver="1">Mostrar mesa de impressão</t>
+<t id="L_SHOW_PRINTBED" ver="1">Mostrar Mesa de Impressão</t>
 <t id="L_PULSE_OBJECT_IF_NOT_PRINTABLE" ver="1">Pressione se o objeto não é imprimivel</t>
 <t id="TAB_GENERAL" ver="1">Geral</t>
 <t id="TAB_FILAMENT" ver="1">Filamento</t>
