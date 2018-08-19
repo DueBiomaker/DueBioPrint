@@ -688,11 +688,11 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="L_GENERATE_SUPPORT_MATERIAL" ver="11">Gerar material de suporte</t>
 <t id="L_SUPPORT_MATERIAL" ver="11">Material de suporte</t>
 <t id="L_SUPPORT_MATERIAL_ENFORCE_LAYERS" ver="11">Forçar suporte no começo</t>
-<t id="L_OVERHANG_THRESHOLD" ver="11">Limiar saliência</t>
+<t id="L_OVERHANG_THRESHOLD" ver="11">Limiar de Overhang</t>
 <t id="L_ACCELERATION_CONTROL_ADVANCED" ver="11">Controle de aceleração (avançado)</t>
 <t id="L_DEFAULT" ver="11">Padrão</t>
 <t id="L_FIRST_LAYER_" ver="11">Primeira camada</t>
-<t id="L_BRIDGE" ver="11">Ponte</t>
+<t id="L_BRIDGE" ver="11">Bridge</t>
 <t id="L_INFILL" ver="11">Preenchimento</t>
 <t id="L_PERIMETERS" ver="11">Perimetro</t>
 <t id="L_MODIFIERS" ver="11">Modificadores</t>
@@ -703,7 +703,7 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="L_MAX_PRINT_SPEED" ver="11">Max velocidade de impressão</t>
 <t id="L_SPEED_FOR_PRINT_MOVES" ver="11">Velocidade por movimento de impressão</t>
 <t id="L_GAP_FILL" ver="11">Preenchimento de lacuna</t>
-<t id="L_BRIDGES" ver="11">Pontes</t>
+<t id="L_BRIDGES" ver="11">Brdiges</t>
 <t id="L_SUPPORT_MATERIAL_INTERFACE" ver="11">Interface de suporte material</t>
 <t id="L_TOP_SOLID_INFILL" ver="11">Preenchimento solido do topo</t>
 <t id="L_SOLID_INFILL" ver="11">Prenchimento solido</t>
@@ -754,106 +754,106 @@ Objeto não é multifold. Fatia-lo pode produzir resultados errados. Por favor r
 <t id="L_TEMPERATURE_VARIATION" ver="11">Variação de temperatura</t>
 <t id="L_EXTRUDERS" ver="11">Extrusores</t>
 <t id="L_SUPPORT_MATERIAL_RAFT_INTERFACE_EXTRUDER" ver="11">Material de suporte/interface raft extrusor</t>
-<t id="L_SUPPORT_MATERIAL_RAFT_SKIRT_EXTRUDER" ver="11">Material de suporte/raft/saia da extrusora</t>
+<t id="L_SUPPORT_MATERIAL_RAFT_SKIRT_EXTRUDER" ver="11">Material de suporte/Raft/Skirt da extrusora</t>
 <t id="L_SOLID_INFILL_EXTRUDER" ver="11">Preenchimento solido da extrusora</t>
 <t id="L_INFILL_EXTRUDER" ver="11">Preenchiumento da extrusora</t>
 <t id="L_PERIMETER_EXTRUDER" ver="11">Perimetro da extrusora</t>
-<t id="L_BRIM" ver="11">Borda</t>
-<t id="L_BRIM_WIDTH" ver="11">Largura da borda</t>
-<t id="L_SKIRT" ver="11">Saia</t>
+<t id="L_BRIM" ver="11">Brim</t>
+<t id="L_BRIM_WIDTH" ver="11">Largura do Brim</t>
+<t id="L_SKIRT" ver="11">Skirt</t>
 <t id="L_DISTANCE_FROM_OBJECT" ver="11">Distância entre objetos</t>
-<t id="L_SKIRT_HEIGHT" ver="11">Altura da saia</t>
+<t id="L_SKIRT_HEIGHT" ver="11">Altura do Skirt</t>
 <t id="L_HORIZONTAL_SHELLS" ver="11">Cascas horizontais</t>
 <t id="L_INFILL_BEFORE_PERIMETERS" ver="11">Preencher antes do perímetro</t>
 <t id="L_ONLY_RETRACT_WHEN_CROSSING_PERIMETER" ver="11">Apenas retrair quando cruzando perimetro</t>
 <t id="L_SOLID_INFILL_THRESHOLD_AREA" ver="11">Limiar de área para preenchimento solido</t>
 <t id="L_FILL_ANGLE" ver="11">Ângulo de preenchimento</t>
-<t id="L_SOLID_INFILL_LAYERS" ver="11">Solid infill layers</t>
-<t id="L_REDUCING_PRINTING_TIME" ver="11">Reducing printing time</t>
-<t id="L_ONLY_INFILL_WHERE_NEEDED" ver="11">Only infill where needed</t>
-<t id="L_COMBINE_INFILL_EVERY" ver="11">Combine infill every</t>
-<t id="L_TOP_BOTTOM_FILL_PATTERN" ver="11">Top/bottom fill pattern</t>
-<t id="L_FILL_PATTERN" ver="11">Fill pattern</t>
-<t id="L_FILL_DENSITY" ver="11">Fill density</t>
-<t id="L_FILAMENT_SETTINGS" ver="11">Filament Settings</t>
-<t id="L_TEMPERATURE" ver="11">Temperature (°C)</t>
-<t id="L_OTHER_LAYERS" ver="11">Other layers</t>
-<t id="L_FIRST_LAYER" ver="11">First layer</t>
+<t id="L_SOLID_INFILL_LAYERS" ver="11">Preenchimento de camadas solidas</t>
+<t id="L_REDUCING_PRINTING_TIME" ver="11">Reduzir tempo de impressão</t>
+<t id="L_ONLY_INFILL_WHERE_NEEDED" ver="11">Preenchimento apenas onde é necessário</t>
+<t id="L_COMBINE_INFILL_EVERY" ver="11">Combinar cada preenchimento</t>
+<t id="L_TOP_BOTTOM_FILL_PATTERN" ver="11">Padrão de preenchimento Topo/fundo</t>
+<t id="L_FILL_PATTERN" ver="11">Padrão de Preenchimento</t>
+<t id="L_FILL_DENSITY" ver="11">Densidade do Preenchimento</t>
+<t id="L_FILAMENT_SETTINGS" ver="11">Configurações de Filamento</t>
+<t id="L_TEMPERATURE" ver="11">Temperatura (°C)</t>
+<t id="L_OTHER_LAYERS" ver="11">Outras Camadas</t>
+<t id="L_FIRST_LAYER" ver="11">Primeira Camada</t>
 <t id="L_BED" ver="11">Bed</t>
-<t id="L_EXTRUDER" ver="11">Extruder</t>
-<t id="L_FILAMENT" ver="11">Filament</t>
-<t id="L_EXTRUSION_MULTIPLIER" ver="11">Extrusion multiplier</t>
-<t id="L_DIAMETER" ver="11">Diameter</t>
-<t id="L_COLOR" ver="11">Color</t>
+<t id="L_EXTRUDER" ver="11">Extrusora</t>
+<t id="L_FILAMENT" ver="11">Filamento</t>
+<t id="L_EXTRUSION_MULTIPLIER" ver="11">Multipla Extrusão</t>
+<t id="L_DIAMETER" ver="11">Diâmetro</t>
+<t id="L_COLOR" ver="11">Cor</t>
 <t id="L_RAFT" ver="11">Raft</t>
-<t id="L_MIN_PRINT_SPEED" ver="11">Min print speed</t>
-<t id="L_SECONDS" ver="11">seconds</t>
-<t id="L_ENABLE_FAN_IF_LAYER_PRINT_TIME_IS_BELOW" ver="11">Enable fan if layer print time is below</t>
-<t id="L_FAN_SETTINGS" ver="11">Fan settings</t>
+<t id="L_MIN_PRINT_SPEED" ver="11">Min. velocidade de impressão</t>
+<t id="L_SECONDS" ver="11">segundos</t>
+<t id="L_ENABLE_FAN_IF_LAYER_PRINT_TIME_IS_BELOW" ver="11">Habilitar ventoinha se o tempo de impressão de uma camada for menor</t>
+<t id="L_FAN_SETTINGS" ver="11">Configurações da ventoinha</t>
 <t id="L_DISABLE_FAN_FOR_THE_FIRST" ver="11">Disable fan for the first</t>
-<t id="L_BRIDGES_FAN_SPEED" ver="11">Bridges fan speed</t>
-<t id="L_MAX_SPEED" ver="11">Max speed</t>
-<t id="L_MIN_SPEED" ver="11">Min speed</t>
-<t id="L_ENABLE_AUTO_CODING" ver="11">Enable auto cooling</t>
-<t id="L_KEEP_FAN_ALWAYS_ON" ver="11">Keep fan always on</t>
-<t id="L_PRINTER_SETTINGS" ver="11">Printer Settings</t>
-<t id="L_VIBRATION_LIMIT" ver="11">Vibration limit</t>
-<t id="L_PRESSURE_ADVANCE" ver="11">Pressure advance</t>
-<t id="L_USE_VOLUMETRIC_E" ver="11">Use volumetric E</t>
-<t id="L_USE_FIRMWARE_RETRACTION" ver="11">Use firmware retraction</t>
-<t id="L_USE_RELATIVE_E_DISTANCES" ver="11">Use relative E distances</t>
+<t id="L_BRIDGES_FAN_SPEED" ver="11">Velocidade de ventoinha nas Bridges</t>
+<t id="L_MAX_SPEED" ver="11">Max. velocidade</t>
+<t id="L_MIN_SPEED" ver="11">Min. velocidade</t>
+<t id="L_ENABLE_AUTO_CODING" ver="11">Ativar Auto Resfriamento</t>
+<t id="L_KEEP_FAN_ALWAYS_ON" ver="11">Manter ventoinha ligada</t>
+<t id="L_PRINTER_SETTINGS" ver="11">Configurações da Impressora</t>
+<t id="L_VIBRATION_LIMIT" ver="11">Limite de Vibração</t>
+<t id="L_PRESSURE_ADVANCE" ver="11">Avanço de Pressão</t>
+<t id="L_USE_VOLUMETRIC_E" ver="11">Usar Volumetrico E</t>
+<t id="L_USE_FIRMWARE_RETRACTION" ver="11">Usar restrições de firmware</t>
+<t id="L_USE_RELATIVE_E_DISTANCES" ver="11">Usar distâncias relativas E</t>
 <t id="L_FIRMWARE" ver="11">Firmware</t>
-<t id="L_G_CODE_FLAVOR" ver="11">G-code flavor</t>
+<t id="L_G_CODE_FLAVOR" ver="11">Tipo G-code</t>
 <t id="L_OCTO_PRINT_UPLOAD" ver="11">OctoPrint upload</t>
-<t id="L_API_KEY" ver="11">API Key</t>
-<t id="L_HOST_OR_IP" ver="11">Host or IP</t>
-<t id="L_CAPABILITIES" ver="11">Capabilities</t>
-<t id="L_BED_SHAPE" ver="11">Bed shape</t>
-<t id="L_Z_OFFSET" ver="11">Z offset</t>
-<t id="L_Y_ORIGIN" ver="11">Y origin</t>
-<t id="L_X_ORIGIN" ver="11">X origin</t>
-<t id="L_Y_SIZE" ver="11">Y size</t>
-<t id="L_X_SIZE" ver="11">X size</t>
-<t id="L_TOOL_CHANGE_G_CODE" ver="11">Tool change G-code</t>
-<t id="L_AFTER_LAYER_CHANGE_G_CODE" ver="11">After layer change G-code</t>
-<t id="L_BEFORE_LAYER_CHANGE_G_CODE" ver="11">Before layer change G-code</t>
-<t id="L_START_G_CODE" ver="11">Start G-code</t>
-<t id="L_END_G_CODE" ver="11">End G-code</t>
-<t id="L_TAB_EXTRUDER1" ver="11">Extruder 1</t>
+<t id="L_API_KEY" ver="11">Chave da API</t>
+<t id="L_HOST_OR_IP" ver="11">Host ou IP</t>
+<t id="L_CAPABILITIES" ver="11">Capacidades</t>
+<t id="L_BED_SHAPE" ver="11">Formato da Bed</t>
+<t id="L_Z_OFFSET" ver="11">Deslocamento Z </t>
+<t id="L_Y_ORIGIN" ver="11">Deslocamento Y</t>
+<t id="L_X_ORIGIN" ver="11">Deslocamento X</t>
+<t id="L_Y_SIZE" ver="11">Tamanho Y</t>
+<t id="L_X_SIZE" ver="11">Tamanho X</t>
+<t id="L_TOOL_CHANGE_G_CODE" ver="11">Ferramenta de mudanças do G-code</t>
+<t id="L_AFTER_LAYER_CHANGE_G_CODE" ver="11">Depois de camadas mudarem o G-code</t>
+<t id="L_BEFORE_LAYER_CHANGE_G_CODE" ver="11">Antes de camadas mudarem o G-code</t>
+<t id="L_START_G_CODE" ver="11">Começar G-code</t>
+<t id="L_END_G_CODE" ver="11">Terminar G-code</t>
+<t id="L_TAB_EXTRUDER1" ver="11">Extrusora 1</t>
 
-<t id ="E_GENERAL" ver="11">General</t>
-<t id ="E_CUSTOM_G_CODE" ver="11">Custom G-code</t>
-<t id ="E_EXTRUDERS" ver="11">Extruders</t>
+<t id ="E_GENERAL" ver="11">Geral</t>
+<t id ="E_CUSTOM_G_CODE" ver="11">Personalizar G-code</t>
+<t id ="E_EXTRUDERS" ver="11">Extrusoras</t>
 
-<t id ="E_LAYERS_AND_PERIMETERS" ver="11">Layers and Perimeters</t>
-<t id ="E_INFILL" ver="11">Infill</t>
-<t id ="E_SKIRT_AND_BRIM" ver="11">Skirt and Brim</t>
-<t id ="E_SUPPORT_MATERIAL" ver="11">Support Material</t>
-<t id ="E_SPEED" ver="11">Speed</t>
-<t id ="E_MULTIPLE_EXTRUDERS" ver="11">Multiple Extruders</t>
-<t id ="E_ADVANCED" ver="11">Advanced</t>
-<t id ="E_OUTPUT_OPTIONS" ver="11">Output Options</t>
-<t id ="E_NOTES" ver="11">Notes</t>
-<t id ="E_FILAMENT" ver="11">Filament</t>
-<t id ="E_COOLING" ver="11">Cooling</t>
+<t id ="E_LAYERS_AND_PERIMETERS" ver="11">Camadas e Perímetros</t>
+<t id ="E_INFILL" ver="11">Preenchimento</t>
+<t id ="E_SKIRT_AND_BRIM" ver="11">Skirt e Brim</t>
+<t id ="E_SUPPORT_MATERIAL" ver="11">Material de Suporte</t>
+<t id ="E_SPEED" ver="11">Velocidade</t>
+<t id ="E_MULTIPLE_EXTRUDERS" ver="11">Multiplas Extrusoras</t>
+<t id ="E_ADVANCED" ver="11">Avançado</t>
+<t id ="E_OUTPUT_OPTIONS" ver="11">Opções de Saída</t>
+<t id ="E_NOTES" ver="11">Notas</t>
+<t id ="E_FILAMENT" ver="11">Filamento</t>
+<t id ="E_COOLING" ver="11">Resfriamento</t>
 <t id ="E_REPRAP" ver="11">RepRap (Marlin/Sprinter/Repetier)</t>
 <t id ="E_TEACUP" ver="11">Teacup</t>
 <t id ="E_MAKERWAVE" ver="11">MakerWare (MakerBot)</t>
 <t id ="E_SAILFISH" ver="11">Sailfish (MakerBot)</t>
 <t id ="E_MACH3_LINUXCNC" ver="11">Mach3/LinuxCNC</t>
 <t id ="E_MACHINEKIT" ver="11">Machinekit</t>
-<t id ="E_NO_EXTRUSION" ver="11">No extrusion</t>
-<t id ="E_RANDOM" ver="11">Random</t>
-<t id ="E_NEAREST" ver="11">Nearest</t>
-<t id ="E_ALIGNED" ver="11">Aligned</t>
+<t id ="E_NO_EXTRUSION" ver="11">Sem extrusora</t>
+<t id ="E_RANDOM" ver="11">Aleatório</t>
+<t id ="E_NEAREST" ver="11">Mais Próximo</t>
+<t id ="E_ALIGNED" ver="11">Alinhado</t>
 
-<t id ="L_TEXT_FAN_TURNED_OFF" ver="11">Fan will be turned off.</t>
-<t id ="L_TEXT_FAN_ALWAYS_ON" ver="11">Fan will always run at {0}% except for the first {1} layers.</t>
-<t id ="L_TEXT_COOLING" ver="11">If estimated layer time is below ~{0}s, fan will run at {1}% and print speed will be reduced so that no less than {0}s are spent on that layer(however, speed will never be reduced below {2}mm/s).
-If estimated layer time is greater, but still below ~{3}s, fan will run at a proportionally decreasing speed between {1}% and {4}%.
+<t id ="L_TEXT_FAN_TURNED_OFF" ver="11">Ventoinha será desligada.</t>
+<t id ="L_TEXT_FAN_ALWAYS_ON" ver="11">Ventoinha vai sempre rodar a {0}% exceto para a primeira {1} camada.</t>
+<t id ="L_TEXT_COOLING" ver="11">Se o tempo estimado da camada for menor que ~{0}s, a ventoinha vai até {1}% e a velocidade de impressão reduzirá desde que não ultrapasse {0}s naquela camada (No entanto, velocidade nunca vai ser menor que {2}mm/s).
+Se o tempo estimado for maior, mas ainda menor que ~{3}s, a ventoinha vai rodar a uma velocidade proporcionalmente decrescente entre {1}% and {4}%.
 </t>
-<t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">During the other layers, fan will always run at {0}% except for the first {1} layers.</t>
-<t id ="L_TEXT_FOOTER" ver="11">During the other layers, fan will be turned off.</t>
+<t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">Durante as outras camadas, aventoinha vai rodar a {0}% exceto pela primeira {1} camada.</t>
+<t id ="L_TEXT_FOOTER" ver="11">Durante outras camadas, a ventoinha vai ser desligada.</t>
 
 </translation>
 
