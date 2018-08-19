@@ -190,6 +190,17 @@ namespace RepetierHost.view
             updating = false;
         }
 
+        public void SetFilamentSettings(string filamentName)
+        {
+            UpdateSelection();
+
+            if (comboSlic3rFilamentSettings.Enabled)
+                comboSlic3rFilamentSettings.SelectedItem = filamentName;
+
+            if (comboSlic3rFilamentSettings2.Enabled)
+                comboSlic3rFilamentSettings2.SelectedItem = filamentName;
+        }
+
         private void comboSlic3rPrintSettings_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!updating)

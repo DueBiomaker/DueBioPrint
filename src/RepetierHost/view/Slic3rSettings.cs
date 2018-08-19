@@ -660,6 +660,13 @@ namespace RepetierHost.view
             SettingsController.SaveProfile(FilamentSettings, profileName);
             LoadAndFillProfileList();
             cboxFilamentProfiles.SelectedItem = profileName;
+
+            updateFilamentInSlic3rPanel(profileName);
+        }
+
+        private void updateFilamentInSlic3rPanel(string profileName)
+        {
+            Main.main.slicerPanel.SetFilamentSettings(profileName);
         }
 
         private void btnSavePrinterSettings_Click(object sender, EventArgs e)
