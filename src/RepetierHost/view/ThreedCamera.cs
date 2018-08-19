@@ -1,9 +1,9 @@
 ﻿using OpenTK;
-using RepetierHost.model;
-using RepetierHost.model.geom;
+using BioMaker.model;
+using BioMaker.model.geom;
 using System;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public class ThreeDCamera
     {

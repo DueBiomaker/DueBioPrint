@@ -14,12 +14,12 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
+using BioMaker.model;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public partial class SnapshotDialog : Form
     {

@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class Printjob
     {
@@ -230,7 +230,7 @@ namespace RepetierHost.model
                 DoEndKillActions();
                 Main.main.Invoke(Main.main.UpdateJobButtons);
                 Main.main.printPanel.Invoke(Main.main.printPanel.SetStatusJobFinished);
-                RepetierHost.view.SoundConfig.PlayPrintFinished(false);
+                BioMaker.view.SoundConfig.PlayPrintFinished(false);
             }
             return gc;
         }

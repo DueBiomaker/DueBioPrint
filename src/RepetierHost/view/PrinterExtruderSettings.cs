@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using RepetierHost.model.slic3r;
+using BioMaker.model.slic3r;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class PrinterExtruderSettings : UserControl
     {

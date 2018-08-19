@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace RepetierHost.model.geom
+namespace BioMaker.model.geom
 {
     public class SubmeshEdge
     {

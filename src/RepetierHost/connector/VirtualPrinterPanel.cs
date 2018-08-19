@@ -1,8 +1,8 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.Windows.Forms;
 
-namespace RepetierHost.connector
+namespace BioMaker.connector
 {
     public partial class VirtualPrinterPanel : UserControl
     {

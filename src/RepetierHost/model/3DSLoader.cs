@@ -23,7 +23,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     internal class _3DSLoader
     {

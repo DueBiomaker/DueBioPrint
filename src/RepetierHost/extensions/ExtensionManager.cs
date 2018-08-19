@@ -1,11 +1,11 @@
-﻿using RepetierHost.model.slic3r;
+﻿using BioMaker.model.slic3r;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 
-namespace RepetierHost.extensions
+namespace BioMaker.extensions
 {
     public static class ExtensionManager
     {

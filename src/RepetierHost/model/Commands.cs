@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class CommandParameter
     {

@@ -14,14 +14,14 @@
    limitations under the License.
 */
 
-using RepetierHost.connector;
+using BioMaker.connector;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     /// <summary>
     /// Connection has changed.
@@ -1001,7 +1001,7 @@ namespace RepetierHost.model
             if (extract(res, "Error:") != null)
             {
                 level = 2;
-                RepetierHost.view.SoundConfig.PlayError(false);
+                BioMaker.view.SoundConfig.PlayError(false);
             }
             if (tempChange && eventTempChange != null)
             {

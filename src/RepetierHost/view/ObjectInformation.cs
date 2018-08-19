@@ -1,9 +1,9 @@
-﻿using RepetierHost.model;
-using RepetierHost.model.geom;
+﻿using BioMaker.model;
+using BioMaker.model.geom;
 using System;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class ObjectInformation : Form
     {

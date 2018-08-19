@@ -1,12 +1,12 @@
 ﻿using Microsoft.Win32;
-using RepetierHost.model;
+using BioMaker.model;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public class RegMemory
     {

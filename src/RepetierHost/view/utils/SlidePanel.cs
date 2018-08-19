@@ -20,7 +20,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public delegate void UpdateHandler(Control panel, double phase);
 

@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class PrinterInfo
     {

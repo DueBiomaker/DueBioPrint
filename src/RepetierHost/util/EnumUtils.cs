@@ -1,11 +1,11 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace RepetierHost.util
+namespace BioMaker.util
 {
     public class EnumUtils
     {

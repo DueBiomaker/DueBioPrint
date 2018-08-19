@@ -15,8 +15,8 @@
 */
 
 using OpenTK;
-using RepetierHost.view;
-using RepetierHost.view.utils;
+using BioMaker.view;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace RepetierHost.model.geom
+namespace BioMaker.model.geom
 {
     public class TopoModel
     {

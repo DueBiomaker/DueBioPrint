@@ -16,7 +16,7 @@
    written by scuba
 */
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public delegate void OnEEPROMMarlinAdded(EEPROMMarlinStorage param);
 

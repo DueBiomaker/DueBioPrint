@@ -14,8 +14,8 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
-using RepetierHost.view.utils;
+using BioMaker.model;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +24,7 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public enum PrinterStatus { disconnected, idle, heatingExtruder, heatingBed, motorStopped, jobPaused, jobKilled, jobFinsihed }
 

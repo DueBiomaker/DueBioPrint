@@ -14,13 +14,13 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
-using RepetierHost.view.utils;
+using BioMaker.model;
+using BioMaker.view.utils;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class JobStatus : Form
     {

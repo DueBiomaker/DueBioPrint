@@ -1,15 +1,15 @@
-﻿using RepetierHost.controller;
-using RepetierHost.extensions;
-using RepetierHost.model;
-using RepetierHost.model.slic3r;
-using RepetierHost.util;
+﻿using BioMaker.controller;
+using BioMaker.extensions;
+using BioMaker.model;
+using BioMaker.model.slic3r;
+using BioMaker.util;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class Slic3rSettings : Form
     {

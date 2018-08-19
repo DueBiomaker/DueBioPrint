@@ -1,10 +1,10 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public partial class SplashScreen : Form
     {

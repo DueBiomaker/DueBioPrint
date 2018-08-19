@@ -15,14 +15,14 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.model;
+using BioMaker.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class LogView : UserControl
     {

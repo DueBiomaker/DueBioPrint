@@ -1,11 +1,11 @@
-﻿using RepetierHost.extensions;
+﻿using BioMaker.extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace RepetierHost.util
+namespace BioMaker.util
 {
     public class FileUtils
     {

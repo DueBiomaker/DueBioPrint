@@ -1,9 +1,9 @@
-﻿using RepetierHost.extensions;
+﻿using BioMaker.extensions;
 using System;
 using System.ComponentModel;
 using System.Text;
 
-namespace RepetierHost.model.slic3r
+namespace BioMaker.model.slic3r
 {
     public class PrintSettings : INotifyPropertyChanged, ISlic3rSettings
     {

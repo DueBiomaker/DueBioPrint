@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public class DoubleBufferPanel : Control
     {

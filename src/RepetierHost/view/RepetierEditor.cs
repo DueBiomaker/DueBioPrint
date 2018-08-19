@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
+using BioMaker.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public delegate void ContentChangedEvent();
 

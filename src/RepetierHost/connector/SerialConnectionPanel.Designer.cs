@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.connector
+﻿namespace BioMaker.connector
 {
     partial class SerialConnectionPanel
     {
@@ -112,7 +112,7 @@
             // 
             // bindingConnection
             // 
-            this.bindingConnection.DataSource = typeof(RepetierHost.connector.SerialConnector);
+            this.bindingConnection.DataSource = typeof(BioMaker.connector.SerialConnector);
             this.bindingConnection.DataSourceChanged += new System.EventHandler(this.bindingConnection_CurrentItemChanged);
             this.bindingConnection.DataMemberChanged += new System.EventHandler(this.bindingConnection_CurrentItemChanged);
             this.bindingConnection.CurrentChanged += new System.EventHandler(this.bindingConnection_CurrentItemChanged);

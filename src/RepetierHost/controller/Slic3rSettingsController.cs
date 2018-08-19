@@ -1,6 +1,6 @@
-﻿using RepetierHost.model;
-using RepetierHost.model.slic3r;
-using RepetierHost.util;
+﻿using BioMaker.model;
+using BioMaker.model.slic3r;
+using BioMaker.util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.controller
+namespace BioMaker.controller
 {
     public class Slic3rSettingsController
     {

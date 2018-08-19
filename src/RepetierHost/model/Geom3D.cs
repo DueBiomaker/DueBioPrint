@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class Geom3DVector
     {

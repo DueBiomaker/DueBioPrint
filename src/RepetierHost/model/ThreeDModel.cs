@@ -17,7 +17,7 @@
 using OpenTK;
 using System.Collections.Generic;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class Coord3D
     {

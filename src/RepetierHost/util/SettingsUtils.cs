@@ -1,9 +1,9 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.util
+namespace BioMaker.util
 {
     public class SettingsUtils
     {

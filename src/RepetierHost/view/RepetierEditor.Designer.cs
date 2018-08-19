@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class RepetierEditor
     {
@@ -55,7 +55,7 @@
             this.toolUpdating = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.editor = new RepetierHost.view.DoubleBufferPanel();
+            this.editor = new BioMaker.view.DoubleBufferPanel();
             this.scrollRows = new System.Windows.Forms.VScrollBar();
             this.scrollColumns = new System.Windows.Forms.HScrollBar();
             this.tabHelpview = new System.Windows.Forms.TabControl();

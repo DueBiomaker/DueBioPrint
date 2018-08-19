@@ -1,10 +1,10 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public delegate void ArrowValueChanged(ArrowButton sender, string value);
 

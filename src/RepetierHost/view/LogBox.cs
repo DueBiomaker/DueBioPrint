@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
+using BioMaker.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -22,7 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class LogBox : UserControl
     {

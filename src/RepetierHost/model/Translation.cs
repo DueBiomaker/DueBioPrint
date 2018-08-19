@@ -1,4 +1,4 @@
-﻿using RepetierHost.view.utils;
+﻿using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -6,7 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class Translation
     {

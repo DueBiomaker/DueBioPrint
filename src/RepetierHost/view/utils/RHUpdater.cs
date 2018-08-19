@@ -1,4 +1,4 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.IO;
 using System.Net;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public partial class RHUpdater : Form
     {

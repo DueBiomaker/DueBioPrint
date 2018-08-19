@@ -14,14 +14,14 @@
  limitations under the License.
 */
 
-using RepetierHost.view.utils;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class TemperatureEntry
     {

@@ -1,12 +1,12 @@
-﻿using RepetierHost.model;
-using RepetierHost.model.geom;
+﻿using BioMaker.model;
+using BioMaker.model.geom;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public class Slicer : IDisposable
     {

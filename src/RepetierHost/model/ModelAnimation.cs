@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     /// <summary>
     /// Base class for animations. Animations are used to modify the appeareance

@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public class SlidePanelControler
     {

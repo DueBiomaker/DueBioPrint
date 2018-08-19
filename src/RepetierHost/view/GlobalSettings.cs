@@ -15,8 +15,8 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.model;
-using RepetierHost.view.utils;
+using BioMaker.model;
+using BioMaker.view.utils;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class GlobalSettings : Form
     {

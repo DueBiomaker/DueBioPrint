@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
-using RepetierHost.model;
-using RepetierHost.view.utils;
+using BioMaker.model;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.IO.Ports;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RepetierHost.connector
+namespace BioMaker.connector
 {
     public class VirtualPrinterConnector : PrinterConnectorBase, INotifyPropertyChanged, IDisposable
     {

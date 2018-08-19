@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepetierHost", "RepetierHost.csproj", "{B118044A-6AC1-407D-8CE9-A624810BEE0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioMaker", "BioMaker.csproj", "{B118044A-6AC1-407D-8CE9-A624810BEE0C}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{896E9619-99E6-47F7-BA3C-AC011B596ED4}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupDueBioPrint", "..\Setup\Setup.vdproj", "{896E9619-99E6-47F7-BA3C-AC011B596ED4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,7 +32,7 @@ Global
 		SolutionGuid = {493D2E04-BF9C-45AA-AC62-91459C4F70D3}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = RepetierHost.csproj
+		StartupItem = BioMaker.csproj
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
 		$1.DirectoryNamespaceAssociation = None

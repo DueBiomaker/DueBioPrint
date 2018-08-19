@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class Custom
     {

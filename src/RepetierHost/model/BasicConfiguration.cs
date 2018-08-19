@@ -14,9 +14,9 @@
    limitations under the License.
 */
 
-using RepetierHost.view.utils;
+using BioMaker.view.utils;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     internal class BasicConfiguration
     {

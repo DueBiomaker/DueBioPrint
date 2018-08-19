@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.model;
-using RepetierHost.model.geom;
-using RepetierHost.util;
-using RepetierHost.view.utils;
+using BioMaker.model;
+using BioMaker.model.geom;
+using BioMaker.util;
+using BioMaker.view.utils;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -28,7 +28,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class Slic3r : Form
     {

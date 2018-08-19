@@ -14,11 +14,11 @@
    limitations under the License.
 */
 
-using RepetierHost.view;
+using BioMaker.view;
 using System;
 using System.Collections.Generic;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public delegate void OnPosChange(GCode code, float x, float y, float z);
 

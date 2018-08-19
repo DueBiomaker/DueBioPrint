@@ -15,16 +15,16 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.connector;
-using RepetierHost.model;
-using RepetierHost.view.utils;
+using BioMaker.connector;
+using BioMaker.model;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public delegate void PrinterChanged(RegistryKey printerKey, bool printerChanged);
 

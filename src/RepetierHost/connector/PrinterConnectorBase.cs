@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.model;
+using BioMaker.model;
 using System.Windows.Forms;
 
-namespace RepetierHost.connector
+namespace BioMaker.connector
 {
     /// <summary>
     /// Base class for all ways to connect a 3d printer to the host.

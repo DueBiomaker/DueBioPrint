@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace RepetierHost.view.utils
+namespace BioMaker.view.utils
 {
     public class RHOpenGL : OpenTK.GLControl
     {

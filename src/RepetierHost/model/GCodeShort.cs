@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class GCodeShort
     {

@@ -1,9 +1,9 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class Slic3rSetup : Form
     {

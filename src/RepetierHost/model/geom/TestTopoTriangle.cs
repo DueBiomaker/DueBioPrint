@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RepetierHost.model.geom
+namespace BioMaker.model.geom
 {
     public class TestTopoTriangle
     {

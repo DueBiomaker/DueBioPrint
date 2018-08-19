@@ -18,13 +18,13 @@ using OpenTK;
 
 //using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
-using RepetierHost.view;
+using BioMaker.view;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class GCodePoint
     {

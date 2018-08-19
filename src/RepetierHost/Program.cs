@@ -14,11 +14,11 @@
    limitations under the License.
 */
 
-using RepetierHost.model;
+using BioMaker.model;
 using System;
 using System.Windows.Forms;
 
-namespace RepetierHost
+namespace BioMaker
 {
     internal static class Program
     {

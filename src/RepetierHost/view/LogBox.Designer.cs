@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class LogBox
     {
@@ -32,7 +32,7 @@
         private void InitializeComponent()
         {
             this.scroll = new System.Windows.Forms.VScrollBar();
-            this.log = new RepetierHost.view.DoubleBufferPanel();
+            this.log = new BioMaker.view.DoubleBufferPanel();
             this.SuspendLayout();
             // 
             // scroll

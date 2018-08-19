@@ -1,9 +1,9 @@
-﻿using RepetierHost.connector;
+﻿using BioMaker.connector;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     internal class VirtualPrinter
     {

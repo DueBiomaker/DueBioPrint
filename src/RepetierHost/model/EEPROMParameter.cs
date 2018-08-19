@@ -16,7 +16,7 @@
 
 using System.Collections.Generic;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public delegate void OnEEPROMAdded(EEPROMParameter param);
 

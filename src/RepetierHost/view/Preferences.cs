@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class Preferences : Form
     {

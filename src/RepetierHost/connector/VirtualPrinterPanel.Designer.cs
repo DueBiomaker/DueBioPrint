@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.connector
+﻿namespace BioMaker.connector
 {
     partial class VirtualPrinterPanel
     {
@@ -76,7 +76,7 @@
             // 
             // bindingConnection
             // 
-            this.bindingConnection.DataSource = typeof(RepetierHost.connector.VirtualPrinterConnector);
+            this.bindingConnection.DataSource = typeof(BioMaker.connector.VirtualPrinterConnector);
             this.bindingConnection.CurrentItemChanged += new System.EventHandler(this.bindingConnection_CurrentItemChanged);
             // 
             // VirtualPrinterPanel

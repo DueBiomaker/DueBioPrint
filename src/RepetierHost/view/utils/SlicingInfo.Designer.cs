@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view.utils
+﻿namespace BioMaker.view.utils
 {
     partial class SlicingInfo
     {

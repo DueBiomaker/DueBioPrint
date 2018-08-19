@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class ThreeDSettings
     {
@@ -458,7 +458,7 @@
             // 
             // tdSettings
             // 
-            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
+            this.tdSettings.DataSource = typeof(BioMaker.view.ThreeDSettings);
             // 
             // comboDrawMethod
             // 

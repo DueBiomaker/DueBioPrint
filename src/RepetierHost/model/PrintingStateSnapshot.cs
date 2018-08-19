@@ -15,13 +15,13 @@
 
 */
 
-using RepetierHost.view.utils;
+using BioMaker.view.utils;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class PrintingStateSnapshot
     {

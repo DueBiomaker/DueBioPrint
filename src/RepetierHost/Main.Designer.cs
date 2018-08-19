@@ -1,4 +1,4 @@
-﻿namespace RepetierHost
+﻿namespace BioMaker
 {
     partial class Main
     {
@@ -154,7 +154,7 @@
             this.tabModel = new System.Windows.Forms.TabPage();
             this.tabSlicer = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.slicerPanel = new RepetierHost.view.SlicerPanel();
+            this.slicerPanel = new BioMaker.view.SlicerPanel();
             this.pnlVisualization = new System.Windows.Forms.Panel();
             this.tabPrint = new System.Windows.Forms.TabPage();
             this.tdSettings = new System.Windows.Forms.BindingSource(this.components);
@@ -1035,7 +1035,7 @@
             // 
             // toolLoad
             // 
-            this.toolLoad.Image = global::RepetierHost.Properties.Resources.load;
+            this.toolLoad.Image = global::BioMaker.Properties.Resources.load;
             this.toolLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolLoad.Name = "toolLoad";
             this.toolLoad.Size = new System.Drawing.Size(49, 51);
@@ -1046,7 +1046,7 @@
             // 
             // toolStripSaveJob
             // 
-            this.toolStripSaveJob.Image = global::RepetierHost.Properties.Resources.save;
+            this.toolStripSaveJob.Image = global::BioMaker.Properties.Resources.save;
             this.toolStripSaveJob.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSaveJob.Name = "toolStripSaveJob";
             this.toolStripSaveJob.Size = new System.Drawing.Size(55, 51);
@@ -1104,7 +1104,7 @@
             this.toolStripEmergencyButton.Enabled = false;
             this.toolStripEmergencyButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripEmergencyButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.toolStripEmergencyButton.Image = global::RepetierHost.Properties.Resources.emergency_stop;
+            this.toolStripEmergencyButton.Image = global::BioMaker.Properties.Resources.emergency_stop;
             this.toolStripEmergencyButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripEmergencyButton.Name = "toolStripEmergencyButton";
             this.toolStripEmergencyButton.Size = new System.Drawing.Size(96, 51);
@@ -1115,7 +1115,7 @@
             // toolPrinterSettings
             // 
             this.toolPrinterSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolPrinterSettings.Image = global::RepetierHost.Properties.Resources.printer_settings;
+            this.toolPrinterSettings.Image = global::BioMaker.Properties.Resources.printer_settings;
             this.toolPrinterSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPrinterSettings.Name = "toolPrinterSettings";
             this.toolPrinterSettings.Size = new System.Drawing.Size(90, 51);
@@ -1364,7 +1364,7 @@
             // 
             // tdSettings
             // 
-            this.tdSettings.DataSource = typeof(RepetierHost.view.ThreeDSettings);
+            this.tdSettings.DataSource = typeof(BioMaker.view.ThreeDSettings);
             this.tdSettings.DataMemberChanged += new System.EventHandler(this.tdSettings_DataMemberChanged);
             this.tdSettings.CurrentChanged += new System.EventHandler(this.tdSettings_CurrentChanged);
             this.tdSettings.CurrentItemChanged += new System.EventHandler(this.tdSettings_CurrentChanged);
@@ -1512,7 +1512,7 @@
         private System.Windows.Forms.ToolStripMenuItem sendScript4ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendScript5ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
-        public RepetierHost.view.SlicerPanel slicerPanel;
+        public BioMaker.view.SlicerPanel slicerPanel;
         public System.Windows.Forms.ToolStrip toolStrip;
         public System.Windows.Forms.ToolStripMenuItem checkForUpdatesToolStripMenuItem;
         public System.Windows.Forms.ToolStripButton toolShowTravel;

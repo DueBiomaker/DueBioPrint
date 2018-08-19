@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.connector;
-using RepetierHost.model;
-using RepetierHost.view;
-using RepetierHost.view.utils;
+using BioMaker.connector;
+using BioMaker.model;
+using BioMaker.view;
+using BioMaker.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,7 +30,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace RepetierHost
+namespace BioMaker
 {
     public delegate void executeHostCommandDelegate(GCode code);
 
@@ -77,7 +77,7 @@ namespace RepetierHost
         public TemperatureHistory history = null;
         public TemperatureView tempView = null;
         public Trans trans = null;
-        public RepetierHost.view.RepetierEditor editor;
+        public BioMaker.view.RepetierEditor editor;
         public double gcodePrintingTime = 0;
         public string lastFileLoadedName = null;
         public double importScaleFactor = 1;

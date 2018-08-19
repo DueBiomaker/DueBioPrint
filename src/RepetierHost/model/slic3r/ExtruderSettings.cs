@@ -1,7 +1,7 @@
-﻿using RepetierHost.extensions;
+﻿using BioMaker.extensions;
 using System.ComponentModel;
 
-namespace RepetierHost.model.slic3r
+namespace BioMaker.model.slic3r
 {
     public class ExtruderSettings : INotifyPropertyChanged
     {

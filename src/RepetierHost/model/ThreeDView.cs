@@ -1,7 +1,7 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System.Collections.Generic;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public delegate void onObjectMoved(float dx, float dy);
 

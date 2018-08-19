@@ -1,7 +1,7 @@
-﻿using RepetierHost.model;
+﻿using BioMaker.model;
 using System.Windows.Forms;
 
-namespace RepetierHost.view
+namespace BioMaker.view
 {
     public partial class CopyObjectsDialog : Form
     {

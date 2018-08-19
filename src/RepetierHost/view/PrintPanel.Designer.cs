@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class PrintPanel
     {
@@ -53,12 +53,12 @@
             this.groupPrintbed = new System.Windows.Forms.GroupBox();
             this.numericPrintBed = new System.Windows.Forms.NumericUpDown();
             this.labelPrintbedTemp = new System.Windows.Forms.Label();
-            this.switchBedHeat = new RepetierHost.view.SwitchButton();
+            this.switchBedHeat = new BioMaker.view.SwitchButton();
             this.labelTemp2 = new System.Windows.Forms.Label();
             this.groupBox_Fan = new System.Windows.Forms.GroupBox();
             this.trackFanVoltage = new MB.Controls.ColorSlider();
             this.labelVoltage = new System.Windows.Forms.Label();
-            this.switchFanOn = new RepetierHost.view.SwitchButton();
+            this.switchFanOn = new BioMaker.view.SwitchButton();
             this.buttonGoDisposeArea = new System.Windows.Forms.Button();
             this.buttonSimulateOK = new System.Windows.Forms.Button();
             this.buttonStopMotor = new System.Windows.Forms.Button();
@@ -72,23 +72,23 @@
             this.labelMoveDist = new System.Windows.Forms.Label();
             this.labelZDiff = new System.Windows.Forms.Label();
             this.groupDebugOptions = new System.Windows.Forms.GroupBox();
-            this.switchEcho = new RepetierHost.view.SwitchButton();
-            this.switchInfo = new RepetierHost.view.SwitchButton();
-            this.switchErrors = new RepetierHost.view.SwitchButton();
-            this.switchDryRun = new RepetierHost.view.SwitchButton();
+            this.switchEcho = new BioMaker.view.SwitchButton();
+            this.switchInfo = new BioMaker.view.SwitchButton();
+            this.switchErrors = new BioMaker.view.SwitchButton();
+            this.switchDryRun = new BioMaker.view.SwitchButton();
             this.groupSpeedMultiply = new System.Windows.Forms.GroupBox();
             this.labelFlowrate = new System.Windows.Forms.Label();
             this.labelFeedrate = new System.Windows.Forms.Label();
             this.numericUpDownFlow = new System.Windows.Forms.NumericUpDown();
             this.sliderFlowrate = new MB.Controls.ColorSlider();
             this.sliderSpeed = new MB.Controls.ColorSlider();
-            this.arrowButtonXPlus = new RepetierHost.view.utils.ArrowButton();
-            this.arrowButtonXMinus = new RepetierHost.view.utils.ArrowButton();
-            this.arrowButtonZPlus = new RepetierHost.view.utils.ArrowButton();
-            this.arrowButtonZMinus = new RepetierHost.view.utils.ArrowButton();
-            this.arrowButtonYPlus = new RepetierHost.view.utils.ArrowButton();
-            this.arrowButtonYMinus = new RepetierHost.view.utils.ArrowButton();
-            this.switchPower = new RepetierHost.view.SwitchButton();
+            this.arrowButtonXPlus = new BioMaker.view.utils.ArrowButton();
+            this.arrowButtonXMinus = new BioMaker.view.utils.ArrowButton();
+            this.arrowButtonZPlus = new BioMaker.view.utils.ArrowButton();
+            this.arrowButtonZMinus = new BioMaker.view.utils.ArrowButton();
+            this.arrowButtonYPlus = new BioMaker.view.utils.ArrowButton();
+            this.arrowButtonYMinus = new BioMaker.view.utils.ArrowButton();
+            this.switchPower = new BioMaker.view.SwitchButton();
             this.groupExtruder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.textRetractAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textExtrudeAmount)).BeginInit();
@@ -435,7 +435,7 @@
             this.switchBedHeat.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchBedHeat.TextOff = "Heat Printbed ";
             this.switchBedHeat.TextOn = "Heat Printbed ";
-            this.switchBedHeat.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchBedHeat_Change);
+            this.switchBedHeat.OnChange += new BioMaker.view.SwitchEventHandler(this.switchBedHeat_Change);
             // 
             // labelTemp2
             // 
@@ -503,7 +503,7 @@
             this.switchFanOn.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchFanOn.TextOff = "Fan";
             this.switchFanOn.TextOn = "Fan";
-            this.switchFanOn.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchFanOn_Change);
+            this.switchFanOn.OnChange += new BioMaker.view.SwitchEventHandler(this.switchFanOn_Change);
             // 
             // buttonGoDisposeArea
             // 
@@ -659,7 +659,7 @@
             this.switchEcho.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchEcho.TextOff = "Echo";
             this.switchEcho.TextOn = "Echo";
-            this.switchEcho.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchEcho_Change);
+            this.switchEcho.OnChange += new BioMaker.view.SwitchEventHandler(this.switchEcho_Change);
             // 
             // switchInfo
             // 
@@ -677,7 +677,7 @@
             this.switchInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchInfo.TextOff = "Info";
             this.switchInfo.TextOn = "Info";
-            this.switchInfo.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchInfo_Change);
+            this.switchInfo.OnChange += new BioMaker.view.SwitchEventHandler(this.switchInfo_Change);
             // 
             // switchErrors
             // 
@@ -695,7 +695,7 @@
             this.switchErrors.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchErrors.TextOff = "Errors";
             this.switchErrors.TextOn = "Errors";
-            this.switchErrors.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchErrors_Change);
+            this.switchErrors.OnChange += new BioMaker.view.SwitchEventHandler(this.switchErrors_Change);
             // 
             // switchDryRun
             // 
@@ -713,7 +713,7 @@
             this.switchDryRun.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchDryRun.TextOff = "Dry run";
             this.switchDryRun.TextOn = "Dry run";
-            this.switchDryRun.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchDryRun_Change);
+            this.switchDryRun.OnChange += new BioMaker.view.SwitchEventHandler(this.switchDryRun_Change);
             // 
             // groupSpeedMultiply
             // 
@@ -837,7 +837,7 @@
             this.arrowButtonXPlus.Title = "+X";
             this.arrowButtonXPlus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonXPlus.UseVisualStyleBackColor = true;
-            this.arrowButtonXPlus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
+            this.arrowButtonXPlus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
             this.arrowButtonXPlus.Click += new System.EventHandler(this.arrowButtonXPlus_Click);
             // 
             // arrowButtonXMinus
@@ -860,7 +860,7 @@
             this.arrowButtonXMinus.Title = "-X";
             this.arrowButtonXMinus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonXMinus.UseVisualStyleBackColor = true;
-            this.arrowButtonXMinus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
+            this.arrowButtonXMinus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
             this.arrowButtonXMinus.Click += new System.EventHandler(this.arrowButtonXMinus_Click);
             // 
             // arrowButtonZPlus
@@ -883,7 +883,7 @@
             this.arrowButtonZPlus.Title = "+Z";
             this.arrowButtonZPlus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonZPlus.UseVisualStyleBackColor = true;
-            this.arrowButtonZPlus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.Z_arrowValueChanged);
+            this.arrowButtonZPlus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.Z_arrowValueChanged);
             this.arrowButtonZPlus.Click += new System.EventHandler(this.arrowButtonZPlus_Click);
             // 
             // arrowButtonZMinus
@@ -906,7 +906,7 @@
             this.arrowButtonZMinus.Title = "-Z";
             this.arrowButtonZMinus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonZMinus.UseVisualStyleBackColor = true;
-            this.arrowButtonZMinus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.Z_arrowValueChanged);
+            this.arrowButtonZMinus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.Z_arrowValueChanged);
             this.arrowButtonZMinus.Click += new System.EventHandler(this.arrowButtonZMinus_Click);
             // 
             // arrowButtonYPlus
@@ -929,7 +929,7 @@
             this.arrowButtonYPlus.Title = "+Y";
             this.arrowButtonYPlus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonYPlus.UseVisualStyleBackColor = true;
-            this.arrowButtonYPlus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
+            this.arrowButtonYPlus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
             this.arrowButtonYPlus.Click += new System.EventHandler(this.arrowButtonYPlus_Click);
             // 
             // arrowButtonYMinus
@@ -952,7 +952,7 @@
             this.arrowButtonYMinus.Title = "-Y";
             this.arrowButtonYMinus.TitleFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
             this.arrowButtonYMinus.UseVisualStyleBackColor = true;
-            this.arrowButtonYMinus.arrowValueChanged += new RepetierHost.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
+            this.arrowButtonYMinus.arrowValueChanged += new BioMaker.view.utils.ArrowValueChanged(this.XY_arrowValueChanged);
             this.arrowButtonYMinus.Click += new System.EventHandler(this.arrowButtonYMinus_Click);
             // 
             // switchPower
@@ -971,7 +971,7 @@
             this.switchPower.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchPower.TextOff = "  Power";
             this.switchPower.TextOn = "  Power";
-            this.switchPower.OnChange += new RepetierHost.view.SwitchEventHandler(this.switchPower_Change);
+            this.switchPower.OnChange += new BioMaker.view.SwitchEventHandler(this.switchPower_Change);
             // 
             // PrintPanel
             // 
@@ -1075,13 +1075,13 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.NumericUpDown numericPrintBed;
         public MB.Controls.ColorSlider trackFanVoltage;
-        private RepetierHost.view.utils.ArrowButton arrowButtonYMinus;
-        private RepetierHost.view.utils.ArrowButton arrowButtonXPlus;
-        private RepetierHost.view.utils.ArrowButton arrowButtonXMinus;
-        private RepetierHost.view.utils.ArrowButton arrowButtonYPlus;
+        private BioMaker.view.utils.ArrowButton arrowButtonYMinus;
+        private BioMaker.view.utils.ArrowButton arrowButtonXPlus;
+        private BioMaker.view.utils.ArrowButton arrowButtonXMinus;
+        private BioMaker.view.utils.ArrowButton arrowButtonYPlus;
         private System.Windows.Forms.Label labelMoveDist;
-        private RepetierHost.view.utils.ArrowButton arrowButtonZPlus;
-        private RepetierHost.view.utils.ArrowButton arrowButtonZMinus;
+        private BioMaker.view.utils.ArrowButton arrowButtonZPlus;
+        private BioMaker.view.utils.ArrowButton arrowButtonZMinus;
         private System.Windows.Forms.Label labelZDiff;
         private System.Windows.Forms.GroupBox groupDebugOptions;
         private System.Windows.Forms.GroupBox groupSpeedMultiply;

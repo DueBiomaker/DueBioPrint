@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RepetierHost.model.geom
+namespace BioMaker.model.geom
 {
     public class TopoVertexStorage
     {

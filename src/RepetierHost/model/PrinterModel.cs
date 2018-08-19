@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using RepetierHost.view.utils;
+using BioMaker.view.utils;
 using System.ComponentModel;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class PrinterModel : INotifyPropertyChanged
     {

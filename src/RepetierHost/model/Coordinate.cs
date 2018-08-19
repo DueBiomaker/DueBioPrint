@@ -2,12 +2,12 @@
 using OpenTK.Graphics.OpenGL;
 
 //using QuickFont;
-using RepetierHost.model.geom;
+using BioMaker.model.geom;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     internal class Coordinate
     {

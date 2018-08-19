@@ -15,14 +15,14 @@
 */
 
 using OpenTK;
-using RepetierHost.model.geom;
-using RepetierHost.view.utils;
+using BioMaker.model.geom;
+using BioMaker.view.utils;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public delegate void PrintModelChangedEvent(PrintModel model);
 

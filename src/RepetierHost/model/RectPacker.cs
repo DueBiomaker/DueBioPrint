@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public class PackerPos
     {

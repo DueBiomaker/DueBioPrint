@@ -15,7 +15,7 @@
 
 */
 
-namespace RepetierHost.model
+namespace BioMaker.model
 {
     public interface GCodeExecutor
     {

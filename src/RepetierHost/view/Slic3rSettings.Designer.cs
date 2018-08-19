@@ -1,4 +1,4 @@
-﻿namespace RepetierHost.view
+﻿namespace BioMaker.view
 {
     partial class Slic3rSettings
     {
@@ -395,7 +395,7 @@
             this.tabExtruders = new System.Windows.Forms.TabControl();
             this.tabExtruder1 = new System.Windows.Forms.TabPage();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.printerExtruderSettings1 = new RepetierHost.view.PrinterExtruderSettings();
+            this.printerExtruderSettings1 = new BioMaker.view.PrinterExtruderSettings();
             this.tabControl.SuspendLayout();
             this.pagePrint.SuspendLayout();
             this.tlpPrintPage.SuspendLayout();
