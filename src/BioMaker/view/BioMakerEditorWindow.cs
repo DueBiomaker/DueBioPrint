@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace BioMaker.view
 {
-    public partial class RepetierEditorWindow : Form
+    public partial class BioMakerEditorWindow : Form
     {
-        public RepetierEditorWindow(RepetierEditor editor)
+        public BioMakerEditorWindow(BioMakerEditor editor)
         {
             InitializeComponent();
             pnlContent.Controls.Add(editor);

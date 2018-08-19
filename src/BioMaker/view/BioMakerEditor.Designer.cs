@@ -1,6 +1,6 @@
 ﻿namespace BioMaker.view
 {
-    partial class RepetierEditor
+    partial class BioMakerEditor
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -31,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RepetierEditor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BioMakerEditor));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolNew = new System.Windows.Forms.ToolStripButton();
             this.toolSave = new System.Windows.Forms.ToolStripButton();

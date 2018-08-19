@@ -55,7 +55,7 @@ namespace BioMaker
         public static Slic3rSettings slic3rSettings = null;
         public static bool IsMac = false;
 
-        public EEPROMRepetier eepromSettings = null;
+        public EEPROMBioMaker eepromSettings = null;
         public EEPROMMarlin eepromSettingsm = null;
         public LogView logView = null;
         public PrintPanel printPanel = null;
@@ -77,7 +77,7 @@ namespace BioMaker
         public TemperatureHistory history = null;
         public TemperatureView tempView = null;
         public Trans trans = null;
-        public BioMaker.view.RepetierEditor editor;
+        public BioMaker.view.BioMakerEditor editor;
         public double gcodePrintingTime = 0;
         public string lastFileLoadedName = null;
         public double importScaleFactor = 1;
@@ -90,7 +90,7 @@ namespace BioMaker
             // This method will be called when the thread is started.
             public void DoWork()
             {
-                RepetierEditor ed = Main.main.editor;
+                BioMakerEditor ed = Main.main.editor;
 
                 Stopwatch sw = new Stopwatch();
                 sw.Start();
@@ -204,10 +204,10 @@ namespace BioMaker
             InitializeComponent();
             tdSettings.DataSource = threeDSettings;
             tdSettings_DataMemberChanged(null, null);
-            editor = new RepetierEditor();
+            editor = new BioMakerEditor();
             editor.Dock = DockStyle.Fill;
             pnlVisualization.Controls.Add(editor);
-            editor.SetMode(RepetierEditor.Mode.Visualization);
+            editor.SetMode(BioMakerEditor.Mode.Visualization);
             updateShowFilament();
             RegMemory.RestoreWindowPos("mainWindow", this);
             if (WindowState == FormWindowState.Maximized)
@@ -759,7 +759,7 @@ namespace BioMaker
                     }
                 }
                 if (eepromSettings == null)
-                    eepromSettings = new EEPROMRepetier();
+                    eepromSettings = new EEPROMBioMaker();
                 eepromSettings.Show2();
             }
             if (conn.isMarlin)
@@ -1134,9 +1134,9 @@ namespace BioMaker
                 previewArray0 = new List<GCodeShort>();
                 previewArray1 = new List<GCodeShort>();
                 previewArray2 = new List<GCodeShort>();
-                previewArray0.AddRange(((RepetierEditor.Content)editor.toolFile.Items[1]).textArray);
-                previewArray1.AddRange(((RepetierEditor.Content)editor.toolFile.Items[0]).textArray);
-                previewArray2.AddRange(((RepetierEditor.Content)editor.toolFile.Items[2]).textArray);
+                previewArray0.AddRange(((BioMakerEditor.Content)editor.toolFile.Items[1]).textArray);
+                previewArray1.AddRange(((BioMakerEditor.Content)editor.toolFile.Items[0]).textArray);
+                previewArray2.AddRange(((BioMakerEditor.Content)editor.toolFile.Items[2]).textArray);
                 recalcJobPreview = false;
                 jobPreviewThreadFinished = false;
                 JobUpdater workerObject = new JobUpdater();
@@ -1868,15 +1868,15 @@ namespace BioMaker
         private void gCodeEditorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlVisualization.Controls.Clear();
-            Form editorForm = new RepetierEditorWindow(editor);
-            editor.SetMode(RepetierEditor.Mode.Full);
+            Form editorForm = new BioMakerEditorWindow(editor);
+            editor.SetMode(BioMakerEditor.Mode.Full);
             editorForm.FormClosed += EditorForm_FormClosed;
             editorForm.Show();
         }
 
         private void EditorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            editor.SetMode(RepetierEditor.Mode.Visualization);
+            editor.SetMode(BioMakerEditor.Mode.Visualization);
             pnlVisualization.Controls.Add(editor);
 
         }

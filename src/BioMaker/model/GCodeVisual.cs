@@ -1540,7 +1540,7 @@ namespace BioMaker.model
 
             if (showSelection)
             {
-                RepetierEditor ed = Main.main.editor;
+                BioMakerEditor ed = Main.main.editor;
                 selectionStart = selectionEnd = 0;
                 if (!ed.hasSelection)
                 {

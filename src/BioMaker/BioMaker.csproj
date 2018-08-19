@@ -221,8 +221,8 @@
       <DependentUpon>EEPROMMarlin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EEPROMRepetier.resx">
-      <DependentUpon>EEPROMRepetier.cs</DependentUpon>
+    <EmbeddedResource Include="view\EEPROMBioMaker.resx">
+      <DependentUpon>EEPROMBioMaker.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormPrinterSettings.resx">
@@ -267,12 +267,12 @@
       <DependentUpon>PrintPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\RepetierEditor.resx">
-      <DependentUpon>RepetierEditor.cs</DependentUpon>
+    <EmbeddedResource Include="view\BioMakerEditor.resx">
+      <DependentUpon>BioMakerEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\RepetierEditorWindow.resx">
-      <DependentUpon>RepetierEditorWindow.cs</DependentUpon>
+    <EmbeddedResource Include="view\BioMakerEditorWindow.resx">
+      <DependentUpon>BioMakerEditorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Slic3r.resx">
       <DependentUpon>Slic3r.cs</DependentUpon>
@@ -371,7 +371,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="RepetierHost_TemporaryKey.pfx" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -398,11 +397,11 @@
     <Compile Include="view\EEPROMMarlin.designer.cs">
       <DependentUpon>EEPROMMarlin.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EEPROMRepetier.cs">
+    <Compile Include="view\EEPROMBioMaker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EEPROMRepetier.Designer.cs">
-      <DependentUpon>EEPROMRepetier.cs</DependentUpon>
+    <Compile Include="view\EEPROMBioMaker.Designer.cs">
+      <DependentUpon>EEPROMBioMaker.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FormPrinterSettings.cs">
       <SubType>Form</SubType>
@@ -470,17 +469,17 @@
     <Compile Include="view\PrintPanel.Designer.cs">
       <DependentUpon>PrintPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\RepetierEditor.cs">
+    <Compile Include="view\BioMakerEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\RepetierEditor.Designer.cs">
-      <DependentUpon>RepetierEditor.cs</DependentUpon>
+    <Compile Include="view\BioMakerEditor.Designer.cs">
+      <DependentUpon>BioMakerEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\RepetierEditorWindow.cs">
+    <Compile Include="view\BioMakerEditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\RepetierEditorWindow.Designer.cs">
-      <DependentUpon>RepetierEditorWindow.cs</DependentUpon>
+    <Compile Include="view\BioMakerEditorWindow.Designer.cs">
+      <DependentUpon>BioMakerEditorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Slic3r.cs">
       <SubType>Form</SubType>

@@ -1,6 +1,6 @@
 ﻿namespace BioMaker.view
 {
-    partial class EEPROMRepetier
+    partial class EEPROMBioMaker
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EEPROMRepetier));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EEPROMBioMaker));
             this.grid = new System.Windows.Forms.DataGridView();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonAbort = new System.Windows.Forms.Button();

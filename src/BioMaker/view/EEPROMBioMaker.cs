@@ -22,13 +22,13 @@ using System.Windows.Forms;
 
 namespace BioMaker.view
 {
-    public partial class EEPROMRepetier : Form
+    public partial class EEPROMBioMaker : Form
     {
         private EEPROMStorage storage;
         private BindingList<EEPROMParameter> data = new BindingList<EEPROMParameter>();
         private bool reinit = true;
 
-        public EEPROMRepetier()
+        public EEPROMBioMaker()
         {
             InitializeComponent();
             RegMemory.RestoreWindowPos("eepromWindow", this);

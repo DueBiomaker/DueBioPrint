@@ -1,6 +1,6 @@
 ﻿namespace BioMaker.view
 {
-    partial class RepetierEditorWindow
+    partial class BioMakerEditorWindow
     {
         /// <summary>
         /// Required designer variable.
