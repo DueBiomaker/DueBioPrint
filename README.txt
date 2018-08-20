@@ -1,21 +1,18 @@
-Repetier-Host
+# Due BioPrint
 
-Software for controlling RepRap style 3D-printer like Mendel, Darwin or 
-Prusa mendel. Works with most firmware types. It is optimized to work
-with Repetier-Firmware, see https://github.com/repetier/Repetier-Firmware
-Other working firmware is Sprinter, Teacup, Marlin and all compatible
-firmwares.
+(http://duelaser.com/)
 
-Manual
+DUE BioPrint (C) 2018 - DUE Laser
+This software was developed to controll the 3D bioprint "Due BioPrint"
 
-Read the wiki at https://github.com/repetier/Repetier-Host/wiki
+# Requirements
 
-Requirements
+* Windows XP or later, Linux (For Mac OS X use Repetier-Host Mac [http://www.repetier.com/documentation/repetier-host-mac/](http://www.repetier.com/documentation/repetier-host-mac/) )
+* .NET 4 of higher or Mono on Linux platforms.
+* Slic3r for slicing (optional)
+	
+# Installation:
 
-* Windows XP or later, Linux or Mac OS X
-* .NET 3.5 of higher or Mono on non-Windows platforms.
-* Skeinforge for slicing (optional).
-
-Installation:
-
-https://github.com/repetier/Repetier-Host/wiki/Installation
+1. Open the solution in src/BioMaker/BioMaker.sln in Visual Studio 2017 
+2. Compile the project Setup in Release mode
+3. Run the file in src/Setup/bin/Release/Due BioPrint.msi
