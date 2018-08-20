@@ -112,8 +112,8 @@
             this.labelRepetierInfo.Name = "labelRepetierInfo";
             this.labelRepetierInfo.Size = new System.Drawing.Size(556, 108);
             this.labelRepetierInfo.TabIndex = 6;
-            this.labelRepetierInfo.Text = "DUE BioPrint (C) 2018 - DUE Laser\r\nhttp://duelaser.com/\r\n\r\nThis Software were dev" +
-    "eloped to controll the 3D bioprint \"DUE BioPrint\"";
+            this.labelRepetierInfo.Text = "DUE BioPrint (C) 2018 - DUE Laser\r\nhttp://duelaser.com/\r\n\r\nThis Software was deve" +
+    "loped to controll the 3D bioprint \"DUE BioPrint\"";
             // 
             // About
             // 

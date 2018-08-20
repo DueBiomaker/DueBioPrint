@@ -40,6 +40,7 @@ namespace BioMaker.view
             Text = Trans.T("W_ABOUT_REPETIER_HOST");
             labelLicenceAndLibraries.Text = Trans.T("L_LICENCE_AND_LIBRARIES");
             labelRepetierInfo.Text = Trans.T("L_REPETIER_INFO");
+            textLicence.Text = Trans.T("L_LICENCE_TEXT");
         }
 
         private void buttonOK_Click(object sender, EventArgs e)
