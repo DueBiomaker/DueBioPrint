@@ -57,7 +57,7 @@ namespace BioMaker.view
             if (currentWorkspace.Length == 0)
             {
                 var userDirectory = Environment.GetEnvironmentVariable("UserProfile");
-                var newWorkspace = userDirectory + "\\DueBioPrint workspace";
+                var newWorkspace = userDirectory + "\\BioPrint";
                 System.IO.Directory.CreateDirectory(newWorkspace);
                 repetierKey.SetValue("workdir", newWorkspace);
             }
