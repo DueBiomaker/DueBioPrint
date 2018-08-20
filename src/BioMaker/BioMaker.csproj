@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BioMaker</RootNamespace>
-    <AssemblyName>BioMaker</AssemblyName>
+    <AssemblyName>BioPrint</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ManifestCertificateThumbprint>4D8B5380D7CB00A0A95794AAA4F075AF1C54B30F</ManifestCertificateThumbprint>
     <ManifestKeyFile>RepetierHost_TemporaryKey.pfx</ManifestKeyFile>
@@ -48,7 +48,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>1</WarningLevel>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -626,6 +626,7 @@
     <Compile Include="view\utils\StringInput.Designer.cs">
       <DependentUpon>StringInput.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\due.ico" />
     <Content Include="Slic3r\bin\cpfworkrt\cpfworkrt.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
