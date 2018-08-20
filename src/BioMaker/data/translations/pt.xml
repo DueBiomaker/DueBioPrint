@@ -497,7 +497,7 @@ Escrever as mudanças no EEPROM?</t>
 <t id="L_TRAVEL_VISUALIZATION_DISABLED" ver="4">Travel visualization disabled</t>
 <t id="M_HIDE_TRAVEL" ver="4">Esconder Movimentação</t>
 <t id="L_TRAVEL_VISUALIZATION_ENABLED" ver="4">Travel visualization enabled</t>
-<t id="M_SHOW_TRAVEL" ver="4">Mostrar movimentação</t>
+<t id="M_SHOW_TRAVEL" ver="4">Mostrar Movimentação</t>
 <t id="L_TRAVEL_MOVES:" ver="4">Trajeto dos Movimentos:</t>
 <t id="L_DISABLE_TRAVEL_MOVES_VIS" ver="4">Desabilitar Trajetos dos Movimentos</t>
 <t id="L_NUMBER_OF_EXTRUDER:" ver="5">Número de Extrusora:</t>
