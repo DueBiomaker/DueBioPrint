@@ -1530,7 +1530,8 @@ namespace BioMaker
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RHUpdater.checkForUpdates(false);
+            System.Diagnostics.Process.Start("http://duelaser.com/");
+            //RHUpdater.checkForUpdates(false);
         }
 
         private static bool firstSizeCall = true;
