@@ -10,6 +10,7 @@ namespace BioMaker.view.utils
     {
         private static string file;
         private static SplashScreen splash = null;
+        bool painted = false;
 
         public static void run()
         {
@@ -37,6 +38,13 @@ namespace BioMaker.view.utils
         {
             timer.Stop();
             Hide();
+        }
+
+        protected override void OnPaintBackground(System.Windows.Forms.PaintEventArgs e)
+        {
+            if (painted) return;
+            e.Graphics.DrawImage(BackgroundImage, 0, 0, Width, Height);
+            painted = true;
         }
     }
 }
