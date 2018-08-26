@@ -129,7 +129,7 @@
             this.fpsLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolConnect = new System.Windows.Forms.ToolStripSplitButton();
-            this.toolLoad = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolLoad = new System.Windows.Forms.ToolStripButton();
             this.toolStripSaveJob = new System.Windows.Forms.ToolStripButton();
             this.toolRunJob = new System.Windows.Forms.ToolStripButton();
             this.toolKillJob = new System.Windows.Forms.ToolStripButton();
@@ -1038,11 +1038,11 @@
             this.toolLoad.Image = global::BioMaker.Properties.Resources.load;
             this.toolLoad.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolLoad.Name = "toolLoad";
-            this.toolLoad.Size = new System.Drawing.Size(49, 51);
+            this.toolLoad.Size = new System.Drawing.Size(37, 51);
             this.toolLoad.Text = "Load";
             this.toolLoad.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolLoad.ToolTipText = "Load file";
-            this.toolLoad.ButtonClick += new System.EventHandler(this.toolGCodeLoad_Click);
+            this.toolLoad.Click += new System.EventHandler(this.toolGCodeLoad_Click);
             // 
             // toolStripSaveJob
             // 
@@ -1454,7 +1454,7 @@
         private System.Windows.Forms.ToolStripButton toolShowLog;
         public System.Windows.Forms.ToolStripStatusLabel toolTempReading;
         private System.Windows.Forms.ToolStripSeparator toolStripStartHistory;
-        private System.Windows.Forms.ToolStripSplitButton toolLoad;
+        private System.Windows.Forms.ToolStripButton toolLoad;
         private System.Windows.Forms.ToolStripMenuItem slicerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem activeSlicerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

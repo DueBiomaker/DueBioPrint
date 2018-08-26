@@ -615,7 +615,6 @@ namespace BioMaker
             }
             foreach (ToolStripItem i in delArray)
                 fileToolStripMenuItem.DropDownItems.Remove(i);
-            toolLoad.DropDownItems.Clear();
             foreach (RegMemory.HistoryFile f in fileHistory.list)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem(); // You would obviously calculate this value at runtime
@@ -625,12 +624,6 @@ namespace BioMaker
                 item.Text = f.ToString();
                 item.Click += new EventHandler(HistoryHandler);
                 fileToolStripMenuItem.DropDownItems.Insert(pos++, item);
-                item = new ToolStripMenuItem();
-                item.Name = "filet" + pos;
-                item.Tag = f;
-                item.Text = f.ToString();
-                item.Click += new EventHandler(HistoryHandler);
-                toolLoad.DropDownItems.Add(item);
             }
         }
 
