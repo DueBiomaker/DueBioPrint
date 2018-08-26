@@ -935,6 +935,6 @@ If estimated layer time is greater, but still below ~{3}s, fan will run at a pro
 </t>
 <t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">During the other layers, fan will always run at {0}% except for the first {1} layers.</t>
 <t id ="L_TEXT_FOOTER" ver="11">During the other layers, fan will be turned off.</t>
-
+<t id = "W_SLICER_SETTINGS" ver="11">Slic3r Settings</t>
 </translation>
 

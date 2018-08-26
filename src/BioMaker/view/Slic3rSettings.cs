@@ -374,6 +374,8 @@ namespace BioMaker.view
 
         public void translate()
         {
+            SetTransStringsToTextFields("W_SLICER_SETTINGS", this);
+
             SetTransStringsToTextFields("L_DELETE", btnDeletePrintSettings, btnDeleteFilamentSettings);//"Delete"
             SetTransStringsToTextFields("L_PRINT_SETTINGS", pagePrint);//"Print Settings"
             SetTransStringsToTextFields("L_SAVE", btnSavePrintSettings, btnSavePrinterSettings, btnSaveFilamentSettings);//"Save"

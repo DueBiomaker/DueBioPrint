@@ -934,6 +934,6 @@ Se o tempo estimado for maior, mas ainda menor que ~{3}s, a ventoinha vai rodar 
 </t>
 <t id ="L_TEXT_FOOTER_ALWAYS_ON" ver="11">Durante as outras camadas, aventoinha vai rodar a {0}% exceto pela primeira {1} camada.</t>
 <t id ="L_TEXT_FOOTER" ver="11">Durante outras camadas, a ventoinha vai ser desligada.</t>
-
+<t id = "W_SLICER_SETTINGS" ver="11">Configurações do Slic3r</t>
 </translation>
 
