@@ -376,7 +376,7 @@ namespace BioMaker.view
         {
             SetTransStringsToTextFields("L_DELETE", btnDeletePrintSettings, btnDeleteFilamentSettings);//"Delete"
             SetTransStringsToTextFields("L_PRINT_SETTINGS", pagePrint);//"Print Settings"
-            SetTransStringsToTextFields("L_SAVE", btnSavePrintSettings, btnSavePrinterSettings);//"Save"
+            SetTransStringsToTextFields("L_SAVE", btnSavePrintSettings, btnSavePrinterSettings, btnSaveFilamentSettings);//"Save"
             SetTransStringsToTextFields("L_OPTIONS_FOR_SUPPORT_MATERIAL_AND_RAFT", gbSupportMaterialOptions);// "Options for support material and raft"
             SetTransStringsToTextFields("L_DONT_SUPPORT_BRIDGES", cbDontSupportBridges);//"Don\'t support bridges"
             SetTransStringsToTextFields("L_INTERFACE_PATTERN_SPACING", lblSupportMaterialInterfaceSpacing);//"Interface pattern spacing"
