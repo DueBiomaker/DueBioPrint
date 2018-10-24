@@ -90,6 +90,7 @@
             // toolStrip1
             // 
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolNew,
             this.toolSave,
@@ -105,7 +106,7 @@
             this.toolFile});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(615, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(820, 28);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip";
             // 
@@ -115,7 +116,7 @@
             this.toolNew.Image = ((System.Drawing.Image)(resources.GetObject("toolNew.Image")));
             this.toolNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolNew.Name = "toolNew";
-            this.toolNew.Size = new System.Drawing.Size(23, 22);
+            this.toolNew.Size = new System.Drawing.Size(24, 25);
             this.toolNew.Text = "toolStripButton1";
             this.toolNew.ToolTipText = "New text";
             this.toolNew.Click += new System.EventHandler(this.toolNew_Click);
@@ -126,7 +127,7 @@
             this.toolSave.Image = ((System.Drawing.Image)(resources.GetObject("toolSave.Image")));
             this.toolSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolSave.Name = "toolSave";
-            this.toolSave.Size = new System.Drawing.Size(23, 22);
+            this.toolSave.Size = new System.Drawing.Size(24, 25);
             this.toolSave.Text = "toolStripButton2";
             this.toolSave.ToolTipText = "Save";
             this.toolSave.Click += new System.EventHandler(this.toolSave_Click);
@@ -134,7 +135,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 28);
             // 
             // toolCut
             // 
@@ -142,7 +143,7 @@
             this.toolCut.Image = ((System.Drawing.Image)(resources.GetObject("toolCut.Image")));
             this.toolCut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolCut.Name = "toolCut";
-            this.toolCut.Size = new System.Drawing.Size(23, 22);
+            this.toolCut.Size = new System.Drawing.Size(24, 25);
             this.toolCut.Text = "toolStripButton1";
             this.toolCut.ToolTipText = "Cut";
             this.toolCut.Click += new System.EventHandler(this.toolCut_Click);
@@ -153,7 +154,7 @@
             this.toolCopy.Image = ((System.Drawing.Image)(resources.GetObject("toolCopy.Image")));
             this.toolCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolCopy.Name = "toolCopy";
-            this.toolCopy.Size = new System.Drawing.Size(23, 22);
+            this.toolCopy.Size = new System.Drawing.Size(24, 25);
             this.toolCopy.Text = "toolStripButton1";
             this.toolCopy.ToolTipText = "Copy";
             this.toolCopy.Click += new System.EventHandler(this.toolCopy_Click);
@@ -164,7 +165,7 @@
             this.toolPaste.Image = ((System.Drawing.Image)(resources.GetObject("toolPaste.Image")));
             this.toolPaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPaste.Name = "toolPaste";
-            this.toolPaste.Size = new System.Drawing.Size(23, 22);
+            this.toolPaste.Size = new System.Drawing.Size(24, 25);
             this.toolPaste.Text = "toolStripButton1";
             this.toolPaste.ToolTipText = "Paste";
             this.toolPaste.Click += new System.EventHandler(this.toolPaste_Click);
@@ -172,7 +173,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
             // 
             // toolUndo
             // 
@@ -180,7 +181,7 @@
             this.toolUndo.Image = ((System.Drawing.Image)(resources.GetObject("toolUndo.Image")));
             this.toolUndo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolUndo.Name = "toolUndo";
-            this.toolUndo.Size = new System.Drawing.Size(23, 22);
+            this.toolUndo.Size = new System.Drawing.Size(24, 25);
             this.toolUndo.Text = "toolStripButton1";
             this.toolUndo.ToolTipText = "Undo";
             this.toolUndo.Click += new System.EventHandler(this.toolUndo_Click);
@@ -191,7 +192,7 @@
             this.toolRedo.Image = ((System.Drawing.Image)(resources.GetObject("toolRedo.Image")));
             this.toolRedo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolRedo.Name = "toolRedo";
-            this.toolRedo.Size = new System.Drawing.Size(23, 22);
+            this.toolRedo.Size = new System.Drawing.Size(24, 25);
             this.toolRedo.Text = "toolStripButton1";
             this.toolRedo.ToolTipText = "Redo";
             this.toolRedo.Click += new System.EventHandler(this.toolRedo_Click);
@@ -199,7 +200,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 28);
             // 
             // toolPreview
             // 
@@ -210,7 +211,7 @@
             this.toolPreview.Image = ((System.Drawing.Image)(resources.GetObject("toolPreview.Image")));
             this.toolPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolPreview.Name = "toolPreview";
-            this.toolPreview.Size = new System.Drawing.Size(23, 22);
+            this.toolPreview.Size = new System.Drawing.Size(24, 25);
             this.toolPreview.Text = "toolStripButton3";
             this.toolPreview.ToolTipText = "Autoupdate preview code";
             this.toolPreview.CheckedChanged += new System.EventHandler(this.toolPreview_CheckedChanged);
@@ -226,11 +227,12 @@
             "Run on kill",
             "Run on pause"});
             this.toolFile.Name = "toolFile";
-            this.toolFile.Size = new System.Drawing.Size(110, 25);
+            this.toolFile.Size = new System.Drawing.Size(145, 28);
             this.toolFile.SelectedIndexChanged += new System.EventHandler(this.toolFile_SelectedIndexChanged);
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolRow,
             this.toolColumn,
@@ -239,51 +241,52 @@
             this.toolExtruder,
             this.toolPrintingTime,
             this.toolUpdating});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 468);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 578);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(615, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(820, 25);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolRow
             // 
             this.toolRow.Name = "toolRow";
-            this.toolRow.Size = new System.Drawing.Size(20, 17);
+            this.toolRow.Size = new System.Drawing.Size(26, 20);
             this.toolRow.Text = "R1";
             // 
             // toolColumn
             // 
             this.toolColumn.Name = "toolColumn";
-            this.toolColumn.Size = new System.Drawing.Size(21, 17);
+            this.toolColumn.Size = new System.Drawing.Size(26, 20);
             this.toolColumn.Text = "C1";
             // 
             // toolMode
             // 
             this.toolMode.Name = "toolMode";
-            this.toolMode.Size = new System.Drawing.Size(36, 17);
+            this.toolMode.Size = new System.Drawing.Size(45, 20);
             this.toolMode.Text = "Insert";
             // 
             // toolLayer
             // 
             this.toolLayer.Name = "toolLayer";
-            this.toolLayer.Size = new System.Drawing.Size(43, 17);
+            this.toolLayer.Size = new System.Drawing.Size(54, 20);
             this.toolLayer.Text = "Layer -";
             // 
             // toolExtruder
             // 
             this.toolExtruder.Name = "toolExtruder";
-            this.toolExtruder.Size = new System.Drawing.Size(59, 17);
+            this.toolExtruder.Size = new System.Drawing.Size(76, 20);
             this.toolExtruder.Text = "Extruder 0";
             // 
             // toolPrintingTime
             // 
             this.toolPrintingTime.Name = "toolPrintingTime";
-            this.toolPrintingTime.Size = new System.Drawing.Size(0, 17);
+            this.toolPrintingTime.Size = new System.Drawing.Size(0, 20);
             // 
             // toolUpdating
             // 
             this.toolUpdating.Name = "toolUpdating";
-            this.toolUpdating.Size = new System.Drawing.Size(421, 17);
+            this.toolUpdating.Size = new System.Drawing.Size(573, 20);
             this.toolUpdating.Spring = true;
             this.toolUpdating.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -297,7 +300,8 @@
             // 
             this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainer.Location = new System.Drawing.Point(0, 25);
+            this.splitContainer.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -312,10 +316,11 @@
             this.splitContainer.Panel2.AutoScroll = true;
             this.splitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer.Panel2.Controls.Add(this.tabHelpview);
-            this.splitContainer.Panel2.Margin = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.splitContainer.Panel2.Margin = new System.Windows.Forms.Padding(7, 6, 0, 0);
             this.splitContainer.Panel2MinSize = 120;
-            this.splitContainer.Size = new System.Drawing.Size(615, 443);
-            this.splitContainer.SplitterDistance = 318;
+            this.splitContainer.Size = new System.Drawing.Size(820, 550);
+            this.splitContainer.SplitterDistance = 381;
+            this.splitContainer.SplitterWidth = 5;
             this.splitContainer.TabIndex = 2;
             this.splitContainer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepetierEditor_KeyDown);
             this.splitContainer.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RepetierEditor_KeyPress);
@@ -326,9 +331,10 @@
             this.editor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.editor.Location = new System.Drawing.Point(3, 3);
+            this.editor.Location = new System.Drawing.Point(4, 4);
+            this.editor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editor.Name = "editor";
-            this.editor.Size = new System.Drawing.Size(595, 298);
+            this.editor.Size = new System.Drawing.Size(793, 373);
             this.editor.TabIndex = 2;
             this.editor.SizeChanged += new System.EventHandler(this.editor_SizeChanged);
             this.editor.Click += new System.EventHandler(this.editor_Click);
@@ -350,9 +356,9 @@
             // 
             this.scrollRows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.scrollRows.Location = new System.Drawing.Point(598, 0);
+            this.scrollRows.Location = new System.Drawing.Point(797, 0);
             this.scrollRows.Name = "scrollRows";
-            this.scrollRows.Size = new System.Drawing.Size(17, 301);
+            this.scrollRows.Size = new System.Drawing.Size(17, 360);
             this.scrollRows.TabIndex = 1;
             this.scrollRows.ValueChanged += new System.EventHandler(this.scrollRows_ValueChanged);
             // 
@@ -360,9 +366,9 @@
             // 
             this.scrollColumns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.scrollColumns.Location = new System.Drawing.Point(3, 301);
+            this.scrollColumns.Location = new System.Drawing.Point(4, 360);
             this.scrollColumns.Name = "scrollColumns";
-            this.scrollColumns.Size = new System.Drawing.Size(595, 18);
+            this.scrollColumns.Size = new System.Drawing.Size(793, 18);
             this.scrollColumns.TabIndex = 0;
             this.scrollColumns.ValueChanged += new System.EventHandler(this.scrollColumns_ValueChanged);
             // 
@@ -372,9 +378,10 @@
             this.tabHelpview.Controls.Add(this.tabPageHelp);
             this.tabHelpview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabHelpview.Location = new System.Drawing.Point(0, 0);
+            this.tabHelpview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabHelpview.Name = "tabHelpview";
             this.tabHelpview.SelectedIndex = 0;
-            this.tabHelpview.Size = new System.Drawing.Size(615, 121);
+            this.tabHelpview.Size = new System.Drawing.Size(820, 164);
             this.tabHelpview.TabIndex = 1;
             // 
             // tabPageVisualization
@@ -387,10 +394,11 @@
             this.tabPageVisualization.Controls.Add(this.numericShowMinLayer);
             this.tabPageVisualization.Controls.Add(this.sliderShowMaxLayer);
             this.tabPageVisualization.Controls.Add(this.sliderShowFirstLayer);
-            this.tabPageVisualization.Location = new System.Drawing.Point(4, 22);
+            this.tabPageVisualization.Location = new System.Drawing.Point(4, 25);
+            this.tabPageVisualization.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageVisualization.Name = "tabPageVisualization";
-            this.tabPageVisualization.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVisualization.Size = new System.Drawing.Size(607, 95);
+            this.tabPageVisualization.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageVisualization.Size = new System.Drawing.Size(812, 135);
             this.tabPageVisualization.TabIndex = 1;
             this.tabPageVisualization.Text = "Visualization";
             this.tabPageVisualization.UseVisualStyleBackColor = true;
@@ -402,18 +410,20 @@
             this.flowLayoutPanel1.Controls.Add(this.radioShowAll);
             this.flowLayoutPanel1.Controls.Add(this.radioShowSingleLayer);
             this.flowLayoutPanel1.Controls.Add(this.radioShowLayerRange);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 4);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(607, 31);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(809, 53);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // radioShowAll
             // 
             this.radioShowAll.AutoSize = true;
             this.radioShowAll.Checked = true;
-            this.radioShowAll.Location = new System.Drawing.Point(3, 3);
+            this.radioShowAll.Location = new System.Drawing.Point(4, 4);
+            this.radioShowAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioShowAll.Name = "radioShowAll";
-            this.radioShowAll.Size = new System.Drawing.Size(125, 17);
+            this.radioShowAll.Size = new System.Drawing.Size(159, 21);
             this.radioShowAll.TabIndex = 0;
             this.radioShowAll.TabStop = true;
             this.radioShowAll.Tag = "0";
@@ -424,9 +434,10 @@
             // radioShowSingleLayer
             // 
             this.radioShowSingleLayer.AutoSize = true;
-            this.radioShowSingleLayer.Location = new System.Drawing.Point(134, 3);
+            this.radioShowSingleLayer.Location = new System.Drawing.Point(171, 4);
+            this.radioShowSingleLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioShowSingleLayer.Name = "radioShowSingleLayer";
-            this.radioShowSingleLayer.Size = new System.Drawing.Size(107, 17);
+            this.radioShowSingleLayer.Size = new System.Drawing.Size(139, 21);
             this.radioShowSingleLayer.TabIndex = 1;
             this.radioShowSingleLayer.Tag = "1";
             this.radioShowSingleLayer.Text = "Show single layer";
@@ -436,9 +447,10 @@
             // radioShowLayerRange
             // 
             this.radioShowLayerRange.AutoSize = true;
-            this.radioShowLayerRange.Location = new System.Drawing.Point(247, 3);
+            this.radioShowLayerRange.Location = new System.Drawing.Point(318, 4);
+            this.radioShowLayerRange.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.radioShowLayerRange.Name = "radioShowLayerRange";
-            this.radioShowLayerRange.Size = new System.Drawing.Size(107, 17);
+            this.radioShowLayerRange.Size = new System.Drawing.Size(139, 21);
             this.radioShowLayerRange.TabIndex = 2;
             this.radioShowLayerRange.Tag = "2";
             this.radioShowLayerRange.Text = "Show layer range";
@@ -447,9 +459,10 @@
             // 
             // buttonGoLastLayer
             // 
-            this.buttonGoLastLayer.Location = new System.Drawing.Point(10, 65);
+            this.buttonGoLastLayer.Location = new System.Drawing.Point(13, 96);
+            this.buttonGoLastLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGoLastLayer.Name = "buttonGoLastLayer";
-            this.buttonGoLastLayer.Size = new System.Drawing.Size(132, 23);
+            this.buttonGoLastLayer.Size = new System.Drawing.Size(176, 28);
             this.buttonGoLastLayer.TabIndex = 7;
             this.buttonGoLastLayer.Text = "Last Layer";
             this.buttonGoLastLayer.UseVisualStyleBackColor = true;
@@ -457,9 +470,10 @@
             // 
             // buttonGoFirstLayer
             // 
-            this.buttonGoFirstLayer.Location = new System.Drawing.Point(10, 37);
+            this.buttonGoFirstLayer.Location = new System.Drawing.Point(13, 62);
+            this.buttonGoFirstLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonGoFirstLayer.Name = "buttonGoFirstLayer";
-            this.buttonGoFirstLayer.Size = new System.Drawing.Size(132, 23);
+            this.buttonGoFirstLayer.Size = new System.Drawing.Size(176, 28);
             this.buttonGoFirstLayer.TabIndex = 7;
             this.buttonGoFirstLayer.Text = "First Layer";
             this.buttonGoFirstLayer.UseVisualStyleBackColor = true;
@@ -469,26 +483,29 @@
             // 
             this.labelMaxLayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelMaxLayer.AutoSize = true;
-            this.labelMaxLayer.Location = new System.Drawing.Point(572, 71);
+            this.labelMaxLayer.Location = new System.Drawing.Point(763, 87);
+            this.labelMaxLayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMaxLayer.Name = "labelMaxLayer";
-            this.labelMaxLayer.Size = new System.Drawing.Size(10, 13);
+            this.labelMaxLayer.Size = new System.Drawing.Size(13, 17);
             this.labelMaxLayer.TabIndex = 6;
             this.labelMaxLayer.Text = "-";
             this.labelMaxLayer.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // numericShowMaxLayer
             // 
-            this.numericShowMaxLayer.Location = new System.Drawing.Point(144, 66);
+            this.numericShowMaxLayer.Location = new System.Drawing.Point(192, 97);
+            this.numericShowMaxLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericShowMaxLayer.Name = "numericShowMaxLayer";
-            this.numericShowMaxLayer.Size = new System.Drawing.Size(59, 20);
+            this.numericShowMaxLayer.Size = new System.Drawing.Size(79, 22);
             this.numericShowMaxLayer.TabIndex = 4;
             this.numericShowMaxLayer.ValueChanged += new System.EventHandler(this.numericShowMaxLayer_ValueChanged);
             // 
             // numericShowMinLayer
             // 
-            this.numericShowMinLayer.Location = new System.Drawing.Point(144, 40);
+            this.numericShowMinLayer.Location = new System.Drawing.Point(192, 65);
+            this.numericShowMinLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.numericShowMinLayer.Name = "numericShowMinLayer";
-            this.numericShowMinLayer.Size = new System.Drawing.Size(59, 20);
+            this.numericShowMinLayer.Size = new System.Drawing.Size(79, 22);
             this.numericShowMinLayer.TabIndex = 3;
             this.numericShowMinLayer.ValueChanged += new System.EventHandler(this.numericShowMinLayer_ValueChanged);
             // 
@@ -504,9 +521,10 @@
             this.sliderShowMaxLayer.ElapsedInnerColor = System.Drawing.Color.DarkGray;
             this.sliderShowMaxLayer.ElapsedOuterColor = System.Drawing.Color.LightGray;
             this.sliderShowMaxLayer.LargeChange = ((uint)(5u));
-            this.sliderShowMaxLayer.Location = new System.Drawing.Point(209, 64);
+            this.sliderShowMaxLayer.Location = new System.Drawing.Point(279, 95);
+            this.sliderShowMaxLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sliderShowMaxLayer.Name = "sliderShowMaxLayer";
-            this.sliderShowMaxLayer.Size = new System.Drawing.Size(357, 22);
+            this.sliderShowMaxLayer.Size = new System.Drawing.Size(476, 27);
             this.sliderShowMaxLayer.SmallChange = ((uint)(1u));
             this.sliderShowMaxLayer.TabIndex = 6;
             this.sliderShowMaxLayer.Text = "colorSlider1";
@@ -525,9 +543,10 @@
             this.sliderShowFirstLayer.ElapsedInnerColor = System.Drawing.Color.DarkGray;
             this.sliderShowFirstLayer.ElapsedOuterColor = System.Drawing.Color.LightGray;
             this.sliderShowFirstLayer.LargeChange = ((uint)(5u));
-            this.sliderShowFirstLayer.Location = new System.Drawing.Point(209, 40);
+            this.sliderShowFirstLayer.Location = new System.Drawing.Point(279, 65);
+            this.sliderShowFirstLayer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sliderShowFirstLayer.Name = "sliderShowFirstLayer";
-            this.sliderShowFirstLayer.Size = new System.Drawing.Size(357, 22);
+            this.sliderShowFirstLayer.Size = new System.Drawing.Size(476, 27);
             this.sliderShowFirstLayer.SmallChange = ((uint)(1u));
             this.sliderShowFirstLayer.TabIndex = 5;
             this.sliderShowFirstLayer.Text = "colorSlider1";
@@ -537,10 +556,11 @@
             // tabPageHelp
             // 
             this.tabPageHelp.Controls.Add(this.help);
-            this.tabPageHelp.Location = new System.Drawing.Point(4, 22);
+            this.tabPageHelp.Location = new System.Drawing.Point(4, 25);
+            this.tabPageHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPageHelp.Name = "tabPageHelp";
-            this.tabPageHelp.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageHelp.Size = new System.Drawing.Size(607, 95);
+            this.tabPageHelp.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageHelp.Size = new System.Drawing.Size(812, 151);
             this.tabPageHelp.TabIndex = 0;
             this.tabPageHelp.Text = "Help";
             this.tabPageHelp.UseVisualStyleBackColor = true;
@@ -549,24 +569,26 @@
             // 
             this.help.Dock = System.Windows.Forms.DockStyle.Fill;
             this.help.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.help.Location = new System.Drawing.Point(3, 3);
+            this.help.Location = new System.Drawing.Point(4, 4);
+            this.help.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.help.Name = "help";
             this.help.ReadOnly = true;
-            this.help.Size = new System.Drawing.Size(601, 89);
+            this.help.Size = new System.Drawing.Size(804, 143);
             this.help.TabIndex = 0;
             this.help.TabStop = false;
             this.help.Text = "";
             // 
-            // RepetierEditor
+            // BioMakerEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.MinimumSize = new System.Drawing.Size(150, 140);
-            this.Name = "RepetierEditor";
-            this.Size = new System.Drawing.Size(615, 490);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(200, 172);
+            this.Name = "BioMakerEditor";
+            this.Size = new System.Drawing.Size(820, 603);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
