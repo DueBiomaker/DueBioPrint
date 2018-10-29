@@ -627,6 +627,7 @@
       <DependentUpon>StringInput.cs</DependentUpon>
     </Compile>
     <None Include="Resources\due.ico" />
+    <None Include="Resources\toolHiddenLog.png" />
     <Content Include="Slic3r\bin\cpfworkrt\cpfworkrt.manifest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
