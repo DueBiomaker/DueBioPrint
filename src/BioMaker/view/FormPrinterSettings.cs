@@ -27,12 +27,14 @@ using System.Windows.Forms;
 namespace BioMaker.view
 {
     public delegate void PrinterChanged(RegistryKey printerKey, bool printerChanged);
+    public delegate void HideSettingsWindow();
 
     public partial class FormPrinterSettings : Form
     {
         public static FormPrinterSettings ps = null;
 
         public event PrinterChanged eventPrinterChanged;
+        public event HideSettingsWindow hideSettingsWindow;
 
         public RegistryKey repetierKey;
         public RegistryKey printerKey;
@@ -447,6 +449,8 @@ namespace BioMaker.view
             Main.main.UpdateConnections();
             if (Main.main != null && Main.main.editor != null)
                 Main.main.editor.Changed();
+            if (this.hideSettingsWindow != null)
+                hideSettingsWindow();
         }
 
         private void buttonAbort_Click(object sender, EventArgs e)
@@ -456,6 +460,8 @@ namespace BioMaker.view
             Hide();
             Main.main.Update3D();
             Main.main.UpdateConnections();
+            if (this.hideSettingsWindow != null)
+                hideSettingsWindow();
         }
 
         private void buttonApply_Click(object sender, EventArgs e)

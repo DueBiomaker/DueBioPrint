@@ -262,6 +262,7 @@ namespace BioMaker
             splitLog.Panel2.Controls.Add(logView);
             PrinterChanged(printerSettings.currentPrinterKey, true);
             printerSettings.eventPrinterChanged += PrinterChanged;
+            printerSettings.hideSettingsWindow += printerSettingsOnClose;
             // GCode print preview
             threedview = new ThreeDControl();
             threedview.Dock = DockStyle.Fill;
@@ -896,8 +897,20 @@ namespace BioMaker
             //conn.job.KillJob();
         }
 
+        public void setEnablePropertiesinPrinterSettingsBottons(bool enable = true)
+        {
+            toolPrinterSettings.Enabled = enable;
+            printerSettingsToolStripMenuItem.Enabled = enable;
+        }
+
+        protected void printerSettingsOnClose()
+        {
+            this.setEnablePropertiesinPrinterSettingsBottons(true);
+        }
+
         private void printerSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            setEnablePropertiesinPrinterSettingsBottons(false);
             printerSettings.Show(this);
             FormToFront(printerSettings);
         }

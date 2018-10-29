@@ -1118,7 +1118,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\icones_novos_log_oculto.png" />
-    <None Include="Resources\toolHiddenLog.Image.bmp" />
     <None Include="Resources\save.png" />
     <None Include="Resources\printer_settings.png" />
     <None Include="Resources\load.png" />
