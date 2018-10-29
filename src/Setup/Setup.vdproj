@@ -213,7 +213,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B607E4E618904D4E994D5ADEF7546358"
             {
-            "SourcePath" = "8:..\\BioMaker\\due.ico"
+            "SourcePath" = "8:..\\BioPrint\\due.ico"
             "TargetName" = "8:due.ico"
             "Tag" = "8:"
             "Folder" = "8:_41D50B89395D4E18B4CC481297E083D3"
@@ -899,7 +899,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_296CC3144C3446D3AF6E42E3A351D34C"
             {
-            "SourcePath" = "8:..\\BioMaker\\obj\\Release\\BioMaker.exe"
+            "SourcePath" = "8:..\\BioPrint\\obj\\Release\\BioPrint.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_41D50B89395D4E18B4CC481297E083D3"
