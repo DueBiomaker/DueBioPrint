@@ -1,6 +1,6 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
-    partial class BioMakerEditorWindow
+    partial class BioPrintEditorWindow
     {
         /// <summary>
         /// Required designer variable.

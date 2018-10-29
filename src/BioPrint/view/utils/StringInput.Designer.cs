@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view.utils
+﻿namespace BioPrint.view.utils
 {
     partial class StringInput
     {

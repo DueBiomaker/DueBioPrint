@@ -14,11 +14,11 @@
    limitations under the License.
 */
 
-using BioMaker.view;
+using BioPrint.view;
 using System;
 using System.Collections.Generic;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public delegate void OnPosChange(GCode code, float x, float y, float z);
 

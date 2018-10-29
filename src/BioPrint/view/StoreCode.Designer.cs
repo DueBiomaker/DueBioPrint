@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class StoreCode
     {

@@ -1,9 +1,9 @@
 ﻿using OpenTK;
-using BioMaker.model;
-using BioMaker.model.geom;
+using BioPrint.model;
+using BioPrint.model.geom;
 using System;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public class ThreeDCamera
     {

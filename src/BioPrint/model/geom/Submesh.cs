@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace BioMaker.model.geom
+namespace BioPrint.model.geom
 {
     public class SubmeshEdge
     {

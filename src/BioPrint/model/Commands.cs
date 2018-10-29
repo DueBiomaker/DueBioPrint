@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class CommandParameter
     {

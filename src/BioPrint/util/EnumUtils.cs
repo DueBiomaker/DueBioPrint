@@ -1,11 +1,11 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.util
+namespace BioPrint.util
 {
     public class EnumUtils
     {

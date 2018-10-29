@@ -20,7 +20,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class IniSection
     {

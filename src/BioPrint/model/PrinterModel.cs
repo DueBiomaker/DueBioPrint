@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using BioMaker.view.utils;
+using BioPrint.view.utils;
 using System.ComponentModel;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class PrinterModel : INotifyPropertyChanged
     {

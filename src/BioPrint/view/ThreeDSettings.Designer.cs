@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class ThreeDSettings
     {
@@ -486,7 +486,7 @@
             // 
             // tdSettings
             // 
-            this.tdSettings.DataSource = typeof(BioMaker.view.ThreeDSettings);
+            this.tdSettings.DataSource = typeof(BioPrint.view.ThreeDSettings);
             // 
             // comboDrawMethod
             // 

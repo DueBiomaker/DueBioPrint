@@ -1,4 +1,4 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.IO;
 using System.Net;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public partial class RHUpdater : Form
     {

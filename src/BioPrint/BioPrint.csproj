@@ -8,7 +8,7 @@
     <ProjectGuid>{B118044A-6AC1-407D-8CE9-A624810BEE0C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BioMaker</RootNamespace>
+    <RootNamespace>BioPrint</RootNamespace>
     <AssemblyName>BioPrint</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ManifestCertificateThumbprint>4D8B5380D7CB00A0A95794AAA4F075AF1C54B30F</ManifestCertificateThumbprint>
@@ -17,7 +17,7 @@
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <ApplicationIcon>due-logo.ico</ApplicationIcon>
-    <StartupObject>BioMaker.Program</StartupObject>
+    <StartupObject>BioPrint.Program</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -221,8 +221,8 @@
       <DependentUpon>EEPROMMarlin.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EEPROMBioMaker.resx">
-      <DependentUpon>EEPROMBioMaker.cs</DependentUpon>
+    <EmbeddedResource Include="view\EEPROMBioPrint.resx">
+      <DependentUpon>EEPROMBioPrint.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="view\FormPrinterSettings.resx">
@@ -267,12 +267,12 @@
       <DependentUpon>PrintPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\BioMakerEditor.resx">
-      <DependentUpon>BioMakerEditor.cs</DependentUpon>
+    <EmbeddedResource Include="view\BioPrintEditor.resx">
+      <DependentUpon>BioPrintEditor.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\BioMakerEditorWindow.resx">
-      <DependentUpon>BioMakerEditorWindow.cs</DependentUpon>
+    <EmbeddedResource Include="view\BioPrintEditorWindow.resx">
+      <DependentUpon>BioPrintEditorWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Slic3r.resx">
       <DependentUpon>Slic3r.cs</DependentUpon>
@@ -397,11 +397,11 @@
     <Compile Include="view\EEPROMMarlin.designer.cs">
       <DependentUpon>EEPROMMarlin.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EEPROMBioMaker.cs">
+    <Compile Include="view\EEPROMBioPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EEPROMBioMaker.Designer.cs">
-      <DependentUpon>EEPROMBioMaker.cs</DependentUpon>
+    <Compile Include="view\EEPROMBioPrint.Designer.cs">
+      <DependentUpon>EEPROMBioPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="view\FormPrinterSettings.cs">
       <SubType>Form</SubType>
@@ -469,17 +469,17 @@
     <Compile Include="view\PrintPanel.Designer.cs">
       <DependentUpon>PrintPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\BioMakerEditor.cs">
+    <Compile Include="view\BioPrintEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="view\BioMakerEditor.Designer.cs">
-      <DependentUpon>BioMakerEditor.cs</DependentUpon>
+    <Compile Include="view\BioPrintEditor.Designer.cs">
+      <DependentUpon>BioPrintEditor.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\BioMakerEditorWindow.cs">
+    <Compile Include="view\BioPrintEditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\BioMakerEditorWindow.Designer.cs">
-      <DependentUpon>BioMakerEditorWindow.cs</DependentUpon>
+    <Compile Include="view\BioPrintEditorWindow.Designer.cs">
+      <DependentUpon>BioPrintEditorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Slic3r.cs">
       <SubType>Form</SubType>

@@ -1,4 +1,4 @@
-﻿namespace BioMaker.connector
+﻿namespace BioPrint.connector
 {
     partial class VirtualPrinterPanel
     {
@@ -76,7 +76,7 @@
             // 
             // bindingConnection
             // 
-            this.bindingConnection.DataSource = typeof(BioMaker.connector.VirtualPrinterConnector);
+            this.bindingConnection.DataSource = typeof(BioPrint.connector.VirtualPrinterConnector);
             this.bindingConnection.CurrentItemChanged += new System.EventHandler(this.bindingConnection_CurrentItemChanged);
             // 
             // VirtualPrinterPanel

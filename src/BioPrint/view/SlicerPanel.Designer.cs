@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class SlicerPanel
     {
@@ -39,7 +39,7 @@
             this.comboSlic3rFilamentSettings = new System.Windows.Forms.ComboBox();
             this.comboSlic3rPrintSettings = new System.Windows.Forms.ComboBox();
             this.labelSlic3rExtruder2 = new System.Windows.Forms.Label();
-            this.switchSlic3rActive = new BioMaker.view.SwitchButton();
+            this.switchSlic3rActive = new BioPrint.view.SwitchButton();
             this.labelSlic3rExtruder1 = new System.Windows.Forms.Label();
             this.labelPrinterSettings = new System.Windows.Forms.Label();
             this.labelFilamentSettings = new System.Windows.Forms.Label();
@@ -116,7 +116,7 @@
             // 
             // mainBindingSource
             // 
-            this.mainBindingSource.DataSource = typeof(BioMaker.model.PrinterModel);
+            this.mainBindingSource.DataSource = typeof(BioPrint.model.PrinterModel);
             // 
             // comboSlic3rFilamentSettings2
             // 
@@ -180,7 +180,7 @@
             this.switchSlic3rActive.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.switchSlic3rActive.TextOff = "Active";
             this.switchSlic3rActive.TextOn = "Active";
-            this.switchSlic3rActive.OnChange += new BioMaker.view.SwitchEventHandler(this.switchSlic3rActive_OnChange);
+            this.switchSlic3rActive.OnChange += new BioPrint.view.SwitchEventHandler(this.switchSlic3rActive_OnChange);
             // 
             // labelSlic3rExtruder1
             // 

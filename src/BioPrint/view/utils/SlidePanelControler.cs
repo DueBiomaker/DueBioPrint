@@ -21,7 +21,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public class SlidePanelControler
     {

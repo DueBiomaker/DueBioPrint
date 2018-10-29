@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     /// <summary>
     /// Executes a command asynchronously and writes output into the log file.

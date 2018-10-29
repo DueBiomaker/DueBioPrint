@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
-    public partial class BioMakerEditorWindow : Form
+    public partial class BioPrintEditorWindow : Form
     {
-        public BioMakerEditorWindow(BioMakerEditor editor)
+        public BioPrintEditorWindow(BioPrintEditor editor)
         {
             InitializeComponent();
             pnlContent.Controls.Add(editor);

@@ -14,11 +14,11 @@
    limitations under the License.
 */
 
-using BioMaker.model;
+using BioPrint.model;
 using System;
 using System.Windows.Forms;
 
-namespace BioMaker
+namespace BioPrint
 {
     internal static class Program
     {

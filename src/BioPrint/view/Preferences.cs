@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class Preferences : Form
     {

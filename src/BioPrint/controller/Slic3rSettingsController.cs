@@ -1,6 +1,6 @@
-﻿using BioMaker.model;
-using BioMaker.model.slic3r;
-using BioMaker.util;
+﻿using BioPrint.model;
+using BioPrint.model.slic3r;
+using BioPrint.util;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BioMaker.controller
+namespace BioPrint.controller
 {
     public class Slic3rSettingsController
     {

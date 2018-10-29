@@ -18,13 +18,13 @@ using OpenTK;
 
 //using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
-using BioMaker.view;
+using BioPrint.view;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class GCodePoint
     {
@@ -1540,7 +1540,7 @@ namespace BioMaker.model
 
             if (showSelection)
             {
-                BioMakerEditor ed = Main.main.editor;
+                BioPrintEditor ed = Main.main.editor;
                 selectionStart = selectionEnd = 0;
                 if (!ed.hasSelection)
                 {

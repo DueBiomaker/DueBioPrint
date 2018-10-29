@@ -1,12 +1,12 @@
-﻿using BioMaker.model;
-using BioMaker.model.geom;
+﻿using BioPrint.model;
+using BioPrint.model.geom;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public class Slicer : IDisposable
     {

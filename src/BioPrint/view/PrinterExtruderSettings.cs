@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using BioMaker.model.slic3r;
+using BioPrint.model.slic3r;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class PrinterExtruderSettings : UserControl
     {

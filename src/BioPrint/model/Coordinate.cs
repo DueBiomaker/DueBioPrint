@@ -2,12 +2,12 @@
 using OpenTK.Graphics.OpenGL;
 
 //using QuickFont;
-using BioMaker.model.geom;
+using BioPrint.model.geom;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     internal class Coordinate
     {

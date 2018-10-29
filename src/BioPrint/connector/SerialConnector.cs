@@ -1,7 +1,7 @@
 ﻿using Microsoft.Win32;
-using BioMaker.model;
-using BioMaker.view;
-using BioMaker.view.utils;
+using BioPrint.model;
+using BioPrint.view;
+using BioPrint.view.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BioMaker.connector
+namespace BioPrint.connector
 {
     public class SerialConnector : PrinterConnectorBase, INotifyPropertyChanged, IDisposable
     {
@@ -316,7 +316,7 @@ namespace BioMaker.connector
                 serial = null;
                 con.log(ex.Message, true, 2);
                 con.FireConnectionChange(Trans.T("L_CONNECTION_ERROR") + ":" + con.printerName);
-                BioMaker.view.SoundConfig.PlayError(false);
+                BioPrint.view.SoundConfig.PlayError(false);
                 if (MessageBox.Show(Trans.T1("L_CONNECTION_FAILED", ex.Message), Trans.T("L_CONNECTION_ERROR"), MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
                     Main.printerSettings.Show(Main.main);
@@ -340,7 +340,7 @@ namespace BioMaker.connector
                 serial = null;
                 con.log(ex.Message, true, 2);
                 con.FireConnectionChange(Trans.T("L_CONNECTION_ERROR") + ":" + con.printerName);
-                BioMaker.view.SoundConfig.PlayError(false);
+                BioPrint.view.SoundConfig.PlayError(false);
                 if (MessageBox.Show(Trans.T1("L_CONNECTION_FAILED", ex.Message), Trans.T("L_CONNECTION_ERROR"), MessageBoxButtons.YesNo, MessageBoxIcon.Error) == DialogResult.Yes)
                 {
                     Main.printerSettings.Show(Main.main);
@@ -824,7 +824,7 @@ namespace BioMaker.connector
                     {
                         con.log(Trans.T("L_RECEIVING_ONLY_ERRORS"), false, 2); // Receiving only error messages. Stopped communication.
                         con.close(true);
-                        BioMaker.view.SoundConfig.PlayError(false);
+                        BioPrint.view.SoundConfig.PlayError(false);
                         return; // give up, something is terribly wrong
                     }
                     line &= 65535;

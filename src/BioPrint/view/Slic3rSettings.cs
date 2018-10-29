@@ -1,15 +1,15 @@
-﻿using BioMaker.controller;
-using BioMaker.extensions;
-using BioMaker.model;
-using BioMaker.model.slic3r;
-using BioMaker.util;
+﻿using BioPrint.controller;
+using BioPrint.extensions;
+using BioPrint.model;
+using BioPrint.model.slic3r;
+using BioPrint.util;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class Slic3rSettings : Form
     {

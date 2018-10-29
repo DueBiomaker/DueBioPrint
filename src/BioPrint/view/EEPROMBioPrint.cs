@@ -14,21 +14,21 @@
    limitations under the License.
 */
 
-using BioMaker.model;
-using BioMaker.view.utils;
+using BioPrint.model;
+using BioPrint.view.utils;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
-    public partial class EEPROMBioMaker : Form
+    public partial class EEPROMBioPrint : Form
     {
         private EEPROMStorage storage;
         private BindingList<EEPROMParameter> data = new BindingList<EEPROMParameter>();
         private bool reinit = true;
 
-        public EEPROMBioMaker()
+        public EEPROMBioPrint()
         {
             InitializeComponent();
             RegMemory.RestoreWindowPos("eepromWindow", this);

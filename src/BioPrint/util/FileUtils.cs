@@ -1,11 +1,11 @@
-﻿using BioMaker.extensions;
+﻿using BioPrint.extensions;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.util
+namespace BioPrint.util
 {
     public class FileUtils
     {

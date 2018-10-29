@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO.Ports;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     // https://connect.microsoft.com/VisualStudio/feedback/details/140018/serialport-crashes-after-disconnect-of-usb-com-port
     public class ProtectedSerialPort : SerialPort

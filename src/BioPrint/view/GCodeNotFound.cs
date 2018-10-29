@@ -1,8 +1,8 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class GCodeNotFound : Form
     {

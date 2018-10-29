@@ -1,9 +1,9 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.util
+namespace BioPrint.util
 {
     public class SettingsUtils
     {

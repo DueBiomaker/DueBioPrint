@@ -14,14 +14,14 @@
  limitations under the License.
 */
 
-using BioMaker.view.utils;
+using BioPrint.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class TemperatureEntry
     {

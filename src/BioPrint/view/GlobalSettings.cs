@@ -15,8 +15,8 @@
 */
 
 using Microsoft.Win32;
-using BioMaker.model;
-using BioMaker.view.utils;
+using BioPrint.model;
+using BioPrint.view.utils;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -24,7 +24,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class GlobalSettings : Form
     {

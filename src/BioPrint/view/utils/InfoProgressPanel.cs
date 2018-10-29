@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public partial class InfoProgressPanel : Panel
     {

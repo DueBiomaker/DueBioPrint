@@ -1,11 +1,11 @@
-﻿using BioMaker.model.slic3r;
+﻿using BioPrint.model.slic3r;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 
-namespace BioMaker.extensions
+namespace BioPrint.extensions
 {
     public static class ExtensionManager
     {

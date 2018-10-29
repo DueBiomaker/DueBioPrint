@@ -1,9 +1,9 @@
-﻿using BioMaker.extensions;
+﻿using BioPrint.extensions;
 using System;
 using System.ComponentModel;
 using System.Text;
 
-namespace BioMaker.model.slic3r
+namespace BioPrint.model.slic3r
 {
     public class PrintSettings : INotifyPropertyChanged, ISlic3rSettings
     {

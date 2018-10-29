@@ -19,7 +19,7 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     /// <summary>
     /// This is a compressed version of GCode to reduce the space needed.

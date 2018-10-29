@@ -1,6 +1,6 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
-    partial class BioMakerEditor
+    partial class BioPrintEditor
     {
         /// <summary> 
         /// Erforderliche Designervariable.
@@ -31,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BioMakerEditor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BioPrintEditor));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolNew = new System.Windows.Forms.ToolStripButton();
             this.toolSave = new System.Windows.Forms.ToolStripButton();
@@ -55,7 +55,7 @@
             this.toolUpdating = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.editor = new BioMaker.view.DoubleBufferPanel();
+            this.editor = new BioPrint.view.DoubleBufferPanel();
             this.scrollRows = new System.Windows.Forms.VScrollBar();
             this.scrollColumns = new System.Windows.Forms.HScrollBar();
             this.tabHelpview = new System.Windows.Forms.TabControl();
@@ -578,7 +578,7 @@
             this.help.TabStop = false;
             this.help.Text = "";
             // 
-            // BioMakerEditor
+            // BioPrintEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -587,7 +587,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MinimumSize = new System.Drawing.Size(200, 172);
-            this.Name = "BioMakerEditor";
+            this.Name = "BioPrintEditor";
             this.Size = new System.Drawing.Size(820, 603);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

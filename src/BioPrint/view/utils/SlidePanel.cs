@@ -20,7 +20,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public delegate void UpdateHandler(Control panel, double phase);
 

@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-using BioMaker.model;
+using BioPrint.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -23,11 +23,11 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public delegate void ContentChangedEvent();
 
-    public partial class BioMakerEditor : UserControl
+    public partial class BioPrintEditor : UserControl
     {
         public enum UndoAction
         {
@@ -51,7 +51,7 @@ namespace BioMaker.view
                 selRow = sr;
             }
 
-            public void DeleteSelection(BioMakerEditor e, int cstart, int rstart, int cend, int rend)
+            public void DeleteSelection(BioPrintEditor e, int cstart, int rstart, int cend, int rend)
             {
                 // start row = begin first + end last row
                 e.lines[rstart] = new GCodeShort(e.lines[rstart].text.Substring(0, cstart) + e.lines[rend].text.Substring(cend));
@@ -62,7 +62,7 @@ namespace BioMaker.view
                 if (e.lines.Count == 0) e.Clear();
             }
 
-            private void InsertString(BioMakerEditor e, string s)
+            private void InsertString(BioPrintEditor e, string s)
             {
                 int rstart = row;
                 int cstart = col;
@@ -100,7 +100,7 @@ namespace BioMaker.view
                 e.row += la.Length - 1;
             }
 
-            private void EndPos(BioMakerEditor e, string s, out int cpos, out int rpos)
+            private void EndPos(BioPrintEditor e, string s, out int cpos, out int rpos)
             {
                 int rstart = row;
                 int cstart = col;
@@ -125,7 +125,7 @@ namespace BioMaker.view
                 rpos = rstart + la.Length - 1;
             }
 
-            public void UndoAction(BioMakerEditor e)
+            public void UndoAction(BioPrintEditor e)
             {
                 int rstart = row;
                 int cstart = col;
@@ -148,7 +148,7 @@ namespace BioMaker.view
                 e.Changed();
             }
 
-            public void RedoAction(BioMakerEditor e)
+            public void RedoAction(BioPrintEditor e)
             {
                 int rstart = row;
                 int cstart = col;
@@ -194,11 +194,11 @@ namespace BioMaker.view
             private bool hasSel;
             private LinkedList<Undo> undo = new LinkedList<Undo>();
             private LinkedList<Undo> redo = new LinkedList<Undo>();
-            private BioMakerEditor editor = null;
+            private BioPrintEditor editor = null;
             public string name;
             public int etype; // 0 = G-Code, 1 = prepend, 2 = append
 
-            public Content(BioMakerEditor e, int tp, string _name)
+            public Content(BioPrintEditor e, int tp, string _name)
             {
                 name = _name;
                 //Text = "";
@@ -382,7 +382,7 @@ namespace BioMaker.view
         [DllImport("User32.dll")]
         private static extern bool HideCaret(IntPtr hWnd);
 
-        public BioMakerEditor()
+        public BioPrintEditor()
         {
             InitializeComponent();
 

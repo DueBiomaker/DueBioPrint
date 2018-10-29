@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BioMaker.model.geom
+namespace BioPrint.model.geom
 {
     public class TopoPlane
     {

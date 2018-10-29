@@ -1,9 +1,9 @@
-﻿using BioMaker.model;
-using BioMaker.model.geom;
+﻿using BioPrint.model;
+using BioPrint.model.geom;
 using System;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class ObjectInformation : Form
     {

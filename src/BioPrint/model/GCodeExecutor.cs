@@ -15,7 +15,7 @@
 
 */
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public interface GCodeExecutor
     {

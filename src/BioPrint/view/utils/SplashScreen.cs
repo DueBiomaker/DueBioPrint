@@ -1,10 +1,10 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public partial class SplashScreen : Form
     {

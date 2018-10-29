@@ -1,10 +1,10 @@
-﻿using BioMaker.controller;
+﻿using BioPrint.controller;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.model.slic3r
+namespace BioPrint.model.slic3r
 {
     public interface ISlic3rSettings
     {

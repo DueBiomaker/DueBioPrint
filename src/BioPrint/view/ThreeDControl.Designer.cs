@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class ThreeDControl
     {
@@ -38,7 +38,7 @@
             this.toolParallelProjection = new System.Windows.Forms.ToolStripButton();
             this.toolStripClear = new System.Windows.Forms.ToolStripButton();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.gl = new BioMaker.view.utils.RHOpenGL();
+            this.gl = new BioPrint.view.utils.RHOpenGL();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,7 +171,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.ToolStripButton toolStripClear;
-        public BioMaker.view.utils.RHOpenGL gl;
+        public BioPrint.view.utils.RHOpenGL gl;
         private System.Windows.Forms.ToolStripButton toolTopView;
         public System.Windows.Forms.ToolStripButton toolParallelProjection;
         private System.Windows.Forms.ToolStripButton toolIsometric;

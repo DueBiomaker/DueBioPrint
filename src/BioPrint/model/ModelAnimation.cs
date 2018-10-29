@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     /// <summary>
     /// Base class for animations. Animations are used to modify the appeareance

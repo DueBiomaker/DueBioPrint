@@ -18,7 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class Printjob
     {
@@ -230,7 +230,7 @@ namespace BioMaker.model
                 DoEndKillActions();
                 Main.main.Invoke(Main.main.UpdateJobButtons);
                 Main.main.printPanel.Invoke(Main.main.printPanel.SetStatusJobFinished);
-                BioMaker.view.SoundConfig.PlayPrintFinished(false);
+                BioPrint.view.SoundConfig.PlayPrintFinished(false);
             }
             return gc;
         }

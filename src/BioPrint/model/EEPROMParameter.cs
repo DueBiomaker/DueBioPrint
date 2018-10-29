@@ -16,7 +16,7 @@
 
 using System.Collections.Generic;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public delegate void OnEEPROMAdded(EEPROMParameter param);
 

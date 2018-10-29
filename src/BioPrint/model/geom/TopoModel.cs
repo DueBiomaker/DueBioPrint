@@ -15,8 +15,8 @@
 */
 
 using OpenTK;
-using BioMaker.view;
-using BioMaker.view.utils;
+using BioPrint.view;
+using BioPrint.view.utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BioMaker.model.geom
+namespace BioPrint.model.geom
 {
     public class TopoModel
     {

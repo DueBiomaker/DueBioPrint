@@ -1,9 +1,9 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class Slic3rSetup : Form
     {

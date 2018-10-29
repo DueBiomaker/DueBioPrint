@@ -1,9 +1,9 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public partial class EditInstanceName : Form
     {

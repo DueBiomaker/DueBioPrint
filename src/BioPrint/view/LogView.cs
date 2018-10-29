@@ -15,14 +15,14 @@
 */
 
 using Microsoft.Win32;
-using BioMaker.model;
+using BioPrint.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class LogView : UserControl
     {

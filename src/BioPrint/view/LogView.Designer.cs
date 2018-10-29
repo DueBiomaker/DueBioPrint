@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class LogView
     {
@@ -34,13 +34,13 @@
             this.labelShowInLog = new System.Windows.Forms.Label();
             this.buttonClearLog = new System.Windows.Forms.Button();
             this.buttonCopy = new System.Windows.Forms.Button();
-            this.listLog = new BioMaker.view.LogBox();
-            this.switchCommandsSend = new BioMaker.view.SwitchButton();
-            this.switchInfo = new BioMaker.view.SwitchButton();
-            this.switchWarnings = new BioMaker.view.SwitchButton();
-            this.switchErrors = new BioMaker.view.SwitchButton();
-            this.switchACK = new BioMaker.view.SwitchButton();
-            this.switchAutoscroll = new BioMaker.view.SwitchButton();
+            this.listLog = new BioPrint.view.LogBox();
+            this.switchCommandsSend = new BioPrint.view.SwitchButton();
+            this.switchInfo = new BioPrint.view.SwitchButton();
+            this.switchWarnings = new BioPrint.view.SwitchButton();
+            this.switchErrors = new BioPrint.view.SwitchButton();
+            this.switchACK = new BioPrint.view.SwitchButton();
+            this.switchAutoscroll = new BioPrint.view.SwitchButton();
             this.panelButtons.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -146,7 +146,7 @@
             this.switchCommandsSend.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchCommandsSend.TextOff = "Commands";
             this.switchCommandsSend.TextOn = "Commands";
-            this.switchCommandsSend.OnChange += new BioMaker.view.SwitchEventHandler(this.switchCommandsSend_OnChange);
+            this.switchCommandsSend.OnChange += new BioPrint.view.SwitchEventHandler(this.switchCommandsSend_OnChange);
             // 
             // switchInfo
             // 
@@ -166,7 +166,7 @@
             this.switchInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchInfo.TextOff = "Info";
             this.switchInfo.TextOn = "Info";
-            this.switchInfo.OnChange += new BioMaker.view.SwitchEventHandler(this.switchInfo_OnChange);
+            this.switchInfo.OnChange += new BioPrint.view.SwitchEventHandler(this.switchInfo_OnChange);
             // 
             // switchWarnings
             // 
@@ -186,7 +186,7 @@
             this.switchWarnings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchWarnings.TextOff = "Warnings";
             this.switchWarnings.TextOn = "Warnings";
-            this.switchWarnings.OnChange += new BioMaker.view.SwitchEventHandler(this.switchWarnings_OnChange);
+            this.switchWarnings.OnChange += new BioPrint.view.SwitchEventHandler(this.switchWarnings_OnChange);
             // 
             // switchErrors
             // 
@@ -206,7 +206,7 @@
             this.switchErrors.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchErrors.TextOff = "Errors";
             this.switchErrors.TextOn = "Errors";
-            this.switchErrors.OnChange += new BioMaker.view.SwitchEventHandler(this.switchErrors_OnChange);
+            this.switchErrors.OnChange += new BioPrint.view.SwitchEventHandler(this.switchErrors_OnChange);
             // 
             // switchACK
             // 
@@ -226,7 +226,7 @@
             this.switchACK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchACK.TextOff = "ACK";
             this.switchACK.TextOn = "ACK";
-            this.switchACK.OnChange += new BioMaker.view.SwitchEventHandler(this.switchACK_OnChange);
+            this.switchACK.OnChange += new BioPrint.view.SwitchEventHandler(this.switchACK_OnChange);
             // 
             // switchAutoscroll
             // 
@@ -246,7 +246,7 @@
             this.switchAutoscroll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.switchAutoscroll.TextOff = "Auto Scroll";
             this.switchAutoscroll.TextOn = "Auto Scroll";
-            this.switchAutoscroll.OnChange += new BioMaker.view.SwitchEventHandler(this.switchAutoscroll_OnChange);
+            this.switchAutoscroll.OnChange += new BioPrint.view.SwitchEventHandler(this.switchAutoscroll_OnChange);
             // 
             // LogView
             // 

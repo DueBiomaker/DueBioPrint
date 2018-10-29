@@ -15,10 +15,10 @@
 */
 
 using Microsoft.Win32;
-using BioMaker.model;
+using BioPrint.model;
 using System.Windows.Forms;
 
-namespace BioMaker.connector
+namespace BioPrint.connector
 {
     /// <summary>
     /// Base class for all ways to connect a 3d printer to the host.

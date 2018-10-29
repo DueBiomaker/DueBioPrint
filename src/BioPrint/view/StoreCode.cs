@@ -14,13 +14,13 @@
    limitations under the License.
 */
 
-using BioMaker.model;
+using BioPrint.model;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class StoreCode : Form
     {

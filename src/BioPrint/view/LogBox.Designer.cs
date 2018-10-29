@@ -1,4 +1,4 @@
-﻿namespace BioMaker.view
+﻿namespace BioPrint.view
 {
     partial class LogBox
     {
@@ -32,7 +32,7 @@
         private void InitializeComponent()
         {
             this.scroll = new System.Windows.Forms.VScrollBar();
-            this.log = new BioMaker.view.DoubleBufferPanel();
+            this.log = new BioPrint.view.DoubleBufferPanel();
             this.SuspendLayout();
             // 
             // scroll

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.model.slic3r
+namespace BioPrint.model.slic3r
 {
     public class Slic3rSettings
     {

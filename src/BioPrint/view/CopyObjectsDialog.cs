@@ -1,7 +1,7 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class CopyObjectsDialog : Form
     {

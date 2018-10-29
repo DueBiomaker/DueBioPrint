@@ -1,11 +1,11 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class TemperatureView : UserControl
     {

@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class PendingPrintJobsException : Exception
     {

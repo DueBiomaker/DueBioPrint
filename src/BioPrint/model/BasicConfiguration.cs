@@ -14,9 +14,9 @@
    limitations under the License.
 */
 
-using BioMaker.view.utils;
+using BioPrint.view.utils;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     internal class BasicConfiguration
     {

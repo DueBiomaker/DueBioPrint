@@ -14,14 +14,14 @@
    limitations under the License.
 */
 
-using BioMaker.connector;
-using BioMaker.model;
-using BioMaker.view.utils;
+using BioPrint.connector;
+using BioPrint.model;
+using BioPrint.view.utils;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public partial class PrinterInfo : Form
     {

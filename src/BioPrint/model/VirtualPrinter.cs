@@ -1,9 +1,9 @@
-﻿using BioMaker.connector;
+﻿using BioPrint.connector;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     internal class VirtualPrinter
     {

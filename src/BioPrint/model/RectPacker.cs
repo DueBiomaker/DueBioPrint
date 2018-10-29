@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class PackerPos
     {

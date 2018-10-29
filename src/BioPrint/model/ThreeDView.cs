@@ -1,7 +1,7 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System.Collections.Generic;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     public delegate void onObjectMoved(float dx, float dy);
 

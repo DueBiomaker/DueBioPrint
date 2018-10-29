@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Text;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class GCodeGenerator
     {

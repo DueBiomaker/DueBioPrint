@@ -1,7 +1,7 @@
 ﻿using OpenTK;
 using System.Collections.Generic;
 
-namespace BioMaker.model.geom
+namespace BioPrint.model.geom
 {
     public class TopoVertex
     {

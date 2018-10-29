@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class GCodeShort
     {

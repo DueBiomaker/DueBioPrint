@@ -15,14 +15,14 @@
 */
 
 using OpenTK;
-using BioMaker.model.geom;
-using BioMaker.view.utils;
+using BioPrint.model.geom;
+using BioPrint.view.utils;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public delegate void PrintModelChangedEvent(PrintModel model);
 

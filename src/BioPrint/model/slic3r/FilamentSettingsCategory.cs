@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.model.slic3r
+namespace BioPrint.model.slic3r
 {
     public enum  FilamentSettingsCategory
     {

@@ -14,14 +14,14 @@
    limitations under the License.
 */
 
-using BioMaker.connector;
+using BioPrint.connector;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     /// <summary>
     /// Connection has changed.
@@ -1001,7 +1001,7 @@ namespace BioMaker.model
             if (extract(res, "Error:") != null)
             {
                 level = 2;
-                BioMaker.view.SoundConfig.PlayError(false);
+                BioPrint.view.SoundConfig.PlayError(false);
             }
             if (tempChange && eventTempChange != null)
             {

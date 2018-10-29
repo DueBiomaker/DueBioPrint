@@ -1,8 +1,8 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Windows.Forms;
 
-namespace BioMaker.connector
+namespace BioPrint.connector
 {
     public partial class VirtualPrinterPanel : UserControl
     {

@@ -1,8 +1,8 @@
-﻿using BioMaker.model;
+﻿using BioPrint.model;
 using System;
 using System.Windows.Forms;
 
-namespace BioMaker.view.utils
+namespace BioPrint.view.utils
 {
     public partial class SlicingInfo : Form
     {

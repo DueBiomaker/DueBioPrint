@@ -16,7 +16,7 @@
    written by scuba
 */
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public delegate void OnEEPROMMarlinAdded(EEPROMMarlinStorage param);
 

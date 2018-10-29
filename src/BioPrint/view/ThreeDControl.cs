@@ -16,9 +16,9 @@
 
 using OpenTK;
 using OpenTK.Graphics.OpenGL;
-using BioMaker.model;
-using BioMaker.model.geom;
-using BioMaker.view.utils;
+using BioPrint.model;
+using BioPrint.model.geom;
+using BioPrint.view.utils;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -27,7 +27,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace BioMaker.view
+namespace BioPrint.view
 {
     //public delegate void onObjectMoved(float dx, float dy);
     //public delegate void onObjectSelected(ThreeDModel selModel);

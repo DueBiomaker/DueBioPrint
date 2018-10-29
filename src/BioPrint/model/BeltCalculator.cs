@@ -1,6 +1,6 @@
 using System;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class BeltCalculator
     {

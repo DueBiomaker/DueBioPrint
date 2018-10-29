@@ -15,13 +15,13 @@
 
 */
 
-using BioMaker.view.utils;
+using BioPrint.view.utils;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace BioMaker.model
+namespace BioPrint.model
 {
     public class PrintingStateSnapshot
     {
