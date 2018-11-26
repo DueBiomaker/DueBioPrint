@@ -11,8 +11,9 @@ namespace BioPrint.model.slic3r
     {
         private const string DEFAULT_VALUE = "0";
         private const string DEFAULT_ORIGIN = "0";
-        private const string DEFAULT_SIZE = "200";
-        private const string DEFAULT_BED_SHAPE = "0x0,200x0,200x200,0x200";
+        private const string DEFAULT_X_SIZE = "180";
+        private const string DEFAULT_Y_SIZE = "150";
+        private const string DEFAULT_BED_SHAPE = "0x0,180x0,180x150,0x150";
         private const string BED_SHAPE_FORMAT = "{0}x{1},{2}x{1},{2}x{3},{0}x{3}";
 
         public string ProfileName { get; set; }
@@ -66,7 +67,7 @@ namespace BioPrint.model.slic3r
         {
             get
             {
-                return _BedXSize ?? DEFAULT_SIZE;   
+                return _BedXSize ?? DEFAULT_X_SIZE;   
             }
             set
             {
@@ -80,7 +81,7 @@ namespace BioPrint.model.slic3r
         {
             get
             {
-                return _BedYSize ?? DEFAULT_SIZE;   
+                return _BedYSize ?? DEFAULT_Y_SIZE;   
             }
             set
             {
@@ -405,7 +406,15 @@ namespace BioPrint.model.slic3r
 
         protected void OnPropertyChanged(string name)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            try
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                //sometimes '0' or other values got ArgumentOutOfRangeException, even not. I did not understand why
+                //Just catch this exception solve the problem and the windows open normally with the changes proper saved
+            }
         }
 
         public void FillValue(string key, string input)
