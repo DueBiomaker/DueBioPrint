@@ -7,9 +7,8 @@ This software was developed to controll the 3D bioprint "Due BioPrint"
 
 # Requirements
 
-* Windows XP or later, Linux (For Mac OS X use Repetier-Host Mac [http://www.repetier.com/documentation/repetier-host-mac/](http://www.repetier.com/documentation/repetier-host-mac/) )
+* Windows XP or later
 * .NET 4 of higher or Mono on Linux platforms.
-* Slic3r for slicing (optional)
 	
 # Installation:
 
