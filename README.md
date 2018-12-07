@@ -1,6 +1,6 @@
 # Due BioPrint
 
-![Startscreen](http://duelaser.com/)
+![Startscreen](screenshots/startpage.png)
 
 DUE BioPrint (C) 2018 - DUE Laser
 This software was developed to controll the 3D bioprint "Due BioPrint"
