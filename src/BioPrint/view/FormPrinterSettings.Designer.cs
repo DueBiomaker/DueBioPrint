@@ -227,7 +227,7 @@
             this.tabPageConnection.Controls.Add(this.panelConnector);
             this.tabPageConnection.Location = new System.Drawing.Point(4, 22);
             this.tabPageConnection.Name = "tabPageConnection";
-            this.tabPageConnection.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageConnection.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageConnection.Size = new System.Drawing.Size(481, 379);
             this.tabPageConnection.TabIndex = 0;
             this.tabPageConnection.Text = "Connection";
@@ -300,7 +300,7 @@
             this.tabPagePrinter.Controls.Add(this.labelTravelFeedRate);
             this.tabPagePrinter.Location = new System.Drawing.Point(4, 22);
             this.tabPagePrinter.Name = "tabPagePrinter";
-            this.tabPagePrinter.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPagePrinter.Padding = new System.Windows.Forms.Padding(3);
             this.tabPagePrinter.Size = new System.Drawing.Size(481, 379);
             this.tabPagePrinter.TabIndex = 1;
             this.tabPagePrinter.Text = "Printer";
@@ -520,7 +520,7 @@
             this.textDisposeX.Name = "textDisposeX";
             this.textDisposeX.Size = new System.Drawing.Size(64, 20);
             this.textDisposeX.TabIndex = 5;
-            this.textDisposeX.Text = "130";
+            this.textDisposeX.Text = "0";
             this.textDisposeX.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
             // 
             // label14
@@ -1022,7 +1022,7 @@
             this.textPrintAreaDepth.Name = "textPrintAreaDepth";
             this.textPrintAreaDepth.Size = new System.Drawing.Size(106, 20);
             this.textPrintAreaDepth.TabIndex = 1;
-            this.textPrintAreaDepth.Text = "180";
+            this.textPrintAreaDepth.Text = "150";
             this.textPrintAreaDepth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
             // 
             // textPrinterYMax
@@ -1040,7 +1040,7 @@
             this.textPrintAreaWidth.Name = "textPrintAreaWidth";
             this.textPrintAreaWidth.Size = new System.Drawing.Size(106, 20);
             this.textPrintAreaWidth.TabIndex = 0;
-            this.textPrintAreaWidth.Text = "150";
+            this.textPrintAreaWidth.Text = "180";
             this.textPrintAreaWidth.Validating += new System.ComponentModel.CancelEventHandler(this.float_Validating);
             // 
             // labelBedFront

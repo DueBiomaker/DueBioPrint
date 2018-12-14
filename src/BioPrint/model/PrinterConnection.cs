@@ -92,7 +92,7 @@ namespace BioPrint.model
 
         public float printFeedRate = 2400;
         public float maxZFeedRate = 100;
-        public float disposeX = 130;
+        public float disposeX = 0;
         public float disposeY = 0;
         public float disposeZ = 0;
         public bool afterJobGoDispose = true;
