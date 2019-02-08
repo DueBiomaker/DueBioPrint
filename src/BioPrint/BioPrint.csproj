@@ -1,0 +1,1175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B118044A-6AC1-407D-8CE9-A624810BEE0C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BioPrint</RootNamespace>
+    <AssemblyName>BioPrint</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ManifestCertificateThumbprint>4D8B5380D7CB00A0A95794AAA4F075AF1C54B30F</ManifestCertificateThumbprint>
+    <ManifestKeyFile>RepetierHost_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <ApplicationIcon>due-logo.ico</ApplicationIcon>
+    <StartupObject>BioPrint.Program</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>DUE Print</ProductName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'MacOSX|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\MacOSX</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Commandlineparameters>-macosx</Commandlineparameters>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\Lyncee.OpenTK.1.1.1173.43181\lib\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.Compatibility, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\Lyncee.OpenTK.Compatibility.1.1.1173.43181\lib\OpenTK.Compatibility.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\Lyncee.OpenTK.GLControl.1.1.1173.43182\lib\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="connector\PrinterConnectorBase.cs" />
+    <Compile Include="connector\SerialConnectionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="connector\SerialConnectionPanel.Designer.cs">
+      <DependentUpon>SerialConnectionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="connector\SerialConnector.cs" />
+    <Compile Include="connector\VirtualPrinterConnector.cs" />
+    <Compile Include="connector\VirtualPrinterPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="connector\VirtualPrinterPanel.Designer.cs">
+      <DependentUpon>VirtualPrinterPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\slic3r\Slic3rSettingsCategory.cs" />
+    <Compile Include="controller\Slic3rSettingsController.cs" />
+    <Compile Include="extensions\ExtensionManager.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\3DSLoader.cs" />
+    <Compile Include="model\BasicConfiguration.cs" />
+    <Compile Include="model\BeltCalculator.cs" />
+    <Compile Include="model\Commands.cs" />
+    <Compile Include="model\Coordinate.cs" />
+    <Compile Include="model\Custom.cs" />
+    <Compile Include="model\EEPROMMarlinParameter.cs" />
+    <Compile Include="model\EEPROMParameter.cs" />
+    <Compile Include="model\GCode.cs" />
+    <Compile Include="model\GCodeAnalyzer.cs" />
+    <Compile Include="model\GCodeExecutor.cs" />
+    <Compile Include="model\GCodeGenerator.cs" />
+    <Compile Include="model\GCodeShort.cs" />
+    <Compile Include="model\GCodeVisual.cs" />
+    <Compile Include="model\Geom3D.cs" />
+    <Compile Include="model\geom\RHBoundingBox.cs" />
+    <Compile Include="model\geom\RHMatrix3.cs" />
+    <Compile Include="model\geom\RHVector3.cs" />
+    <Compile Include="model\geom\Submesh.cs" />
+    <Compile Include="model\geom\TestTopoTriangle.cs" />
+    <Compile Include="model\geom\TopoEdge.cs" />
+    <Compile Include="model\geom\TopoModel.cs" />
+    <Compile Include="model\geom\TopoPlane.cs" />
+    <Compile Include="model\geom\TopoTriangle.cs" />
+    <Compile Include="model\geom\TopoTriangleStorage.cs" />
+    <Compile Include="model\geom\TopoVertex.cs" />
+    <Compile Include="model\geom\TopoVertexStorage.cs" />
+    <Compile Include="model\IniManager.cs" />
+    <Compile Include="model\LogLine.cs" />
+    <Compile Include="model\ModelAnimation.cs" />
+    <Compile Include="model\PendingPrintJobs.cs" />
+    <Compile Include="model\PrinterConnection.cs" />
+    <Compile Include="model\PrinterModel.cs" />
+    <Compile Include="model\PrintingStateSnapshot.cs" />
+    <Compile Include="model\Printjob.cs" />
+    <Compile Include="model\ProtectedSerialPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="model\PulseAnimation.cs" />
+    <Compile Include="model\RectPacker.cs" />
+    <Compile Include="model\PrintModel.cs" />
+    <Compile Include="model\slic3r\PrinterSettingsCategory.cs" />
+    <Compile Include="model\slic3r\ISlic3rSettings.cs" />
+    <Compile Include="model\slic3r\FilamentSettingsCategory.cs" />
+    <Compile Include="model\slic3r\GCodeFlavor.cs" />
+    <Compile Include="model\slic3r\SupportMaterialPattern.cs" />
+    <Compile Include="model\slic3r\FilamentSettings.cs" />
+    <Compile Include="model\slic3r\ExternalFillPattern.cs" />
+    <Compile Include="model\slic3r\ExtruderSettings.cs" />
+    <Compile Include="model\slic3r\PrinterSettings.cs" />
+    <Compile Include="model\slic3r\PrintSettings.cs" />
+    <Compile Include="model\slic3r\PrintSettingsCategory.cs" />
+    <Compile Include="model\slic3r\FillPattern.cs" />
+    <Compile Include="model\slic3r\SeamPosition.cs" />
+    <Compile Include="model\slic3r\Slic3rSettings.cs" />
+    <Compile Include="model\TemperatureHistory.cs" />
+    <Compile Include="model\ThreeDModel.cs" />
+    <Compile Include="model\ThreeDView.cs" />
+    <Compile Include="model\Translation.cs" />
+    <Compile Include="model\VirtualPrinter.cs" />
+    <Compile Include="util\EnumUtils.cs" />
+    <Compile Include="util\FileUtils.cs" />
+    <Compile Include="util\SettingsUtils.cs" />
+    <Compile Include="view\PendingPrintJobsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PendingPrintJobsDialog.Designer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="connector\SerialConnectionPanel.resx">
+      <DependentUpon>SerialConnectionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="connector\VirtualPrinterPanel.resx">
+      <DependentUpon>VirtualPrinterPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PendingPrintJobsDialog.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\CopyObjectsDialog.resx">
+      <DependentUpon>CopyObjectsDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EEPROMMarlin.resx">
+      <DependentUpon>EEPROMMarlin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EEPROMBioPrint.resx">
+      <DependentUpon>EEPROMBioPrint.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\FormPrinterSettings.resx">
+      <DependentUpon>FormPrinterSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\GCodeNotFound.resx">
+      <DependentUpon>GCodeNotFound.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\GlobalSettings.resx">
+      <DependentUpon>GlobalSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\JobStatus.resx">
+      <DependentUpon>JobStatus.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LogBox.resx">
+      <DependentUpon>LogBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ObjectInformation.resx">
+      <DependentUpon>ObjectInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Preferences.resx">
+      <DependentUpon>Preferences.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PrinterExtruderSettings.resx">
+      <DependentUpon>PrinterExtruderSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PrinterInfo.resx">
+      <DependentUpon>PrinterInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\PrintPanel.resx">
+      <DependentUpon>PrintPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\BioPrintEditor.resx">
+      <DependentUpon>BioPrintEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\BioPrintEditorWindow.resx">
+      <DependentUpon>BioPrintEditorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Slic3r.resx">
+      <DependentUpon>Slic3r.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Slic3rSettings.resx">
+      <DependentUpon>Slic3rSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\Slic3rSetup.resx">
+      <DependentUpon>Slic3rSetup.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SlicerPanel.resx">
+      <DependentUpon>SlicerPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SlicingParameter.resx">
+      <DependentUpon>SlicingParameter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SoundConfig.resx">
+      <DependentUpon>SoundConfig.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\STLComposer.resx">
+      <DependentUpon>STLComposer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\StoreCode.resx">
+      <DependentUpon>StoreCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\SwitchButton.resx">
+      <DependentUpon>SwitchButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TemperatureView.resx">
+      <DependentUpon>TemperatureView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\TestGenerator.resx">
+      <DependentUpon>TestGenerator.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ThreeDControl.resx">
+      <DependentUpon>ThreeDControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ThreeDSettings.resx">
+      <DependentUpon>ThreeDSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\ColorSlider.resx">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\EditInstanceName.resx">
+      <DependentUpon>EditInstanceName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\InfoProgressPanel.resx">
+      <DependentUpon>InfoProgressPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\PauseInfo.resx">
+      <DependentUpon>PauseInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\RHUpdater.resx">
+      <DependentUpon>RHUpdater.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\SlicingInfo.resx">
+      <DependentUpon>SlicingInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\SnapshotDialog.resx" />
+    <EmbeddedResource Include="view\utils\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\utils\StringInput.resx">
+      <DependentUpon>StringInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\RepetierHost.connector.SerialConnector.datasource" />
+    <None Include="Properties\DataSources\RepetierHost.connector.VirtualPrinterConnector.datasource" />
+    <None Include="Properties\DataSources\RepetierHost.view.RepetierEditor.datasource" />
+    <None Include="Properties\DataSources\RepetierHost.view.ThreeDSettings.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="view\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\CopyObjectsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\CopyObjectsDialog.Designer.cs">
+      <DependentUpon>CopyObjectsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\DoubleBufferPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\EEPROMMarlin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EEPROMMarlin.designer.cs">
+      <DependentUpon>EEPROMMarlin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EEPROMBioPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EEPROMBioPrint.Designer.cs">
+      <DependentUpon>EEPROMBioPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\FormPrinterSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\FormPrinterSettings.Designer.cs">
+      <DependentUpon>FormPrinterSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\GCodeNotFound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\GCodeNotFound.Designer.cs">
+      <DependentUpon>GCodeNotFound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\GlobalSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\GlobalSettings.Designer.cs">
+      <DependentUpon>GlobalSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\JobStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\JobStatus.Designer.cs">
+      <DependentUpon>JobStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LogBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\LogBox.Designer.cs">
+      <DependentUpon>LogBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LogView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ObjectInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ObjectInformation.Designer.cs">
+      <DependentUpon>ObjectInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Preferences.Designer.cs">
+      <DependentUpon>Preferences.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PrinterExtruderSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\PrinterExtruderSettings.Designer.cs">
+      <DependentUpon>PrinterExtruderSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PrinterInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\PrinterInfo.Designer.cs">
+      <DependentUpon>PrinterInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\PrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\PrintPanel.Designer.cs">
+      <DependentUpon>PrintPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\BioPrintEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\BioPrintEditor.Designer.cs">
+      <DependentUpon>BioPrintEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\BioPrintEditorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\BioPrintEditorWindow.Designer.cs">
+      <DependentUpon>BioPrintEditorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Slic3r.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Slic3r.Designer.cs">
+      <DependentUpon>Slic3r.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Slic3rSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Slic3rSettings.Designer.cs">
+      <DependentUpon>Slic3rSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\Slic3rSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Slic3rSetup.Designer.cs">
+      <DependentUpon>Slic3rSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SlicerPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\SlicerPanel.Designer.cs">
+      <DependentUpon>SlicerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SlicingParameter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SlicingParameter.Designer.cs">
+      <DependentUpon>SlicingParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SoundConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\SoundConfig.Designer.cs">
+      <DependentUpon>SoundConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\STLComposer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\STLComposer.Designer.cs">
+      <DependentUpon>STLComposer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\StoreCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\StoreCode.Designer.cs">
+      <DependentUpon>StoreCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\SwitchButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\SwitchButton.Designer.cs">
+      <DependentUpon>SwitchButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TemperatureView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\TemperatureView.Designer.cs">
+      <DependentUpon>TemperatureView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\TestGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\TestGenerator.Designer.cs">
+      <DependentUpon>TestGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ThreedCamera.cs" />
+    <Compile Include="view\ThreeDControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\ThreeDControl.Designer.cs">
+      <DependentUpon>ThreeDControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\ThreeDSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ThreeDSettings.Designer.cs">
+      <DependentUpon>ThreeDSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\ArrowButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\utils\ArrowButton.Designer.cs">
+      <DependentUpon>ArrowButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\ColorSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\utils\ColorSlider.Designer.cs">
+      <DependentUpon>ColorSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\CommandExecutioner.cs" />
+    <Compile Include="view\utils\EditInstanceName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\EditInstanceName.Designer.cs">
+      <DependentUpon>EditInstanceName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\InfoProgressPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="view\utils\InfoProgressPanel.Designer.cs">
+      <DependentUpon>InfoProgressPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\PauseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\PauseInfo.Designer.cs">
+      <DependentUpon>PauseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\RegMemory.cs" />
+    <Compile Include="view\utils\RHOpenGL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="view\utils\RHUpdater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\RHUpdater.Designer.cs">
+      <DependentUpon>RHUpdater.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\Slicer.cs" />
+    <Compile Include="view\utils\SlicingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\SlicingInfo.Designer.cs">
+      <DependentUpon>SlicingInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\SlidePanel.cs" />
+    <Compile Include="view\utils\SlidePanelControler.cs" />
+    <Compile Include="view\utils\SnapshotDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\SnapshotDialog.Designer.cs" />
+    <Compile Include="view\utils\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\utils\StringInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\utils\StringInput.Designer.cs">
+      <DependentUpon>StringInput.cs</DependentUpon>
+    </Compile>
+    <None Include="Resources\due.ico" />
+    <None Include="Resources\toolHiddenLog.png" />
+    <Content Include="Slic3r\bin\cpfworkrt\cpfworkrt.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\cpfworkrt.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\Mozilla\CA.pm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\Mozilla\CA\cacert.pem">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\std\XML\SAX\ParserDetails.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\11897113663a72e0cf3a40f86569d0d3\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\42c3d19347a691f255d231da3d91f1ab\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\471029ae61c0427e58f24ac9e5a0cca5\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\528ccea98cad02a5f453a7135f9ca183\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\804f15d0b003b04c3feb68e47adacf8d\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fa119178d164dcf97f19aecc876231c0\package.lib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.icns">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="due-logo.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="due.ico" />
+    <Content Include="images\switch_on.bmp" />
+    <Content Include="images\switch_off.bmp" />
+    <Content Include="data\default\syntax_en.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="data\splashscreen.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\translations\en.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\bin\cpfworkrt\libgcc_s_sjlj-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\bin\cpfworkrt\libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\bin\cpfworkrt\perl514.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\libgcc_s_sjlj-1.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\libstdc++-6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\cpfworkrt\perl514.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\cpwgui.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxbase293u_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxbase293u_net_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw293u_adv_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw293u_core_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw293u_gl_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\dll\wxmsw293u_html_gcc_citrusperl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\00065b3cc7c31741588c51da0ebf7cfc\Storable.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\0e211ef5300e42b7129e72ce6934dd03\File.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\13887bf5057dfc645e73f9cbc2107b0b\shared.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\13b74231834b96c1b29d9bb7ff9fc803\XSAccessor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\1f7913edc71c065ef71e96adf1f52378\WinError.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\212acdb3b0d578c6c31b6f5b102aaf9f\freeglut.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\212acdb3b0d578c6c31b6f5b102aaf9f\OpenGL.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\2b09d17ec43a6c01f265254b54d60739\Dumper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\2ce0a6f8648060f015cf6b795bedf11d\SHA.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\3545b2d83c9d9a29194f9ab80ec5474b\Fcntl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\38786f297f552b7038b60152ad9b90fc\ExpatXS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\38a02ec5974e3889356c8a64b0203f98\API.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\3d306f1634430f34d0521f8ea684e9ec\SSLeay.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\3ea9b1cd80f790518c416324dd069ebd\encoding.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\41c42900fc0d462e9a31e174ac8a654c\Html.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\4699e2a2c6a572106b4070861d78c22a\Parser.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\46c688003f4a63abb5816f68b951f727\MD5.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\471103df3989aaea3544de0208f48b7f\EBCDIC.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\49bdccea41102e6d90906b74653d30ab\HiRes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\4c9065158b425703c56336bd7fd5bbf2\SSLeay.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\4fee8d769b9cc77f279d483969ecfd0a\Symbol.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\4ff039c0bfe223c23633a8e3e17abeb5\Unicode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\655af4e236089eadb910a60a39fbe815\attributes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\6c123a3a5b411759cc21a293df5bed0e\SealRequireHints.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7ba0890aa8ff0eed7abb9f76181bd637\Console.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\7ef678fd3db32983bdf488c788a3a763\IO.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\82f620ac9dd3094118332d978a05d796\Encode.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\8b766abfbb4d15afd6e00bc1c8fcd0b9\Registry.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\8e530ba86cc5de302775f698267a7f3b\threads.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\8fa3f50b03f9cb0203031cf516aa3973\B.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\91589d21b3c02e56f8fed40a3799912a\CN.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\96748f395232ef204e4bd4648c1acfdd\Util.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9a02fe0b6c8a35ffbf56e88f9910abeb\Base64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9cc90b876890f13970933c948cbb4b2e\Print.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9d4869e43aaebbcbfc9baec70819f444\indirect.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\9d8e1199702e7e53d2468aeb00c2c967\KR.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\a3719ad0fa76c06423d0397090ec4ed9\Libm.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\a40249e26296df558fcddd2c8cbfb2f6\UUID.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\a875497cf9391ffd3ea25fb369717c5e\Int64.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\aa455d4af51625c2acacb6716c0a6e01\scalar.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\aa976c80169f479f0613ff5283377098\Win32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\ad648dbf31179700b4efd00b04f50dab\multidimensional.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b48cd6cc5170110b04444736f8ca1a04\mro.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\b6a5c6ef2abf4a7046bb88d7a8b220ff\GLCanvas.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\bd26fbb8f6447c2e98cf359976a3c1a7\POSIX.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\bfd9d6cfdb522e0b0fe66830c8ad68a3\JP.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\c23df991c561704a8913289bdfea9462\Zlib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\c8786c44f0a905ffe6d5d8a4068a75c2\Call.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\c911baa000dd741fcd6dc2205fbc0227\Byte.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cbbb6d80da8c62ee893a65195943b803\re.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cd0b5b2fa854963191ca9718e26a0abc\Grid.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\ceb3487499a2d7f0edbcc6aa0c0536c1\NamedCapture.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cfbd454ca865af139a419af806f1d4c7\DND.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\cfcde55111d441748de61cc95acb240e\Check.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d0b4c3dceefb5d08dbe60f0e68d0da76\filehandles.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\d9c3e3943b3f28bc1f09e2f713cc6afb\Glob.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\da3813f7e06d5ace75632aaf1738303a\Cwd.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\dcb8604d367ef1eb2f126368ffdb08ef\XS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\e51409fbea61e7f44156de0a7d61ce6e\FastCalc.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\e7c3871c647be35c2ec41d80c2d052a7\TW.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\eaa3f41565bf2fe58068d68f47a06165\Bzip2.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\edbc0291ecfc25a080c9fece293b7139\Socket.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f6025e058c0367c56e8eed568e60077b\Clone.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\f8d8299b70fb38b8f4ba594e6f23c91f\XS.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fadbe2ebaf950eb9e5e3c3d65739aa92\via.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\lib\vrt\fb078e7d1a272046eb7bd617bd3ed5c4\Wx.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\application_view_tile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_out.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_rotate_anticlockwise.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_rotate_clockwise.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\arrow_up.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\box.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bricks.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\brick_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\building.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\bullet_white.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cog.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cog_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\delete.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\disk.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\error.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\funnel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\hourglass.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\joystick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\layers.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\lorry_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\lorry_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\note.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\package.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\package_green.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\page_white_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin_add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\plugin_go.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\printer_empty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shading.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_flip_horizontal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_handles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\shape_ungroup.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_128px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_192px.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\Slic3r_192px_transparent.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\spool.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\tag_blue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\textfield.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\time.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\wrench.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\res\zoom.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\slic3r-console.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Slic3r\slic3r.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="data\translations\old_repetier_translations\cz.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="data\translations\old_repetier_translations\de.xml" />
+    <None Include="data\translations\old_repetier_translations\es.xml" />
+    <None Include="data\translations\old_repetier_translations\eu.xml" />
+    <None Include="data\translations\old_repetier_translations\fr.xml" />
+    <None Include="data\translations\old_repetier_translations\it.xml" />
+    <None Include="data\translations\old_repetier_translations\jp.xml" />
+    <None Include="data\translations\old_repetier_translations\lv.xml" />
+    <None Include="data\translations\old_repetier_translations\nl.xml" />
+    <None Include="data\translations\old_repetier_translations\ru.xml" />
+    <None Include="data\translations\old_repetier_translations\se.xml" />
+    <None Include="data\translations\old_repetier_translations\tw.xml" />
+    <None Include="data\translations\old_repetier_translations\zh.xml" />
+    <Content Include="data\translations\pt.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowX.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowY.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\ArrowZ.stl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\custom.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\filament\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\printer\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\default\print\Default.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\icones_novos_log_oculto.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\printer_settings.png" />
+    <None Include="Resources\load.png" />
+    <None Include="Resources\emergency_stop.png" />
+    <None Include="Properties\DataSources\Main.datasource" />
+    <None Include="Properties\DataSources\RepetierHost.model.PrinterModel.datasource" />
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="view\calibration\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
