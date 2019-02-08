@@ -15,3 +15,5 @@ This software was developed to controll the 3D bioprint "Due BioPrint"
 1. Open the solution in src/BioPrint/BioPrint.sln in Visual Studio 2017 
 2. Compile the project Setup in Release mode
 3. Run the file in src/Setup/bin/Release/Due BioPrint.msi
+
+
